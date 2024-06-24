@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : lun. 24 juin 2024 à 13:46
+-- Généré le : lun. 24 juin 2024 à 13:54
 -- Version du serveur : 8.0.37
 -- Version de PHP : 8.2.8
 
@@ -47,10 +47,10 @@ INSERT INTO `categories` (`id`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `comandes`
+-- Structure de la table `commandes`
 --
 
-CREATE TABLE `comandes` (
+CREATE TABLE `commandes` (
   `user_id` int NOT NULL,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
