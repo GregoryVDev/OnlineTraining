@@ -15,7 +15,7 @@ services:
         command: --default-authentication-plugin=mysql_native_password
         environment:
             MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: take_a_feariend
+            MYSQL_DATABASE: onlinetraining
             MYSQL_USER: test
             MYSQL_PASSWORD: test
         volumes:
