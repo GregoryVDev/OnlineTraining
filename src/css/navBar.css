@@ -1,15 +1,15 @@
 * {
     margin: 0;
     padding: 0;
-
+    box-sizing: border-box;
 }
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
 }
-
 
 .rubrique {
     display: flex;
@@ -29,17 +29,14 @@
     display: flex;
 }
 
+
 @media (max-width: 1920px) {
-    .navBar_gauche {
-        display: none;
-    }
+    
+    
     .rubrique {
-        display: flex;
         font-size: 1.5rem;
-        font-weight: bolder;
-        gap: 8%;
         width: 55%;
-        margin-left: 10%;
+        margin-left: 3%;
     }
 
     .logoOnline img {
@@ -52,55 +49,49 @@
 
     .navBar_droite img {
         width: 26px;
-        justify-content: space-between;
-
     }
+}
+    .navBar_gauche {
+    display: none; 
 }
 
 @media (max-width: 1204px) {
-    
-.navBar_gauche {
-        display: none;
+    .navBar_gauche {
+        display: none
     }
-
     .rubrique {
-        display: none;
+        font-size: 0.9rem;
     }
-
 }
 
-@media (max-width: 768px) {
 
+@media (max-width: 768px) {
     
+    .navBar_gauche img {
+        width:40px;
+    }
+
     .rubrique {
         display: none;
     }
-   
+
     .navBar_droite {
         margin-top: 10px;
-        width: 100%;
-        justify-content: flex-start;
+        width: 90px;
+
     }
 
     .logoOnline {
         margin-left: 0;
     }
 
-
-    .navBar_droite {
-        display: none;
-    }
-
     .navbar div:first-child {
         display: flex;
     }
-    
 }
 
 
 @media (max-width: 480px) {
-
-
     .navbar {
         padding: 10px;
     }
