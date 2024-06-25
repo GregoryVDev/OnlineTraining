@@ -6,37 +6,93 @@
 
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.navBar_gauche {
+    position: relative;
+    margin-left: 20px;
+}
+
+nav input[type=checkbox] {
+    display: none;
+}
+
+#menuItems {
+    display: none; 
+    position: absolute;
+    top: calc(100% + 10px); /* Positionne le menuItems en dessous du menuBurger */
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 10; 
+    width: 300px;
+}
+
+#additionalContent {
+    display: none; /* Par défaut, l'élément supplémentaire est caché */
+    position: absolute;
+    top: calc(100% + 10px); /* Positionne l'élément en dessous du menuBurger */
+    left: calc(100% + 200px); /* Positionne l'élément à droite du menuItems */
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 10; /* Assure que l'élément est au-dessus du contenu de la page */
+}
+
+#menuItems.active {
+    display: block; /* Affiche le menuItems lorsque le menu burger est activé */
+}
+
+#menuItems.active + #additionalContent {
+    display: block; /* Affiche l'élément supplémentaire lorsque le menu burger est activé */
+}
+
+#menuItems li {
+    list-style-type: none;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+#menuItems li a {
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+
+}
+
+#menuItems li a:hover {
+    text-decoration: underline;
 }
 
 .rubrique {
     display: flex;
+    justify-content: center;
     font-size: 0.8rem;
     font-weight: bolder;
     gap: 8%;
-    width: 350px;
 }
-
-.menuCouleur a {
-    color: #D31E44;
-}
-
-.rubrique a {
+.menuNoir {
     text-decoration: none;
     color: black;
     
+}
+.menuRouge {
+    text-decoration: none;
+    color: #D31E44;
 }
 
 .navBar_droite {
     display: flex;
     width: 80px;
     justify-content: space-between;
-}
 
-.form {
-    display: flex;
 }
 
 
@@ -44,17 +100,17 @@
     
     
     .rubrique {
-        font-size: 1.5rem;
-        width: 55%;
-        margin-left: 3%;
+        font-size: 1.8rem;
+        width:auto;
     }
 
     .logoOnline img {
-        width: 120px;
+        width: 160px;
     }
 
     .navBar_droite {
         width: 160px;
+
     }
 
     .navBar_droite img {
@@ -70,12 +126,11 @@
         display: none
     }
     .rubrique {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
     }
 }
 
-
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     
     .navBar_gauche img {
         width:40px;
@@ -92,7 +147,7 @@
     }
 
     .logoOnline {
-        margin-left: 0;
+       margin-left: 0;
     }
 
     .navbar div:first-child {
@@ -101,7 +156,7 @@
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 550px) {
     .navbar {
         padding: 10px;
     }
