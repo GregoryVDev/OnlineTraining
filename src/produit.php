@@ -85,7 +85,7 @@
             </article>
         </div>
     </section>
-    <!-- include_once("template/footer.php") -->
+    <?php include_once("templates/footer.php") ?>
 </body>
 
 </html>
