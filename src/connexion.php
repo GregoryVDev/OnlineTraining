@@ -26,10 +26,14 @@
             </div>
             <button type="submit" class="connexion-button">Se connecter</button>
             <p>Vous n'avez pas de compte ? <a href="inscription.php">Inscrivez-vous</a></p>
+            <span class="follow">Suivez-nous</span>
+            <div class="container-logos">
+                <a href="#"><img src="./img/connexion/facebook.svg" alt="Logo facebook"></a>
+                <a href="#"><img src="./img/connexion/instagram.svg" alt="Logo instagram"></a>
+                <a href="#"><img src="./img/connexion/twitter-x.svg" alt="Logo twitter"></a>
+            </div>
         </form>
-        <div class="container-image">
-            <img src="./img/inscription.jpg" alt="Image Connexion">
-        </div>
+
     </main>
 </body>
 
