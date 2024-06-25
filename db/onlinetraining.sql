@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : lun. 24 juin 2024 à 13:54
+-- Généré le : mar. 25 juin 2024 à 13:46
 -- Version du serveur : 8.0.37
 -- Version de PHP : 8.2.8
 
@@ -37,12 +37,11 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `type`) VALUES
-(1, 'Robe/Combinaison'),
-(2, 'Top/Tee-Shirt'),
-(3, 'Chemisier/Blouse'),
-(4, 'Jupe/Short'),
-(5, 'Pull/Gilet'),
-(6, 'Pantalon/Legging');
+(1, 'polo manches longues'),
+(2, 'Polo manches courtes'),
+(7, 'Short'),
+(8, 'Pantalon Chino'),
+(9, 'Pantalon');
 
 -- --------------------------------------------------------
 
@@ -94,12 +93,29 @@ CREATE TABLE `panier` (
 
 CREATE TABLE `produits` (
   `id` int NOT NULL,
+  `reference` varchar(255) NOT NULL,
+  `marque` varchar(255) NOT NULL,
   `categorie_id` int NOT NULL,
-  `prix` varchar(255) NOT NULL,
+  `couleur` varchar(255) NOT NULL,
+  `matiere` varchar(255) NOT NULL,
+  `motif` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `image_produit` varchar(255) NOT NULL,
-  `alt` varchar(255) NOT NULL
+  `alt` varchar(255) NOT NULL,
+  `quantite` int NOT NULL,
+  `prix_ht` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `produits`
+--
+
+INSERT INTO `produits` (`id`, `reference`, `marque`, `categorie_id`, `couleur`, `matiere`, `motif`, `description`, `image_produit`, `alt`, `quantite`, `prix_ht`) VALUES
+(1, '163228', 'Payper', 1, 'rouge', 'coton', 'aucun', 'super polo', '/img', 'img_polo.jpg', 1, '30€'),
+(2, 'CLUB', 'Payper', 2, 'Rouge', 'Coton', 'aucun', 'super Polo', '/img', 'img.jpg', 2, '25'),
+(3, 'CLUB', 'Payper', 2, 'Rouge', 'Coton', 'aucun', 'super Polo', '/img', 'img.jpg', 2, '25'),
+(4, 'CLUB', 'Payper', 2, 'Rouge', 'Coton', 'aucun', 'super Polo', '/img', 'img.jpg', 2, '25'),
+(5, 'CLUB', 'Payper', 2, 'Rouge', 'Coton', 'aucun', 'super Polo', '/img', 'img.jpg', 2, '25');
 
 -- --------------------------------------------------------
 
@@ -160,7 +176,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `panier`
@@ -172,7 +188,7 @@ ALTER TABLE `panier`
 -- AUTO_INCREMENT pour la table `produits`
 --
 ALTER TABLE `produits`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `users`
