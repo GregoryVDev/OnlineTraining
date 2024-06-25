@@ -9,8 +9,16 @@
     padding: 10px 20px;
 }
 
+.logoOnline {
+    margin-left: 40px;
+}
+
 .navBar_droite {
     display: flex;
     width: 80px;
     justify-content: space-between;
+}
+
+.form {
+    display: flex;
 }
