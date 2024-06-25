@@ -18,7 +18,7 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
         $query->execute();
     }
 
-    header("Location: ./dashboard_produits.php");
+    header("Location: dashboard_produits.php");
 } else {
     header("Location: index.php");
 }
