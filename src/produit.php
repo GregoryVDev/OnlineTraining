@@ -7,7 +7,7 @@
     <title>Produit</title>
     <link rel="stylesheet" href="css/produits/responsive-produits.css">
     <link rel="stylesheet" href="css/produits/produits.css">
-    <link rel="stylesheet" href="css/navBar.css">
+    <!-- <link rel="stylesheet" href="css/navBar.css"> -->
 </head>
 
 <body>

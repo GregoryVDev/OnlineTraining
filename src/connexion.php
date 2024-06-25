@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+require_once('../src/connexion.php');
+
+$errors = [];
+$message = [];
+
+// Formulaire si il a bien été rempli
+if (isset($_POST['login']))
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
