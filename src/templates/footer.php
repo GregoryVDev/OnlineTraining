@@ -26,7 +26,7 @@
 </div>
 
 <div class="dely_map_secure">
-<div><img src="./img/footer/delivery.png" width="30px" alt="Logo"></div>
+<div><img src="./img/footer/delivery.png" width="40px" alt="Logo"></div>
 <div><img src="./img/footer/placeMarker.png" width="23px" alt="Logo"></div>
 <div><img src="./img/footer/CheckLock.png" width="23px" alt="Logo"></div>
 </div>

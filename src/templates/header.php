@@ -9,10 +9,10 @@
             <img src="./img/navBar/logo-online-training.png" width="80px" alt="Logo Online Training">
         </div>
         <div class="rubrique">
-        <div>TENDANCE</div>
-        <div>FEMMME</div>
-        <div>HOMME</div>
-        <div>PETITS PRIX</div>
+        <div><a href="">TENDANCE</a></div>
+        <div><a href="">FEMMME</a></div>
+        <div><a href="">HOMME</a></div>
+        <div><a href="">PETITS PRIX</a></div>
 
         </div>
 
