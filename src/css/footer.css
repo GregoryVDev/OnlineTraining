@@ -5,14 +5,25 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+h1, h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 0.5rem;
+}
+
 h1, h3 {
     color: #A5A5A5;
+    margin-bottom: 10px;
 }
 
 .form {
     display: flex;
-    width: 70%;
+    width:58%;
     margin: 0 auto;
+    margin-bottom: 10px;
 }
 
 input {
@@ -20,8 +31,9 @@ input {
     border: 1px solid black;;
     border-radius: 5px 0px 0px 5px;
     font-size: 0.5rem;
-    width: 180px;
+    width: 150px;
     height: 18px;
+    margin-right: 5px;
 }
 
 button {
@@ -44,6 +56,7 @@ button {
     width: 70%;
     margin: 0 auto;
     justify-content: space-around;
+    margin-bottom: 10px;
 }
 
 .dely_map_secure {
