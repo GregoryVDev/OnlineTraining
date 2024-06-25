@@ -1,15 +1,26 @@
 <?php
 session_start();
-require_once("connect.php");
+require_once("../../connect.php");
 
-if ($_SESSION['admin'] !== 1) {
-    header("Location: index.php");
-}
+// if ($_SESSION['admin'] !== 1) {
+//     header("Location: index.php");
+// }
+
+// <?php
+// if (!empty($_SESSION["message"])) {
+//     echo "<p>" . $_SESSION["message"] . "</p>";
+//     $_SESSION["message"] = "";
+// }
+// ? >
+
+// <?php
+// include './element/navbar.php';
+// ? >
 
 $sql = "SELECT * FROM produits";
 $query = $db->prepare($sql);
 $query->execute();
-$produuits = $query->fetchAll(PDO::FETCH_ASSOC);
+$produits = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -24,26 +35,14 @@ $produuits = $query->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
     <section class="dashboard">
-        <?php
-        include './element/navbar.php';
-        ?>
-
-        <h1 class="article_dashboard">DASHBOARD</h1>
-
-        <a href="index.php"><button class="dashboard-btn dashboard-btn_1">Déconnexion</button></a>
-        <a href="dashboard_produits.php"><button class="dashboard-btn dashboard-btn_1">produits</button></a>
-        <a href="dashboard_categories.php"><button class="dashboard-btn dashboard-btn_1">categories</button></a>
-        <a href="dashboard_commandes.php"><button class="dashboard-btn dashboard-btn_1">commandes</button></a>
-        <a href="dashboard_messagerie.php"><button class="dashboard-btn dashboard-btn_1">messagerie</button></a>
-        <a href="dashboard_panier.php"><button class="dashboard-btn dashboard-btn_1">panier</button></a>
-        <a href="dashboard_users.php"><button class="dashboard-btn dashboard-btn_1">utilisateur</button></a>
 
         <?php
-        if (!empty($_SESSION["message"])) {
-            echo "<p>" . $_SESSION["message"] . "</p>";
-            $_SESSION["message"] = "";
-        }
+        include '../../templates/navbar_dashboard.php';
         ?>
+
+        <br>
+        <br>
+        <br>
         <br>
 
         <table class="tb">
@@ -51,7 +50,6 @@ $produuits = $query->fetchAll(PDO::FETCH_ASSOC);
                 <th>id</th>
                 <th>reference</th>
                 <th>marque</th>
-                <th>couleur</th>
                 <th>categorie_id</th>
                 <th>couleur</th>
                 <th>matiere</th>
@@ -89,13 +87,13 @@ $produuits = $query->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= $produit["prix_ht"] ?></td>
 
                         <td>
-                            <a href="user.php?id=<?= $produit["id"] ?>"><img src="img/icon/pngegg.png" height="25px" alt=""></a>
+                            <a href="user.php?id=<?= $produit["id"] ?>">voir</a>
                             </dt>
                         <td>
-                            <a href="update.php?id=<?= $produit["id"] ?>"><img src="img/icon/pen.png" height="25px" alt=""></a>
+                            <a href="update.php?id=<?= $produit["id"] ?>">Modifier</a>
                         </td>
                         <td>
-                            <a href="delete.php?id=<?= $produit["id"] ?>"><img src="img/icon/trash.png" height="25px" alt=""></a>
+                            <a href="delete_produits.php?id=<?= $produit["id"] ?>">Supprimer</a>
                         </td>
                     </tr>
                 <?php
@@ -105,7 +103,7 @@ $produuits = $query->fetchAll(PDO::FETCH_ASSOC);
 
                 <div>
 
-                    <a classe="deco" href="form.php"><button class="dashboard-btn">Ajouter un produit</button></a>
+                    <a classe="deco" href="../produits/form_produits.php"><button class="dashboard-btn">Ajouter un produit</button></a>
                     <br>
                     <br>
 
