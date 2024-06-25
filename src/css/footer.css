@@ -132,31 +132,3 @@ button {
     }
 
 }
-
-@media (max-width: 768px) {
-
-    
-    .rubrique {
-        display: none;
-    }
-   
-    .navBar_droite {
-        margin-top: 10px;
-        width: 100%;
-        justify-content: flex-start;
-    }
-
-    .logoOnline {
-        margin-left: 0;
-    }
-
-
-    .navBar_droite {
-        display: none;
-    }
-
-    .navbar div:first-child {
-        display: flex;
-    }
-    
-}

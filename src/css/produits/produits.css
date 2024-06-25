@@ -1,0 +1,61 @@
+@media (min-width: 600px) {
+    :root {
+        --color-red: #D31E44;
+        --color-black: #202020;
+        --color-white: #ffffff;
+    }
+
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        font: inherit;
+        font-family: sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+    }
+
+    img,
+    picture,
+    svg,
+    video {
+        display: block;
+        max-width: 100%;
+    }
+
+    .picture-produit {
+        width: 90%;
+    }
+
+    .container-produit {
+        display: flex;
+    }
+
+    .container-information-produit {
+        display: flex;
+        flex-direction: column;
+        gap: 1%;
+        margin-top: 2%;
+    }
+
+
+    .vetement-similaire {
+        width: 30%;
+    }
+
+    .description-produit {
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    .vetement-similaire {
+        width: 20%;
+    }
+}
