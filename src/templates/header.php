@@ -5,17 +5,17 @@
         <div class="navBar_gauche">
             <label for="menuBurger"><img src="./img/navBar/menuBurger.png" width="20px" alt="Menu"></label>
             <input type="checkbox" id="menuBurger">
-            <ul id="menuItems">
+            <ul id="menuCategories">
                 <li>CATEGORIES</li>
                 <li><a href="">TOP, TEE-SHIRT</li>
                 <li><a href="">CHEMISIER, BLOUSE</li>
-                <li><a href="">PULL, GILET</li>
-                <li><a href="">JUPE, SHORT</li>
-                <li><a href="">ROBE, COMBINAISON</li>
-                <li><a href="">PANTALON, LEGGING</li>
-                <li><a href="">HOMEWEAR, SPORTWEAR</li>
+                <li><a href="">PULL, GILET</a></li>
+                <li><a href="">JUPE, SHORT</a></li>
+                <li><a href="">ROBE, COMBINAISON</a></li>
+                <li><a href="">PANTALON, LEGGING</a></li>
+                <li><a href="">HOMEWEAR, SPORTWEAR</a></li>
             </ul>
-            <div id="additionalContent">
+            <div id="promo">
                 <img src="../img/footer/facebook.png">
             </div>
         </div>
@@ -29,34 +29,34 @@
             <div><a class="menuNoir" href="">PETITS/PRIX</a></div>
         </div>
         <div class="navBar_droite">
-            <div><img src="./img/navBar/iconSearch.png" alt="Rechercher"></div>
-            <div><img src="./img/navBar/account.png" alt="Compte"></div>
-            <div><img src="./img/navBar/cart.png" alt="Panier"></div>
+            <div><a href=""><img src="./img/navBar/iconSearch.png" alt="Rechercher"></a></div>
+            <div><a href=""><img src="./img/navBar/account.png" alt="Compte"></a></div>
+            <div><a href=""><img src="./img/navBar/cart.png" alt="Panier"></a></div>
         </div>
     </div>
 </nav>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-    var menuBurger = document.getElementById('menuBurger');
-    var menuItems = document.getElementById('menuItems');
-    var additionalContent = document.getElementById('additionalContent');
+    let menuBurger = document.getElementById('menuBurger');
+    let menuCategories = document.getElementById('menuCategories');
+    let promo = document.getElementById('promo');
 
     menuBurger.addEventListener('change', function() {
         if (this.checked) {
-            menuItems.classList.add('active');
-            additionalContent.style.display = 'block';
+            menuCategories.classList.add('active');
+            promo.style.display = 'block';
         } else {
-            menuItems.classList.remove('active');
-            additionalContent.style.display = 'none';
+            menuCategories.classList.remove('active');
+            promo.style.display = 'none';
         }
     });
 
     document.addEventListener('click', function(event) {
-        if (!menuBurger.contains(event.target) && !menuItems.contains(event.target) && !additionalContent.contains(event.target)) {
-            menuItems.classList.remove('active');
+        if (!menuBurger.contains(event.target) && !menuCategories.contains(event.target) && !promo.contains(event.target)) {
+            menuCategories.classList.remove('active');
             menuBurger.checked = false;
-            additionalContent.style.display = 'none';
+            promo.style.display = 'none';
         }
     });
 });

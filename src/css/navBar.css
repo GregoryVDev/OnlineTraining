@@ -21,7 +21,7 @@ nav input[type=checkbox] {
     display: none;
 }
 
-#menuItems {
+#menuCategories {
     display: none; 
     position: absolute;
     top: calc(100% + 10px); /* Positionne le menuItems en dessous du menuBurger */
@@ -34,7 +34,7 @@ nav input[type=checkbox] {
     width: 300px;
 }
 
-#additionalContent {
+#promo {
     display: none; /* Par défaut, l'élément supplémentaire est caché */
     position: absolute;
     top: calc(100% + 10px); /* Positionne l'élément en dessous du menuBurger */
@@ -46,28 +46,28 @@ nav input[type=checkbox] {
     z-index: 10; /* Assure que l'élément est au-dessus du contenu de la page */
 }
 
-#menuItems.active {
+#menuCategories.active {
     display: block; /* Affiche le menuItems lorsque le menu burger est activé */
 }
 
-#menuItems.active + #additionalContent {
+#menuCategories.active + #promo {
     display: block; /* Affiche l'élément supplémentaire lorsque le menu burger est activé */
 }
 
-#menuItems li {
+#menuCategories li {
     list-style-type: none;
     margin-bottom: 5px;
     text-align: left;
 }
 
-#menuItems li a {
+#menuCategories li a {
     text-decoration: none;
     color: #333;
     cursor: pointer;
 
 }
 
-#menuItems li a:hover {
+#menuCategories li a:hover {
     text-decoration: underline;
 }
 
