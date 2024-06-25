@@ -19,6 +19,16 @@
     width: 350px;
 }
 
+.menuCouleur a {
+    color: #D31E44;
+}
+
+.rubrique a {
+    text-decoration: none;
+    color: black;
+    
+}
+
 .navBar_droite {
     display: flex;
     width: 80px;
