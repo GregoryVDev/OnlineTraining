@@ -12,7 +12,7 @@
         <div class="navBar_droite">
             <div><img src="./img/navBar/iconSearch.png" width="11px" alt="Rechercher"></div>
             <div><img src="./img/navBar/account.svg" width="11px" alt="Compte"></div>
-            <div><img src="./img/navBar/cart.svg" width="11px" alt="Panier"> </div>
+            <div><img src="./img/navBar/cart.svg" width="11px" alt="Panier"></div>
          </div>
     </div>
 </nav>
