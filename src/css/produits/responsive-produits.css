@@ -1,0 +1,128 @@
+:root {
+    --color-red: #D31E44;
+    --color-black: #202020;
+    --color-white: #ffffff;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    font-family: sans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+/* end reset */
+
+
+.picture-produit {
+    width: 90%;
+    padding: 5%;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.margin-left {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.chemin {
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 0.7rem;
+}
+
+h1,
+p,
+select,
+button {
+    margin-bottom: 3%;
+}
+
+.taille,
+.couleur {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+    margin-bottom: 3%;
+}
+
+.taille select,
+.couleur select {
+    width: 90%;
+    text-align: center;
+    padding: 1%;
+    border: none;
+    border-radius: 20px;
+}
+
+
+.btn-produit {
+    background: var(--color-red);
+    border: none;
+    color: var(--color-white);
+    display: flex;
+    margin: auto;
+    padding: 2%;
+    border-radius: 20px;
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+/* end section 1 */
+
+.section2 {
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 5%;
+    background: var(--color-red);
+    height: 50px;
+    color: var(--color-white);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-produit-similaire {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.vetement-similaire {
+    width: 40%;
+    margin: auto;
+    margin-top: 3%;
+}
