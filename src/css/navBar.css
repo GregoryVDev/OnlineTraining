@@ -6,11 +6,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px
+    padding: 10px 20px;
 }
 
 .navBar_droite {
     display: flex;
-    width: 50px;
+    width: 80px;
     justify-content: space-between;
 }
