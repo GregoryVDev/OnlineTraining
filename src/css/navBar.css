@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px
+}
+
+.navBar_droite {
+    display: flex;
+    width: 50px;
+    justify-content: space-between;
+}
