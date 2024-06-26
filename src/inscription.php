@@ -1,19 +1,21 @@
 <?php
-
 // On vérifie si le formulaire a été envoyé
 if (!empty($_POST)) {
     // Le formulaire a été envoyé
     // On vérifie que TOUS les champs requis sont remplis
     if (
-        isset($_POST["name"], $_POST["prenom"], $_POST["email"], $_POST_["password"], $_POST["repassword"])
-        && !empty($_POST["name"]) && !empty($_POST["prenom"]) && !empty($_POST["email"]) && !empty($_POST["password"]) && !empty($_POST["repassword"])
+        isset($_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["pass"], $_POST["pass2"])
+        && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"]) && !empty($_POST["pass"]) && !empty($_POST["pass2"])
     ) {
-        // Formulaire complet
+        // Le formulaire est complet
+        // On récupère les données en les protégeants
+        $nom = strip_tags($_POST["nom"]);
+        $prenom = strip_tags($_POST["prenom"]);
+        $email = strip_tags($_POST["email"]);
     } else {
-        echo ("Le formulaire est incomplet");
+        die("Le formulaire est incomplet");
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -35,8 +37,8 @@ if (!empty($_POST)) {
         <form method="POST">
             <h1>Inscription</h1>
             <div class="container-nom">
-                <label for="name">Nom :</label>
-                <input type="text" class="form-input" name="name" id="name" placeholder="Nom" required>
+                <label for="nom">Nom :</label>
+                <input type="text" class="form-input" name="nom" id="nom" placeholder="Nom" required>
             </div>
             <div class="container-prenom">
                 <label for="prenom">Prénom :</label>
@@ -52,8 +54,8 @@ if (!empty($_POST)) {
                 <input type="password" class="form-input" name="pass" id="pass" placeholder="Mot de passe" required>
             </div>
             <div class="container-confirm">
-                <label for="password">Confirmation :</label>
-                <input type="password" class="form-input" name="pass" id="pass" placeholder="Mot de passe" required>
+                <label for="pass2">Confirmation :</label>
+                <input type="password" class="form-input" name="pass2" id="pass2" placeholder="Mot de passe" required>
             </div>
             <button type="submit" class="connexion-button">S'inscrire</button>
             <p>Vous avez déjà un compte ? <a href="connexion.php">Connectez-vous</a></p>
