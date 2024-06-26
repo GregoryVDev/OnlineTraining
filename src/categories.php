@@ -63,6 +63,46 @@
                 <p>2 couleurs</p>
                 <p>Prix xx€</p>
             </article>
+            <article class="categories-vetement">
+                <figure>
+                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
+                    <figcaption>nom du produit</figcaption>
+                </figure>
+                <p>2 couleurs</p>
+                <p>Prix xx€</p>
+            </article>
+            <article class="categories-vetement">
+                <figure>
+                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
+                    <figcaption>nom du produit</figcaption>
+                </figure>
+                <p>2 couleurs</p>
+                <p>Prix xx€</p>
+            </article>
+            <article class="categories-vetement">
+                <figure>
+                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
+                    <figcaption>nom du produit</figcaption>
+                </figure>
+                <p>2 couleurs</p>
+                <p>Prix xx€</p>
+            </article>
+            <article class="categories-vetement">
+                <figure>
+                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
+                    <figcaption>nom du produit</figcaption>
+                </figure>
+                <p>2 couleurs</p>
+                <p>Prix xx€</p>
+            </article>
+            <article class="categories-vetement">
+                <figure>
+                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
+                    <figcaption>nom du produit</figcaption>
+                </figure>
+                <p>2 couleurs</p>
+                <p>Prix xx€</p>
+            </article>
         </div>
     </main>
     <?php include_once("templates/footer.php") ?>
