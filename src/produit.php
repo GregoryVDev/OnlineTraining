@@ -7,12 +7,14 @@
     <title>Produit</title>
     <link rel="stylesheet" href="css/produits/responsive-produits.css">
     <link rel="stylesheet" href="css/produits/produits.css">
+    <!-- <link rel="stylesheet" href="css/navBar.css">
+    <link rel="stylesheet" href="css/footer.css"> -->
     <link rel="stylesheet" href="css/navBar.css">
     <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
-    <?php include_once("templates/header.php") ?>
+    <!-- include_once("templates/header.php") -->
     <section>
         <main>
             <article class="container-produit">
@@ -21,9 +23,9 @@
                 </figure>
                 <div class="container-information-produit">
                     <p class="chemin">Accueil / robe / nom de la robe (chemin)</p>
-                    <h1>Nom du produit</h1>
-                    <p class="center">Prix xx€</p>
-                    <p class="description-produit center margin-left">Lorem ipsum, dolor sit amet consectetur
+                    <h1 class="h1-produit-name">Nom du produit</h1>
+                    <p class="prix">Prix xx€</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur
                         adipisicing elit. Amet
                         ratione nesciunt suscipit
                         deserunt hic asperiores cum quos rem, maxime nisi odio obcaecati, natus animi ex dolore debitis
@@ -54,7 +56,7 @@
         </main>
     </section>
     <section class="section2">
-        <h2>Vous pourriez aimer cela aussi</h2>
+        <h2 class="h2-section2-titre">Vous pourriez aimer cela aussi</h2>
         <div class="container-produit-similaire">
             <article class="vetement-similaire">
                 <figure>
@@ -86,7 +88,7 @@
             </article>
         </div>
     </section>
-    <?php include_once("templates/footer.php") ?>
+    <!-- include_once("templates/footer.php") -->
 </body>
 
 </html>
