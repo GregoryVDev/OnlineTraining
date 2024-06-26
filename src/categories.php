@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/categories/categories.css">
     <link rel="stylesheet" href="css/navBar.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/fonts/fonts.css">
 </head>
 
 <body>
