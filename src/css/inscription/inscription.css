@@ -41,6 +41,10 @@ form {
   width: 300px;
 }
 
+p {
+  font-size: 0.9em;
+}
+
 h1 {
   text-align: center;
   color: #d31e44;
@@ -66,10 +70,6 @@ label {
 
 input {
   margin-top: 10px;
-}
-
-.container-image img {
-  display: none;
 }
 
 .connexion-button {
