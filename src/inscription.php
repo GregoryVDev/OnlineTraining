@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 
 function validateEmail($email)
 {
@@ -11,6 +10,7 @@ function validateEmail($email)
 if (!empty($_POST)) {
     // Le formulaire a été envoyé
     // On vérifie que TOUS les champs requis sont remplis
+
     if (
         isset($_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["pass"], $_POST["pass2"])
         && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"]) && !empty($_POST["pass"]) && !empty($_POST["pass2"])
@@ -34,12 +34,22 @@ if (!empty($_POST)) {
         if ($pass === $pass2) {
             // On hash le mdp
             $pass = password_hash($_POST["pass"], PASSWORD_ARGON2ID);
+        } else {
+            echo ("les mots de passe ne correspondent pas");
         }
 
         // On enregistre en bdd
         require_once("./connect.php");
 
-        $sql = "INSERT INTO users (nom, prenom, email, password, roles, adresse) VALUES (:nom, :prenom, :email, '$pass', :adresse, '[\"ROLE_USER\"]')";
+        $sql = "INSERT INTO users (nom, prenom, email, pass, roles ) VALUES (:nom, :prenom, :email, '$pass', '[\"ROLE_USER\"]')";
+
+        $query = $db->prepare($sql);
+
+        $query->bindValue(":nom", $nom);
+        $query->bindValue(":prenom", $prenom);
+        $query->bindValue(":email", $_POST["email"]);
+
+        $query->execute();
     } else {
         die("Le formulaire est incomplet");
     }
