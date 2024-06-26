@@ -1,5 +1,3 @@
-
-
 <nav>
     <div class="navbar">
         <div class="navBar_gauche">
@@ -35,7 +33,7 @@
 </nav>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     let menuBurger = document.getElementById('menuBurger');
     let menuCategories = document.getElementById('menuCategories');
     let promo = document.getElementById('promo');
@@ -51,7 +49,8 @@
     });
 
     document.addEventListener('click', function(event) {
-        if (!menuBurger.contains(event.target) && !menuCategories.contains(event.target) && !promo.contains(event.target)) {
+        if (!menuBurger.contains(event.target) && !menuCategories.contains(event.target) && !promo
+            .contains(event.target)) {
             menuCategories.classList.remove('active');
             menuBurger.checked = false;
             promo.style.display = 'none';
