@@ -35,7 +35,7 @@ if (!empty($_POST)) {
             // On hash le mdp
             $pass = password_hash($_POST["pass"], PASSWORD_ARGON2ID);
         } else {
-            echo ("les mots de passe ne correspondent pas");
+            die("les mots de passe ne correspondent pas");
         }
 
         // On enregistre en bdd
