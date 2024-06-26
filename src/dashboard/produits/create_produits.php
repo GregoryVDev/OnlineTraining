@@ -15,7 +15,10 @@ function generateRandomString($length = 20)
 
 // Vérification des champs du formulaire
 if (
-    isset($_POST["reference"]) && !empty($_POST["reference"])
+    isset($_FILES["image_produit"]) && $_FILES["image_produit"]["error"] === 0
+    && isset($_POST["alt"]) && !empty($_POST["alt"])
+    && isset($_POST["genre"]) && !empty($_POST["genre"])
+    && isset($_POST["reference"]) && !empty($_POST["reference"])
     && isset($_POST["marque"]) && !empty($_POST["marque"])
     && isset($_POST["categorie_id"]) && !empty($_POST["categorie_id"])
     && isset($_POST["couleur"]) && !empty($_POST["couleur"])
@@ -24,12 +27,15 @@ if (
     && isset($_POST["description"]) && !empty($_POST["description"])
     && isset($_POST["quantite"]) && !empty($_POST["quantite"])
     && isset($_POST["prix_ht"]) && !empty($_POST["prix_ht"])
-    && isset($_FILES["image_produit"]) && $_FILES["image_produit"]["error"] === 0
-    && isset($_POST["alt"]) && !empty($_POST["alt"])
+
+
 ) {
     require_once("../../connect.php");
 
     if ($db) {
+
+        $alt = htmlspecialchars($_POST["alt"]);
+        $genre = htmlspecialchars($_POST["genre"]);
         $reference = htmlspecialchars($_POST["reference"]);
         $marque = htmlspecialchars($_POST["marque"]);
         $categorie_id = htmlspecialchars($_POST["categorie_id"]);
@@ -39,7 +45,7 @@ if (
         $description = htmlspecialchars($_POST["description"]);
         $quantite = htmlspecialchars($_POST["quantite"]);
         $prix_ht = htmlspecialchars($_POST["prix_ht"]);
-        $alt = htmlspecialchars($_POST["alt"]);
+
 
         // Gestion du fichier uploadé
         $uploadDir = '../../img/produits/';
@@ -51,10 +57,13 @@ if (
             $image_produit = $uploadDir . $newFileName;
 
             if (move_uploaded_file($_FILES['image_produit']['tmp_name'], $image_produit)) {
-                $sql = "INSERT INTO produits (reference, marque, categorie_id, couleur, matiere, motif, description, quantite, prix_ht, image_produit, alt)
-                    VALUES (:reference, :marque, :categorie_id, :couleur, :matiere, :motif, :description, :quantite, :prix_ht, :image_produit, :alt)";
+                $sql = "INSERT INTO produits (image_produit, alt, genre, reference, marque, categorie_id, couleur, matiere, motif, description, quantite, prix_ht)
+                    VALUES (:image_produit, :alt, :genre, :reference, :marque, :categorie_id, :couleur, :matiere, :motif, :description, :quantite, :prix_ht)";
 
                 $query = $db->prepare($sql);
+                $query->bindValue(":image_produit", $image_produit);
+                $query->bindValue(":alt", $alt);
+                $query->bindValue(":genre", $genre);
                 $query->bindValue(":reference", $reference);
                 $query->bindValue(":marque", $marque);
                 $query->bindValue(":categorie_id", $categorie_id);
@@ -64,8 +73,7 @@ if (
                 $query->bindValue(":description", $description);
                 $query->bindValue(":quantite", $quantite);
                 $query->bindValue(":prix_ht", $prix_ht);
-                $query->bindValue(":image_produit", $image_produit);
-                $query->bindValue(":alt", $alt);
+
 
                 $query->execute();
 
