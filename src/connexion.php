@@ -1,13 +1,65 @@
 <?php
 session_start();
 
-require_once('../src/connexion.php');
+function validateEmail($email)
+{
+    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+}
 
-$errors = [];
-$message = [];
+// On vérifie si le formulaire a été envoyé
+if (!empty($_POST)) {
+    // Le formulaire a été envoyé
+    // On vérifie que TOUS les champs requis sont remplis
 
-// Formulaire si il a bien été rempli
-if (isset($_POST['login']))
+    if (isset($_POST["email"], $_POST_["pass"]) && !empty($_POST["email"]) && !empty($_POST["pass"])) {
+        // On vérifie que l'email en est un
+        if (!validateEmail($_POST["email"])) {
+            die("L'adresse email est incorrecte");
+        }
+
+        // On se connecte à la bdd
+        require_once("connect.php");
+
+        // Assuming $db is the PDO instance from "connect.php"
+        $sql = "SELECT * FROM users WHERE email = :email";
+
+        $query = $db->prepare($sql);
+
+        $query->bindValue(":email", $_POST["email"]);
+
+        $query->execute();
+
+        $user = $query->fetch();
+
+        if (!$user) {
+            die("The user and/or password is incorrect");
+        }
+
+        // On a un user existant, on peut vérifier son mdp
+
+        if (!password_verify($_POST['pass'], $user["pass"])) {
+            die("The user and/or password is incorrect");
+        }
+
+        // L'utilisateur et le mot de passe sont corrects
+        // On va pouvoir "connecter" l'utilisateur
+
+
+        // On stocke dans $_SESSION les informations de l'utilisateur
+        $_SESSION['user'] = [
+            "id" => $user['id'],
+            "pseudo" => $user['username'],
+            "email" => $user['email'],
+            "roles" => $user['roles']
+        ];
+
+        // Rediriger vers la page index (exemple)
+        header("Location: index.php");
+    } else {
+        // Formulaire incomplet
+        die("The form is incomplete");
+    }
+}
 
 ?>
 
