@@ -46,3 +46,12 @@ main {
     margin: auto;
     margin-top: 3%;
 }
+
+figcaption {
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+p {
+    font-size: 1.1rem;
+}
