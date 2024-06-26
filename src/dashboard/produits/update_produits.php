@@ -132,10 +132,10 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
                 <input type="text" id="alt" name="alt" value="<?= $user["alt"] ?>" required>
                 <br>
                 <label for="quantite">Quantité:</label>
-                <input type="number" id="quantite" name="quantite" value="<?= $user["quantite"] ?>" required>
+                <input type="text" id="quantite" name="quantite" value="<?= $user["quantite"] ?>" required>
                 <br>
                 <label for="prix_ht">Prix HT:</label>
-                <input type="number" step="0.01" id="prix_ht" name="prix_ht" value="<?= $user["prix_ht"] ?>" required>
+                <input type="text" id="prix_ht" name="prix_ht" value="<?= $user["prix_ht"] ?>" required>
                 <br>
                 <br>
 
