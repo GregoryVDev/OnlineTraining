@@ -49,6 +49,8 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
             <thead>
                 <th>id</th>
                 <th>type</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
             </thead>
             <tbody>
 
@@ -62,14 +64,12 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= $categorie["type"] ?></td>
 
 
+
                         <td>
-                            <a href="user.php?id=<?= $categorie["id"] ?>"><img src="img/icon/pngegg.png" height="25px" alt=""></a>
-                            </dt>
-                        <td>
-                            <a href="update.php?id=<?= $categorie["id"] ?>"><img src="img/icon/pen.png" height="25px" alt=""></a>
+                            <a href="update_categories.php?id=<?= $categorie["id"] ?>">Modifier</a>
                         </td>
                         <td>
-                            <a href="delete.php?id=<?= $categorie["id"] ?>"><img src="img/icon/trash.png" height="25px" alt=""></a>
+                            <a href="delete_categories.php?id=<?= $categorie["id"] ?>">Supprimer</a>
                         </td>
                     </tr>
                 <?php

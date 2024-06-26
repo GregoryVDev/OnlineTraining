@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/produits/produits.css">
     <!-- <link rel="stylesheet" href="css/navBar.css">
     <link rel="stylesheet" href="css/footer.css"> -->
+    <link rel="stylesheet" href="css/navBar.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>

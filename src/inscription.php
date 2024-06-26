@@ -1,3 +1,21 @@
+<?php
+
+// On vérifie si le formulaire a été envoyé
+if (!empty($_POST)) {
+    // Le formulaire a été envoyé
+    // On vérifie que TOUS les champs requis sont remplis
+    if (
+        isset($_POST["name"], $_POST["prenom"], $_POST["email"], $_POST_["password"], $_POST["repassword"])
+        && !empty($_POST["name"]) && !empty($_POST["prenom"]) && !empty($_POST["email"]) && !empty($_POST["password"]) && !empty($_POST["repassword"])
+    ) {
+        // Formulaire complet
+    } else {
+        echo ("Le formulaire est incomplet");
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,11 +35,11 @@
         <form method="POST">
             <h1>Inscription</h1>
             <div class="container-nom">
-                <label for="text">Nom :</label>
+                <label for="name">Nom :</label>
                 <input type="text" class="form-input" name="name" id="name" placeholder="Nom" required>
             </div>
             <div class="container-prenom">
-                <label for="text">Prénom :</label>
+                <label for="prenom">Prénom :</label>
                 <input type="text" class="form-input" name="prenom" id="prenom" placeholder="Prénom" required>
             </div>
             <div class="container-email">
@@ -30,7 +48,7 @@
             " required>
             </div>
             <div class="container-password">
-                <label for="password">Mot de passe :</label>
+                <label for="pass">Mot de passe :</label>
                 <input type="password" class="form-input" name="pass" id="pass" placeholder="Mot de passe" required>
             </div>
             <div class="container-confirm">

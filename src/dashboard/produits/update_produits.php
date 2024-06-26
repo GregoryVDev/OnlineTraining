@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $query->execute();
 
-        header("Location: admin_dashboard.php");
+        header("Location: dashboard_produits.php");
     } else {
         echo "Remplissez TOUS les formulaires SVP !";
     }
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 if (isset($_GET["id"]) && !empty($_GET["id"])) {
     $id = strip_tags($_GET["id"]);
 
-    $sql = "SELECT * FROM product WHERE id = :id";
+    $sql = "SELECT * FROM produits WHERE id = :id";
 
     $query = $db->prepare($sql);
     $query->bindValue(":id", $id, PDO::PARAM_INT);
@@ -69,10 +69,10 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     $user = $query->fetch();
 
     if (!$user) {
-        header("Location: admin_dashboard.php");
+        header("Location: dashboard_produits.php");
     }
 } else {
-    header("Location: admin_dashboard.php");
+    header("Location: dashboard_produits.php");
 }
 ?>
 
@@ -83,59 +83,72 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire</title>
+    <title>Formulaire_produits</title>
 </head>
 
 <body>
-    <?php
-    include './element/navbar.php';
-    ?>
+
     <div class="conteneur_login">
         <div class="conteneur_form_form">
-            <h1>Modifier <?= $user["product_name"] ?>:</h1>
+            <h1>Modifier <?= $user["reference"] ?>:</h1>
             <form method="post">
-                <select name="type" id="type">
-                    <option value="<?= $user["type"] ?>" required>Sélectionnez un type de produit</option>
-                    <option>robe</option>
-                    <option>pantalon</option>
-                    <option>top</option>
-                </select>
-                <label for="id_tendance">Tendance:</label>
-                <select name="id_tendance" required>
-                    <option value="">Sélectionnez une tendance</option>
+
+                <label for="reference">Référence:</label>
+                <input type="text" id="reference" name="reference" value="<?= $user["reference"] ?>" required>
+                <br>
+                <label for="marque">Marque:</label>
+                <input type="text" id="marque" name="marque" value="<?= $user["marque"] ?>" required>
+                <br>
+                <label for="categorie_id">Catégorie:</label>
+                <select id="categorie_id" name="categorie_id" required>
+                    <option value=""><?= $user["categorie_id"] ?></option>
                     <?php
-                    $sql = "SELECT id, tendance_name FROM tendance";
+                    require_once("../../connect.php");
+                    // Assumez que la connexion à la base de données est déjà établie
+                    $sql = "SELECT id, type FROM categories";
                     $query = $db->query($sql);
-                    $currentTendanceId = isset($user["id_tendance"]) ? $user["id_tendance"] : 0; // Mettez à 0 ou quelque chose de similaire si id_tendance n'est pas défini
-                    while ($tendance = $query->fetch(PDO::FETCH_ASSOC)) {
-                        $selected = ($tendance['id'] == $currentTendanceId) ? 'selected' : '';
-                        echo "<option value=\"{$tendance['id']}\" $selected>{$tendance['tendance_name']}</option>";
+                    while ($categories = $query->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<option value=\"{$categories['id']}\">{$categories['type']}</option>";
                     }
                     ?>
                 </select>
-
-                <label for="product_name">Nom du produit:</label>
-                <input type="text" name="product_name" value="<?= $user["product_name"] ?>" required>
-                <label for="product_description">description du produit:</label>
-                <input type="text" name="product_description" value="<?= $user["product_description"] ?>" required>
-                <label for="product_price">Prix:</label>
-                <input type="text" name="product_price" value="<?= $user["product_price"] ?>" required>
-                <label for="product_pic_1">photo:</label>
-                <input type="text" name="product_pic_1" value="<?= $user["product_pic_1"] ?>" required>
-                <label for="product_pic_2">photo:</label>
-                <input type="text" name="product_pic_2" value="<?= $user["product_pic_2"] ?>" required>
-
-
-
-
+                <br>
+                <label for="couleur">Couleur:</label>
+                <input type="text" id="couleur" name="couleur" value="<?= $user["couleur"] ?>" required>
+                <br>
+                <label for="matiere">Matière:</label>
+                <input type="text" id="matiere" name="matiere" value="<?= $user["matiere"] ?>" required>
+                <br>
+                <label for="motif">Motif:</label>
+                <input type="text" id="motif" name="motif" value="<?= $user["motif"] ?>" required>
+                <br>
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" value="<?= $user["description"] ?>" required>
+                <br>
+                <label for="image_produit">Image:</label>
+                <input type="text" id="image_produit" name="image_produit" value="<?= $user["image_produit"] ?>" required>
+                <br>
+                <label for="alt">Description de l'image:</label>
+                <input type="text" id="alt" name="alt" value="<?= $user["alt"] ?>" required>
+                <br>
+                <label for="quantite">Quantité:</label>
+                <input type="number" id="quantite" name="quantite" value="<?= $user["quantite"] ?>" required>
+                <br>
+                <label for="prix_ht">Prix HT:</label>
+                <input type="number" step="0.01" id="prix_ht" name="prix_ht" value="<?= $user["prix_ht"] ?>" required>
+                <br>
+                <br>
 
                 <input type="hidden" name="id" value="<?= $user["id"] ?>" required>
 
 
+                <button class="login-btn" type="submit" class="Btn_add">Modifier</button>
+                <br>
+                <br>
+
             </form>
-            <button class="login-btn" type="submit" class="Btn_add">Modifier</button>
-            <br>
-            <a href="admin_dashboard.php"><button class="login-btn" type="submit" class="Btn_add">Retour </button></a>
+
+            <a href="dashboard_produits.php"><button class="login-btn" class="Btn_add">Retour </button></a>
         </div>
     </div>
 </body>
