@@ -2,6 +2,7 @@
     --color-red: #D31E44;
     --color-black: #202020;
     --color-white: #ffffff;
+    --color-grey: #afafaf;
 }
 
 *::before,
@@ -30,57 +31,44 @@ video {
 
 /* end reset */
 
-
 .picture-produit {
     width: 90%;
     padding: 5%;
+    margin: auto;
 }
 
-h1 {
+.container-information-produit {
+    margin: 0% 5% 0% 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chemin {
+    font-size: 0.7rem;
+    margin-bottom: 2%;
+}
+
+.h1-produit-name {
     font-size: 1.5rem;
     font-weight: bolder;
     text-align: center;
 }
 
-.center {
-    text-align: center;
-}
-
-.margin-left {
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
-.chemin {
-    margin-left: 5%;
-    margin-right: 5%;
-    font-size: 0.7rem;
-}
-
-h1,
-p,
-select,
-button {
-    margin-bottom: 3%;
-}
+.prix {}
 
 .taille,
 .couleur {
     display: flex;
     flex-direction: column;
-    padding-left: 5%;
-    margin-bottom: 3%;
 }
 
 .taille select,
 .couleur select {
-    width: 90%;
-    text-align: center;
-    padding: 1%;
-    border: none;
+    padding: 2%;
+    border: 0.5px solid;
     border-radius: 20px;
 }
-
 
 .btn-produit {
     background: var(--color-red);
@@ -104,7 +92,7 @@ button {
     margin-bottom: 10%;
 }
 
-h2 {
+.h2-section2-titre {
     text-align: center;
     margin-bottom: 5%;
     background: var(--color-red);
