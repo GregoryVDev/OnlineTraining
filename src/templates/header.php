@@ -1,19 +1,15 @@
-
-
 <nav>
     <div class="navbar">
         <div class="navBar_gauche">
-            <label for="menuBurger"><img src="./img/navBar/menuBurger.png" width="20px" alt="Menu"></label>
+            <label for="menuBurger"><img src="./img/navBar/menuBurger.png" alt="Menu"></label>
             <input type="checkbox" id="menuBurger">
             <ul id="menuCategories">
                 <li>CATEGORIES</li>
-                <li><a href="">TOP, TEE-SHIRT</li>
-                <li><a href="">CHEMISIER, BLOUSE</li>
-                <li><a href="">PULL, GILET</a></li>
-                <li><a href="">JUPE, SHORT</a></li>
-                <li><a href="">ROBE, COMBINAISON</a></li>
-                <li><a href="">PANTALON, LEGGING</a></li>
-                <li><a href="">HOMEWEAR, SPORTWEAR</a></li>
+                <li><a href="">Pantalon</li>
+                <li><a href="">Pantalon Chino</li>
+                <li><a href="">Polo Manches Courtes</a></li>
+                <li><a href="">Polo Manches Longues</a></li>
+                <li><a href="">Short</a></li>
             </ul>
             <div id="promo">
                 <img src="../img/footer/facebook.png">
@@ -37,7 +33,7 @@
 </nav>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     let menuBurger = document.getElementById('menuBurger');
     let menuCategories = document.getElementById('menuCategories');
     let promo = document.getElementById('promo');
@@ -53,7 +49,8 @@
     });
 
     document.addEventListener('click', function(event) {
-        if (!menuBurger.contains(event.target) && !menuCategories.contains(event.target) && !promo.contains(event.target)) {
+        if (!menuBurger.contains(event.target) && !menuCategories.contains(event.target) && !promo
+            .contains(event.target)) {
             menuCategories.classList.remove('active');
             menuBurger.checked = false;
             promo.style.display = 'none';
