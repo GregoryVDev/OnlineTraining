@@ -14,8 +14,10 @@
 
 .navBar_gauche {
     position: relative;
-    margin-left: 20px;
+    /* margin-left: 20px; */
 }
+
+
 
 nav input[type=checkbox] {
     display: none;
@@ -109,7 +111,7 @@ nav input[type=checkbox] {
     }
 
     .navBar_droite {
-        width: 160px;
+        width: 140px;
 
     }
 
@@ -122,18 +124,38 @@ nav input[type=checkbox] {
 }
 
 @media (max-width: 1204px) {
+    
+    .logoOnline img {
+        width: 130px;
+    }
     .navBar_gauche {
         display: none
     }
     .rubrique {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+    }
+
+    .navBar_droite {
+        width: 130px;
+    }
+
+    .navBar_droite img {
+       width: 20px;
     }
 }
 
 @media (max-width: 900px) {
     
+    .logoOnline img {
+        width: 130px;
+    }
+
+    .navBar_gauche {
+        width: 90px;
+    }
+
     .navBar_gauche img {
-        width:40px;
+        width: 32px;
     }
 
     .rubrique {
@@ -141,7 +163,7 @@ nav input[type=checkbox] {
     }
 
     .navBar_droite {
-        margin-top: 10px;
+
         width: 90px;
 
     }
@@ -156,16 +178,25 @@ nav input[type=checkbox] {
 }
 
 
-@media (max-width: 550px) {
+@media (max-width: 650px) {
     .navbar {
-        padding: 10px;
+        padding: 20px;
     }
 
-    .navBar_droite div img {
+    .navBar_droite, .navBar_gauche {
+        width: 70px;
+    }
+
+    .navBar_gauche > label > img {
         width: 20px;
     }
 
+    .navBar_droite div img {
+        width: 15px;
+    }
+
     .logoOnline img {
-        width: 60px;
+        object-fit: contain;
+        width: 100px;
     }
 }

@@ -56,6 +56,15 @@ button {
     justify-content: space-between;
 }
 
+.icon_footer {
+    width: 100px;
+}
+
+img.icon_footer_align {
+    margin: 0 auto;
+}
+
+
 @media (max-width: 1920px) {
     h1 {
         font-size: 2.5rem;
@@ -102,14 +111,15 @@ button {
     .sociaux img {
        width: 40px
     }
-}
-    .dely_map_secure img {
-      width: 50%;
+
+    .icon_footer {
+        width: 200px;
     }
-    
+}
+      
 @media (max-width: 1204px) {
     
-    h2 {
+    h1, h2 {
         font-size: 1.8rem;
     }
 
@@ -117,9 +127,134 @@ button {
         font-size: 1rem;
     }
 
+    .form {
+        display: flex;
+        width: 400px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+
+    input {
+       
+        border-radius: 10px 0px 0px 10px;
+        font-size: 0.8rem;
+        width: 250px;
+        height: 30px;
+        margin-right: 5px;
+    }
+
+    input::placeholder {
+    
+        font-style: italic;
+    }
+    
+    button {
+        border-radius:0px 10px 10px 0px;
+        font-size: 0.8rem;
+        width: 100px;
+        height: 30px;
+    }
+
     .sociaux img {
        width: 40px;
     }
+
+    .icon_footer img {
+       height: 40px;
+      }
+
+      .text_icon_footer {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 800px) {
     
+    h1, h2 {
+        font-size: 1.3rem;
+    }
+
+    .form {
+        width: 300px;
+        margin-bottom: 10px;
+    }
+
+    input {
+       
+        border-radius: 10px 0px 0px 10px;
+        font-size: 0.8rem;
+        width: 200px;
+        height: 30px;
+        margin-right: 5px;
+    }
+
+    input::placeholder {
     
+        font-style: italic;
+    }
+    
+    button {
+        border-radius:0px 10px 10px 0px;
+        font-size: 0.6rem;
+        width: 70px;
+        height: 30px;
+    }
+
+    .icon_footer img {
+       height: 30px;
+    }
+
+    .text_icon_footer {
+        font-size: 0.6em;
+    }
+
+    .dely_map_secure {
+        gap: 50px;
+    }
+}
+
+@media (max-width: 400px) {
+    
+    h1, h2 {
+        font-size: 1rem;
+}
+
+    h3 {
+        font-size:0.7;
+    }
+    
+    .form {
+        width: 200px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+
+    input {
+       
+        border-radius: 10px 0px 0px 10px;
+        font-size: 0.6rem;
+        width: 150px;
+        height: 25px;
+        margin-right: 5px;
+    }
+
+    input::placeholder {
+    
+        font-style: italic;
+    }
+    
+    button {
+        border-radius:0px 10px 10px 0px;
+        font-size: 0.6rem;
+        width: 65px;
+        height: 25px;
+    }
+
+    .icon_footer {
+        width: 40px;
+    }
+
+    .dely_map_secure {
+        gap: 20px;
+    }
 }

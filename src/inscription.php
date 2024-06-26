@@ -1,19 +1,49 @@
 <?php
 
+session_start();
+
+function validateEmail($email)
+{
+    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+}
+
 // On vérifie si le formulaire a été envoyé
 if (!empty($_POST)) {
     // Le formulaire a été envoyé
     // On vérifie que TOUS les champs requis sont remplis
     if (
-        isset($_POST["name"], $_POST["prenom"], $_POST["email"], $_POST_["password"], $_POST["repassword"])
-        && !empty($_POST["name"]) && !empty($_POST["prenom"]) && !empty($_POST["email"]) && !empty($_POST["password"]) && !empty($_POST["repassword"])
+        isset($_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["pass"], $_POST["pass2"])
+        && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"]) && !empty($_POST["pass"]) && !empty($_POST["pass2"])
     ) {
-        // Formulaire complet
+        // Le formulaire est complet
+        // On récupère les données en les protégeants
+        $nom = strip_tags($_POST["nom"]);
+        $prenom = strip_tags($_POST["prenom"]);
+
+        if (!validateEmail($_POST["email"])) {
+            die("L'adresse email est incorrecte");
+        }
+
+        // Confirmation des mdp
+        if (isset($_POST["pass"]) && isset($_POST["pass2"])) {
+            $pass = $_POST["pass"];
+            $pass2 = $_POST["pass2"];
+        }
+
+
+        if ($pass === $pass2) {
+            // On hash le mdp
+            $pass = password_hash($_POST["pass"], PASSWORD_ARGON2ID);
+        }
+
+        // On enregistre en bdd
+        require_once("./connect.php");
+
+        $sql = "INSERT INTO users (nom, prenom, email, password, roles, adresse) VALUES (:nom, :prenom, :email, '$pass', :adresse, '[\"ROLE_USER\"]')";
     } else {
-        echo ("Le formulaire est incomplet");
+        die("Le formulaire est incomplet");
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -35,8 +65,8 @@ if (!empty($_POST)) {
         <form method="POST">
             <h1>Inscription</h1>
             <div class="container-nom">
-                <label for="name">Nom :</label>
-                <input type="text" class="form-input" name="name" id="name" placeholder="Nom" required>
+                <label for="nom">Nom :</label>
+                <input type="text" class="form-input" name="nom" id="nom" placeholder="Nom" required>
             </div>
             <div class="container-prenom">
                 <label for="prenom">Prénom :</label>
@@ -52,8 +82,8 @@ if (!empty($_POST)) {
                 <input type="password" class="form-input" name="pass" id="pass" placeholder="Mot de passe" required>
             </div>
             <div class="container-confirm">
-                <label for="password">Confirmation :</label>
-                <input type="password" class="form-input" name="pass" id="pass" placeholder="Mot de passe" required>
+                <label for="pass2">Confirmation :</label>
+                <input type="password" class="form-input" name="pass2" id="pass2" placeholder="Mot de passe" required>
             </div>
             <button type="submit" class="connexion-button">S'inscrire</button>
             <p>Vous avez déjà un compte ? <a href="connexion.php">Connectez-vous</a></p>

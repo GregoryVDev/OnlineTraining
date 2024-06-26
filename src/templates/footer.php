@@ -3,17 +3,17 @@
 <h3>Recevoir les actus mode et les offres d’Online !</h3>
 
 <form action="" method="POST">
-    
+
     <div class="form">
         <div>
-           <input type="email" name="mail" placeholder="Entrez votre adresse email" required>
+            <input type="email" name="mail" placeholder="Entrez votre adresse email" required>
         </div>
         <div>
             <button class="abonner" type="submit">S'ABONNER</BUTTON>
         </div>
-               
-    </div>     
-    
+
+    </div>
+
 </form>
 
 <h2>REJOINGNEZ LA COMMUNAUTE</h2>
@@ -26,7 +26,23 @@
 </div> -->
 
 <div class="dely_map_secure">
-<div><a href=""><img src="./img/footer/delivery.png" alt="Livraison"></a></div>
-<div><a href=""><img src="./img/footer/placeMarker.png" alt="Points de vente"></a></div>
-<div><a href=""><img src="./img/footer/CheckLock.png" alt="Paiement sécurisé"></a></div>
+    <div class="icon_footer">
+        <a href=""><img class="icon_footer_align" src="./img/footer/delivery.png" title="Livraison" alt="Livraison"></a>
+        <div class="text_icon_footer">
+            <p>Livraison</p>
+        </div>
+    </div>
+    <div class="icon_footer"><a href=""><img class="icon_footer_align" src="./img/footer/placeMarker.png"
+                title="Nos Magasins" alt="Points de vente"></a>
+        <div class="text_icon_footer">
+            <p>Nos magasins</p>
+
+        </div>
+    </div>
+    <div class="icon_footer"><a href=""><img class="icon_footer_align" src="./img/footer/CheckLock.png"
+                title="Paiement Sécurisé" alt="Paiement sécurisé"></a>
+        <div class="text_icon_footer">
+            <p>Paiment sécurisé</p>
+        </div>
+    </div>
 </div>
