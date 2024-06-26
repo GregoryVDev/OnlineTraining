@@ -1,6 +1,19 @@
 <?php
-// On demarre une session 
+// On démarre une session 
 session_start();
+// Fonction pour générer une chaîne de caractères aléatoire PAR ROBERTO
+function generateRandomString($length = 20)
+{
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
+// Vérification des champs du formulaire
 if (
     isset($_POST["reference"]) && !empty($_POST["reference"])
     && isset($_POST["marque"]) && !empty($_POST["marque"])
@@ -9,10 +22,10 @@ if (
     && isset($_POST["matiere"]) && !empty($_POST["matiere"])
     && isset($_POST["motif"]) && !empty($_POST["motif"])
     && isset($_POST["description"]) && !empty($_POST["description"])
-    && isset($_POST["image_produit"]) && !empty($_POST["image_produit"])
-    && isset($_POST["alt"]) && !empty($_POST["alt"])
     && isset($_POST["quantite"]) && !empty($_POST["quantite"])
     && isset($_POST["prix_ht"]) && !empty($_POST["prix_ht"])
+    && isset($_FILES["image_produit"]) && $_FILES["image_produit"]["error"] === 0
+    && isset($_POST["alt"]) && !empty($_POST["alt"])
 ) {
     require_once("../../connect.php");
 
@@ -24,32 +37,47 @@ if (
         $matiere = htmlspecialchars($_POST["matiere"]);
         $motif = htmlspecialchars($_POST["motif"]);
         $description = htmlspecialchars($_POST["description"]);
-        $image_produit = htmlspecialchars($_POST["image_produit"]);
-        $alt = htmlspecialchars($_POST["alt"]);
         $quantite = htmlspecialchars($_POST["quantite"]);
         $prix_ht = htmlspecialchars($_POST["prix_ht"]);
+        $alt = htmlspecialchars($_POST["alt"]);
 
-        $sql = "INSERT INTO produits (reference, marque, categorie_id, couleur, matiere, motif, description, image_produit, alt, quantite, prix_ht)
-            VALUES (:reference, :marque, :categorie_id, :couleur, :matiere, :motif, :description, :image_produit, :alt, :quantite, :prix_ht)";
+        // Gestion du fichier uploadé
+        $uploadDir = '../../img/produits/';
+        $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
+        $imageFileType = strtolower(pathinfo($_FILES['image_produit']['name'], PATHINFO_EXTENSION));
 
-        $query = $db->prepare($sql);
-        $query->bindValue(":reference", $reference);
-        $query->bindValue(":marque", $marque);
-        $query->bindValue(":categorie_id", $categorie_id);
-        $query->bindValue(":couleur", $couleur);
-        $query->bindValue(":matiere", $matiere);
-        $query->bindValue(":motif", $motif);
-        $query->bindValue(":description", $description);
-        $query->bindValue(":image_produit", $image_produit);
-        $query->bindValue(":alt", $alt);
-        $query->bindValue(":quantite", $quantite);
-        $query->bindValue(":prix_ht", $prix_ht);
+        if (in_array($imageFileType, $allowedTypes)) {
+            $newFileName = generateRandomString(20) . '.' . $imageFileType;
+            $image_produit = $uploadDir . $newFileName;
 
-        $query->execute();
+            if (move_uploaded_file($_FILES['image_produit']['tmp_name'], $image_produit)) {
+                $sql = "INSERT INTO produits (reference, marque, categorie_id, couleur, matiere, motif, description, quantite, prix_ht, image_produit, alt)
+                    VALUES (:reference, :marque, :categorie_id, :couleur, :matiere, :motif, :description, :quantite, :prix_ht, :image_produit, :alt)";
 
-        $_SESSION["message"] = "Article ajouté";
-        header("Location: ./dashboard_produits.php");
-        exit;
+                $query = $db->prepare($sql);
+                $query->bindValue(":reference", $reference);
+                $query->bindValue(":marque", $marque);
+                $query->bindValue(":categorie_id", $categorie_id);
+                $query->bindValue(":couleur", $couleur);
+                $query->bindValue(":matiere", $matiere);
+                $query->bindValue(":motif", $motif);
+                $query->bindValue(":description", $description);
+                $query->bindValue(":quantite", $quantite);
+                $query->bindValue(":prix_ht", $prix_ht);
+                $query->bindValue(":image_produit", $image_produit);
+                $query->bindValue(":alt", $alt);
+
+                $query->execute();
+
+                $_SESSION["message"] = "Article ajouté";
+                header("Location: dashboard_produits.php");
+                exit;
+            } else {
+                echo "Erreur lors du téléchargement du fichier.";
+            }
+        } else {
+            throw new Exception("Format de l'image non autorisé.");
+        }
     } else {
         echo "Erreur de connexion à la base de données.";
     }
