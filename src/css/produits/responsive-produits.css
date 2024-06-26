@@ -34,6 +34,8 @@ video {
 .picture-produit {
     width: 90%;
     padding: 5%;
+    display: flex;
+    justify-content: center;
     margin: auto;
 }
 
@@ -44,8 +46,14 @@ video {
     gap: 10px;
 }
 
+.figure-picture-produit {
+    display: flex;
+    flex-direction: column;
+}
+
 .chemin {
     font-size: 0.7rem;
+    margin: auto;
     margin-bottom: 2%;
 }
 
@@ -96,7 +104,7 @@ video {
     text-align: center;
     margin-bottom: 5%;
     background: var(--color-red);
-    height: 50px;
+    height: 70px;
     color: var(--color-white);
     display: flex;
     text-align: center;
