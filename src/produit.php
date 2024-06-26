@@ -7,14 +7,13 @@
     <title>Produit</title>
     <link rel="stylesheet" href="css/produits/responsive-produits.css">
     <link rel="stylesheet" href="css/produits/produits.css">
-    <!-- <link rel="stylesheet" href="css/navBar.css">
-    <link rel="stylesheet" href="css/footer.css"> -->
     <link rel="stylesheet" href="css/navBar.css">
     <link rel="stylesheet" href="css/footer.css">
+
 </head>
 
 <body>
-   <?php include_once("templates/header.php") ?>
+    <?php include_once("templates/header.php") ?>
     <section>
         <main>
             <article class="container-produit">
