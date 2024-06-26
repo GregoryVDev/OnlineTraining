@@ -13,39 +13,58 @@
 
 <body>
     <?php include_once("templates/header.php") ?>
-    <section class="section2">
-        <h2 class="h2-section2-titre">Vous pourriez aimer cela aussi</h2>
-        <div class="container-produit-similaire">
-            <article class="vetement-similaire">
+    <main>
+        <div class="container-categories-vetement">
+            <article class="categories-vetement">
                 <figure>
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
+                    <figcaption>nom du produit</figcaption>
                 </figure>
-                <p>Nom du produit</p>
+                <p>2 couleurs</p>
                 <p>Prix xx€</p>
             </article>
-            <article class="vetement-similaire">
+            <article class="categories-vetement">
                 <figure>
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
+                    <figcaption>nom du produit</figcaption>
                 </figure>
-                <p>Nom du produit</p>
+                <p>2 couleurs</p>
                 <p>Prix xx€</p>
             </article>
-            <article class="vetement-similaire">
+            <article class="categories-vetement">
                 <figure>
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
+                    <figcaption>nom du produit</figcaption>
                 </figure>
-                <p>Nom du produit</p>
+                <p>2 couleurs</p>
                 <p>Prix xx€</p>
             </article>
-            <article class="vetement-similaire">
+            <article class="categories-vetement">
                 <figure>
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
+                    <figcaption>nom du produit</figcaption>
                 </figure>
-                <p>Nom du produit</p>
+                <p>2 couleurs</p>
+                <p>Prix xx€</p>
+            </article>
+            <article class="categories-vetement">
+                <figure>
+                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
+                    <figcaption>nom du produit</figcaption>
+                </figure>
+                <p>2 couleurs</p>
+                <p>Prix xx€</p>
+            </article>
+            <article class="categories-vetement">
+                <figure>
+                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
+                    <figcaption>nom du produit</figcaption>
+                </figure>
+                <p>2 couleurs</p>
                 <p>Prix xx€</p>
             </article>
         </div>
-    </section>
+    </main>
     <?php include_once("templates/footer.php") ?>
 </body>
 

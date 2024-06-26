@@ -17,14 +17,14 @@
     <section>
         <main>
             <article class="container-produit">
-                <figure>
+                <figure class="order">
                     <img class="picture-produit" src="img/exemple_produit.jpg" alt="exemple produit">
+                    <figcaption>Accueil / robe / nom de la robe (chemin)</figcaption>
                 </figure>
                 <div class="container-information-produit">
-                    <p class="chemin">Accueil / robe / nom de la robe (chemin)</p>
                     <h1 class="h1-produit-name">Nom du produit</h1>
                     <p class="prix">Prix xx€</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur
+                    <p class="text">Lorem ipsum, dolor sit amet consectetur
                         adipisicing elit. Amet
                         ratione nesciunt suscipit
                         deserunt hic asperiores cum quos rem, maxime nisi odio obcaecati, natus animi ex dolore debitis

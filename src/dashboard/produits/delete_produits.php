@@ -11,6 +11,14 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     $query->execute();
     $produits = $query->fetch();
 
+    // Récupération des chemins des images à supprimer
+    $image_produit = $produits['image_produit'];
+
+    // Suppression des images si elles existent
+    if (!empty($image_produit) && file_exists($image_produit)) {
+        if (unlink($image_produit));
+    }
+
     if ($produits) {
         $sql = "DELETE FROM produits WHERE id = :id";
         $query = $db->prepare($sql);

@@ -1,26 +1,47 @@
-.section2 {
+:root {
+    --color-red: #D31E44;
+    --color-black: #202020;
+    --color-white: #ffffff;
+    --color-grey: #afafaf;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    font-family: sans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+/* end reset */
+main {
     margin-top: 5%;
     margin-bottom: 10%;
 }
 
-.h2-section2-titre {
-    text-align: center;
-    margin-bottom: 5%;
-    background: var(--color-red);
-    height: 70px;
-    color: var(--color-white);
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-}
-
-.container-produit-similaire {
+.container-categories-vetement {
     display: flex;
     flex-wrap: wrap;
+    margin: 2% 2% 2% 2%;
 }
 
-.vetement-similaire {
+.categories-vetement {
     width: 40%;
     margin: auto;
     margin-top: 3%;
