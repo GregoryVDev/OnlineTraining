@@ -68,10 +68,6 @@ input {
   margin-top: 10px;
 }
 
-.container-image img {
-  display: none;
-}
-
 .connexion-button {
   display: flex;
   justify-content: center;
