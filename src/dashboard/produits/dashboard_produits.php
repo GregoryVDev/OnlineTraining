@@ -90,7 +90,7 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
                             <a href="user.php?id=<?= $produit["id"] ?>">voir</a>
                             </dt>
                         <td>
-                            <a href="update.php?id=<?= $produit["id"] ?>">Modifier</a>
+                            <a href="update_produits.php?id=<?= $produit["id"] ?>">Modifier</a>
                         </td>
                         <td>
                             <a href="./delete_produits.php?id=<?= $produit["id"] ?>">Supprimer</a>
