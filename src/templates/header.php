@@ -7,13 +7,11 @@
             <input type="checkbox" id="menuBurger">
             <ul id="menuCategories">
                 <li>CATEGORIES</li>
-                <li><a href="">TOP, TEE-SHIRT</li>
-                <li><a href="">CHEMISIER, BLOUSE</li>
-                <li><a href="">PULL, GILET</a></li>
-                <li><a href="">JUPE, SHORT</a></li>
-                <li><a href="">ROBE, COMBINAISON</a></li>
-                <li><a href="">PANTALON, LEGGING</a></li>
-                <li><a href="">HOMEWEAR, SPORTWEAR</a></li>
+                <li><a href="">Pantalon</li>
+                <li><a href="">Pantalon Chino</li>
+                <li><a href="">Polo Manches Courtes</a></li>
+                <li><a href="">Polo Manches Longues</a></li>
+                <li><a href="">Short</a></li>
             </ul>
             <div id="promo">
                 <img src="../img/footer/facebook.png">
