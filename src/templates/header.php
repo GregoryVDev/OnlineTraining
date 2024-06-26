@@ -3,7 +3,7 @@
 <nav>
     <div class="navbar">
         <div class="navBar_gauche">
-            <label for="menuBurger"><img src="./img/navBar/menuBurger.png" width="20px" alt="Menu"></label>
+            <label for="menuBurger"><img src="./img/navBar/menuBurger.png" alt="Menu"></label>
             <input type="checkbox" id="menuBurger">
             <ul id="menuCategories">
                 <li>CATEGORIES</li>

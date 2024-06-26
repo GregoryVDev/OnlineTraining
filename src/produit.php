@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <!-- include_once("templates/header.php") -->
+   <?php include_once("templates/header.php") ?>
     <section>
         <main>
             <article class="container-produit">
@@ -88,7 +88,8 @@
             </article>
         </div>
     </section>
-    <!-- include_once("templates/footer.php") -->
+    <?php include_once("templates/footer.php") ?>
+
 </body>
 
 </html>
