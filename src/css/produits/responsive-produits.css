@@ -37,6 +37,12 @@ video {
     display: flex;
     justify-content: center;
     margin: auto;
+    order: 2;
+}
+
+.order {
+    display: flex;
+    flex-direction: column;
 }
 
 .container-information-produit {
@@ -91,6 +97,10 @@ video {
     display: flex;
     justify-content: center;
     margin-top: 5%;
+}
+
+.text {
+    text-align: justify;
 }
 
 /* end section 1 */

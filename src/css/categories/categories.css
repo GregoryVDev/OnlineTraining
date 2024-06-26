@@ -1,0 +1,16 @@
+:root {
+    --color-red: #D31E44;
+    --color-black: #202020;
+    --color-white: #ffffff;
+}
+
+@media (min-width: 700px) {
+    .container-categories-vetement {
+        width: 80%;
+        margin: auto;
+    }
+
+    .categories-vetement {
+        width: 30%;
+    }
+}
