@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+
+function validateEmail($email)
+{
+    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+}
+
 // On vérifie si le formulaire a été envoyé
 if (!empty($_POST)) {
     // Le formulaire a été envoyé
@@ -11,7 +19,27 @@ if (!empty($_POST)) {
         // On récupère les données en les protégeants
         $nom = strip_tags($_POST["nom"]);
         $prenom = strip_tags($_POST["prenom"]);
-        $email = strip_tags($_POST["email"]);
+
+        if (!validateEmail($_POST["email"])) {
+            die("L'adresse email est incorrecte");
+        }
+
+        // Confirmation des mdp
+        if (isset($_POST["pass"]) && isset($_POST["pass2"])) {
+            $pass = $_POST["pass"];
+            $pass2 = $_POST["pass2"];
+        }
+
+
+        if ($pass === $pass2) {
+            // On hash le mdp
+            $pass = password_hash($_POST["pass"], PASSWORD_ARGON2ID);
+        }
+
+        // On enregistre en bdd
+        require_once("./connect.php");
+
+        $sql = "INSERT INTO users (nom, prenom, email, password, roles, adresse) VALUES (:nom, :prenom, :email, '$pass', :adresse, '[\"ROLE_USER\"]')";
     } else {
         die("Le formulaire est incomplet");
     }
