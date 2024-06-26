@@ -45,6 +45,7 @@
     .container-information-produit {
         margin-top: 2%;
         gap: 7%;
+        width: 50%;
     }
 
     .vetement-similaire {
@@ -52,6 +53,10 @@
     }
 
     .container-produit {
-        width: 90%;
+        width: 60%;
+    }
+
+    .text {
+        text-justify: inter-word;
     }
 }
