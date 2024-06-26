@@ -48,17 +48,17 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
         <table class="tb">
             <thead>
                 <th>id</th>
-                <th>reference</th>
-                <th>marque</th>
-                <th>categorie_id</th>
-                <th>couleur</th>
-                <th>matiere</th>
-                <th>motif</th>
-                <th>description</th>
-                <th>image_produit</th>
+                <th>Reference</th>
+                <th>Marque</th>
+                <th>Categorie_id</th>
+                <th>Couleur</th>
+                <th>Matiere</th>
+                <th>Motif</th>
+                <th>Description</th>
+                <th>Quantite</th>
+                <th>Prix HT</th>
+                <th>Image</th>
                 <th>alt</th>
-                <th>quantite</th>
-                <th>prix HT</th>
                 <th>Voir</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
@@ -81,10 +81,10 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= $produit["matiere"] ?></td>
                         <td><?= $produit["motif"] ?></td>
                         <td><?= $produit["description"] ?></td>
-                        <td><?= $produit["image_produit"] ?></td>
-                        <td><?= $produit["alt"] ?></td>
                         <td><?= $produit["quantite"] ?></td>
                         <td><?= $produit["prix_ht"] ?></td>
+                        <td><img src="<?= $produit["image_produit"] ?>" alt="<?= $produit["alt"] ?>" width='120px' height='159px'></td>
+                        <td><?= $produit["alt"] ?></td>
 
                         <td>
                             <a href="user.php?id=<?= $produit["id"] ?>">voir</a>
