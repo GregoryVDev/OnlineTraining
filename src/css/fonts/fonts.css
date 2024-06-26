@@ -1,4 +1,9 @@
 @font-face {
-    font-family: back-to-the-future;
-    src: url(/font/BackToTheFuture/BTTF.ttf);
+    font-family: QuickKissPersonalUse-PxlZ;
+    src: url('QuickKissPersonalUse-PxlZ.ttf')
+}
+
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('Poppins-Regular.ttf')
 }
