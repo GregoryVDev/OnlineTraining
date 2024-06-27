@@ -16,92 +16,76 @@
     <main>
         <div class="container-categories-vetement">
             <article class="categories-vetement">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
             <article class="categories-vetement">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
             <article class="categories-vetement">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
             <article class="categories-vetement">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
             <article class="categories-vetement">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
             <article class="categories-vetement">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
             <article class="categories-vetement">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
             <article class="categories-vetement">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
-            </article>
-            <article class="categories-vetement">
-                <figure>
-                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
-                    <figcaption>nom du produit</figcaption>
-                </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
-            </article>
-            <article class="categories-vetement">
-                <figure>
-                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
-                    <figcaption>nom du produit</figcaption>
-                </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
-            </article>
-            <article class="categories-vetement">
-                <figure>
-                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
-                    <figcaption>nom du produit</figcaption>
-                </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
         </div>
     </main>

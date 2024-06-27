@@ -55,3 +55,36 @@ figcaption {
 p {
     font-size: 1.1rem;
 }
+
+.vetement-similaire-prix,
+.vetement-similaire-titre,
+.vetement-similaire-couleur {
+    font-family: var(--font-Poppins);
+}
+
+.vetement-similaire-titre {
+    font-size: 1.2rem;
+}
+
+.vetement-similaire-prix,
+.vetement-similaire-couleur {
+    font-size: 0.9rem;
+}
+
+
+.vetement-similaire {
+    width: 40%;
+    margin: auto;
+    margin-top: 3%;
+}
+
+.vetement-similaire-figure {
+    position: relative;
+}
+
+.panier {
+    width: 10%;
+    position: absolute;
+    top: 5%;
+    left: 85%;
+}

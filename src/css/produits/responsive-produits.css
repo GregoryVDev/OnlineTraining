@@ -3,6 +3,7 @@
     --color-black: #202020;
     --color-white: #ffffff;
     --color-grey: #afafaf;
+    --font-Poppins: Poppins-Regular;
 }
 
 *::before,
@@ -14,7 +15,6 @@
     margin: 0;
     padding: 0;
     font: inherit;
-    font-family: sans-serif;
 }
 
 body {
@@ -30,6 +30,9 @@ video {
 }
 
 /* end reset */
+main {
+    margin-top: 3%;
+}
 
 .picture-produit {
     width: 90%;
@@ -43,6 +46,10 @@ video {
 .order {
     display: flex;
     flex-direction: column;
+}
+
+figcaption {
+    font-family: var(--font-Poppins);
 }
 
 .container-information-produit {
@@ -67,9 +74,13 @@ video {
     font-size: 1.5rem;
     font-weight: bolder;
     text-align: center;
+    color: var(--color-black);
+    text-transform: uppercase;
 }
 
-.prix {}
+.prix {
+    font-family: var(--font-Poppins);
+}
 
 .taille,
 .couleur {
@@ -77,11 +88,17 @@ video {
     flex-direction: column;
 }
 
+.taille p,
+.couleur p {
+    font-family: var(--font-Poppins);
+}
+
 .taille select,
 .couleur select {
     padding: 2%;
     border: 0.5px solid;
     border-radius: 20px;
+    font-family: var(--font-Poppins);
 }
 
 .btn-produit {
@@ -97,10 +114,12 @@ video {
     display: flex;
     justify-content: center;
     margin-top: 5%;
+    font-family: var(--font-Poppins);
 }
 
 .text {
     text-align: justify;
+    font-family: var(--font-Poppins);
 }
 
 /* end section 1 */
@@ -120,6 +139,7 @@ video {
     text-align: center;
     align-items: center;
     justify-content: center;
+    font-family: var(--font-Poppins);
 }
 
 .container-produit-similaire {
@@ -127,8 +147,35 @@ video {
     flex-wrap: wrap;
 }
 
+.vetement-similaire-prix,
+.vetement-similaire-titre,
+.vetement-similaire-couleur {
+    font-family: var(--font-Poppins);
+}
+
+.vetement-similaire-titre {
+    font-size: 1.2rem;
+}
+
+.vetement-similaire-prix,
+.vetement-similaire-couleur {
+    font-size: 0.9rem;
+}
+
+
 .vetement-similaire {
     width: 40%;
     margin: auto;
     margin-top: 3%;
+}
+
+.vetement-similaire-figure {
+    position: relative;
+}
+
+.panier {
+    width: 10%;
+    position: absolute;
+    top: 5%;
+    left: 85%;
 }
