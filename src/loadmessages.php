@@ -7,7 +7,7 @@ require_once("./connect.php");
 
 $current_user_id = $_SESSION["user"]["user_id"];
 
-$sql = "SELECT *, DATE_FORMAT(CONVERT_TZ(time, '+01:00', '+02:00'), '%d/%m/%y %H:%i') AS formatted_time FROM messagerie ORDER BY time DESC";
+$sql = "SELECT *, DATE_FORMAT(CONVERT_TZ(time, '+01:00', '+02:00'), '%H:%i') AS formatted_time FROM messagerie ORDER BY time DESC";
 $query = $db->prepare($sql);
 $query->execute();
 
