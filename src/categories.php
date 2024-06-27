@@ -35,7 +35,6 @@
                 <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
-                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
                 <p class="vetement-similaire-couleur">2 couleurs</p>
                 <p class="vetement-similaire-prix">Prix xx€</p>
@@ -52,7 +51,6 @@
                 <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
-                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
                 <p class="vetement-similaire-couleur">2 couleurs</p>
                 <p class="vetement-similaire-prix">Prix xx€</p>
@@ -61,7 +59,6 @@
                 <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
-                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
                 <p class="vetement-similaire-couleur">2 couleurs</p>
                 <p class="vetement-similaire-prix">Prix xx€</p>
@@ -70,7 +67,6 @@
                 <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
-                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
                 <p class="vetement-similaire-couleur">2 couleurs</p>
                 <p class="vetement-similaire-prix">Prix xx€</p>
@@ -79,7 +75,6 @@
                 <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
-                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
                 <p class="vetement-similaire-couleur">2 couleurs</p>
                 <p class="vetement-similaire-prix">Prix xx€</p>
@@ -88,7 +83,6 @@
                 <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
-                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
                 <p class="vetement-similaire-couleur">2 couleurs</p>
                 <p class="vetement-similaire-prix">Prix xx€</p>
@@ -97,7 +91,6 @@
                 <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
-                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
                 <p class="vetement-similaire-couleur">2 couleurs</p>
                 <p class="vetement-similaire-prix">Prix xx€</p>
@@ -106,7 +99,6 @@
                 <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
-                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
                 <p class="vetement-similaire-couleur">2 couleurs</p>
                 <p class="vetement-similaire-prix">Prix xx€</p>

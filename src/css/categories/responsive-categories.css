@@ -108,10 +108,3 @@ figcaption {
 .vetement-similaire-figure {
     position: relative;
 }
-
-.panier {
-    width: 10%;
-    position: absolute;
-    top: 5%;
-    left: 85%;
-}
