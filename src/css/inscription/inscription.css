@@ -95,3 +95,7 @@ input {
   gap: 10px;
   justify-content: center;
 }
+
+p {
+  font-size: 0.9em;
+}
