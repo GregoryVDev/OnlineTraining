@@ -12,7 +12,7 @@ $categories = ['Robe/Combinaison', 'Top/Tee-Shirt', 'Chemisier/Blouse', 'Jupe/Sh
 $noms_categories = [];
 
 foreach ($categories as $categorie) {
-    $sql = "SELECT * FROM `produits` WHERE `image_produit` LIKE ? ORDER BY `categorie_id` DESC";
+    $sql = "SELECT * FROM `produits` WHERE `categorie_id` LIKE ? ORDER BY `categorie_id` DESC";
     $query = $db->prepare($sql);
     $query->execute([$categorie]);
     $noms_categories[$categorie] = $query->fetch(PDO::FETCH_ASSOC);
