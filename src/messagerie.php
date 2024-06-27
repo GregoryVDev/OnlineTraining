@@ -1,7 +1,8 @@
 <?php
 
-session_start();
+date_default_timezone_set('Europe/Paris');
 
+session_start();
 require_once("./connect.php");
 
 // On vérifie si dans $_POST valider existe
@@ -16,7 +17,7 @@ if (isset($_POST["valider"])) {
         $user_id = $_SESSION["user"]["user_id"];
 
 
-        $sql = "INSERT INTO messagerie (nom, prenom, message, user_id, time) VALUES (:nom, :prenom, :message, :user_id, NOW())";
+        $sql = "INSERT INTO messagerie (nom, prenom, message, user_id, time) VALUES (:nom, :prenom, :message, :user_id, CONVERT_TZ(NOW(), '+00:00', '+02:00'))"; // Convertit l'heure actuelle de UTC+0 à UTC+2        
         $query = $db->prepare($sql);
 
         $query->bindValue(":nom", $nom);
