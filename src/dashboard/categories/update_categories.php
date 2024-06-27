@@ -2,29 +2,27 @@
 session_start();
 require_once("../../connect.php");
 
+$error = null;
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (
         isset($_POST["id"]) && !empty($_POST["id"])
         && isset($_POST["type"]) && !empty($_POST["type"])
-
     ) {
         $id = htmlspecialchars($_POST["id"]);
         $type = htmlspecialchars($_POST["type"]);
 
-
         $sql = "UPDATE categories SET type = :type WHERE id = :id";
 
         $query = $db->prepare($sql);
-
         $query->bindValue(":id", $id, PDO::PARAM_INT);
         $query->bindValue(":type", $type, PDO::PARAM_STR);
-
-
         $query->execute();
 
         header("Location: dashboard_categories.php");
+        exit;
     } else {
-        echo "Remplissez TOUS les formulaires SVP !";
+        $error = "Remplissez TOUS les formulaires SVP !";
     }
 }
 
@@ -32,7 +30,6 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     $id = strip_tags($_GET["id"]);
 
     $sql = "SELECT * FROM categories WHERE id = :id";
-
     $query = $db->prepare($sql);
     $query->bindValue(":id", $id, PDO::PARAM_INT);
     $query->execute();
@@ -40,10 +37,12 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     $user = $query->fetch();
 
     if (!$user) {
-        header("Location: dashboard_categories.php");
+        echo "Catégorie non trouvée.";
+        exit;
     }
 } else {
     header("Location: dashboard_categories.php");
+    exit;
 }
 ?>
 
@@ -61,16 +60,18 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
 
     <div class="conteneur_login">
         <div class="conteneur_form_form">
-            <h1>Modifier <?= $user["type"] ?>:</h1>
+            <h1>Modifier <?= htmlspecialchars($user["type"]) ?>:</h1>
+            <?php if ($error) : ?>
+                <p style="color: red;"><?= htmlspecialchars($error) ?></p>
+            <?php endif; ?>
             <form method="post">
 
-                <label for="type">categorie du produit:</label>
-                <input type="text" name="type" value="<?= $user["type"] ?>" required>
+                <label for="type">Catégorie du produit:</label>
+                <input type="text" name="type" value="<?= htmlspecialchars($user["type"]) ?>" required>
                 <br>
                 <br>
 
-                <input type="hidden" name="id" value="<?= $user["id"] ?>" required>
-
+                <input type="hidden" name="id" value="<?= htmlspecialchars($user["id"]) ?>" required>
 
                 <button class="login-btn" type="submit" class="Btn_add">Modifier</button>
                 <br>

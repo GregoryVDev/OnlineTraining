@@ -34,11 +34,12 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
+    <?php
+    include '../../templates/navbar_dashboard.php';
+    ?>
     <section class="dashboard">
 
-        <?php
-        include '../../templates/navbar_dashboard.php';
-        ?>
+
 
         <br>
         <br>
@@ -95,7 +96,7 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
 
                 <div>
 
-                    <a classe="deco" href="../produits/form_produits.php"><button class="dashboard-btn">Ajouter un produit</button></a>
+                    <a classe="deco" href="../produits/create_produits.php"><button class="dashboard-btn">Ajouter un produit</button></a>
                     <br>
                     <br>
 

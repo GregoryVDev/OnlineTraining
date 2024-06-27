@@ -127,6 +127,9 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
 </head>
 
 <body>
+    <?php
+    include '../../templates/navbar_dashboard.php';
+    ?>
     <div class="conteneur_login">
         <div class="conteneur_form_form">
             <h1>Modifier <?= htmlspecialchars($user["reference"]) ?>:</h1>
@@ -179,10 +182,10 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
                 <br>
 
                 <label for="quantite">Quantité:</label>
-                <input type="text" id="quantite" name="quantite" value="<?= htmlspecialchars($user["quantite"]) ?>" required>
+                <input type="number" id="quantite" name="quantite" value="<?= htmlspecialchars($user["quantite"]) ?>" required min="0">
                 <br>
                 <label for="prix_ht">Prix HT:</label>
-                <input type="text" id="prix_ht" name="prix_ht" value="<?= htmlspecialchars($user["prix_ht"]) ?>" required>
+                <input type="number" id="prix_ht" name="prix_ht" value="<?= htmlspecialchars($user["prix_ht"]) ?>" required min="0">
                 <br>
                 <br>
                 <input type="hidden" name="id" value="<?= htmlspecialchars($user["id"]) ?>" required>
