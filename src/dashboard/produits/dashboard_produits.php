@@ -50,6 +50,7 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
             <thead>
                 <th>Image</th>
                 <th>alt</th>
+                <th>Nom</th>
                 <th>Genre</th>
                 <th>Reference</th>
                 <th>Marque</th>
@@ -58,6 +59,7 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
                 <th>Matiere</th>
                 <th>Motif</th>
                 <th>Description</th>
+                <th>taille</th>
                 <th>Quantite</th>
                 <th>Prix HT</th>
                 <th>Actions</th>
@@ -72,6 +74,7 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
                     <tr>
                         <td><img src="<?= $produit["image_produit"] ?>" alt="<?= $produit["alt"] ?>" width='120px' height='159px'></td>
                         <td><?= $produit["alt"] ?></td>
+                        <td><?= $produit["nom_produit"] ?></td>
                         <td><?= $produit["genre"] ?></td>
                         <td><?= $produit["reference"] ?></td>
                         <td><?= $produit["marque"] ?></td>
@@ -80,6 +83,7 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= $produit["matiere"] ?></td>
                         <td><?= $produit["motif"] ?></td>
                         <td><?= $produit["description"] ?></td>
+                        <td><?= $produit["taille"] ?></td>
                         <td><?= $produit["quantite"] ?></td>
                         <td><?= $produit["prix_ht"] ?> €</td>
 
