@@ -3,12 +3,14 @@
         <div class="navBar_gauche">
             <div id="menuBurger"><img src="./img/navBar/menuBurger.png" alt="Menu"></div>
             <ul id="menuCategories">
-                <li>CATALOGUE</li>
-                <li><a href="#">Pantalon</a></li>
-                <li><a href="#">Pantalon Chino</a></li>
+                <hr>
+                <li class="catalogueRouge"><b>CATALOGUE</b></li>
+                <hr>
                 <li><a href="#">Polo Manches Courtes</a></li>
                 <li><a href="#">Polo Manches Longues</a></li>
                 <li><a href="#">Short</a></li>
+                <li><a href="#">Pantalon Chino</a></li>
+                <li><a href="#">Pantalon</a></li>
             </ul>
 
         </div>
@@ -19,7 +21,16 @@
             <div><a class="menuNoir" href="#">NOUVEAUTES</a></div>
             <div><a class="menuRouge" href="#">FEMMME</a></div>
             <div><a class="menuRouge" href="#">HOMME</a></div>
-            <div><a class="menuNoir" href="#">CATALOGUE</a></div>
+            <div><a class="menuNoir" href="#">CATALOGUE</a>
+            <ul id="menuCatalogue">
+                <li><a href="#">Polo Manches Courtes</a></li>
+                <li><a href="#">Polo Manches Longues</a></li>
+                <li><a href="#">Short</a></li>
+                <li><a href="#">Pantalon Chino</a></li>
+                <li><a href="#">Pantalon</a></li>
+            </ul>
+
+        </div>
         </div>
         <div class="navBar_droite">
             <div><a href="#"><img src="./img/navBar/iconSearch.png" alt="Rechercher"></a></div>

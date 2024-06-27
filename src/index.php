@@ -8,11 +8,11 @@ $query->execute();
 $news = $query->fetchAll(PDO::FETCH_ASSOC);
 
 // Récupérer les noms de table categories
-$categories = ['Robe/Combinaison', 'Top/Tee-Shirt', 'Chemisier/Blouse', 'Jupe/Short', 'Pull/Gilet', 'Pantalon/Legging'];
+$categories = ['Polo manches longues', 'Polo manches courtes', 'Short', 'Pantalon Chinot', 'Pantalon'];
 $noms_categories = [];
 
 foreach ($categories as $categorie) {
-    $sql = "SELECT * FROM `produits` WHERE `categorie_id` LIKE ? ORDER BY `categorie_id` DESC";
+    $sql = "SELECT image_produit FROM `produits` WHERE `categorie_id` = ? ORDER BY `categorie_id` DESC";
     $query = $db->prepare($sql);
     $query->execute([$categorie]);
     $noms_categories[$categorie] = $query->fetch(PDO::FETCH_ASSOC);
@@ -30,6 +30,65 @@ foreach ($categories as $categorie) {
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/fonts/fonts.css">
     <link rel="stylesheet" href="./css/index/index.css">
+    <style>
+    html {
+        overflow: -moz-scrollbars-none;
+        /* Firefox */
+    }
+
+    html::-webkit-scrollbar {
+        display: none;
+        /* Safari and Chrome */
+    }
+
+    .wrap h2:first-of-type {
+        margin: 5% 0%;
+    }
+
+    .nouveautes {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 1%;
+    }
+
+    .ligne {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carte {
+        flex: 0 0 auto;
+        margin: 0 5px;
+    }
+
+    .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .arrow-left {
+        left: 10px;
+    }
+
+    .arrow-right {
+        right: 10px;
+    }
+
+    .categories {
+        display: flex;
+        justify-content: center;
+        gap: 1%;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+    </style>
 </head>
 
 <body>
@@ -61,7 +120,7 @@ foreach ($categories as $categorie) {
                 <h2 class="news"><?= $categorie ?></h2>
                 <?php if (isset($noms_categories[$categorie])): ?>
                 <div class="pad_carte">
-                    <a href="<?= $categorie ?>.php?id=<?=$noms_categories[$categorie]["id"]?>">
+                    <a href="categories.php?=<?=$noms_categories[$categorie]["id"]?>">
                         <img src="<?=$noms_categories[$categorie]['image_produit'] ?>"
                             alt="<?= $noms_categories[$categorie]['alt'] ?>">
                     </a>
@@ -76,6 +135,52 @@ foreach ($categories as $categorie) {
 
     ?>
     <a href="./dashboard/produits/dashboard_produits.php">DASHBOARD</a>
+
+    <script>
+    const ligne = document.querySelector('.ligne');
+    const cards = document.querySelectorAll('.carte');
+    const leftArrow = document.querySelector('.arrow-left');
+    const rightArrow = document.querySelector('.arrow-right');
+    let index = 0;
+
+    function showNextImage() {
+        index++;
+        updateCarousel();
+    }
+
+    function showPreviousImage() {
+        index--;
+        updateCarousel();
+    }
+
+    function updateCarousel() {
+        const translateX = -index * (cards[0].clientWidth + 20);
+        ligne.style.transition = 'transform 0.5s ease-in-out';
+        ligne.style.transform = `translateX(${translateX}px)`;
+
+        // Looping logic
+        if (index >= cards.length / 2) {
+            setTimeout(() => {
+                ligne.style.transition = 'none';
+                index = 0;
+                const resetTranslateX = -index * (cards[0].clientWidth + 20);
+                ligne.style.transform = `translateX(${resetTranslateX}px)`;
+            }, 500);
+        } else if (index < 0) {
+            setTimeout(() => {
+                ligne.style.transition = 'none';
+                index = cards.length / 2 - 1;
+                const resetTranslateX = -index * (cards[0].clientWidth + 20);
+                ligne.style.transform = `translateX(${resetTranslateX}px)`;
+            }, 500);
+        }
+    }
+
+    leftArrow.addEventListener('click', showPreviousImage);
+    rightArrow.addEventListener('click', showNextImage);
+
+    setInterval(showNextImage, 5200);
+    </script>
 </body>
 
 </html>

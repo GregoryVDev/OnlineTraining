@@ -17,28 +17,33 @@
     position: relative;
 }
 
-#menuCategories {
+#menuCategories, #menuCatalogue {
     display: none; 
     position: absolute;
-    top: calc(100% + 10px);
-    left: 0;
+    top: calc(100% + 20px);
+    left: -20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    /* padding: 10px; */
     border-radius: 5px;
     z-index: 10; 
-    width: 190px;
+    width: 100vw;
+    text-align: center;
 }
 
+.catalogueRouge {
+    padding-top: 5px;
+    color: #D31E44;
+}
 
-#menuCategories.active {
+#menuCategories.active, #menuCatalogue.active {
     display: block; 
 }
 
 #menuCategories li {
     list-style-type: none;
     margin-bottom: 5px;
-    text-align: left;
+
 }
 
 #menuCategories li a {
@@ -162,12 +167,12 @@
         padding: 20px;
     }
 
-    .navBar_droite, .navBar_gauche {
-        width: 70px;
+    .navBar_gauche img {
+        width: 25px;
     }
 
-    .navBar_gauche > label > img {
-        width: 20px;
+    .navBar_droite, .navBar_gauche {
+        width: 70px;
     }
 
     .navBar_droite div img {
