@@ -16,6 +16,8 @@ function generateRandomString($length = 20)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (
         isset($_POST["id"]) && !empty($_POST["id"])
+        && isset($_POST["alt"]) && !empty($_POST["alt"])
+        && isset($_POST["genre"]) && !empty($_POST["genre"])
         && isset($_POST["reference"]) && !empty($_POST["reference"])
         && isset($_POST["marque"]) && !empty($_POST["marque"])
         && isset($_POST["categorie_id"]) && !empty($_POST["categorie_id"])
@@ -23,11 +25,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         && isset($_POST["matiere"]) && !empty($_POST["matiere"])
         && isset($_POST["motif"]) && !empty($_POST["motif"])
         && isset($_POST["description"]) && !empty($_POST["description"])
-        && isset($_POST["alt"]) && !empty($_POST["alt"])
         && isset($_POST["quantite"]) && !empty($_POST["quantite"])
         && isset($_POST["prix_ht"]) && !empty($_POST["prix_ht"])
     ) {
         $id = htmlspecialchars($_POST["id"]);
+        $alt = htmlspecialchars($_POST["alt"]);
+        $genre = htmlspecialchars($_POST["genre"]);
         $reference = htmlspecialchars($_POST["reference"]);
         $marque = htmlspecialchars($_POST["marque"]);
         $categorie_id = htmlspecialchars($_POST["categorie_id"]);
@@ -35,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $matiere = htmlspecialchars($_POST["matiere"]);
         $motif = htmlspecialchars($_POST["motif"]);
         $description = htmlspecialchars($_POST["description"]);
-        $alt = htmlspecialchars($_POST["alt"]);
         $quantite = htmlspecialchars($_POST["quantite"]);
         $prix_ht = htmlspecialchars($_POST["prix_ht"]);
 
@@ -67,13 +69,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
 
-        $sql = "UPDATE produits SET reference = :reference, marque = :marque, categorie_id = :categorie_id, couleur = :couleur,
-                matiere = :matiere, motif = :motif, description = :description, image_produit = :image_produit, alt = :alt, quantite = :quantite,
+        $sql = "UPDATE produits SET image_produit = :image_produit, alt = :alt, genre = :genre, reference = :reference, marque = :marque, categorie_id = :categorie_id, couleur = :couleur,
+                matiere = :matiere, motif = :motif, description = :description,  quantite = :quantite,
                 prix_ht = :prix_ht WHERE id = :id";
 
         $query = $db->prepare($sql);
 
         $query->bindValue(":id", $id, PDO::PARAM_INT);
+        $query->bindValue(":image_produit", $image_produit, PDO::PARAM_STR);
+        $query->bindValue(":alt", $alt, PDO::PARAM_STR);
+        $query->bindValue(":genre", $genre, PDO::PARAM_STR);
         $query->bindValue(":reference", $reference, PDO::PARAM_STR);
         $query->bindValue(":marque", $marque, PDO::PARAM_STR);
         $query->bindValue(":categorie_id", $categorie_id, PDO::PARAM_INT);
@@ -81,8 +86,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $query->bindValue(":matiere", $matiere, PDO::PARAM_STR);
         $query->bindValue(":motif", $motif, PDO::PARAM_STR);
         $query->bindValue(":description", $description, PDO::PARAM_STR);
-        $query->bindValue(":image_produit", $image_produit, PDO::PARAM_STR);
-        $query->bindValue(":alt", $alt, PDO::PARAM_STR);
         $query->bindValue(":quantite", $quantite, PDO::PARAM_INT);
         $query->bindValue(":prix_ht", $prix_ht, PDO::PARAM_STR);
 
@@ -112,11 +115,7 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     header("Location: dashboard_produits.php");
 }
 ?>
-```
 
-### HTML (formulaire_modification.php)
-
-```html
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -132,6 +131,20 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
         <div class="conteneur_form_form">
             <h1>Modifier <?= htmlspecialchars($user["reference"]) ?>:</h1>
             <form method="post" enctype="multipart/form-data">
+                <label for="image_produit">Image:</label>
+                <input type="file" id="image_produit" name="image_produit">
+                <input type="hidden" name="image_produit_current" value="<?= htmlspecialchars($user["image_produit"]) ?>">
+                <br>
+                <label for="alt">Description de l'image:</label>
+                <input type="text" id="alt" name="alt" value="<?= htmlspecialchars($user["alt"]) ?>" required>
+                <br>
+                <label for="genre">Genre:</label>
+                <select id="genre" name="genre" required>
+                    <option value="<?= htmlspecialchars($user["genre"]) ?>"><?= htmlspecialchars($user["genre"]) ?></option>
+                    <option value="Homme">Homme</option>
+                    <option value="Femme">Femme</option>
+                </select>
+                <br>
                 <label for="reference">Référence:</label>
                 <input type="text" id="reference" name="reference" value="<?= htmlspecialchars($user["reference"]) ?>" required>
                 <br>
@@ -164,13 +177,7 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
                 <label for="description">Description:</label>
                 <input type="text" id="description" name="description" value="<?= htmlspecialchars($user["description"]) ?>" required>
                 <br>
-                <label for="image_produit">Image:</label>
-                <input type="file" id="image_produit" name="image_produit">
-                <input type="hidden" name="image_produit_current" value="<?= htmlspecialchars($user["image_produit"]) ?>">
-                <br>
-                <label for="alt">Description de l'image:</label>
-                <input type="text" id="alt" name="alt" value="<?= htmlspecialchars($user["alt"]) ?>" required>
-                <br>
+
                 <label for="quantite">Quantité:</label>
                 <input type="text" id="quantite" name="quantite" value="<?= htmlspecialchars($user["quantite"]) ?>" required>
                 <br>

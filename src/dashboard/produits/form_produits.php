@@ -17,6 +17,19 @@
             <h1>AJOUTER UN PRODUIT: </h1>
             <form action="./create_produits.php" method="post" enctype="multipart/form-data">
 
+                <label for="image_produit">Image:</label>
+                <input type="file" id="image_produit" name="image_produit" value="">
+                <br>
+                <label for="alt">Description de l'image:</label>
+                <input type="text" id="alt" name="alt" required>
+                <br>
+                <label for="genre">Genre:</label>
+                <select id="genre" name="genre" required>
+                    <option value="">Sélectionnez un Genre</option>
+                    <option value="Homme">Homme</option>
+                    <option value="Femme">Femme</option>
+                </select>
+                <br>
                 <label for="reference">Référence:</label>
                 <input type="text" id="reference" name="reference" required>
                 <br>
@@ -54,12 +67,6 @@
                 <br>
                 <label for="prix_ht">Prix HT:</label>
                 <input type="text" id="prix_ht" name="prix_ht" required>
-                <br>
-
-                <input type="file" id="image_produit" name="image_produit" value="">
-                <br>
-                <label for="alt">Description de l'image:</label>
-                <input type="text" id="alt" name="alt" required>
                 <br>
                 <br>
                 <button type="submit" class="login-btn">Ajouter</button>

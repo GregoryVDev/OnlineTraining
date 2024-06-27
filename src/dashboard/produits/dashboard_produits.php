@@ -17,7 +17,7 @@ require_once("../../connect.php");
 // include './element/navbar.php';
 // ? >
 
-$sql = "SELECT * FROM produits";
+$sql = "SELECT p.*, c.type as categorie_type FROM produits p JOIN categories c ON p.categorie_id = c.id";
 $query = $db->prepare($sql);
 $query->execute();
 $produits = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -47,23 +47,19 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
 
         <table class="tb">
             <thead>
-                <th>id</th>
+                <th>Image</th>
+                <th>alt</th>
+                <th>Genre</th>
                 <th>Reference</th>
                 <th>Marque</th>
-                <th>Categorie_id</th>
+                <th>Type</th>
                 <th>Couleur</th>
                 <th>Matiere</th>
                 <th>Motif</th>
                 <th>Description</th>
                 <th>Quantite</th>
                 <th>Prix HT</th>
-                <th>Image</th>
-                <th>alt</th>
-                <th>Voir</th>
-                <th>Modifier</th>
-                <th>Supprimer</th>
-
-
+                <th>Actions</th>
             </thead>
             <tbody>
 
@@ -73,26 +69,22 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
                     // chaque utillisateur de la table $users sera identifié dans le foreach en tant que $user
                 ?>
                     <tr>
-                        <td><?= $produit["id"] ?></td>
+                        <td><img src="<?= $produit["image_produit"] ?>" alt="<?= $produit["alt"] ?>" width='120px' height='159px'></td>
+                        <td><?= $produit["alt"] ?></td>
+                        <td><?= $produit["genre"] ?></td>
                         <td><?= $produit["reference"] ?></td>
                         <td><?= $produit["marque"] ?></td>
-                        <td><?= $produit["categorie_id"] ?></td>
+                        <td><?= $produit["categorie_type"] ?></td>
                         <td><?= $produit["couleur"] ?></td>
                         <td><?= $produit["matiere"] ?></td>
                         <td><?= $produit["motif"] ?></td>
                         <td><?= $produit["description"] ?></td>
                         <td><?= $produit["quantite"] ?></td>
-                        <td><?= $produit["prix_ht"] ?></td>
-                        <td><img src="<?= $produit["image_produit"] ?>" alt="<?= $produit["alt"] ?>" width='120px' height='159px'></td>
-                        <td><?= $produit["alt"] ?></td>
+                        <td><?= $produit["prix_ht"] ?> €</td>
 
                         <td>
                             <a href="user.php?id=<?= $produit["id"] ?>">voir</a>
-                            </dt>
-                        <td>
                             <a href="update_produits.php?id=<?= $produit["id"] ?>">Modifier</a>
-                        </td>
-                        <td>
                             <a href="./delete_produits.php?id=<?= $produit["id"] ?>">Supprimer</a>
                         </td>
                     </tr>
