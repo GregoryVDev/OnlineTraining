@@ -53,7 +53,13 @@ if (isset($_POST["valider"])) {
     </form>
     <section id="messages"></section>
 
+    <script>
+        setInterval('load_messages()', 500);
 
+        function load_messages() {
+            $('#messages').load('loadmessages.php');
+        }
+    </script>
 </body>
 
 </html>
