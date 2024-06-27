@@ -17,38 +17,53 @@
     position: relative;
 }
 
-#menuCategories {
+#menuCategories
+ {
     display: none; 
     position: absolute;
-    top: calc(100% + 10px);
-    left: 0;
+    top: calc(100% + 20px);
+    left: -20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 10px;
     border-radius: 5px;
     z-index: 10; 
-    width: 190px;
+    width: 100vw;
+    text-align: center;
 }
 
-
-#menuCategories.active {
-    display: block; 
+#catalogueCategories {
+    display: none; 
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 10; 
+    width: 100vw;
+    text-align: center;
 }
 
-#menuCategories li {
+.catalogueRouge {
+    padding-top: 5px;
+    color: #D31E44;
+}
+
+#menuCategories li,
+#catalogueCategories li {
     list-style-type: none;
     margin-bottom: 5px;
-    text-align: left;
 }
 
-#menuCategories li a {
+#menuCategories li a,
+#catalogueCategories li a {
     text-decoration: none;
     color: #333;
     cursor: pointer;
-
 }
 
-#menuCategories li a:hover {
+#menuCategories li a:hover,
+#catalogueCategories li a:hover {
     text-decoration: underline;
 }
 
@@ -162,12 +177,12 @@
         padding: 20px;
     }
 
-    .navBar_droite, .navBar_gauche {
-        width: 70px;
+    .navBar_gauche img {
+        width: 25px;
     }
 
-    .navBar_gauche > label > img {
-        width: 20px;
+    .navBar_droite, .navBar_gauche {
+        width: 70px;
     }
 
     .navBar_droite div img {
