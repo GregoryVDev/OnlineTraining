@@ -16,7 +16,7 @@
     <main>
         <h1 class="categories-titre">nom de la categories</h1>
         <p class="chemin">Accueil / robe / (chemin)</p>
-        <div class="categories-liste"> categories-liste-p
+        <div class="categories-liste">
             <p class="categories-liste-p">Polo manches longues</p>
             <p class="categories-liste-p">Polo manches courtes</p>
             <p class="categories-liste-p">Short</p>
