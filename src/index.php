@@ -45,7 +45,7 @@ foreach ($categories as $categorie) {
                 <?php foreach($news as $new): ?>
                 <div class="carte">
                     <a href="produits.php?id=<?=$new["id"]?>">
-                        <img src="<?=$new['image_produit']?>" alt="<?=$new['alt']?>">
+                        <img src="<?=$new['image_produit']?>" width="300px" alt="<?=$new['alt']?>">
                     </a>
                 </div>
                 <?php endforeach; ?>
