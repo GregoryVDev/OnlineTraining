@@ -57,11 +57,15 @@
     <section class="section2">
         <h2 class="h2-section2-titre">Vous pourriez aimer cela aussi</h2>
         <div class="container-produit-similaire">
+
+            <!-- affichage des produit simimlaire avec un foreach (qui se break après 4 produit afficher) -->
+
             <?php 
-                $count = 0;
-                foreach ($result as $game):
-                if ($count >= 12) break;
+                // $count = 0;
+                // foreach ($result as $???):
+                // if ($count >= 4) break;
             ?>
+
             <article class="vetement-similaire">
                 <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
@@ -71,10 +75,13 @@
                 <p class="vetement-similaire-couleur">2 couleurs</p>
                 <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
+
             <?php 
-                $count++;
-                endforeach; 
+                // $count++;
+                // endforeach; 
             ?>
+
+            <!----- A supprimer plus tard, cela sert juste d'exemple ----->
             <article class="vetement-similaire">
                 <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
@@ -102,6 +109,8 @@
                 <p class="vetement-similaire-couleur">2 couleurs</p>
                 <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
+            <!----- A supprimer plus tard, cela sert juste d'exemple ----->
+
         </div>
     </section>
     <?php include_once("templates/footer.php") ?>

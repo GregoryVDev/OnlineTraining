@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/categories/categories.css">
     <link rel="stylesheet" href="css/navBar.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/fonts/fonts.css">
 </head>
 
 <body>
@@ -24,6 +25,29 @@
             <p class="categories-liste-p">Pantalon</p>
         </div>
         <div class="container-categories-vetement">
+
+            <!-- affichage des produit simimlaire avec un foreach -->
+            <?php 
+                // foreach ($result as $???):
+            ?>
+
+            <article class="categories-vetement">
+                <figure class="vetement-similaire-figure">
+                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
+                    <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
+                </figure>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
+            </article>
+
+            <?php 
+                // endforeach; 
+            ?>
+
+
+
+            <!----- A supprimer plus tard, cela sert juste d'exemple ----->
             <article class="categories-vetement">
                 <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
@@ -87,15 +111,10 @@
                 <p class="vetement-similaire-couleur">2 couleurs</p>
                 <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
-            <article class="categories-vetement">
-                <figure class="vetement-similaire-figure">
-                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
-                    <figcaption>nom du produit</figcaption>
-                    <img class="panier" src="img/panier.png" alt="panier">
-                </figure>
-                <p class="vetement-similaire-couleur">2 couleurs</p>
-                <p class="vetement-similaire-prix">Prix xx€</p>
-            </article>
+            <!----- A supprimer plus tard, cela sert juste d'exemple ----->
+
+
+
         </div>
     </main>
     <?php include_once("templates/footer.php") ?>
