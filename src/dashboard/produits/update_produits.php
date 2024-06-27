@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (
         isset($_POST["id"]) && !empty($_POST["id"])
         && isset($_POST["alt"]) && !empty($_POST["alt"])
+        && isset($_POST["nom_produit"]) && !empty($_POST["nom_produit"])
         && isset($_POST["genre"]) && !empty($_POST["genre"])
         && isset($_POST["reference"]) && !empty($_POST["reference"])
         && isset($_POST["marque"]) && !empty($_POST["marque"])
@@ -25,11 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         && isset($_POST["matiere"]) && !empty($_POST["matiere"])
         && isset($_POST["motif"]) && !empty($_POST["motif"])
         && isset($_POST["description"]) && !empty($_POST["description"])
+        && isset($_POST["taille"]) && !empty($_POST["taille"])
         && isset($_POST["quantite"]) && !empty($_POST["quantite"])
         && isset($_POST["prix_ht"]) && !empty($_POST["prix_ht"])
     ) {
         $id = htmlspecialchars($_POST["id"]);
         $alt = htmlspecialchars($_POST["alt"]);
+        $nom_produit = htmlspecialchars($_POST["nom_produit"]);
         $genre = htmlspecialchars($_POST["genre"]);
         $reference = htmlspecialchars($_POST["reference"]);
         $marque = htmlspecialchars($_POST["marque"]);
@@ -38,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $matiere = htmlspecialchars($_POST["matiere"]);
         $motif = htmlspecialchars($_POST["motif"]);
         $description = htmlspecialchars($_POST["description"]);
+        $taille = htmlspecialchars($_POST["taille"]);
         $quantite = htmlspecialchars($_POST["quantite"]);
         $prix_ht = htmlspecialchars($_POST["prix_ht"]);
 
@@ -69,8 +73,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
 
-        $sql = "UPDATE produits SET image_produit = :image_produit, alt = :alt, genre = :genre, reference = :reference, marque = :marque, categorie_id = :categorie_id, couleur = :couleur,
-                matiere = :matiere, motif = :motif, description = :description,  quantite = :quantite,
+        $sql = "UPDATE produits SET image_produit = :image_produit, alt = :alt, nom_produit = :nom_produit, genre = :genre, reference = :reference, marque = :marque, categorie_id = :categorie_id, couleur = :couleur,
+                matiere = :matiere, motif = :motif, description = :description, taille = :taille, quantite = :quantite,
                 prix_ht = :prix_ht WHERE id = :id";
 
         $query = $db->prepare($sql);
@@ -78,6 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $query->bindValue(":id", $id, PDO::PARAM_INT);
         $query->bindValue(":image_produit", $image_produit, PDO::PARAM_STR);
         $query->bindValue(":alt", $alt, PDO::PARAM_STR);
+        $query->bindValue(":nom_produit", $nom_produit, PDO::PARAM_STR);
         $query->bindValue(":genre", $genre, PDO::PARAM_STR);
         $query->bindValue(":reference", $reference, PDO::PARAM_STR);
         $query->bindValue(":marque", $marque, PDO::PARAM_STR);
@@ -86,6 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $query->bindValue(":matiere", $matiere, PDO::PARAM_STR);
         $query->bindValue(":motif", $motif, PDO::PARAM_STR);
         $query->bindValue(":description", $description, PDO::PARAM_STR);
+        $query->bindValue(":taille", $taille, PDO::PARAM_STR);
         $query->bindValue(":quantite", $quantite, PDO::PARAM_INT);
         $query->bindValue(":prix_ht", $prix_ht, PDO::PARAM_STR);
 
@@ -141,6 +147,9 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
                 <label for="alt">Description de l'image:</label>
                 <input type="text" id="alt" name="alt" value="<?= htmlspecialchars($user["alt"]) ?>" required>
                 <br>
+                <label for="nom_produit">Nom:</label>
+                <input type="text" id="nom_produit" name="nom_produit" value="<?= htmlspecialchars($user["nom_produit"]) ?>" required>
+                <br>
                 <label for="genre">Genre:</label>
                 <select id="genre" name="genre" required>
                     <option value="<?= htmlspecialchars($user["genre"]) ?>"><?= htmlspecialchars($user["genre"]) ?></option>
@@ -180,7 +189,9 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
                 <label for="description">Description:</label>
                 <input type="text" id="description" name="description" value="<?= htmlspecialchars($user["description"]) ?>" required>
                 <br>
-
+                <label for="taille">Taille:</label>
+                <input type="text" id="taille" name="taille" value="<?= htmlspecialchars($user["taille"]) ?>" required>
+                <br>
                 <label for="quantite">Quantité:</label>
                 <input type="number" id="quantite" name="quantite" value="<?= htmlspecialchars($user["quantite"]) ?>" required min="0">
                 <br>
