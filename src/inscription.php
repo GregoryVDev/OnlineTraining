@@ -50,6 +50,8 @@ if (!empty($_POST)) {
         $query->bindValue(":email", $_POST["email"]);
 
         $query->execute();
+
+        header("Location: connexion.php");
     } else {
         die("Le formulaire est incomplet");
     }

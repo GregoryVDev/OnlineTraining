@@ -13,14 +13,16 @@ if (isset($_POST["valider"])) {
         $nom = htmlspecialchars($_POST["nom"]);
         $prenom = htmlspecialchars($_POST["prenom"]);
         $message = nl2br(htmlspecialchars($_POST["message"]));
+        $user_id = $_SESSION["user"]["user_id"];
 
 
-        $sql = "INSERT INTO messagerie (nom, prenom, message) VALUES (:nom, :prenom, :message)";
+        $sql = "INSERT INTO messagerie (nom, prenom, message, user_id, time) VALUES (:nom, :prenom, :message, :user_id, NOW())";
         $query = $db->prepare($sql);
 
         $query->bindValue(":nom", $nom);
         $query->bindValue(":prenom", $prenom);
         $query->bindValue(":message", $message);
+        $query->bindValue(":user_id", $user_id);
 
         $query->execute();
     } else {

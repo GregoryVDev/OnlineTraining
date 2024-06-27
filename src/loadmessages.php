@@ -3,16 +3,19 @@
 session_start();
 require_once("./connect.php");
 
-$sql = "SELECT * FROM messagerie";
-$query = $db->prepare($sql);
+$current_user_id = $_SESSION["user"]["user_id"];
 
+$sql = "SELECT *, DATE_FORMAT(time, '%d/%m/%y %H:%i') AS formatted_time FROM messagerie ORDER BY time DESC";
+$query = $db->prepare($sql);
 $query->execute();
 
 while ($message = $query->fetch(PDO::FETCH_ASSOC)) {
+    $message_class = ($message["user_id"] == $current_user_id) ? 'sent' : 'received';
 ?>
-    <div class="message">
+    <div class="message <?= $message_class ?>">
         <h4><?= htmlspecialchars($message["nom"]) . " " . htmlspecialchars($message["prenom"]); ?></h4>
         <p><?= $message["message"]; ?></p>
+        <small><?= htmlspecialchars($message["time"]); ?></small>
     </div>
 <?php
 }
