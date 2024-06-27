@@ -44,8 +44,9 @@
 
     .container-information-produit {
         margin-top: 2%;
-        gap: 7%;
+        gap: 30px;
         width: 50%;
+        height: 80%;
     }
 
     .vetement-similaire {
@@ -58,5 +59,37 @@
 
     .text {
         text-justify: inter-word;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-produit {
+        margin: auto;
+    }
+
+    .container-information-produit {
+        margin-top: 2%;
+        gap: 30px;
+        width: 50%;
+        height: 80%;
+    }
+
+    .vetement-similaire {
+        width: 20%;
+    }
+
+    .container-produit {
+        width: 60%;
+    }
+
+    .text {
+        text-justify: inter-word;
+    }
+}
+
+@media (min-width: 1000px) {
+    .container-information-produit {
+        gap: 40px;
+        width: 60%;
     }
 }

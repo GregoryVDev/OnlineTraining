@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/produits/produits.css">
     <link rel="stylesheet" href="css/navBar.css">
     <link rel="stylesheet" href="css/footer.css">
-
+    <link rel="stylesheet" href="css/fonts/fonts.css">
 </head>
 
 <body>
@@ -57,33 +57,50 @@
     <section class="section2">
         <h2 class="h2-section2-titre">Vous pourriez aimer cela aussi</h2>
         <div class="container-produit-similaire">
+            <?php 
+                $count = 0;
+                foreach ($result as $game):
+                if ($count >= 12) break;
+            ?>
             <article class="vetement-similaire">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
+                    <img class="panier" src="img/panier.png" alt="panier">
+                    <figcaption class="vetement-similaire-titre"> nom du produit</figcaption>
                 </figure>
-                <p>Nom du produit</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
+            </article>
+            <?php 
+                $count++;
+                endforeach; 
+            ?>
+            <article class="vetement-similaire">
+                <figure class="vetement-similaire-figure">
+                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
+                    <img class="panier" src="img/panier.png" alt="panier">
+                    <figcaption class="vetement-similaire-titre"> nom du produit</figcaption>
+                </figure>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
             <article class="vetement-similaire">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
+                    <img class="panier" src="img/panier.png" alt="panier">
+                    <figcaption class="vetement-similaire-titre"> nom du produit</figcaption>
                 </figure>
-                <p>Nom du produit</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
             <article class="vetement-similaire">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
+                    <img class="panier" src="img/panier.png" alt="panier">
+                    <figcaption class="vetement-similaire-titre"> nom du produit</figcaption>
                 </figure>
-                <p>Nom du produit</p>
-                <p>Prix xx€</p>
-            </article>
-            <article class="vetement-similaire">
-                <figure>
-                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
-                </figure>
-                <p>Nom du produit</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
         </div>
     </section>

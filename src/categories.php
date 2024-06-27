@@ -14,94 +14,87 @@
 <body>
     <?php include_once("templates/header.php") ?>
     <main>
+        <h1 class="categories-titre">nom de la categories</h1>
+        <p class="chemin">Accueil / robe / (chemin)</p>
+        <div class="categories-liste"> categories-liste-p
+            <p class="categories-liste-p">Polo manches longues</p>
+            <p class="categories-liste-p">Polo manches courtes</p>
+            <p class="categories-liste-p">Short</p>
+            <p class="categories-liste-p">Pantalon Chino</p>
+            <p class="categories-liste-p">Pantalon</p>
+        </div>
         <div class="container-categories-vetement">
             <article class="categories-vetement">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
             <article class="categories-vetement">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
             <article class="categories-vetement">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
             <article class="categories-vetement">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
             <article class="categories-vetement">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
             <article class="categories-vetement">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
             <article class="categories-vetement">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
             <article class="categories-vetement">
-                <figure>
+                <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
                     <figcaption>nom du produit</figcaption>
+                    <img class="panier" src="img/panier.png" alt="panier">
                 </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
-            </article>
-            <article class="categories-vetement">
-                <figure>
-                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
-                    <figcaption>nom du produit</figcaption>
-                </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
-            </article>
-            <article class="categories-vetement">
-                <figure>
-                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
-                    <figcaption>nom du produit</figcaption>
-                </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
-            </article>
-            <article class="categories-vetement">
-                <figure>
-                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
-                    <figcaption>nom du produit</figcaption>
-                </figure>
-                <p>2 couleurs</p>
-                <p>Prix xx€</p>
+                <p class="vetement-similaire-couleur">2 couleurs</p>
+                <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
         </div>
     </main>

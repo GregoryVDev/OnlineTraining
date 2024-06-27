@@ -5,11 +5,13 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h1 {
+.footer-h1 {
     margin-top: 4%;
 }
 
-h1, h3, h2 {
+.footer-h1,
+.footer-h3,
+.footer-h2 {
     color: #A5A5A5;
 }
 
@@ -22,7 +24,8 @@ h1, h3, h2 {
 
 input {
     background-color: white;
-    border: 1px solid black;;
+    border: 1px solid black;
+    ;
     border-radius: 5px 0px 0px 5px;
     font-size: 0.5rem;
     width: 150px;
@@ -33,8 +36,9 @@ input {
 .abonner {
     font-weight: bold;
     background-color: white;
-    border: 1px solid #D31E44;;
-    border-radius:0px 5px 5px 0px;
+    border: 1px solid #D31E44;
+    ;
+    border-radius: 0px 5px 5px 0px;
     font-size: 0.5rem;
     width: 70px;
     height: 20px;
@@ -53,7 +57,7 @@ input {
     width: 40%;
     margin: 0 auto;
     justify-content: space-between;
-    height:200px;
+    height: 200px;
 }
 
 .icon_footer {
@@ -66,17 +70,17 @@ img.icon_footer_align {
 
 
 @media (max-width: 1920px) {
-    h1 {
+    .footer-h1 {
         font-size: 2.5rem;
         margin-bottom: 2%;
     }
 
-    h2 {
+    .footer-h2 {
         font-size: 2.5rem;
-        margin-bottom: 4%; 
+        margin-bottom: 4%;
     }
 
-    h3 {
+    .footer-h3 {
         margin-bottom: 1%;
     }
 
@@ -88,7 +92,7 @@ img.icon_footer_align {
     }
 
     input {
-       
+
         border-radius: 10px 0px 0px 10px;
         font-size: 1.2rem;
         width: 300px;
@@ -97,33 +101,34 @@ img.icon_footer_align {
     }
 
     input::placeholder {
-    
+
         font-style: italic;
     }
-    
+
     .abonner {
-        border-radius:0px 10px 10px 0px;
+        border-radius: 0px 10px 10px 0px;
         font-size: 1rem;
         width: 140px;
         height: 38px;
     }
 
     .sociaux img {
-       width: 40px
+        width: 40px
     }
 
     .icon_footer {
         width: 200px;
     }
 }
-      
+
 @media (max-width: 1204px) {
-    
-    h1, h2 {
+
+    .footer-h1,
+    .footer-h2 {
         font-size: 1.8rem;
     }
 
-    h3 {
+    .footer-h3 {
         font-size: 1rem;
     }
 
@@ -135,7 +140,7 @@ img.icon_footer_align {
     }
 
     input {
-       
+
         border-radius: 10px 0px 0px 10px;
         font-size: 0.8rem;
         width: 250px;
@@ -144,33 +149,34 @@ img.icon_footer_align {
     }
 
     input::placeholder {
-    
+
         font-style: italic;
     }
-    
+
     .abonner {
-        border-radius:0px 10px 10px 0px;
+        border-radius: 0px 10px 10px 0px;
         font-size: 0.8rem;
         width: 100px;
         height: 30px;
     }
 
     .sociaux img {
-       width: 40px;
+        width: 40px;
     }
 
     .icon_footer img {
-       height: 40px;
-      }
+        height: 40px;
+    }
 
-      .text_icon_footer {
+    .text_icon_footer {
         font-size: 0.8em;
     }
 }
 
 @media (max-width: 800px) {
-    
-    h1, h2 {
+
+    .footer-h1,
+    .footer-h2 {
         font-size: 1.3rem;
     }
 
@@ -180,7 +186,7 @@ img.icon_footer_align {
     }
 
     input {
-       
+
         border-radius: 10px 0px 0px 10px;
         font-size: 0.8rem;
         width: 200px;
@@ -189,19 +195,19 @@ img.icon_footer_align {
     }
 
     input::placeholder {
-    
+
         font-style: italic;
     }
-    
+
     .abonner {
-        border-radius:0px 10px 10px 0px;
+        border-radius: 0px 10px 10px 0px;
         font-size: 0.6rem;
         width: 70px;
         height: 30px;
     }
 
     .icon_footer img {
-       height: 30px;
+        height: 30px;
     }
 
     .text_icon_footer {
@@ -214,15 +220,16 @@ img.icon_footer_align {
 }
 
 @media (max-width: 400px) {
-    
-    h1, h2 {
-        font-size: 1rem;
-}
 
-    h3 {
-        font-size:0.7;
+    .footer-h1,
+    .footer-h2 {
+        font-size: 1rem;
     }
-    
+
+    .footer-h3 {
+        font-size: 0.7;
+    }
+
     .form {
         width: 200px;
         margin: 0 auto;
@@ -230,7 +237,7 @@ img.icon_footer_align {
     }
 
     input {
-       
+
         border-radius: 10px 0px 0px 10px;
         font-size: 0.6rem;
         width: 150px;
@@ -239,12 +246,12 @@ img.icon_footer_align {
     }
 
     input::placeholder {
-    
+
         font-style: italic;
     }
-    
+
     .abonner {
-        border-radius:0px 10px 10px 0px;
+        border-radius: 0px 10px 10px 0px;
         font-size: 0.6rem;
         width: 65px;
         height: 25px;
