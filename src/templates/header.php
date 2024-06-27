@@ -21,17 +21,18 @@
             <div><a class="menuNoir" href="#">NOUVEAUTES</a></div>
             <div><a class="menuRouge" href="#">FEMMME</a></div>
             <div><a class="menuRouge" href="#">HOMME</a></div>
-            <div><a class="menuNoir" href="#">CATALOGUE</a>
-            <ul id="menuCatalogue">
-                <li><a href="#">Polo Manches Courtes</a></li>
-                <li><a href="#">Polo Manches Longues</a></li>
-                <li><a href="#">Short</a></li>
-                <li><a href="#">Pantalon Chino</a></li>
-                <li><a href="#">Pantalon</a></li>
-            </ul>
+            <div id="catalogue"><span>CATALOGUE</span>
+                <ul id="catalogueCategories">
+                    <li><a href="#">Polo Manches Courtes</a></li>
+                    <li><a href="#">Polo Manches Longues</a></li>
+                    <li><a href="#">Short</a></li>
+                    <li><a href="#">Pantalon Chino</a></li>
+                    <li><a href="#">Pantalon</a></li>
+                </ul>
+            </div>
 
         </div>
-        </div>
+
         <div class="navBar_droite">
             <div><a href="#"><img src="./img/navBar/iconSearch.png" alt="Rechercher"></a></div>
             <div><a href="./connexion.php"><img src="./img/navBar/account.png" alt="Compte"></a></div>
@@ -44,45 +45,62 @@
 document.addEventListener('DOMContentLoaded', function() {
     let menuBurger = document.getElementById('menuBurger');
     let menuCategories = document.getElementById('menuCategories');
-    let promo = document.getElementById('promo');
+    let catalogue = document.getElementById('catalogue');
+    let catalogueCategories = document.getElementById('catalogueCategories');
     let hideTimeout;
 
-    // Fonction pour afficher le menu
-    function showMenu() {
-        clearTimeout(hideTimeout); // Annule tout délai de masquage en cours
-        menuCategories.style.display = 'block';
-        promo.style.display = 'block';
+    function showMenu(menu) {
+        clearTimeout(hideTimeout);
+        menu.style.display = 'block';
     }
 
-    // Fonction pour masquer le menu
-    function hideMenu() {
+    function hideMenu(menu) {
         hideTimeout = setTimeout(function() {
-            menuCategories.style.display = 'none';
-            promo.style.display = 'none';
-        }, 300); // Ajoute un délai de 300ms avant de masquer le menu
+            menu.style.display = 'none';
+        }, 300);
     }
 
-    // Gestion du survol de la souris sur le menu burger
-    menuBurger.addEventListener('mouseenter', showMenu);
+    menuBurger.addEventListener('mouseenter', function() {
+        showMenu(menuCategories);
+    });
 
-    // Gestion de la sortie de la souris du menu burger
     menuBurger.addEventListener('mouseleave', function(event) {
         if (!menuCategories.contains(event.relatedTarget)) {
-            hideMenu();
+            hideMenu(menuCategories);
         }
     });
 
-    // Gestion de la sortie de la souris du menu catégories
     menuCategories.addEventListener('mouseleave', function(event) {
         if (!menuBurger.contains(event.relatedTarget)) {
-            hideMenu();
+            hideMenu(menuCategories);
         }
     });
 
-    // Empêche le masquage du menu lorsque la souris se déplace sur le menu catégories
-    menuCategories.addEventListener('mouseenter', showMenu);
+    menuCategories.addEventListener('mouseenter', function() {
+        showMenu(menuCategories);
+    });
 
-    // Initialiser l'état du menu
-    hideMenu();
+    catalogue.addEventListener('mouseenter', function() {
+        showMenu(catalogueCategories);
+    });
+
+    catalogue.addEventListener('mouseleave', function(event) {
+        if (!catalogueCategories.contains(event.relatedTarget)) {
+            hideMenu(catalogueCategories);
+        }
+    });
+
+    catalogueCategories.addEventListener('mouseleave', function(event) {
+        if (!catalogue.contains(event.relatedTarget)) {
+            hideMenu(catalogueCategories);
+        }
+    });
+
+    catalogueCategories.addEventListener('mouseenter', function() {
+        showMenu(catalogueCategories);
+    });
+
+    hideMenu(menuCategories);
+    hideMenu(catalogueCategories);
 });
 </script>
