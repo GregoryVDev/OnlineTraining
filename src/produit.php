@@ -57,6 +57,11 @@
     <section class="section2">
         <h2 class="h2-section2-titre">Vous pourriez aimer cela aussi</h2>
         <div class="container-produit-similaire">
+            <?php 
+                $count = 0;
+                foreach ($result as $game):
+                if ($count >= 12) break;
+            ?>
             <article class="vetement-similaire">
                 <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
@@ -66,6 +71,10 @@
                 <p class="vetement-similaire-couleur">2 couleurs</p>
                 <p class="vetement-similaire-prix">Prix xx€</p>
             </article>
+            <?php 
+                $count++;
+                endforeach; 
+            ?>
             <article class="vetement-similaire">
                 <figure class="vetement-similaire-figure">
                     <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
