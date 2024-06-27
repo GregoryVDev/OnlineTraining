@@ -1,25 +1,31 @@
 <?php
 
 session_start();
+
 require_once("./connect.php");
 
-// On vérifie la méthode de requête
+// On vérifie si dans $_POST valider existe
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST["valider"])) {
+    // Si les champs ne sont pas vides 
+    if (!empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["message"])) {
+        // Déclarer en variable nom en htmlspecialchars pour éviter que l'utilisateur mette un code html à l'intérieur du champs
+        $nom = htmlspecialchars($_POST["nom"]);
+        $prenom = htmlspecialchars($_POST["prenom"]);
+        $message = nl2br(htmlspecialchars($_POST["message"]));
 
-    // On récupère les données nécessaires
-    $sender_id = $_SESSION["user_id"];
-    $receiver_id = $_SESSION["receiver_id"];
-    $message = $_POST["message"];
 
-    $sql = "INSERT INTO messagerie (sender_id, receiver_id, message VALUES (:sender_id, :receiver_id, :message)";
+        $sql = "INSERT INTO messagerie (nom, prenom, message) VALUES (:nom, :prenom, :message)";
+        $query = $db->prepare($sql);
 
-    $query = $db->prepare($sql);
-    $query->bindValue(":sender_id", $sender_id);
-    $query->bindValue(":receiver_id", $receiver_id);
-    $query->bindValue(":message", $message);
+        $query->bindValue(":nom", $nom);
+        $query->bindValue(":prenom", $prenom);
+        $query->bindValue(":message", $message);
 
-    $query->execute();
+        $query->execute();
+    } else {
+        echo "Veuillez compléter tous les champs...";
+    }
 }
 
 ?>
@@ -31,16 +37,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/messagerie/messagerie.css">
-    <title>Envoie de message</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>Messagerie instantanée</title>
 </head>
 
 <body>
-
     <form method="POST">
-        <input type="hidden" name="receiver_id" value="RECEIVER_ID">
-        <textarea name="message" required></textarea>
-        <button type="submit">Envoyer</button>
+        <input type="text" name="nom">
+        <br>
+        <input type="text" name="prenom">
+        <br>
+        <textarea name="message"></textarea>
+        <br>
+        <input type="submit" name="valider">
     </form>
+    <section id="messages"></section>
+
 
 </body>
 
