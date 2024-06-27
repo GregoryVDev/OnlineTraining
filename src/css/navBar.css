@@ -15,46 +15,24 @@
 
 .navBar_gauche {
     position: relative;
-    /* margin-left: 20px; */
-}
-
-
-
-nav input[type=checkbox] {
-    display: none;
 }
 
 #menuCategories {
     display: none; 
     position: absolute;
-    top: calc(100% + 10px); /* Positionne le menuItems en dessous du menuBurger */
+    top: calc(100% + 10px);
     left: 0;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
     border-radius: 5px;
     z-index: 10; 
-    width: 300px;
+    width: 190px;
 }
 
-#promo {
-    display: none; /* Par défaut, l'élément supplémentaire est caché */
-    position: absolute;
-    top: calc(100% + 10px); /* Positionne l'élément en dessous du menuBurger */
-    left: calc(100% + 200px); /* Positionne l'élément à droite du menuItems */
-    padding: 10px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    z-index: 10; /* Assure que l'élément est au-dessus du contenu de la page */
-}
 
 #menuCategories.active {
-    display: block; /* Affiche le menuItems lorsque le menu burger est activé */
-}
-
-#menuCategories.active + #promo {
-    display: block; /* Affiche l'élément supplémentaire lorsque le menu burger est activé */
+    display: block; 
 }
 
 #menuCategories li {

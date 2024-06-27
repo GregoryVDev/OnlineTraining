@@ -5,6 +5,10 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+h1 {
+    margin-top: 4%;
+}
+
 h1, h3, h2 {
     color: #A5A5A5;
 }
