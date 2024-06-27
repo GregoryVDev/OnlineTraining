@@ -1,10 +1,77 @@
-form {
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  height: 100vh;
+  margin: 0;
+}
+
+form {
+  width: 300px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+textarea {
+  width: calc(100% - 20px); /* Ajustement pour la largeur du padding */
+  padding: 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
 textarea {
+  height: 100px;
   resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+#messages {
+  width: 100%;
+  max-width: 600px; /* Largeur maximale pour les messages */
+  overflow-y: auto; /* Scroll vertical si nécessaire */
+}
+
+.message {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.message h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.message p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #555;
 }

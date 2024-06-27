@@ -43,18 +43,18 @@ if (isset($_POST["valider"])) {
 
 <body>
     <form method="POST">
-        <input type="text" name="nom">
+        <input type="text" name="nom" placeholder="Nom">
         <br>
-        <input type="text" name="prenom">
+        <input type="text" name="prenom" placeholder="Prénom">
         <br>
-        <textarea name="message"></textarea>
+        <textarea name="message" placeholder="Votre message"></textarea>
         <br>
         <input type="submit" name="valider">
     </form>
     <section id="messages"></section>
 
     <script>
-        setInterval('load_messages()', 500);
+        setInterval('load_messages()', 10);
 
         function load_messages() {
             $('#messages').load('loadmessages.php');
