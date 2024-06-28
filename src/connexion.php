@@ -46,7 +46,7 @@ if (!empty($_POST)) {
 
         // On stocke dans $_SESSION les informations de l'utilisateur
         $_SESSION['user'] = [
-            "id" => $user['id'],
+            "user_id" => $user['id'],
             "nom" => $user['nom'],
             "prenom" => $user['prenom'],
             "email" => $user['email'],

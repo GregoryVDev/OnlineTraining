@@ -52,6 +52,7 @@ main {
     margin-top: 2%;
     gap: 5%;
     flex-wrap: wrap;
+    font-family: var(--font-Poppins);
 }
 
 .chemin {
@@ -72,13 +73,13 @@ main {
 }
 
 figcaption {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bolder;
     font-family: var(--font-Poppins);
 }
 
 .categories-liste-p {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     font-family: var(--font-Poppins);
 }
 
@@ -106,11 +107,4 @@ figcaption {
 
 .vetement-similaire-figure {
     position: relative;
-}
-
-.panier {
-    width: 10%;
-    position: absolute;
-    top: 5%;
-    left: 85%;
 }

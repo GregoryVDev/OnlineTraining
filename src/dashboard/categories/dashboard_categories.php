@@ -34,11 +34,12 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
+    <?php
+    include '../../templates/navbar_dashboard.php';
+    ?>
     <section class="dashboard">
 
-        <?php
-        include '../../templates/navbar_dashboard.php';
-        ?>
+
 
         <br>
         <br>
@@ -79,7 +80,7 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
 
                 <div>
 
-                    <a classe="deco" href="./form_categories.php"><button class="dashboard-btn">Ajouter une categorie</button></a>
+                    <a classe="deco" href="./create_categories.php"><button class="dashboard-btn">Ajouter une categorie</button></a>
                     <br>
                     <br>
 

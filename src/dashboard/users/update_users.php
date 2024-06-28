@@ -15,8 +15,8 @@ if (!empty($_POST)) {
     // On vérifie que TOUS les champs requis sont remplis
 
     if (
-        isset($_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["pass"], $_POST["pass2"])
-        && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"]) && !empty($_POST["pass"]) && !empty($_POST["pass2"])
+        isset($_POST["nom"], $_POST["prenom"], $_POST["email"])
+        && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"])
     ) {
         // Le formulaire est complet
         // On récupère les données en les protégeants
@@ -28,23 +28,11 @@ if (!empty($_POST)) {
         }
         $email = $_POST["email"];
 
-        // Confirmation des mdp
-        if (isset($_POST["pass"]) && isset($_POST["pass2"])) {
-            $pass = $_POST["pass"];
-            $pass2 = $_POST["pass2"];
-        }
-
-        if ($pass === $pass2) {
-            // On hash le mdp
-            $pass = password_hash($_POST["pass"], PASSWORD_ARGON2ID);
-        } else {
-            die("les mots de passe ne correspondent pas");
-        }
 
         // Ajoutez cette ligne pour récupérer l'ID de l'utilisateur
         $id = $_GET["id"];
 
-        $sql = "UPDATE users SET nom = :nom, prenom = :prenom, email = :email, pass = :pass WHERE id = :id";
+        $sql = "UPDATE users SET nom = :nom, prenom = :prenom, email = :email WHERE id = :id";
 
         $query = $db->prepare($sql);
 
@@ -52,7 +40,7 @@ if (!empty($_POST)) {
         $query->bindValue(":nom", $nom, PDO::PARAM_STR);
         $query->bindValue(":prenom", $prenom, PDO::PARAM_STR);
         $query->bindValue(":email", $email, PDO::PARAM_STR);
-        $query->bindValue(":pass", $pass, PDO::PARAM_STR);
+
 
         $query->execute();
 
@@ -112,18 +100,11 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
                 <label for="email">Email :</label>
                 <input type="email" class="form-input" name="email" id="email" value="<?= $user["email"] ?>" required>
             </div>
-            <div class="container-password">
-                <label for="pass">Mot de passe :</label>
-                <input type="password" class="form-input" name="pass" id="pass" placeholder="Mot de passe" required>
-            </div>
-            <div class="container-confirm">
-                <label for="pass2">Confirmation :</label>
-                <input type="password" class="form-input" name="pass2" id="pass2" placeholder="Mot de passe" required>
-            </div>
-            <button type="submit" class="connexion-button">Ajouter</button>
+            <br>
+            <button type="submit" class="connexion-button">Modifier</button>
         </form>
         <br>
-        <a href="dashboard_users.php"><button class="login-btn" class="Btn_add">Retour </button></a>
+        <a href="dashboard_users.php"><button class="login-btn" class="Btn_add">Retour</button></a>
     </main>
 </body>
 

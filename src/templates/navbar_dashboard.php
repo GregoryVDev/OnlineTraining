@@ -1,7 +1,7 @@
 <h1>DASHBOARD</h1>
 <br>
 <br>
-<a href="index.php"><button class="dashboard-btn dashboard-btn_1">Déconnexion</button></a>
+<a href="../../index.php"><button class="dashboard-btn dashboard-btn_1">Déconnexion</button></a>
 <br>
 <br>
 <br>

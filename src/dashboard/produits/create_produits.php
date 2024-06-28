@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (
         isset($_FILES["image_produit"]) && $_FILES["image_produit"]["error"] === 0
         && isset($_POST["alt"]) && !empty($_POST["alt"])
+        && isset($_POST["nom_produit"]) && !empty($_POST["nom_produit"])
         && isset($_POST["genre"]) && !empty($_POST["genre"])
         && isset($_POST["reference"]) && !empty($_POST["reference"])
         && isset($_POST["marque"]) && !empty($_POST["marque"])
@@ -32,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         && isset($_POST["matiere"]) && !empty($_POST["matiere"])
         && isset($_POST["motif"]) && !empty($_POST["motif"])
         && isset($_POST["description"]) && !empty($_POST["description"])
+        && isset($_POST["taille"]) && !empty($_POST["taille"])
         && isset($_POST["quantite"]) && !empty($_POST["quantite"])
         && isset($_POST["prix_ht"]) && !empty($_POST["prix_ht"])
     ) {
@@ -39,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($db) {
             $alt = htmlspecialchars($_POST["alt"]);
+            $nom_produit = htmlspecialchars($_POST["nom_produit"]);
             $genre = htmlspecialchars($_POST["genre"]);
             $reference = htmlspecialchars($_POST["reference"]);
             $marque = htmlspecialchars($_POST["marque"]);
@@ -47,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $matiere = htmlspecialchars($_POST["matiere"]);
             $motif = htmlspecialchars($_POST["motif"]);
             $description = htmlspecialchars($_POST["description"]);
+            $taille = htmlspecialchars($_POST["taille"]);
             $quantite = htmlspecialchars($_POST["quantite"]);
             $prix_ht = htmlspecialchars($_POST["prix_ht"]);
 
@@ -60,12 +64,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $image_produit = $uploadDir . $newFileName;
 
                 if (move_uploaded_file($_FILES['image_produit']['tmp_name'], $image_produit)) {
-                    $sql = "INSERT INTO produits (image_produit, alt, genre, reference, marque, categorie_id, couleur, matiere, motif, description, quantite, prix_ht)
-                        VALUES (:image_produit, :alt, :genre, :reference, :marque, :categorie_id, :couleur, :matiere, :motif, :description, :quantite, :prix_ht)";
+                    $sql = "INSERT INTO produits (image_produit, alt, nom_produit, genre, reference, marque, categorie_id, couleur, matiere, motif, description, taille, quantite, prix_ht)
+                        VALUES (:image_produit, :alt, :nom_produit, :genre, :reference, :marque, :categorie_id, :couleur, :matiere, :motif, :description, :taille, :quantite, :prix_ht)";
 
                     $query = $db->prepare($sql);
                     $query->bindValue(":image_produit", $image_produit);
                     $query->bindValue(":alt", $alt);
+                    $query->bindValue(":nom_produit", $nom_produit);
                     $query->bindValue(":genre", $genre);
                     $query->bindValue(":reference", $reference);
                     $query->bindValue(":marque", $marque);
@@ -74,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $query->bindValue(":matiere", $matiere);
                     $query->bindValue(":motif", $motif);
                     $query->bindValue(":description", $description);
+                    $query->bindValue(":taille", $taille);
                     $query->bindValue(":quantite", $quantite);
                     $query->bindValue(":prix_ht", $prix_ht);
 
@@ -124,6 +130,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="alt">Description de l'image:</label>
                 <input type="text" id="alt" name="alt" required>
                 <br>
+                <label for="nom_produit">Nom:</label>
+                <input type="text" id="nom_produit" name="nom_produit" required>
+                <br>
                 <label for="genre">Genre:</label>
                 <select id="genre" name="genre" required>
                     <option value="">Sélectionnez un Genre</option>
@@ -162,6 +171,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <br>
                 <label for="description">Description:</label>
                 <input type="text" id="description" name="description" required>
+                <br>
+                <label for="taille">Taille:</label>
+                <input type="text" id="taille" name="taille" required>
                 <br>
                 <label for="quantite">Quantité:</label>
                 <input type="number" id="quantite" name="quantite" required min="0">
