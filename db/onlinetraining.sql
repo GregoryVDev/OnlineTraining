@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : jeu. 27 juin 2024 à 14:54
+-- Généré le : ven. 28 juin 2024 à 06:54
 -- Version du serveur : 8.0.37
 -- Version de PHP : 8.2.8
 
@@ -71,7 +71,7 @@ CREATE TABLE `messagerie` (
   `user_id` int NOT NULL,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
-  `message` varchar(1000) NOT NULL,
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `time` timestamp NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
