@@ -73,7 +73,7 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
                     // chaque utillisateur de la table $users sera identifié dans le foreach en tant que $user
                 ?>
                     <tr>
-                        <td><img src="<?= $produit["image_produit"] ?>" alt="<?= $produit["alt"] ?>" width='120px' height='159px'></td>
+                        <td><img src="/<?= $produit["image_produit"] ?>" alt="<?= $produit["alt"] ?>" width='120px' height='159px'></td>
                         <td><?= $produit["alt"] ?></td>
                         <td><?= $produit["nom_produit"] ?></td>
                         <td><?= $produit["genre"] ?></td>
