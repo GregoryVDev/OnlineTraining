@@ -79,7 +79,7 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
 
                 <div>
 
-                    <a classe="deco" href="./create_categories.php"><button class="dashboard-btn">Ajouter une categorie</button></a>
+                    <a classe="deco" href="./create_categories.php"><button type="button" class="btn btn-outline-secondary">Ajouter une categorie</button></a>
                     <br>
                     <br>
 

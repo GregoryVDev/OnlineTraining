@@ -65,7 +65,7 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
 
                 <div>
 
-                    <a classe="deco" href="./create_users.php"><button class="dashboard-btn">Ajouter un utilisateur</button></a>
+                    <a classe="deco" href="./create_users.php"><button type="button" class="btn btn-outline-secondary">Ajouter un utilisateur</button></a>
                     <br>
                     <br>
 
