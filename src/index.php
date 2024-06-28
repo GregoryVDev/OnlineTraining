@@ -1,4 +1,7 @@
 <?php
+//lancement de la session
+session_start();
+
 require_once('connect.php');
 
 // Récupérer les nouveautés
@@ -12,10 +15,10 @@ $categories = ['Polo manches longues', 'Polo manches courtes', 'Short', 'Pantalo
 $noms_categories = [];
 
 foreach ($categories as $categorie) {
-    $sql = "SELECT image_produit FROM `produits` WHERE `categorie_id` = ? ORDER BY `categorie_id` DESC";
-    $query = $db->prepare($sql);
-    $query->execute([$categorie]);
-    $noms_categories[$categorie] = $query->fetch(PDO::FETCH_ASSOC);
+$sql = "SELECT image_produit FROM `produits` WHERE `categorie_id` = ? ORDER BY `categorie_id` DESC";
+$query = $db->prepare($sql);
+$query->execute([$categorie]);
+$noms_categories[$categorie] = $query->fetch(PDO::FETCH_ASSOC);
 }
 ?>
 

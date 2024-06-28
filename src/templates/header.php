@@ -34,9 +34,19 @@
         </div>
 
         <div class="navBar_droite">
-            <div><a href="#"><img src="./img/navBar/iconSearch.png" alt="Rechercher"></a></div>
-            <div><a href="./connexion.php"><img src="./img/navBar/account.png" alt="Compte"></a></div>
-            <div><a href="#"><img src="./img/navBar/cart.png" alt="Panier"></a></div>
+            <div>
+                <a href="#"><img src="./img/navBar/iconSearch.png" alt="Rechercher"></a>
+            </div>
+            <div>
+                <?php if(!isset($_SESSION["user"])): ?>
+                <a href="./connexion.php"><img src="./img/navBar/user.png" alt="Compte"></a>
+                <?php else: ?>
+                <a href="./connexion.php"><img src="./img/navBar/user_connect.png" alt="Compte"></a>
+                <?php endif; ?>
+            </div>
+            <div>
+                <a href="#"><img src="./img/navBar/cart.png" alt="Panier"></a>
+            </div>
         </div>
     </div>
 </nav>
