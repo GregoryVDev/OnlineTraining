@@ -9,10 +9,8 @@ require_once("./connect.php");
 
 if (isset($_POST["valider"])) {
     // Si les champs ne sont pas vides 
-    if (!empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["message"])) {
+    if (!empty($_POST["message"])) {
         // Déclarer en variable nom en htmlspecialchars pour éviter que l'utilisateur mette un code html à l'intérieur du champs
-        $nom = htmlspecialchars($_POST["nom"]);
-        $prenom = htmlspecialchars($_POST["prenom"]);
         $message = nl2br(htmlspecialchars($_POST["message"]));
         $user_id = $_SESSION["user"]["user_id"];
 
@@ -20,8 +18,6 @@ if (isset($_POST["valider"])) {
         $sql = "INSERT INTO messagerie (nom, prenom, message, user_id, time) VALUES (:nom, :prenom, :message, :user_id, CONVERT_TZ(NOW(), '+00:00', '+02:00'))"; // Convertit l'heure actuelle de UTC+0 à UTC+2        
         $query = $db->prepare($sql);
 
-        $query->bindValue(":nom", $nom);
-        $query->bindValue(":prenom", $prenom);
         $query->bindValue(":message", $message);
         $query->bindValue(":user_id", $user_id);
 
@@ -46,10 +42,6 @@ if (isset($_POST["valider"])) {
 
 <body>
     <form method="POST">
-        <input type="text" name="nom" placeholder="Nom">
-        <br>
-        <input type="text" name="prenom" placeholder="Prénom">
-        <br>
         <textarea name="message" placeholder="Votre message"></textarea>
         <br>
         <input type="submit" name="valider">

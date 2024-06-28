@@ -2,6 +2,7 @@
     <div class="navbar">
         <div class="navBar_gauche">
             <div id="menuBurger"><img src="./img/navBar/menuBurger.png" alt="Menu"></div>
+
             <ul id="menuCategories">
                 <hr>
                 <li class="catalogueRouge"><b>CATALOGUE</b></li>

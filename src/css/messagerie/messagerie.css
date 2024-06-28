@@ -57,11 +57,18 @@ input[type="submit"]:hover {
 }
 
 .message {
-  background-color: #f9f9f9;
   padding: 10px;
   margin: 10px 0;
   border-radius: 8px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sent {
+  background-color: #a6e3ff; /* Bleu pour les messages envoyés */
+}
+
+.received {
+  background-color: #e6f7ff; /* Bleu clair pour les messages reçus */
 }
 
 .message h4 {
