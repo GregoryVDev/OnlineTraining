@@ -61,14 +61,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (in_array($imageFileType, $allowedTypes)) {
                 $newFileName = generateRandomString(20) . '.' . $imageFileType;
-                $image_produit = 'img/produits/' . $newFileName;
+                $image_produit = __DIR__ . '/../../img/produits/' . $newFileName;
 
                 if (move_uploaded_file($_FILES['image_produit']['tmp_name'], $image_produit)) {
                     $sql = "INSERT INTO produits (image_produit, alt, nom_produit, genre, reference, marque, categorie_id, couleur, matiere, motif, description, taille, quantite, prix_ht)
                         VALUES (:image_produit, :alt, :nom_produit, :genre, :reference, :marque, :categorie_id, :couleur, :matiere, :motif, :description, :taille, :quantite, :prix_ht)";
 
                     $query = $db->prepare($sql);
-                    $query->bindValue(":image_produit", $image_produit);
+                    $query->bindValue(":image_produit", 'img/produits/' . $newFileName);
                     $query->bindValue(":alt", $alt);
                     $query->bindValue(":nom_produit", $nom_produit);
                     $query->bindValue(":genre", $genre);
