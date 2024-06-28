@@ -57,12 +57,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $newFilePath = $uploadDir . $newFileName;
 
                 // Supprimer l'ancienne image
-                if (file_exists($image_produit)) {
-                    unlink($image_produit);
+                if (!empty($image_produit) && file_exists(__DIR__ . '/../../' . $image_produit)) {
+                    unlink(__DIR__ . '/../../' . $image_produit);
                 }
 
                 if (move_uploaded_file($_FILES['image_produit']['tmp_name'], $newFilePath)) {
-                    $image_produit = $newFilePath;
+                    $image_produit = $newFileName;
                 } else {
                     echo "Erreur lors du téléchargement du fichier.";
                     exit;
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $query = $db->prepare($sql);
 
         $query->bindValue(":id", $id, PDO::PARAM_INT);
-        $query->bindValue(":image_produit", $image_produit, PDO::PARAM_STR);
+        $query->bindValue(":image_produit", 'img/produits/' . $newFileName, PDO::PARAM_STR);
         $query->bindValue(":alt", $alt, PDO::PARAM_STR);
         $query->bindValue(":nom_produit", $nom_produit, PDO::PARAM_STR);
         $query->bindValue(":genre", $genre, PDO::PARAM_STR);
