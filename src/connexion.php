@@ -43,7 +43,6 @@ if (!empty($_POST)) {
         // L'utilisateur et le mot de passe sont corrects
         // On va pouvoir "connecter" l'utilisateur
 
-
         // On stocke dans $_SESSION les informations de l'utilisateur
         $_SESSION['user'] = [
             "user_id" => $user['id'],
@@ -55,13 +54,14 @@ if (!empty($_POST)) {
 
         // Rediriger vers la page index (exemple)
         header("Location: index.php");
+        exit();
     } else {
         // Formulaire incomplet
         die("Le formulaire est incomplet");
     }
 }
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
