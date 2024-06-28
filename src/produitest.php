@@ -7,7 +7,7 @@ require_once('connect.php');
 $sql = 'SELECT * FROM produits';
 $query = $pdo->query($sql);
 $query->execute();
-$produits = $query->fetchAll(PDO::FETCH_ASSOC);
+$produits = $query->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <html lang="fr">

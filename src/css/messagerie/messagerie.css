@@ -5,22 +5,37 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
 }
 
+#messages {
+  width: 100%;
+  max-width: 600px;
+  overflow-y: auto;
+  flex-grow: 1;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
 form {
-  width: 300px;
+  width: 100%;
+  max-width: 600px;
   background-color: #fff;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
 input[type="text"],
 textarea {
-  width: calc(100% - 20px); /* Ajustement pour la largeur du padding */
+  width: calc(100% - 20px);
   padding: 10px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -30,7 +45,7 @@ textarea {
 }
 
 textarea {
-  height: 100px;
+  height: 80px;
   resize: vertical;
 }
 
@@ -50,25 +65,22 @@ input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-#messages {
-  width: 100%;
-  max-width: 600px; /* Largeur maximale pour les messages */
-  overflow-y: auto; /* Scroll vertical si nécessaire */
-}
-
 .message {
   padding: 10px;
   margin: 10px 0;
   border-radius: 8px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  max-width: 60%;
 }
 
 .sent {
-  background-color: #a6e3ff; /* Bleu pour les messages envoyés */
+  background-color: #a6e3ff;
+  align-self: flex-end;
 }
 
 .received {
-  background-color: #e6f7ff; /* Bleu clair pour les messages reçus */
+  background-color: #e6f7ff;
+  align-self: flex-start;
 }
 
 .message h4 {

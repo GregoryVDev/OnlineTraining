@@ -50,7 +50,6 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
         <table class="table table-striped table-hover table table-bordered">
             <thead>
                 <th>Image</th>
-                <th>alt</th>
                 <th>Nom</th>
                 <th>Genre</th>
                 <th>Reference</th>
@@ -73,8 +72,7 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
                     // chaque utillisateur de la table $users sera identifié dans le foreach en tant que $user
                 ?>
                     <tr>
-                        <td><img src="/<?= $produit["image_produit"] ?>" alt="<?= $produit["alt"] ?>" width='120px' height='159px'></td>
-                        <td><?= $produit["alt"] ?></td>
+                        <td><img src="/<?= $produit["image_produit"] ?>" alt="<?= $produit["categorie_type"] ?>" width='96px' height='127px'></td>
                         <td><?= $produit["nom_produit"] ?></td>
                         <td><?= $produit["genre"] ?></td>
                         <td><?= $produit["reference"] ?></td>
@@ -101,7 +99,7 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
 
                 <div>
 
-                    <a classe="deco" href="../produits/create_produits.php"><button class="dashboard-btn">Ajouter un produit</button></a>
+                    <a classe="deco" href="../produits/create_produits.php"><button type="button" class="btn btn-outline-secondary">Ajouter un produit</button></a>
                     <br>
                     <br>
 
