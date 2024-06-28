@@ -10,15 +10,15 @@ $query = $db->prepare($sql);
 $query->execute();
 $news = $query->fetchAll(PDO::FETCH_ASSOC);
 
+
+
 // Récupérer les noms de table categories
 //$categories = ['Polo manches longues', 'Polo manches courtes', 'Short', 'Pantalon Chinot', 'Pantalon'];
 
-
-
-$sql = "SELECT * FROM `produits`";
+$sql = "SELECT * FROM `produits` WHERE 1";
 $query = $db->prepare($sql);
 $query->execute();
-$categories = $query->fetch(PDO::FETCH_ASSOC);
+$categories = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -46,6 +46,11 @@ $categories = $query->fetch(PDO::FETCH_ASSOC);
 
     .wrap h2:first-of-type {
         margin: 5% 0%;
+    }
+
+    .wrap {
+        width: 400px;
+        text-align: left;
     }
 
     .nouveautes {
@@ -107,7 +112,7 @@ $categories = $query->fetch(PDO::FETCH_ASSOC);
                 <?php foreach($news as $new): ?>
                 <div class="carte">
                     <a href="produits.php?id=<?=$new["id"]?>">
-                        <img src="<?=$new['image_produit']?>" width="300px" alt="<?=$new['alt']?>">
+                        <img src="<?=$new['image_produit']?>" height="500px" alt="<?=$new['']?>">
                     </a>
                 </div>
                 <?php endforeach; ?>
@@ -115,21 +120,22 @@ $categories = $query->fetch(PDO::FETCH_ASSOC);
             <button class="arrow arrow-right">&#10095;</button>
         </div>
     </section>
-
     <section>
         <div class="categories">
             <?php foreach($categories as $categorie): ?>
-            <div class="wrap">
-                <h2 class="news"><?= $categorie["nom_produit"] ?></h2>
-                <?php if (isset($categorie)): ?>
-                <div class="pad_carte">
-                    <a href="categories.php?=<?=$categorie["nom_produit"]?>">
-                        <img src="<?= $categorie['image_produit'] ?>" alt="<?= $categorie['alt'] ?>">
-                    </a>
-                </div>
-                <?php endif; ?>
+
+            <div class="pad_carte">
+                <p><?= $categorie["nom_produit"] ?></p>
+                <a href="categories.php?=<?=$categorie["nom_produit"]?>">
+                    <img src="<?= $categorie['image_produit'] ?>" height="350px" alt="<?= $categorie[''] ?>">
+                </a>
+                <p>Taille : <?= $categorie["taille"] ?></p>
+                <p>Prix : <?= $categorie["prix_ht"] ?> €</p>
             </div>
+
             <?php endforeach; ?>
+        </div>
+
         </div>
     </section>
 
