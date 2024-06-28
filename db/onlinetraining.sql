@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : jeu. 27 juin 2024 à 14:41
+-- Généré le : ven. 28 juin 2024 à 06:54
 -- Version du serveur : 8.0.37
 -- Version de PHP : 8.2.8
 
@@ -67,9 +67,12 @@ CREATE TABLE `commandes` (
 --
 
 CREATE TABLE `messagerie` (
+  `id` int NOT NULL,
   `user_id` int NOT NULL,
-  `receiver_id` int NOT NULL,
-  `message` varchar(1000) NOT NULL
+  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `time` timestamp NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -155,7 +158,7 @@ ALTER TABLE `categories`
 -- Index pour la table `messagerie`
 --
 ALTER TABLE `messagerie`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `panier`
@@ -185,6 +188,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `categories`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT pour la table `messagerie`
+--
+ALTER TABLE `messagerie`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `panier`
