@@ -16,7 +16,6 @@ function generateRandomString($length = 20)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (
         isset($_POST["id"]) && !empty($_POST["id"])
-        && isset($_POST["alt"]) && !empty($_POST["alt"])
         && isset($_POST["nom_produit"]) && !empty($_POST["nom_produit"])
         && isset($_POST["genre"]) && !empty($_POST["genre"])
         && isset($_POST["reference"]) && !empty($_POST["reference"])
@@ -31,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         && isset($_POST["prix_ht"]) && !empty($_POST["prix_ht"])
     ) {
         $id = htmlspecialchars($_POST["id"]);
-        $alt = htmlspecialchars($_POST["alt"]);
         $nom_produit = htmlspecialchars($_POST["nom_produit"]);
         $genre = htmlspecialchars($_POST["genre"]);
         $reference = htmlspecialchars($_POST["reference"]);
@@ -57,12 +55,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $newFilePath = $uploadDir . $newFileName;
 
                 // Supprimer l'ancienne image
-                if (file_exists($image_produit)) {
-                    unlink($image_produit);
+                if (!empty($image_produit) && file_exists(__DIR__ . '/../../' . $image_produit)) {
+                    unlink(__DIR__ . '/../../' . $image_produit);
                 }
 
                 if (move_uploaded_file($_FILES['image_produit']['tmp_name'], $newFilePath)) {
-                    $image_produit = $newFilePath;
+                    $image_produit = $newFileName;
                 } else {
                     echo "Erreur lors du téléchargement du fichier.";
                     exit;
@@ -73,15 +71,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
 
-        $sql = "UPDATE produits SET image_produit = :image_produit, alt = :alt, nom_produit = :nom_produit, genre = :genre, reference = :reference, marque = :marque, categorie_id = :categorie_id, couleur = :couleur,
+        $sql = "UPDATE produits SET image_produit = :image_produit, nom_produit = :nom_produit, genre = :genre, reference = :reference, marque = :marque, categorie_id = :categorie_id, couleur = :couleur,
                 matiere = :matiere, motif = :motif, description = :description, taille = :taille, quantite = :quantite,
                 prix_ht = :prix_ht WHERE id = :id";
 
         $query = $db->prepare($sql);
 
         $query->bindValue(":id", $id, PDO::PARAM_INT);
-        $query->bindValue(":image_produit", $image_produit, PDO::PARAM_STR);
-        $query->bindValue(":alt", $alt, PDO::PARAM_STR);
+        $query->bindValue(":image_produit", 'img/produits/' . $newFileName, PDO::PARAM_STR);
         $query->bindValue(":nom_produit", $nom_produit, PDO::PARAM_STR);
         $query->bindValue(":genre", $genre, PDO::PARAM_STR);
         $query->bindValue(":reference", $reference, PDO::PARAM_STR);
@@ -126,9 +123,9 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
 <html lang="fr">
 
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Formulaire_produits</title>
 </head>
 
@@ -143,9 +140,6 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
                 <label for="image_produit">Image:</label>
                 <input type="file" id="image_produit" name="image_produit">
                 <input type="hidden" name="image_produit_current" value="<?= htmlspecialchars($user["image_produit"]) ?>">
-                <br>
-                <label for="alt">Description de l'image:</label>
-                <input type="text" id="alt" name="alt" value="<?= htmlspecialchars($user["alt"]) ?>" required>
                 <br>
                 <label for="nom_produit">Nom:</label>
                 <input type="text" id="nom_produit" name="nom_produit" value="<?= htmlspecialchars($user["nom_produit"]) ?>" required>
@@ -207,6 +201,7 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
             <a href="dashboard_produits.php"><button class="login-btn" class="Btn_add">Retour </button></a>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
