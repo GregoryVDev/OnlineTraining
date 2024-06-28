@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (in_array($imageFileType, $allowedTypes)) {
                 $newFileName = generateRandomString(20) . '.' . $imageFileType;
-                $image_produit = $uploadDir . $newFileName;
+                $image_produit = 'img/produits/' . $newFileName;
 
                 if (move_uploaded_file($_FILES['image_produit']['tmp_name'], $image_produit)) {
                     $sql = "INSERT INTO produits (image_produit, alt, nom_produit, genre, reference, marque, categorie_id, couleur, matiere, motif, description, taille, quantite, prix_ht)
@@ -112,6 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Formulaire Produits</title>
 </head>
 
@@ -189,6 +190,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button class="login-btn"><a href="./dashboard_produits.php">Retour</a></button>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
