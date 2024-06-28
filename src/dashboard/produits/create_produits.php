@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $prix_ht = htmlspecialchars($_POST["prix_ht"]);
 
             // Gestion du fichier uploadé
-            $uploadDir = '../../img/produits/';
+            $uploadDir = '../img/produits/';
             $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
             $imageFileType = strtolower(pathinfo($_FILES['image_produit']['name'], PATHINFO_EXTENSION));
 
