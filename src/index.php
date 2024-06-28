@@ -11,7 +11,7 @@ $query->execute();
 $news = $query->fetchAll(PDO::FETCH_ASSOC);
 
 // Récupérer les noms de table categories
-$categories = ['Polo manches longues', 'Polo manches courtes', 'Short', 'Pantalon Chinot', 'Pantalon'];
+//$categories = ['Polo manches longues', 'Polo manches courtes', 'Short', 'Pantalon Chinot', 'Pantalon'];
 
 
 
@@ -120,11 +120,11 @@ $categories = $query->fetch(PDO::FETCH_ASSOC);
         <div class="categories">
             <?php foreach($categories as $categorie): ?>
             <div class="wrap">
-                <h2 class="news"><?= $categorie ["nom_produit"] ?></h2>
+                <h2 class="news"><?= $categorie["nom_produit"] ?></h2>
                 <?php if (isset($categorie)): ?>
                 <div class="pad_carte">
                     <a href="categories.php?=<?=$categorie["nom_produit"]?>">
-                        <img src="" alt="<?= $categorie['alt'] ?>">
+                        <img src="<?= $categorie['image_produit'] ?>" alt="<?= $categorie['alt'] ?>">
                     </a>
                 </div>
                 <?php endif; ?>
