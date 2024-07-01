@@ -14,6 +14,7 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Dashboard_users</title>
 </head>
@@ -23,12 +24,8 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
     include '../../templates/navbar_dashboard.php';
     ?>
     <section class="dashboard">
-
         <br>
         <br>
-        <br>
-        <br>
-
         <table class="table table-striped table-hover table table-bordered">
             <thead>
                 <th>id</th>

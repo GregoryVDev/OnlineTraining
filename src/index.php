@@ -1,5 +1,5 @@
 <?php
-//lancement de la session
+// Lancement de la session
 session_start();
 
 require_once('connect.php');
@@ -10,18 +10,11 @@ $query = $db->prepare($sql);
 $query->execute();
 $news = $query->fetchAll(PDO::FETCH_ASSOC);
 
-
-
 // Récupérer les noms de table categories
-$categories = ['Polo manches longues', 'Polo manches courtes', 'Short', 'Pantalon Chinot', 'Pantalon'];
-$nomCategorie = [];
-
-
 $sql = "SELECT p.*, c.type as categorie_type FROM produits p JOIN categories c ON p.categorie_id = c.id";
 $query = $db->prepare($sql);
 $query->execute();
 $categories = $query->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 
 <!DOCTYPE html>
@@ -38,12 +31,10 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
     <style>
     html {
         overflow: -moz-scrollbars-none;
-        /* Firefox */
     }
 
     html::-webkit-scrollbar {
         display: none;
-        /* Safari and Chrome */
     }
 
     .wrap h2:first-of-type {
@@ -64,12 +55,21 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
 
     .ligne {
         display: flex;
+        align-items: center;
+        justify-content: center;
         transition: transform 0.5s ease-in-out;
     }
 
     .carte {
-        flex: 0 0 auto;
-        margin: 0 5px;
+        margin: 0 10px;
+    }
+
+    .carte img {
+        display: block;
+        width: 400px;
+        height: 550px;
+        margin: auto;
+        object-fit: cover;
     }
 
     .arrow {
@@ -102,94 +102,105 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <?php
-
-    include('./templates/header.php'); ?>
+    <?php include('./templates/header.php'); ?>
 
     <section>
         <div class="nouveautes">
             <h2 class="news">NOUVEAUTES</h2>
             <button class="arrow arrow-left">&#10094;</button>
-            <div class="ligne">
-                <?php foreach($news as $new): ?>
-                <div class="carte">
-                    <a href="produits.php?id=<?=$new["id"]?>">
-                        <img src="<?=$new['image_produit']?>" height="500px" alt="<?=$new['nom_produit']?>">
-                    </a>
+            <div class="carousel-container">
+                <div class="ligne">
+                    <?php foreach ($news as $new) : ?>
+                    <div class="carte">
+                        <a href="produit.php?id=<?= $new['id'] ?>">
+                            <img src="<?= $new['image_produit'] ?>" alt="<?= $new['nom_produit'] ?>">
+                        </a>
+                    </div>
+                    <?php endforeach; ?>
                 </div>
-                <?php endforeach; ?>
             </div>
             <button class="arrow arrow-right">&#10095;</button>
         </div>
     </section>
     <section>
+        <h2 class="news">NOTRE CATALOGUE</h2>
         <div class="categories">
             <?php foreach($categories as $categorie): ?>
-
             <div class="pad_carte">
-                <p><?= $categorie["nom_produit"] ?></p>
-                <a href="categories.php?=<?=$categorie["nom_produit"]?>">
+                <p><?= $categorie["categorie_type"] ?></p>
+                <a href="categories.php?categories_type=<?= urlencode($categorie["categorie_type"]) ?>">
                     <img src="<?= $categorie['image_produit'] ?>" height="380px" alt="<?= $categorie['nom_produit'] ?>">
                 </a>
                 <p>Taille : <?= $categorie["taille"] ?></p>
                 <p>Prix : <?= $categorie["prix_ht"] ?> €</p>
             </div>
-
             <?php endforeach; ?>
-        </div>
-
         </div>
     </section>
 
-    <?php include('./templates/footer.php');
-
-    ?>
-    <a href="./dashboard/produits/dashboard_produits.php">DASHBOARD</a>
+    <?php include('./templates/footer.php'); ?>
 
     <script>
-    const ligne = document.querySelector('.ligne');
-    const cards = document.querySelectorAll('.carte');
-    const leftArrow = document.querySelector('.arrow-left');
-    const rightArrow = document.querySelector('.arrow-right');
-    let index = 0;
+    document.addEventListener('DOMContentLoaded', () => {
+        const ligne = document.querySelector('.ligne');
+        const cards = Array.from(document.querySelectorAll('.carte'));
+        const leftArrow = document.querySelector('.arrow-left');
+        const rightArrow = document.querySelector('.arrow-right');
+        const cardWidth = cards[0].clientWidth + 20; // 20 est la marge droite
+        let index = cards.length; // Commence à la fin pour afficher la première série après les clones
 
-    function showNextImage() {
-        index++;
-        updateCarousel();
-    }
+        // Clone toutes les cartes et les ajoute à la fin
+        cards.forEach(card => {
+            const clone = card.cloneNode(true);
+            ligne.appendChild(clone);
+        });
 
-    function showPreviousImage() {
-        index--;
-        updateCarousel();
-    }
+        // Clone toutes les cartes et les ajoute au début
+        [...cards].reverse().forEach(card => {
+            const clone = card.cloneNode(true);
+            ligne.insertBefore(clone, cards[0]);
+        });
 
-    function updateCarousel() {
-        const translateX = -index * (cards[0].clientWidth + 20);
-        ligne.style.transition = 'transform 0.5s ease-in-out';
-        ligne.style.transform = `translateX(${translateX}px)`;
+        // Ajuster la largeur de la ligne
+        ligne.style.width = `${(cards.length * 3) * cardWidth}px`;
+        ligne.style.transform = `translateX(${-index * cardWidth}px)`;
 
-        // Looping logic
-        if (index >= cards.length / 2) {
-            setTimeout(() => {
-                ligne.style.transition = 'none';
-                index = 0;
-                const resetTranslateX = -index * (cards[0].clientWidth + 20);
-                ligne.style.transform = `translateX(${resetTranslateX}px)`;
-            }, 500);
-        } else if (index < 0) {
-            setTimeout(() => {
-                ligne.style.transition = 'none';
-                index = cards.length / 2 - 1;
-                const resetTranslateX = -index * (cards[0].clientWidth + 20);
-                ligne.style.transform = `translateX(${resetTranslateX}px)`;
-            }, 500);
+        function showNextImage() {
+            index++;
+            updateCarousel();
         }
-    }
 
-    leftArrow.addEventListener('click', showPreviousImage);
-    rightArrow.addEventListener('click', showNextImage);
+        function showPreviousImage() {
+            index--;
+            updateCarousel();
+        }
 
-    setInterval(showNextImage, 5200);
+        function updateCarousel() {
+            ligne.style.transition = 'transform 0.5s ease-in-out';
+            const translateX = -index * cardWidth;
+            ligne.style.transform = `translateX(${translateX}px)`;
+
+            ligne.addEventListener('transitionend', handleTransitionEnd);
+        }
+
+        function handleTransitionEnd() {
+            if (index >= cards.length * 2) { // Quand on atteint les clones à la fin
+                ligne.style.transition = 'none';
+                index = cards.length; // Réinitialiser à la première série de cartes
+                ligne.style.transform = `translateX(${-index * cardWidth}px)`;
+            } else if (index < cards.length) { // Quand on atteint les clones au début
+                ligne.style.transition = 'none';
+                index = cards.length * 2 - 1; // Réinitialiser à la dernière série de cartes
+                ligne.style.transform = `translateX(${-index * cardWidth}px)`;
+            }
+            ligne.removeEventListener('transitionend', handleTransitionEnd);
+        }
+
+        leftArrow.addEventListener('click', showPreviousImage);
+        rightArrow.addEventListener('click', showNextImage);
+
+        setInterval(showNextImage, 4000); // Un intervalle de 4 secondes pour une meilleure visibilité
+    });
     </script>
 </body>
 

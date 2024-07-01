@@ -1,9 +1,29 @@
-<?php
-//lancement de la session
+<?php 
 session_start();
 
+require_once("connect.php");
 
+if (isset($_GET["id"])) {
+    $id_produit = $_GET["id"];
+
+    $sql = "SELECT * FROM produits WHERE id = :id";
+    $query = $db->prepare($sql);
+    $query->bindValue(':id', $id_produit, PDO::PARAM_INT);
+    $query->execute();
+    $produit = $query->fetch(PDO::FETCH_ASSOC);
+
+    if (!$produit) {
+        $_SESSION["erreur"] = "Vous êtes allé trop loin, aucun produit ne correspond!";
+        header("Location: index.php");
+        exit();
+    }
+} else {
+    $_SESSION["erreur"] = "La page demandée n'existe pas, veuillez réessayer plus tard";
+    header("Location: index.php");
+    exit();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -24,21 +44,14 @@ session_start();
         <main>
             <article class="container-produit">
                 <figure class="order">
-                    <img class="picture-produit" src="img/exemple_produit.jpg" alt="exemple produit">
+                    <img class="picture-produit" src="<?= $produit["image_produit"] ?>"
+                        alt="<?= $produit["nom_produit"] ?>">
                     <figcaption>Accueil / robe / nom de la robe (chemin)</figcaption>
-                    <figcaption>
-                        <!-- Accueil /-->
-                        <!-- $produit[""] -->
-                        <!-- $produit[""] -->
-                    </figcaption>
                 </figure>
                 <div class="container-information-produit">
-                    <h1 class="h1-produit-name">Nom du produit</h1>
-                    <p class="prix">Prix xx€</p>
-                    <p class="text"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias eius laboriosam
-                        odit ipsa nihil reiciendis itaque tempora earum explicabo expedita nobis provident, ex
-                        consequuntur magni blanditiis exercitationem, similique soluta natus!
-                        <!--$produit["description"]-->
+                    <h1 class="h1-produit-name"><?= $produit["nom_produit"] ?></h1>
+                    <p class="prix"><?= $produit["prix_ht"]?></p>
+                    <p class="text"><?= $produit["description"]?>
                     </p>
                     <div class="taille">
                         <p>Taille</p>
@@ -52,7 +65,7 @@ session_start();
                         </select>
                     </div>
                     <div class="couleur">
-                        <p>Couleur</p>
+                        <p><?= $produit["couleur"]?></p>
                         <select name="taille" id="taille">
                             <option value="">Séléctionnez votre couleur</option>
                             <option value="bleu">bleu</option>

@@ -1,12 +1,4 @@
 <h1>DASHBOARD</h1>
-<br>
-<br>
-<a href="../../index.php"><button type="button" class="btn btn-outline-danger">Déconection</button></a>
-<br>
-<br>
-<br>
-<br>
-
 
 <div>
     <a href="../produits/dashboard_produits.php"><button type="button" class="btn btn-outline-secondary">produits</button></a>

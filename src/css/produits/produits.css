@@ -35,6 +35,10 @@
     .container-information-produit {
         gap: 20px;
     }
+
+    .container-produit-similaire {
+        margin: 0% 3% 0% 3%;
+    }
 }
 
 @media (min-width: 1000px) {
@@ -59,6 +63,11 @@
 
     .text {
         text-justify: inter-word;
+    }
+
+    .container-information-produit {
+        gap: 40px;
+        width: 60%;
     }
 }
 
@@ -84,12 +93,5 @@
 
     .text {
         text-justify: inter-word;
-    }
-}
-
-@media (min-width: 1000px) {
-    .container-information-produit {
-        gap: 40px;
-        width: 60%;
     }
 }
