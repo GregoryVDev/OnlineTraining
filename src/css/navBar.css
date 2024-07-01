@@ -37,7 +37,7 @@
 
 }
 
-.overlay-container:hover .overlay, 
+.overlay-container:hover .overlay,
 .overlay-container1:hover .overlay {
     opacity: 1;
     visibility: visible;
@@ -92,10 +92,12 @@
 
 }
 
+/* user connexion/deconnexion/backoffice etc */
 .container-deconnexion {
     position: relative;
     display: flex;
     align-items: center;
+    z-index: 1;
 }
 
 .deconnexion {
@@ -127,6 +129,8 @@
     width: 100%;
     height: 100%;
     text-decoration: none;
+    margin-bottom: 5%;
+    padding: 1%;
 }
 
 .logout span {
@@ -157,13 +161,14 @@ li {
     list-style: none;
 }
 
+/* user connexion/deconnexion/backoffice etc */
 
 @media (max-width: 1920px) {
 
 
     .rubrique {
         font-size: 1.8rem;
-        width:auto;
+        width: auto;
         color: black;
     }
 
@@ -180,8 +185,9 @@ li {
         width: 26px;
     }
 }
-    .overlay-container {
-    display: none; 
+
+.overlay-container {
+    display: none;
 }
 
 @media (max-width: 1204px) {
@@ -189,6 +195,7 @@ li {
     .logoOnline img {
         width: 130px;
     }
+
     .overlay-container {
         display: none
     }
@@ -249,7 +256,8 @@ li {
         width: 25px;
     }
 
-    .navBar_droite, .overlay-container {
+    .navBar_droite,
+    .overlay-container {
         width: 70px;
     }
 
@@ -260,5 +268,17 @@ li {
     .logoOnline img {
         object-fit: contain;
         width: 100px;
+    }
+
+    .deconnexion {
+        left: -40px;
+        top: 30px;
+        padding: 10px;
+        width: 100px;
+        font-size: 0.6rem;
+    }
+
+    .logout img {
+        width: 10px;
     }
 }
