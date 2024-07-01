@@ -78,68 +78,6 @@
 </nav>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    let menuBurger = document.getElementById('menuBurger');
-    let menuCategories = document.getElementById('menuCategories');
-    let catalogue = document.getElementById('catalogue');
-    let catalogueCategories = document.getElementById('catalogueCategories');
-    let hideTimeout;
-
-    function showMenu(menu) {
-        clearTimeout(hideTimeout);
-        menu.style.display = 'block';
-    }
-
-    function hideMenu(menu) {
-        hideTimeout = setTimeout(function() {
-            menu.style.display = 'none';
-        }, 300);
-    }
-
-    menuBurger.addEventListener('mouseenter', function() {
-        showMenu(menuCategories);
-    });
-
-    menuBurger.addEventListener('mouseleave', function(event) {
-        if (!menuCategories.contains(event.relatedTarget)) {
-            hideMenu(menuCategories);
-        }
-    });
-
-    menuCategories.addEventListener('mouseleave', function(event) {
-        if (!menuBurger.contains(event.relatedTarget)) {
-            hideMenu(menuCategories);
-        }
-    });
-
-    menuCategories.addEventListener('mouseenter', function() {
-        showMenu(menuCategories);
-    });
-
-    catalogue.addEventListener('mouseenter', function() {
-        showMenu(catalogueCategories);
-    });
-
-    catalogue.addEventListener('mouseleave', function(event) {
-        if (!catalogueCategories.contains(event.relatedTarget)) {
-            hideMenu(catalogueCategories);
-        }
-    });
-
-    catalogueCategories.addEventListener('mouseleave', function(event) {
-        if (!catalogue.contains(event.relatedTarget)) {
-            hideMenu(catalogueCategories);
-        }
-    });
-
-    catalogueCategories.addEventListener('mouseenter', function() {
-        showMenu(catalogueCategories);
-    });
-
-    hideMenu(menuCategories);
-    hideMenu(catalogueCategories);
-});
-
 // AFFICHE LA BOITE POUR SE DECONNECTER ETC 
 document.getElementById('account-link').addEventListener('click', function(event) {
     event.preventDefault(); // Empêche le lien de suivre sa destination

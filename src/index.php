@@ -110,16 +110,18 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
         <div class="nouveautes">
             <h2 class="news">NOUVEAUTES</h2>
             <button class="arrow arrow-left">&#10094;</button>
-            <div class="ligne">
-                <?php foreach($news as $new): ?>
-                <div class="carte">
-                    <a href="produits.php?id=<?=$new["id"]?>">
-                        <img src="<?=$new['image_produit']?>" height="500px" alt="<?=$new['nom_produit']?>">
-                    </a>
+            <div class="carousel-container">
+                <div class="ligne">
+                    <?php foreach($news as $new): ?>
+                    <div class="carte">
+                        <a href="produits.php?id=<?=$new["id"]?>">
+                            <img src="<?=$new['image_produit']?>" height="500px" alt="<?=$new['nom_produit']?>">
+                        </a>
+                    </div>
+                    <?php endforeach; ?>
                 </div>
-                <?php endforeach; ?>
+                <button class="arrow arrow-right">&#10095;</button>
             </div>
-            <button class="arrow arrow-right">&#10095;</button>
         </div>
     </section>
     <section>
@@ -147,49 +149,61 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
     <a href="./dashboard/produits/dashboard_produits.php">DASHBOARD</a>
 
     <script>
-    const ligne = document.querySelector('.ligne');
-    const cards = document.querySelectorAll('.carte');
-    const leftArrow = document.querySelector('.arrow-left');
-    const rightArrow = document.querySelector('.arrow-right');
-    let index = 0;
+    document.addEventListener('DOMContentLoaded', () => {
+        const ligne = document.querySelector('.ligne');
+        let cards = Array.from(document.querySelectorAll(
+        '.carte')); // Convertir en tableau pour faciliter la manipulation
+        const leftArrow = document.querySelector('.arrow-left');
+        const rightArrow = document.querySelector('.arrow-right');
+        let index = 1; // Commence à 1 pour que le premier affiché soit l'original
+        const cardWidth = cards[0].clientWidth + 20; // 20 est la marge droite
 
-    function showNextImage() {
-        index++;
-        updateCarousel();
-    }
+        // Clone le premier et le dernier élément pour un effet de boucle infini
+        const firstClone = cards[0].cloneNode(true);
+        const lastClone = cards[cards.length - 1].cloneNode(true);
 
-    function showPreviousImage() {
-        index--;
-        updateCarousel();
-    }
+        ligne.appendChild(firstClone);
+        ligne.insertBefore(lastClone, cards[0]);
 
-    function updateCarousel() {
-        const translateX = -index * (cards[0].clientWidth + 20);
-        ligne.style.transition = 'transform 0.5s ease-in-out';
-        ligne.style.transform = `translateX(${translateX}px)`;
+        // Met à jour la liste des cartes après clonage
+        cards = Array.from(document.querySelectorAll('.carte'));
 
-        // Looping logic
-        if (index >= cards.length / 2) {
-            setTimeout(() => {
-                ligne.style.transition = 'none';
-                index = 0;
-                const resetTranslateX = -index * (cards[0].clientWidth + 20);
-                ligne.style.transform = `translateX(${resetTranslateX}px)`;
-            }, 500);
-        } else if (index < 0) {
-            setTimeout(() => {
-                ligne.style.transition = 'none';
-                index = cards.length / 2 - 1;
-                const resetTranslateX = -index * (cards[0].clientWidth + 20);
-                ligne.style.transform = `translateX(${resetTranslateX}px)`;
-            }, 500);
+        function showNextImage() {
+            index++;
+            updateCarousel();
         }
-    }
 
-    leftArrow.addEventListener('click', showPreviousImage);
-    rightArrow.addEventListener('click', showNextImage);
+        function showPreviousImage() {
+            index--;
+            updateCarousel();
+        }
 
-    setInterval(showNextImage, 5200);
+        function updateCarousel() {
+            ligne.style.transition = 'transform 0.5s ease-in-out';
+            const translateX = -index * cardWidth;
+            ligne.style.transform = `translateX(${translateX}px)`;
+
+            // Gère le bouclage infini
+            if (index === cards.length - 1) {
+                setTimeout(() => {
+                    ligne.style.transition = 'none';
+                    index = 1; // Réinitialiser à l'élément original
+                    ligne.style.transform = `translateX(${-index * cardWidth}px)`;
+                }, 500);
+            } else if (index === 0) {
+                setTimeout(() => {
+                    ligne.style.transition = 'none';
+                    index = cards.length - 2; // Réinitialiser à l'avant-dernier élément
+                    ligne.style.transform = `translateX(${-index * cardWidth}px)`;
+                }, 500);
+            }
+        }
+
+        leftArrow.addEventListener('click', showPreviousImage);
+        rightArrow.addEventListener('click', showNextImage);
+
+        setInterval(showNextImage, 5200);
+    });
     </script>
 </body>
 
