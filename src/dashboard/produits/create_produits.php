@@ -109,8 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="../../css/dashboard/dashboard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Formulaire Produits</title>
 </head>
@@ -120,17 +119,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include '../../templates/navbar_dashboard.php';
     ?>
     <br>
-    <br>
-    <div class="">
+    <div class="form_produit">
         <div class="">
-            <h1>AJOUTER UN PRODUIT: </h1>
-            <form method="post" enctype="multipart/form-data">
+            <h2>AJOUTER UN PRODUIT:</h2>
+
+            <form class="formulaire_produit" method="post" enctype="multipart/form-data">
                 <input class="form-control " type="file" id="image_produit" name="image_produit" value="image">
                 <input class="form-control" type="text" placeholder="NOM" aria-label=".form-control-sm example" id="nom_produit" name="nom_produit" required>
                 <select class="form-select" aria-label="Default select example" id="genre" name="genre" required>
                     <option selected>GENRE</option>
-                    <option value="homme">homme</option>
-                    <option value="Femme">Femme</option>
+                    <option value="homme">HOMME</option>
+                    <option value="Femme">FEMME</option>
                 </select>
                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="REFERENCE" id="reference" name="reference" required>
                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MARQUE" id="marque" name="marque" required>
@@ -154,12 +153,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="QUANTITE" id="quantite" name="quantite" required min="0">
                 <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="PRIX HT" id="prix_ht" name="prix_ht" required min="0">
 
-                <br>
-                <button type="input" class="btn btn-outline-secondary">Ajouter</button>
-            </form>
 
-            <br>
-            <a href="./dashboard_produits.php"><button type="button" class="btn btn-outline-secondary">Retour</button></a>
+                <div class="btn_produit"><button type="input" class="btn btn-outline-secondary">Ajouter</button></div>
+
+            </form>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">

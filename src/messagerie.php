@@ -44,7 +44,7 @@ if (isset($_POST["valider"])) {
 
     <section id="messages"></section>
     <form method="POST">
-        <textarea name="message" placeholder="Votre message"></textarea>
+        <textarea name="message" id="message" placeholder="Votre message"></textarea>
         <br>
         <input type="submit" name="valider">
     </form>

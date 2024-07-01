@@ -1,0 +1,46 @@
+h1 {
+    text-align: center;
+    /*border: solid 1px blue;*/
+}
+
+.form_produit {
+    margin: 0 auto;
+    /*border: 1px solid orange;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+}
+
+.contenair_nav_dash {
+    width: 600px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_dash {
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.add {
+    width: 200px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_produit {
+    width: 50px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulaire_produit {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
