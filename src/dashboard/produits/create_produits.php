@@ -121,29 +121,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="conteneur_form_form">
             <h1>AJOUTER UN PRODUIT: </h1>
             <form method="post" enctype="multipart/form-data">
-
-                <label for="image_produit">Image:</label>
-                <input type="file" id="image_produit" name="image_produit" value="">
-                <br>
-                <label for="nom_produit">Nom:</label>
-                <input type="text" id="nom_produit" name="nom_produit" required>
-                <br>
-                <label for="genre">Genre:</label>
-                <select id="genre" name="genre" required>
-                    <option value="">Sélectionnez un Genre</option>
-                    <option value="Homme">Homme</option>
+                <input class="form-control " type="file" id="image_produit" name="image_produit" value="image">
+                <input class="form-control" type="text" placeholder="Nom : " aria-label=".form-control-sm example" id="nom_produit" name="nom_produit" required>
+                <select class="form-select" aria-label="Default select example" id="genre" name="genre" required>
+                    <option selected>Genre : </option>
+                    <option value="homme">homme</option>
                     <option value="Femme">Femme</option>
                 </select>
-                <br>
-                <label for="reference">Référence:</label>
-                <input type="text" id="reference" name="reference" required>
-                <br>
-                <label for="marque">Marque:</label>
-                <input type="text" id="marque" name="marque" required>
-                <br>
-                <label for="categorie_id">Catégorie:</label>
-                <select id="categorie_id" name="categorie_id" required>
-                    <option value="">Sélectionnez une catégorie</option>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Reference : " id="reference" name="reference" required>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Marque : " id="marque" name="marque" required>
+                <select class="form-select" aria-label="Default select example" id="categorie_id" name="categorie_id" required>
+                    <option value="">catégorie :</option>
                     <?php
                     require_once("../../connect.php");
                     // Assumez que la connexion à la base de données est déjà établie
@@ -154,30 +142,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                     ?>
                 </select>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Couleur : " id="couleur" name="couleur" required>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Matière : " id="matiere" name="matiere" required>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Motif : " id="motif" name="motif" required>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Description : " id="description" name="description" required>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Taille : " id="taille" name="taille" required>
+                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Quantité : " id="quantite" name="quantite" required min="0">
+                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Prix HT : " id="prix_ht" name="prix_ht" required min="0">
+
                 <br>
-                <label for="couleur">Couleur:</label>
-                <input type="text" id="couleur" name="couleur" required>
-                <br>
-                <label for="matiere">Matière:</label>
-                <input type="text" id="matiere" name="matiere" required>
-                <br>
-                <label for="motif">Motif:</label>
-                <input type="text" id="motif" name="motif" required>
-                <br>
-                <label for="description">Description:</label>
-                <input type="text" id="description" name="description" required>
-                <br>
-                <label for="taille">Taille:</label>
-                <input type="text" id="taille" name="taille" required>
-                <br>
-                <label for="quantite">Quantité:</label>
-                <input type="number" id="quantite" name="quantite" required min="0">
-                <br>
-                <label for="prix_ht">Prix HT:</label>
-                <input type="number" id="prix_ht" name="prix_ht" required min="0">
-                <br>
-                <br>
-                <button type="button" class="btn btn-outline-secondary">Ajouter</button>
+                <button type="input" class="btn btn-outline-secondary">Ajouter</button>
             </form>
 
             <br>
