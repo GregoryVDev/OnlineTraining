@@ -3,11 +3,16 @@ session_start();
 
 require_once('connect.php');
 
+// Vérifiez si l'ID du produit a été posté
+if (isset($_POST['produit_id'])) 
+    $produitId = $_POST['produit_id'];
+
+
 // Requête pour récupérer les produits
 $sql = 'SELECT * FROM produits';
 $query = $pdo->query($sql);
 $query->execute();
-$produits = $query->fetchAll(PDO::FETCH_ASSOC);
+$produits = $query->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <html lang="fr">

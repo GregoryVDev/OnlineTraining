@@ -1,19 +1,22 @@
 <nav>
     <div class="navbar">
-        <div class="navBar_gauche">
-            <div id="menuBurger"><img src="./img/navBar/menuBurger.png" alt="Menu"></div>
-
-            <ul id="menuCategories">
-                <hr>
-                <li class="catalogueRouge"><b>CATALOGUE</b></li>
-                <hr>
-                <li><a href="#">Polo Manches Courtes</a></li>
-                <li><a href="#">Polo Manches Longues</a></li>
-                <li><a href="#">Short</a></li>
-                <li><a href="#">Pantalon Chino</a></li>
-                <li><a href="#">Pantalon</a></li>
-            </ul>
-
+        <div class="overlay-container">
+            <div><img src="./img/navBar/menuBurger.png" alt="Menu">
+            </div>
+            <div class="overlay">
+                <div>
+                    <ul id="menuCategories">
+                        <hr>
+                        <li class="catalogueRouge"><b>CATALOGUE</b></li>
+                        <hr>
+                        <li><a href="#">Polo Manches Courtes</a></li>
+                        <li><a href="#">Polo Manches Longues</a></li>
+                        <li><a href="#">Short</a></li>
+                        <li><a href="#">Pantalon Chino</a></li>
+                        <li><a href="#">Pantalon</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="logoOnline">
             <img src="./img/navBar/logo-online-training.png" width="80px" alt="Logo Online Training">
@@ -22,14 +25,21 @@
             <div><a class="menuNoir" href="#">NOUVEAUTES</a></div>
             <div><a class="menuRouge" href="#">FEMMME</a></div>
             <div><a class="menuRouge" href="#">HOMME</a></div>
-            <div id="catalogue"><span>CATALOGUE</span>
-                <ul id="catalogueCategories">
-                    <li><a href="#">Polo Manches Courtes</a></li>
-                    <li><a href="#">Polo Manches Longues</a></li>
-                    <li><a href="#">Short</a></li>
-                    <li><a href="#">Pantalon Chino</a></li>
-                    <li><a href="#">Pantalon</a></li>
-                </ul>
+            <div class="overlay-container1">
+                <div class="menuNoir">
+                    CATALOGUE
+                </div>
+                <div class="overlay">
+                    <div>
+                        <ul class="catalogueCategories">
+                            <li><a href="#">Polo Manches Courtes</a></li>
+                            <li><a href="#">Polo Manches Longues</a></li>
+                            <li><a href="#">Short</a></li>
+                            <li><a href="#">Pantalon Chino</a></li>
+                            <li><a href="#">Pantalon</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -39,10 +49,25 @@
                 <a href="#"><img src="./img/navBar/iconSearch.png" alt="Rechercher"></a>
             </div>
             <div>
+
                 <?php if(!isset($_SESSION["user"])): ?>
                 <a href="./connexion.php"><img src="./img/navBar/user.png" alt="Compte"></a>
                 <?php else: ?>
-                <a href="./connexion.php"><img src="./img/navBar/user_connect.png" alt="Compte"></a>
+                <ul class="container-deconnexion">
+                    <li>
+                        <a href="./connexion.php">
+                            <img src="./img/navBar/user_connect.png" alt="Compte" id="account-link">
+                        </a>
+                    </li>
+                    <li class="deconnexion">
+                        <a href="deconnexion.php" id="logout-link">
+                            <div class="logout">
+                                <img src="./img/navBar/x.png" alt="deconnexion logo">
+                                <span>se déconnecter</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
                 <?php endif; ?>
             </div>
             <div>
@@ -113,5 +138,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     hideMenu(menuCategories);
     hideMenu(catalogueCategories);
+});
+
+// AFFICHE LA BOITE POUR SE DECONNECTER ETC 
+document.getElementById('account-link').addEventListener('click', function(event) {
+    event.preventDefault(); // Empêche le lien de suivre sa destination
+    document.querySelector('.deconnexion').classList.toggle('visible');
+});
+
+// Optionnel : Fermer la boîte si on clique en dehors
+document.addEventListener('click', function(event) {
+    var deconnexionBox = document.querySelector('.deconnexion');
+    var accountLink = document.getElementById('account-link');
+    if (!deconnexionBox.contains(event.target) && !accountLink.contains(event.target)) {
+        deconnexionBox.classList.remove('visible');
+    }
 });
 </script>

@@ -95,10 +95,10 @@ if (!empty($_POST)) {
                 <label for="pass2">Confirmation :</label>
                 <input type="password" class="form-input" name="pass2" id="pass2" placeholder="Mot de passe" required>
             </div>
-            <button type="submit" class="connexion-button">Ajouter</button>
+            <button type="button" class="btn btn-outline-secondary">Ajouter</button>
         </form>
         <br>
-        <a href="dashboard_users.php"><button class="login-btn" class="Btn_add">Retour </button></a>
+        <a href="dashboard_users.php"><button type="button" class="btn btn-outline-secondary">Retour </button></a>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

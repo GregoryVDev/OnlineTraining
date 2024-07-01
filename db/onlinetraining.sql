@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : ven. 28 juin 2024 à 06:54
+-- Généré le : ven. 28 juin 2024 à 12:59
 -- Version du serveur : 8.0.37
 -- Version de PHP : 8.2.8
 
@@ -97,7 +97,6 @@ CREATE TABLE `panier` (
 CREATE TABLE `produits` (
   `id` int NOT NULL,
   `image_produit` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `alt` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `nom_produit` varchar(255) NOT NULL,
   `genre` varchar(255) NOT NULL,
   `reference` varchar(255) NOT NULL,
@@ -106,7 +105,7 @@ CREATE TABLE `produits` (
   `couleur` varchar(255) NOT NULL,
   `matiere` varchar(255) NOT NULL,
   `motif` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `description` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `taille` varchar(255) NOT NULL,
   `quantite` int NOT NULL,
   `prix_ht` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
@@ -116,8 +115,11 @@ CREATE TABLE `produits` (
 -- Déchargement des données de la table `produits`
 --
 
-INSERT INTO `produits` (`id`, `image_produit`, `alt`, `nom_produit`, `genre`, `reference`, `marque`, `categorie_id`, `couleur`, `matiere`, `motif`, `description`, `taille`, `quantite`, `prix_ht`) VALUES
-(14, '../../img/produits/ob8ngAGr0baavXn6asuQ.jpg', 'a', 'a', 'Homme', 'a', 'a', 7, 'a', 'a', 'a', 'a', 's', 1, '10');
+INSERT INTO `produits` (`id`, `image_produit`, `nom_produit`, `genre`, `reference`, `marque`, `categorie_id`, `couleur`, `matiere`, `motif`, `description`, `taille`, `quantite`, `prix_ht`) VALUES
+(19, 'img/produits/Y4KSXex9iWDjpstEzC6Z.jpg', 'Pantalon bleu', 'Femme', 'sdfr745hgt', 'Pantashop', 9, 'Bleu', 'Coton', 'Aucun', 'Ce pantalon noir pour femme est constitué de deux couches de mousseline de coton légère', 'L', 1, '25'),
+(20, 'img/produits/eItuMBaBT5SMsSakOdzP.jpg', 'Pantalon chino', 'Femme', 'az12g47fd', 'Pantashop', 8, 'Bleu marine', 'Coton', 'Aucun', 'Le pantalon d&#039;été à longues jambes larges a une ceinture élastique avec un cordon de serrage.', 'S', 1, '25'),
+(21, 'img/produits/wLEhsPvFvD8K5FmccdwB.jpg', 'Polo manche courte', 'Femme', 'olk78fcd46', 'Celio', 2, 'Orange', 'Coton', 'aucun', 'Le polo pour femme K242 propose une coupe tendance et un tissu résistant, agréable à porter au quotidien !', 'XL', 1, '45'),
+(22, 'img/produits/498kJrFIe5ggUWLsl7KF.jpg', 'Polo manche longue', 'Femme', 'aq14jhy745', 'DJEO', 1, 'Rose', 'Coton', 'Aucun', 'Double couture au col aux épaules / emmanchures et bas de corps', 'M', 1, '46');
 
 -- --------------------------------------------------------
 
@@ -140,7 +142,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `prenom`, `nom`, `email`, `pass`, `adresse`, `roles`) VALUES
-(1, 'abc', 'abc', 'abc@abc.fr', '$argon2id$v=19$m=65536,t=4,p=1$WmR4cnFFR2xpSVBrSUhFLg$U5Bt0rKcc3q7Hc8OpbXzRhUTywwbOxY/hUfM/wNCjzM', NULL, '[\"ROLE_USER\"]'),
+(1, 'abcccccccccccccccccccccccccccccccccccccccccc', 'abccccccccccccccccccccccccccccccccccccccccccc', 'abcccccccccccccccccccccccccccccccccc@abc.fr', '$argon2id$v=19$m=65536,t=4,p=1$WmR4cnFFR2xpSVBrSUhFLg$U5Bt0rKcc3q7Hc8OpbXzRhUTywwbOxY/hUfM/wNCjzM', NULL, '[\"ROLE_USER\"]'),
 (2, 'aaa', 'aaa', 'aaa@aaa.fr', '$argon2id$v=19$m=65536,t=4,p=1$ZEpCL1VJREVZVHhsTFIyUw$JeUsj039qvoNx62b33hPertgotyfy3rrhYrAU5413lw', NULL, '[\"ROLE_USER\"]'),
 (3, 'bbb', 'bbb', 'bbb@bbb.fr', '$argon2id$v=19$m=65536,t=4,p=1$MnhFWGsyRm5pM0dGZllBZw$DfZ/44q5Yquo+4PCbNb2+d/z/mLfeCtfwsQ9EqmUdNQ', NULL, '[\"ROLE_USER\"]');
 
@@ -187,7 +189,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `messagerie`
@@ -205,13 +207,13 @@ ALTER TABLE `panier`
 -- AUTO_INCREMENT pour la table `produits`
 --
 ALTER TABLE `produits`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Contraintes pour les tables déchargées
