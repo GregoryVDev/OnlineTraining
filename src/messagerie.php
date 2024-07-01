@@ -49,7 +49,6 @@ if (isset($_POST["valider"])) {
         <input type="submit" name="valider">
     </form>
 
-
     <script>
         setInterval('load_messages()', 10);
 
