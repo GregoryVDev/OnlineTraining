@@ -59,7 +59,7 @@ html::-webkit-scrollbar {
     height: 481px;
     margin: auto;
     object-fit: cover;
-    margin: 5px 0px;
+    margin: 10px 0px;
 }
 
 .arrow {
