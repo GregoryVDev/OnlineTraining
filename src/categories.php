@@ -3,7 +3,7 @@ session_start();
 require_once("connect.php");
 
 $produits = [];
-$categories_type = ""; // Initialisation de la variable
+$categories_type = "";
 
 if (isset($_GET['categories_type'])) {
     $categories_type = urldecode($_GET['categories_type']);
@@ -50,8 +50,7 @@ if (isset($_GET['categories_type'])) {
             <article class="categories-vetement">
                 <figure class="vetement-similaire-figure">
                     <a href="produit.php?id=<?= $vetement["id"] ?>"><img src="<?= ($vetement["image_produit"]) ?>"
-                            alt="exemple produit"></a>
-                    <figcaption><?= ($vetement["categorie_type"]) ?></figcaption>
+                            alt="<?= $vetement["nom_produit"]?>"></a>
                 </figure>
                 <p class="vetement-similaire-couleur"><?= ($vetement["couleur"]) ?></p>
                 <p class="vetement-similaire-prix">Prix <?= ($vetement["prix_ht"]) ?>€</p>
@@ -60,6 +59,8 @@ if (isset($_GET['categories_type'])) {
         </div>
     </main>
     <?php include_once("templates/footer.php"); ?>
+    <script src="/js/script.js"></script>
+
 </body>
 
 </html>

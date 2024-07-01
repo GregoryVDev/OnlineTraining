@@ -14,3 +14,9 @@
         width: 30%;
     }
 }
+
+@media (min-width: 1000px) {
+    .liste-categories {
+        height: 60px;
+    }
+}
