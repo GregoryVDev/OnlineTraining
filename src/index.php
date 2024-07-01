@@ -55,7 +55,7 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
                     <?php endforeach; ?>
                 </div>
             </div>
-            <button class="arrow arrow-right">&#10095;"></button>
+            <button class="arrow arrow-right">&#10095;</button>
         </div>
     </section>
     <section>
@@ -77,7 +77,7 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
 
     <?php include('./templates/footer.php'); ?>
 
-    <script src="script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

@@ -51,7 +51,6 @@ if (isset($_GET['categories_type'])) {
                 <figure class="vetement-similaire-figure">
                     <a href="produit.php?id=<?= $vetement["id"] ?>"><img src="<?= ($vetement["image_produit"]) ?>"
                             alt="<?= $vetement["nom_produit"]?>"></a>
-                    <figcaption><?= ($vetement["categorie_type"]) ?></figcaption>
                 </figure>
                 <p class="vetement-similaire-couleur"><?= ($vetement["couleur"]) ?></p>
                 <p class="vetement-similaire-prix">Prix <?= ($vetement["prix_ht"]) ?>€</p>
@@ -60,7 +59,8 @@ if (isset($_GET['categories_type'])) {
         </div>
     </main>
     <?php include_once("templates/footer.php"); ?>
-    <script src="script.js"></script>
+    <script src="/js/script.js"></script>
+
 </body>
 
 </html>

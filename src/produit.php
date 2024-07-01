@@ -134,7 +134,7 @@ if (isset($_GET["id"])) {
         </div>
     </section>
     <?php include_once("templates/footer.php") ?>
-    <script src="script.js"></script>
+    <script src="/js/script.js"></script>
 
 </body>
 
