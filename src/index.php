@@ -28,78 +28,81 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/fonts/fonts.css">
     <link rel="stylesheet" href="./css/index/index.css">
-    <style>
+    <<<<<<< HEAD <style>
         html {
-            overflow: -moz-scrollbars-none;
+        overflow: -moz-scrollbars-none;
         }
 
         html::-webkit-scrollbar {
-            display: none;
+        display: none;
         }
 
         .wrap h2:first-of-type {
-            margin: 5% 0%;
+        margin: 5% 0%;
         }
 
         .wrap {
-            width: 400px;
-            text-align: left;
+        width: 400px;
+        text-align: left;
         }
 
         .nouveautes {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            margin-bottom: 1%;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 1%;
         }
 
         .ligne {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.5s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.5s ease-in-out;
         }
 
         .carte {
 
-            margin: 0 10px;
+        margin: 0 10px;
         }
 
         .carte img {
-            display: block;
-            width: 400px;
-            height: 550px;
-            margin: auto;
-            object-fit: cover;
+        display: block;
+        width: 400px;
+        height: 550px;
+        margin: auto;
+        object-fit: cover;
         }
 
         .arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.5);
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 2;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 2;
         }
 
         .arrow-left {
-            left: 10px;
+        left: 10px;
         }
 
         .arrow-right {
-            right: 10px;
+        right: 10px;
         }
 
         .categories {
-            display: flex;
-            justify-content: center;
-            gap: 1%;
-            margin: 0 auto;
-            flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+        gap: 1%;
+        margin: 0 auto;
+        flex-wrap: wrap;
         }
-    </style>
+        </style>
+        =======
+
+        >>>>>>> 52b5e358ada4b2bffe33a244b24bd48dfbdce693
 </head>
 
 <body>
@@ -124,7 +127,9 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </section>
     <section>
+        <h2 class="news">NOTRE CATALOGUE</h2>
         <div class="categories">
+
             <?php foreach ($categories as $categorie) : ?>
                 <div class="pad_carte">
                     <p><?= $categorie["nom_produit"] ?></p>
@@ -175,6 +180,9 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
                 updateCarousel();
             }
 
+            <<
+            << << < HEAD
+
             function updateCarousel() {
                 ligne.style.transition = 'transform 0.5s ease-in-out';
                 const translateX = -index * cardWidth;
@@ -200,7 +208,11 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
             rightArrow.addEventListener('click', showNextImage);
 
             setInterval(showNextImage, 3000); // Un intervalle de 3 secondes pour une meilleure visibilité
-        });
+        }); ===
+        === =
+        setInterval(showNextImage, 4000); // Un intervalle de 3 secondes pour une meilleure visibilité
+        }); >>>
+        >>> > 52 b5e358ada4b2bffe33a244b24bd48dfbdce693
     </script>
 </body>
 
