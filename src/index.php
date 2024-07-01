@@ -112,7 +112,7 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
                 <div class="ligne">
                     <?php foreach ($news as $new) : ?>
                     <div class="carte">
-                        <a href="produits.php?id=<?= $new["id"] ?>">
+                        <a href="produit.php?id=<?= $new['id'] ?>">
                             <img src="<?= $new['image_produit'] ?>" alt="<?= $new['nom_produit'] ?>">
                         </a>
                     </div>
@@ -127,8 +127,8 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
         <div class="categories">
             <?php foreach($categories as $categorie): ?>
             <div class="pad_carte">
-                <p><?= $categorie["nom_produit"] ?></p>
-                <a href="categories.php?nom_produit=<?= urlencode($categorie["nom_produit"]) ?>">
+                <p><?= $categorie["categorie_type"] ?></p>
+                <a href="categories.php?categories_type=<?= urlencode($categorie["categorie_type"]) ?>">
                     <img src="<?= $categorie['image_produit'] ?>" height="380px" alt="<?= $categorie['nom_produit'] ?>">
                 </a>
                 <p>Taille : <?= $categorie["taille"] ?></p>
