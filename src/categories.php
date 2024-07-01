@@ -3,7 +3,7 @@ session_start();
 require_once("connect.php");
 
 $produits = [];
-$categories_type = ""; // Initialisation de la variable
+$categories_type = "";
 
 if (isset($_GET['categories_type'])) {
     $categories_type = urldecode($_GET['categories_type']);
@@ -50,7 +50,7 @@ if (isset($_GET['categories_type'])) {
             <article class="categories-vetement">
                 <figure class="vetement-similaire-figure">
                     <a href="produit.php?id=<?= $vetement["id"] ?>"><img src="<?= ($vetement["image_produit"]) ?>"
-                            alt="exemple produit"></a>
+                            alt="<?= $vetement["nom_produit"]?>"></a>
                     <figcaption><?= ($vetement["categorie_type"]) ?></figcaption>
                 </figure>
                 <p class="vetement-similaire-couleur"><?= ($vetement["couleur"]) ?></p>
