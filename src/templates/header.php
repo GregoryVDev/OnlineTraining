@@ -1,19 +1,22 @@
 <nav>
     <div class="navbar">
-        <div class="navBar_gauche">
-            <div id="menuBurger"><img src="./img/navBar/menuBurger.png" alt="Menu"></div>
-
-            <ul id="menuCategories">
-                <hr>
-                <li class="catalogueRouge"><b>CATALOGUE</b></li>
-                <hr>
-                <li><a href="#">Polo Manches Courtes</a></li>
-                <li><a href="#">Polo Manches Longues</a></li>
-                <li><a href="#">Short</a></li>
-                <li><a href="#">Pantalon Chino</a></li>
-                <li><a href="#">Pantalon</a></li>
-            </ul>
-
+        <div class="overlay-container">
+            <div><img src="./img/navBar/menuBurger.png" alt="Menu">
+            </div>
+            <div class="overlay">
+                <div>
+                    <ul id="menuCategories">
+                        <hr>
+                        <li class="catalogueRouge"><b>CATALOGUE</b></li>
+                        <hr>
+                        <li><a href="#">Polo Manches Courtes</a></li>
+                        <li><a href="#">Polo Manches Longues</a></li>
+                        <li><a href="#">Short</a></li>
+                        <li><a href="#">Pantalon Chino</a></li>
+                        <li><a href="#">Pantalon</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="logoOnline">
             <img src="./img/navBar/logo-online-training.png" width="80px" alt="Logo Online Training">
@@ -22,14 +25,21 @@
             <div><a class="menuNoir" href="#">NOUVEAUTES</a></div>
             <div><a class="menuRouge" href="#">FEMMME</a></div>
             <div><a class="menuRouge" href="#">HOMME</a></div>
-            <div id="catalogue"><span>CATALOGUE</span>
-                <ul id="catalogueCategories">
-                    <li><a href="#">Polo Manches Courtes</a></li>
-                    <li><a href="#">Polo Manches Longues</a></li>
-                    <li><a href="#">Short</a></li>
-                    <li><a href="#">Pantalon Chino</a></li>
-                    <li><a href="#">Pantalon</a></li>
-                </ul>
+            <div class="overlay-container1">
+                <div class="menuNoir">
+                    CATALOGUE
+                </div>
+                <div class="overlay">
+                    <div>
+                        <ul class="catalogueCategories">
+                            <li><a href="#">Polo Manches Courtes</a></li>
+                            <li><a href="#">Polo Manches Longues</a></li>
+                            <li><a href="#">Short</a></li>
+                            <li><a href="#">Pantalon Chino</a></li>
+                            <li><a href="#">Pantalon</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
         </div>

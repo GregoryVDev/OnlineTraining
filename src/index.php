@@ -13,9 +13,11 @@ $news = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
 // Récupérer les noms de table categories
-//$categories = ['Polo manches longues', 'Polo manches courtes', 'Short', 'Pantalon Chinot', 'Pantalon'];
+$categories = ['Polo manches longues', 'Polo manches courtes', 'Short', 'Pantalon Chinot', 'Pantalon'];
+$nomCategorie = [];
 
-$sql = "SELECT * FROM `produits` WHERE 1";
+
+$sql = "SELECT p.*, c.type as categorie_type FROM produits p JOIN categories c ON p.categorie_id = c.id";
 $query = $db->prepare($sql);
 $query->execute();
 $categories = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -112,7 +114,7 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach($news as $new): ?>
                 <div class="carte">
                     <a href="produits.php?id=<?=$new["id"]?>">
-                        <img src="<?=$new['image_produit']?>" height="500px" alt="<?=$new['']?>">
+                        <img src="<?=$new['image_produit']?>" height="500px" alt="<?=$new['nom_produit']?>">
                     </a>
                 </div>
                 <?php endforeach; ?>
@@ -127,7 +129,7 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
             <div class="pad_carte">
                 <p><?= $categorie["nom_produit"] ?></p>
                 <a href="categories.php?=<?=$categorie["nom_produit"]?>">
-                    <img src="<?= $categorie['image_produit'] ?>" height="350px" alt="<?= $categorie[''] ?>">
+                    <img src="<?= $categorie['image_produit'] ?>" height="380px" alt="<?= $categorie['nom_produit'] ?>">
                 </a>
                 <p>Taille : <?= $categorie["taille"] ?></p>
                 <p>Prix : <?= $categorie["prix_ht"] ?> €</p>
