@@ -53,6 +53,10 @@ function ajoutMessage() {
     xmlhttp.send(donneesJson);
   }
 }
+
+//CODE POUR LE LOGO USER AVEC LA BOX
+//CODE POUR LE LOGO USER AVEC LA BOX
+//CODE POUR LE LOGO USER AVEC LA BOX
 //CODE POUR LE LOGO USER AVEC LA BOX
 document.addEventListener("DOMContentLoaded", () => {
   const ligne = document.querySelector(".ligne");
@@ -116,3 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setInterval(showNextImage, 4000); // Un intervalle de 4 secondes pour une meilleure visibilité
 });
+//CODE POUR LE LOGO USER AVEC LA BOX
+//CODE POUR LE LOGO USER AVEC LA BOX
+//CODE POUR LE LOGO USER AVEC LA BOX
+//CODE POUR LE LOGO USER AVEC LA BOX
