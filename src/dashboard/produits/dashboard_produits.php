@@ -39,14 +39,8 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
     include '../../templates/navbar_dashboard.php';
     ?>
     <section class="dashboard">
-
-
-
         <br>
         <br>
-        <br>
-        <br>
-
         <table class="table table-striped table-hover table table-bordered">
             <thead>
                 <th>Image</th>
