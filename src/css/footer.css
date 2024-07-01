@@ -15,17 +15,19 @@
     color: #A5A5A5;
 }
 
+form {
+    margin-bottom: 30px;
+}
+
 .form {
     display: flex;
     width: 230px;
     margin: 0 auto;
-    margin-bottom: 10px;
 }
 
 input {
     background-color: white;
     border: 1px solid black;
-    ;
     border-radius: 5px 0px 0px 5px;
     font-size: 0.5rem;
     width: 150px;
@@ -37,31 +39,30 @@ input {
     font-weight: bold;
     background-color: white;
     border: 1px solid #D31E44;
-    ;
     border-radius: 0px 5px 5px 0px;
     font-size: 0.5rem;
     width: 70px;
     height: 20px;
-}
-
-.sociaux {
-    display: flex;
-    width: 50%;
-    margin: 0 auto;
-    justify-content: space-around;
-    margin-bottom: 10px;
+    color: #D31E44;
 }
 
 .dely_map_secure {
     display: flex;
-    width: 40%;
-    margin: 0 auto;
-    justify-content: space-between;
-    height: 200px;
+    background-color: #D31E44;
+    justify-content: center ;
+    align-items: center;
+    height: 80px;
+    gap: 2%;
+    margin: 2% 0;
 }
 
+.text_icon_footer {
+    color:rgb(255, 255, 255);
+}
+
+
 .icon_footer {
-    width: 100px;
+    width: 200px;
 }
 
 img.icon_footer_align {
@@ -92,7 +93,6 @@ img.icon_footer_align {
     }
 
     input {
-
         border-radius: 10px 0px 0px 10px;
         font-size: 1.2rem;
         width: 300px;
@@ -101,7 +101,6 @@ img.icon_footer_align {
     }
 
     input::placeholder {
-
         font-style: italic;
     }
 
@@ -112,12 +111,9 @@ img.icon_footer_align {
         height: 38px;
     }
 
-    .sociaux img {
-        width: 40px
-    }
 
-    .icon_footer {
-        width: 200px;
+    img.icon_footer_align {
+        height: 45px;
     }
 }
 
@@ -158,10 +154,6 @@ img.icon_footer_align {
         font-size: 0.8rem;
         width: 100px;
         height: 30px;
-    }
-
-    .sociaux img {
-        width: 40px;
     }
 
     .icon_footer img {
@@ -213,9 +205,14 @@ img.icon_footer_align {
     .text_icon_footer {
         font-size: 0.6em;
     }
+    
+    div.dely_map_secure {
+        gap: 30px;
+        height: 60px;
+    }
 
-    .dely_map_secure {
-        gap: 50px;
+    .icon_footer {
+        width: 100px;
     }
 }
 
@@ -258,10 +255,14 @@ img.icon_footer_align {
     }
 
     .icon_footer {
-        width: 40px;
+        width: 70px;
     }
 
     .dely_map_secure {
         gap: 20px;
+    }
+
+    .icon_footer {
+        width: 80px;
     }
 }
