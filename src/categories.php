@@ -60,6 +60,7 @@ if (isset($_GET['categories_type'])) {
         </div>
     </main>
     <?php include_once("templates/footer.php"); ?>
+    <script src="script.js"></script>
 </body>
 
 </html>
