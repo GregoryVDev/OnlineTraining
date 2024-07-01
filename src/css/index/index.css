@@ -13,7 +13,9 @@ html::-webkit-scrollbar {
 .news {
     font-size: 1.3rem;
     color: #D31E44;
+    margin-bottom: 1%;
 }
+
 .wrap {
     width: 400px;
     text-align: left;
@@ -47,6 +49,7 @@ html::-webkit-scrollbar {
 }
 
 .pad_carte {
+
     gap: 1%;
 }
 
@@ -56,6 +59,7 @@ html::-webkit-scrollbar {
     height: 481px;
     margin: auto;
     object-fit: cover;
+    margin: 5px 0px;
 }
 
 .arrow {

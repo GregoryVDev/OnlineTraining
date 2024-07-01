@@ -53,7 +53,9 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </section>
     <section>
+        <h2 class="news">NOTRE CATALOGUE</h2>
         <div class="categories">
+
             <?php foreach($categories as $categorie): ?>
             <div class="pad_carte">
                 <p><?= $categorie["nom_produit"] ?></p>
