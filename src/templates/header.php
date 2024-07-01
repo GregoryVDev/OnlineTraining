@@ -49,7 +49,6 @@
                 <a href="#"><img src="./img/navBar/iconSearch.png" alt="Rechercher"></a>
             </div>
             <div>
-
                 <?php if(!isset($_SESSION["user"])): ?>
                 <a href="./connexion.php"><img src="./img/navBar/user.png" alt="Compte"></a>
                 <?php else: ?>
@@ -60,10 +59,22 @@
                         </a>
                     </li>
                     <li class="deconnexion">
-                        <a href="deconnexion.php" id="logout-link">
+                        <a href="../deconnexion.php" id="logout-link">
                             <div class="logout">
                                 <img src="./img/navBar/x.png" alt="deconnexion logo">
-                                <span>se déconnecter</span>
+                                <span>Déconnexion</span>
+                            </div>
+                        </a>
+                        <a href="../messagerie.php">
+                            <div class="logout">
+                                <img src="./img/navBar/envelope.png" alt="deconnexion logo">
+                                <span>Messagerie</span>
+                            </div>
+                        </a>
+                        <a href="../dashboard/produits/dashboard_produits.php">
+                            <div class="logout">
+                                <img src="./img/navBar/dashboard.png" alt="deconnexion logo">
+                                <span>Dashboard</span>
                             </div>
                         </a>
                     </li>
