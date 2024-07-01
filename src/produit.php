@@ -10,10 +10,10 @@ if (isset($_GET["id"])) {
     $query = $db->prepare($sql);
     $query->bindValue(':id', $id_produit, PDO::PARAM_INT);
     $query->execute();
-    $vetement = $query->fetch(PDO::FETCH_ASSOC);
+    $produit = $query->fetch(PDO::FETCH_ASSOC);
 
-    if (!$vetement) {
-        $_SESSION["erreur"] = "Vous êtes allé trop loin, aucun vetement ne correspond!";
+    if (!$produit) {
+        $_SESSION["erreur"] = "Vous êtes allé trop loin, aucun produit ne correspond!";
         header("Location: index.php");
         exit();
     }
@@ -44,17 +44,14 @@ if (isset($_GET["id"])) {
         <main>
             <article class="container-produit">
                 <figure class="order">
-                    <img class="picture-produit" src="<?= $vetement["image_produit"] ?>"
-                        alt="<?= $vetement["nom_produit"] ?>">
+                    <img class="picture-produit" src="<?= $produit["image_produit"] ?>"
+                        alt="<?= $produit["nom_produit"] ?>">
                     <figcaption>Accueil / robe / nom de la robe (chemin)</figcaption>
                 </figure>
                 <div class="container-information-produit">
-                    <h1 class="h1-produit-name">Nom du produit</h1>
-                    <p class="prix">Prix xx€</p>
-                    <p class="text"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias eius laboriosam
-                        odit ipsa nihil reiciendis itaque tempora earum explicabo expedita nobis provident, ex
-                        consequuntur magni blanditiis exercitationem, similique soluta natus!
-                        <!--$produit["description"]-->
+                    <h1 class="h1-produit-name"><?= $produit["nom_produit"] ?></h1>
+                    <p class="prix"><?= $produit["prix_ht"]?></p>
+                    <p class="text"><?= $produit["description"]?>
                     </p>
                     <div class="taille">
                         <p>Taille</p>
@@ -68,7 +65,7 @@ if (isset($_GET["id"])) {
                         </select>
                     </div>
                     <div class="couleur">
-                        <p>Couleur</p>
+                        <p><?= $produit["couleur"]?></p>
                         <select name="taille" id="taille">
                             <option value="">Séléctionnez votre couleur</option>
                             <option value="bleu">bleu</option>
