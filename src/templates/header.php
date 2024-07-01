@@ -19,7 +19,9 @@
             </div>
         </div>
         <div class="logoOnline">
-            <img src="./img/navBar/logo-online-training.png" width="80px" alt="Logo Online Training">
+            <a href="../index.php">
+                <img src="./img/navBar/logo-online-training.png" width="80px" alt="Logo Online Training">
+            </a>
         </div>
         <div class="rubrique">
             <div><a class="menuNoir" href="#">NOUVEAUTES</a></div>
