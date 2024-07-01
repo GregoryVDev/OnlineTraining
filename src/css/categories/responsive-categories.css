@@ -78,12 +78,6 @@ figcaption {
     font-family: var(--font-Poppins);
 }
 
-.categories-liste-p {
-    font-size: 0.8rem;
-    font-family: var(--font-Poppins);
-    color: var(--color-black);
-}
-
 .vetement-similaire-prix,
 .vetement-similaire-titre,
 .vetement-similaire-couleur {
@@ -108,4 +102,20 @@ figcaption {
 
 .vetement-similaire-figure {
     position: relative;
+}
+
+.liste-categories {
+    background: var(--color-red);
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2% 0% 2% 0%;
+}
+
+.categories-liste-p {
+    font-size: 1rem;
+    font-family: var(--font-Poppins);
+    color: var(--color-white);
 }
