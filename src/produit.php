@@ -1,9 +1,29 @@
-<?php
-//lancement de la session
+<?php 
 session_start();
 
+require_once("connect.php");
 
+if (isset($_GET["id"])) {
+    $id_produit = $_GET["id"];
+
+    $sql = "SELECT * FROM produits WHERE id = :id";
+    $query = $db->prepare($sql);
+    $query->bindValue(':id', $id_produit, PDO::PARAM_INT);
+    $query->execute();
+    $vetement = $query->fetch(PDO::FETCH_ASSOC);
+
+    if (!$vetement) {
+        $_SESSION["erreur"] = "Vous êtes allé trop loin, aucun vetement ne correspond!";
+        header("Location: index.php");
+        exit();
+    }
+} else {
+    $_SESSION["erreur"] = "La page demandée n'existe pas, veuillez réessayer plus tard";
+    header("Location: index.php");
+    exit();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -24,13 +44,9 @@ session_start();
         <main>
             <article class="container-produit">
                 <figure class="order">
-                    <img class="picture-produit" src="img/exemple_produit.jpg" alt="exemple produit">
+                    <img class="picture-produit" src="<?= $vetement["image_produit"] ?>"
+                        alt="<?= $vetement["nom_produit"] ?>">
                     <figcaption>Accueil / robe / nom de la robe (chemin)</figcaption>
-                    <figcaption>
-                        <!-- Accueil /-->
-                        <!-- $produit[""] -->
-                        <!-- $produit[""] -->
-                    </figcaption>
                 </figure>
                 <div class="container-information-produit">
                     <h1 class="h1-produit-name">Nom du produit</h1>

@@ -128,7 +128,8 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="pad_carte">
                 <p><?= $categorie["nom_produit"] ?></p>
-                <a href="categories.php?=<?=$categorie["nom_produit"]?>">
+                <a href="categories.php?nom_produit=<?= urlencode($categorie["nom_produit"]) ?>">
+
                     <img src="<?= $categorie['image_produit'] ?>" height="380px" alt="<?= $categorie['nom_produit'] ?>">
                 </a>
                 <p>Taille : <?= $categorie["taille"] ?></p>
