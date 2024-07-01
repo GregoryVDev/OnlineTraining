@@ -1,4 +1,134 @@
+html {
+    overflow: -moz-scrollbars-none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+.wrap h2:first-of-type {
+    margin: 5% 0%;
+}
+
 .news {
     font-size: 1.3rem;
     color: #D31E44;
 }
+.wrap {
+    width: 400px;
+    text-align: left;
+}
+
+.nouveautes {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 1%;
+}
+
+.ligne {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carte {
+
+    margin: 0 10px;
+}
+
+.carte img {
+    display: block;
+    width: 400px;
+    height: 550px;
+    margin: auto;
+    object-fit: cover;
+}
+
+.pad_carte {
+    gap: 1%;
+}
+
+.pad_carte img {
+    display: block;
+    width: 350px;
+    height: 481px;
+    margin: auto;
+    object-fit: cover;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.arrow-left {
+    left: 10px;
+}
+
+.arrow-right {
+    right: 10px;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 1%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+@media (max-width: 1204px) {
+    .carte img {
+        width: 340px;
+        height: 467px;
+    }
+
+    .carte {
+
+        margin: 0 8px;
+    }
+}
+
+@media (max-width: 900px) {
+    .carte img {
+        width: 250px;
+        height: 343px;
+    }
+
+    .carte {
+
+        margin: 0 6px;
+    }
+
+    .pad_carte img {
+        width: 232px;
+        height: 320px;
+
+
+    }
+}
+
+@media (max-width: 650px) {
+    .carte img {
+        width: 180px;
+        height: 247px;
+    }
+
+    .carte {
+        margin: 0 6px;
+    }
+
+    .pad_carte img {
+        width: 203px;
+        height: 280px;
+
+    }
+}
+
