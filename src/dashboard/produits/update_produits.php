@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
 
                 if (move_uploaded_file($_FILES['image_produit']['tmp_name'], $newFilePath)) {
-                    $image_produit = $newFileName;
+                    $image_produit = 'img/produits/' . $newFileName;
                 } else {
                     echo "Erreur lors du téléchargement du fichier.";
                     exit;
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $query = $db->prepare($sql);
 
         $query->bindValue(":id", $id, PDO::PARAM_INT);
-        $query->bindValue(":image_produit", 'img/produits/' . $newFileName, PDO::PARAM_STR);
+        $query->bindValue(":image_produit", $image_produit, PDO::PARAM_STR);
         $query->bindValue(":nom_produit", $nom_produit, PDO::PARAM_STR);
         $query->bindValue(":genre", $genre, PDO::PARAM_STR);
         $query->bindValue(":reference", $reference, PDO::PARAM_STR);
@@ -113,9 +113,11 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
 
     if (!$user) {
         header("Location: dashboard_produits.php");
+        exit; // Assurez-vous de quitter le script après une redirection
     }
 } else {
     header("Location: dashboard_produits.php");
+    exit; // Assurez-vous de quitter le script après une redirection
 }
 ?>
 
@@ -136,7 +138,7 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     ?>
     <div class="form_produit">
         <div class="">
-            <h1>Modifier <?= htmlspecialchars($user["nom_produit"]) ?>:</h1>
+            <h2>MODIFIER <?= htmlspecialchars($user["nom_produit"]) ?>:</h2>
 
             <form class="formulaire_produit" method="post" enctype="multipart/form-data">
                 <input class="form-control " type="file" id="image_produit" name="image_produit" value="image">
@@ -152,7 +154,6 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
                 <select class="form-select" aria-label="Default select example" id="categorie_id" name="categorie_id" required>
                     <option value=""><?= htmlspecialchars($user["categorie_id"]) ?></option>
                     <?php
-                    require_once("../../connect.php");
                     $sql = "SELECT id, type FROM categories";
                     $query = $db->query($sql);
                     while ($categories = $query->fetch(PDO::FETCH_ASSOC)) {
@@ -172,8 +173,6 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
                 <input type="hidden" name="id" value="<?= htmlspecialchars($user["id"]) ?>" required>
 
                 <div class="btn_produit"><button type="input" class="btn btn-outline-secondary">MODIFIER</button></div>
-
-
 
                 <br>
                 <br>

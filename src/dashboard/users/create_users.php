@@ -63,6 +63,7 @@ if (!empty($_POST)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/dashboard/dashboard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Formulaire_users</title>
 </head>
@@ -71,35 +72,21 @@ if (!empty($_POST)) {
     <?php
     include '../../templates/navbar_dashboard.php';
     ?>
-    <main>
-        <form method="POST">
-            <h1>Ajouter un utilisateur :</h1>
-            <div class="container-nom">
-                <label for="nom">Nom :</label>
-                <input type="text" class="form-input" name="nom" id="nom" placeholder="Nom" required>
-            </div>
-            <div class="container-prenom">
-                <label for="prenom">Prénom :</label>
-                <input type="text" class="form-input" name="prenom" id="prenom" placeholder="Prénom" required>
-            </div>
-            <div class="container-email">
-                <label for="email">Email :</label>
-                <input type="email" class="form-input" name="email" id="email" placeholder="email@example.com
-            " required>
-            </div>
-            <div class="container-password">
-                <label for="pass">Mot de passe :</label>
-                <input type="password" class="form-input" name="pass" id="pass" placeholder="Mot de passe" required>
-            </div>
-            <div class="container-confirm">
-                <label for="pass2">Confirmation :</label>
-                <input type="password" class="form-input" name="pass2" id="pass2" placeholder="Mot de passe" required>
-            </div>
-            <button type="button" class="btn btn-outline-secondary">Ajouter</button>
-        </form>
-        <br>
-        <a href="dashboard_users.php"><button type="button" class="btn btn-outline-secondary">Retour </button></a>
-    </main>
+    <br>
+    <div class="form_produit">
+        <div>
+            <form class="formulaire_produit" method="POST">
+                <h2>AJOUTER UN UTILISATEUR :</h2>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="NOM" id="nom" name="nom" required>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="PRENOM" id="prenom" name="prenom" required>
+                <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="email@example.com" id="email" name="email" required>
+                <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MOT DE PASSE" id="pass" name="pass" required>
+                <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="CONFIRMATION" id="pass2" name="pass2" required>
+                <div class="btn_produit"><button type="submit" class="btn btn-outline-secondary">AJOUTER</button></div>
+            </form>
+            <br>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 

@@ -1,8 +1,9 @@
 <?php 
+//lancement de la session et connexion a la bdd
 session_start();
-
 require_once("connect.php");
 
+//recuperation de id pour afficher le produit (id récupéré dans l'url)
 if (isset($_GET["id"])) {
     $id_produit = $_GET["id"];
 
@@ -12,16 +13,22 @@ if (isset($_GET["id"])) {
     $query->execute();
     $produit = $query->fetch(PDO::FETCH_ASSOC);
 
+//si aucun id trouver redirection vers index.php
     if (!$produit) {
         $_SESSION["erreur"] = "Vous êtes allés trop loin, aucun produit ne correspond!";
         header("Location: index.php");
         exit();
     }
 } else {
-    $_SESSION["erreur"] = "La page demandée n'existe pas, veuillez réessayer plus tard";
     header("Location: index.php");
     exit();
 }
+
+// Requête pour récupérer toutes les catégories pour les vetement (utile pour la navbar)
+$sql_categories = "SELECT * FROM categories";
+$query_categories = $db->prepare($sql_categories);
+$query_categories->execute();
+$catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
