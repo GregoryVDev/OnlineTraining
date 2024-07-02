@@ -75,8 +75,6 @@ $catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
                     <img src="<?= ($categorie['image_produit']) ?>" height="380px"
                         alt="<?= ($categorie['nom_produit']) ?>">
                 </a>
-                <p>Taille : <?= ($categorie["taille"]) ?></p>
-                <p>Prix : <?= ($categorie["prix_ht"]) ?> €</p>
             </div>
             <?php endforeach; ?>
         </div>

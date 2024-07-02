@@ -76,6 +76,7 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/dashboard/dashboard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Formulaire_users</title>
 </head>
@@ -84,27 +85,18 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     <?php
     include '../../templates/navbar_dashboard.php';
     ?>
-    <main>
-        <form method="POST">
-            <h1>Modifier <?= $user["prenom"] ?> <?= $user["nom"] ?> :</h1>
-            <div class="container-nom">
-                <label for="nom">Nom :</label>
-                <input type="text" class="form-input" name="nom" id="nom" value="<?= $user["nom"] ?>" required>
-            </div>
-            <div class="container-prenom">
-                <label for="prenom">Prénom :</label>
-                <input type="text" class="form-input" name="prenom" id="prenom" value="<?= $user["prenom"] ?>" required>
-            </div>
-            <div class="container-email">
-                <label for="email">Email :</label>
-                <input type="email" class="form-input" name="email" id="email" value="<?= $user["email"] ?>" required>
-            </div>
+    <div class="form_produit">
+        <div>
+            <form class="formulaire_produit" method="POST">
+                <h2>MODIFIER <?= $user["nom"] ?> <?= $user["prenom"] ?> :</h2>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="NOM" id="nom" name="nom" value="<?= $user["nom"] ?>" required>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="PRENOM" id="prenom" name="prenom" value="<?= $user["prenom"] ?>" required>
+                <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="email@example.com" id="email" name="email" value="<?= $user["email"] ?>" required>
+                <div class="btn_produit"><button type="submit" class="btn btn-outline-secondary">MODIFIER</button></div>
+            </form>
             <br>
-            <button type="submit" class="connexion-button">Modifier</button>
-        </form>
-        <br>
-        <a href="dashboard_users.php"><button class="login-btn" class="Btn_add">Retour</button></a>
-    </main>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
