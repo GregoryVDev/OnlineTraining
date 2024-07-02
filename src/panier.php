@@ -19,10 +19,9 @@
     .cadre {
         display: flex;
         justify-content: center;
-        border-radius: 10px;
         margin: 30px auto;
-        border: 2px solid #D31E44;
-        border-radius: 15px;
+        border-top: 2px solid #D31E44;
+        border-bottom: 2px solid #D31E44;
         width: 700px;
 
     }
@@ -93,7 +92,7 @@
     .cde {
         background-color: #D31E44;
         border: none;
-        border-radius: 5px;
+        border-radius: 10px;
         width: 100%;
         color: white;
         font-weight: bold;
@@ -237,7 +236,7 @@
                     <p class="price">prix</p>
                 </div>
                 <div class="commande">
-                    <input class="cde" type="submit" value="COMMANDER">
+                    <input class="cde" type="submit" value="COMMANDER"></input>
                 </div>
             </div>
         </div>
