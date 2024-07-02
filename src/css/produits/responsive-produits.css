@@ -64,10 +64,11 @@ figcaption {
     flex-direction: column;
 }
 
-.chemin {
-    font-size: 0.7rem;
+.chemin-produit {
+    font-size: 1rem;
     margin: auto;
     margin-bottom: 2%;
+    color: var(--color-black);
 }
 
 .h1-produit-name {

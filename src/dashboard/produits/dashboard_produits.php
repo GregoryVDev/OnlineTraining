@@ -81,9 +81,9 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= $produit["prix_ht"] ?> €</td>
 
                         <td>
-                            <a href="user.php?id=<?= $produit["id"] ?>">voir</a>
-                            <a href="update_produits.php?id=<?= $produit["id"] ?>">Modifier</a>
-                            <a href="./delete_produits.php?id=<?= $produit["id"] ?>">Supprimer</a>
+                            <a href="fiche_produit.php?id=<?= $produit["id"] ?>">VOIR</a>
+                            <a href="update_produits.php?id=<?= $produit["id"] ?>">MODIFIER</a>
+                            <a href="./delete_produits.php?id=<?= $produit["id"] ?>">SUPPRIMER</a>
                         </td>
                     </tr>
                 <?php

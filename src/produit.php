@@ -1,22 +1,39 @@
-<?php 
-//lancement de la session et connexion a la bdd
+<?php
+// Démarrage de la session et connexion à la base de données
 session_start();
 require_once("connect.php");
 
-//recuperation de id pour afficher le produit (id récupéré dans l'url)
+// Vérification si le type de catégorie est défini dans l'URL pour récupérer les informations du produit
 if (isset($_GET["id"])) {
     $id_produit = $_GET["id"];
+    try {
+        $sql = "SELECT p.*, c.type AS categorie_type 
+                FROM produits p
+                JOIN categories c ON p.categorie_id = c.id
+                WHERE p.id = :id";
+                
+        $query = $db->prepare($sql);
+        $query->bindValue(':id', $id_produit, PDO::PARAM_INT);
+        $query->execute();
+        $produit = $query->fetch(PDO::FETCH_ASSOC);
 
-    $sql = "SELECT * FROM produits WHERE id = :id";
-    $query = $db->prepare($sql);
-    $query->bindValue(':id', $id_produit, PDO::PARAM_INT);
-    $query->execute();
-    $produit = $query->fetch(PDO::FETCH_ASSOC);
+        //message d'erreur et de redirection si l'id est incorecct ou pas trouver
+        if (!$produit) {
+            $_SESSION["erreur"] = "Vous êtes allés trop loin, aucun produit ne correspond!";
+            header("Location: index.php");
+            exit();
+        }
 
-//si aucun id trouver redirection vers index.php
-    if (!$produit) {
-        $_SESSION["erreur"] = "Vous êtes allés trop loin, aucun produit ne correspond!";
-        header("Location: index.php");
+        
+        //Requette pour afficher les produit similaire (maximum 4)
+        $sql_similar = "SELECT * FROM produits WHERE categorie_id = :categorie_id AND id != :id ORDER BY id DESC LIMIT 4";
+        $query_similar = $db->prepare($sql_similar);
+        $query_similar->bindValue(':categorie_id', $produit['categorie_id'], PDO::PARAM_INT);
+        $query_similar->bindValue(':id', $id_produit, PDO::PARAM_INT);
+        $query_similar->execute();
+        $produits_similaires = $query_similar->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
         exit();
     }
 } else {
@@ -24,11 +41,12 @@ if (isset($_GET["id"])) {
     exit();
 }
 
-// Requête pour récupérer toutes les catégories pour les vetement (utile pour la navbar)
+// Requête pour récupérer toutes les catégories pour la barre de navigation
 $sql_categories = "SELECT * FROM categories";
 $query_categories = $db->prepare($sql_categories);
 $query_categories->execute();
 $catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -51,15 +69,19 @@ $catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
         <main>
             <article class="container-produit">
                 <figure class="order">
-                    <img class="picture-produit" src="<?= $produit["image_produit"] ?>"
-                        alt="<?= $produit["nom_produit"] ?>">
-                    <figcaption>Accueil / robe / nom de la robe (chemin)</figcaption>
+                    <img class="picture-produit" src="<?= ($produit["image_produit"]) ?>"
+                        alt="<?= ($produit["nom_produit"]) ?>">
+                    <figcaption class="chemin-produit"> <a class="chemin-produit" href="index.php">Accueil</a> / <a
+                            class="chemin-produit"
+                            href="categories.php?categories_type=<?= urlencode($produit["categorie_type"]) ?>"><?= $produit["categorie_type"] ?>
+                        </a>/
+                        <?= htmlspecialchars($produit["nom_produit"]) ?>
+                    </figcaption>
                 </figure>
                 <div class="container-information-produit">
-                    <h1 class="h1-produit-name"><?= $produit["nom_produit"] ?></h1>
-                    <p class="prix"><?= $produit["prix_ht"]?></p>
-                    <p class="text"><?= $produit["description"]?>
-                    </p>
+                    <h1 class="h1-produit-name"><?= ($produit["nom_produit"]) ?></h1>
+                    <p class="prix"><?= ($produit["prix_ht"])?>€</p>
+                    <p class="text"><?= (($produit["description"])) ?></p>
                     <div class="taille">
                         <p>Taille</p>
                         <select name="taille" id="taille">
@@ -72,8 +94,8 @@ $catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
                         </select>
                     </div>
                     <div class="couleur">
-                        <p><?= $produit["couleur"]?></p>
-                        <select name="taille" id="taille">
+                        <p><?= ($produit["couleur"]) ?></p>
+                        <select name="couleur" id="couleur">
                             <option value="">Séléctionnez votre couleur</option>
                             <option value="bleu">bleu</option>
                             <option value="blanc">blanc</option>
@@ -89,60 +111,24 @@ $catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
         <h2 class="h2-section2-titre">Vous pourriez aimer cela aussi</h2>
         <div class="container-produit-similaire">
 
-            <!-- affichage des produit simimlaire avec un foreach (qui se break après 4 produit afficher) -->
-
-            <?php 
-                // $count = 0;
-                // foreach ($result as $???):
-                // if ($count >= 4) break;
-            ?>
-
+            <?php foreach ($produits_similaires as $produit_similaire): ?>
             <article class="vetement-similaire">
                 <figure class="vetement-similaire-figure">
-                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
-                    <figcaption class="vetement-similaire-titre"> nom du produit</figcaption>
+                    <a href="produit.php?id=<?= ($produit_similaire["id"]) ?>"><img
+                            src="<?= ($produit_similaire["image_produit"]) ?>"
+                            alt="<?= ($produit_similaire["nom_produit"]) ?>"></a>
+                    <figcaption class="vetement-similaire-titre">
+                        <?= ($produit_similaire["nom_produit"]) ?></figcaption>
                 </figure>
-                <p class="vetement-similaire-couleur">2 couleurs</p>
-                <p class="vetement-similaire-prix">Prix xx€</p>
+                <p class="vetement-similaire-couleur"><?= ($produit_similaire["couleur"]) ?></p>
+                <p class="vetement-similaire-prix"><?= ($produit_similaire["prix_ht"]) ?>€</p>
             </article>
-
-            <?php 
-                // $count++;
-                // endforeach; 
-            ?>
-
-            <!----- A supprimer plus tard, cela sert juste d'exemple ----->
-            <article class="vetement-similaire">
-                <figure class="vetement-similaire-figure">
-                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
-                    <figcaption class="vetement-similaire-titre"> nom du produit</figcaption>
-                </figure>
-                <p class="vetement-similaire-couleur">2 couleurs</p>
-                <p class="vetement-similaire-prix">Prix xx€</p>
-            </article>
-            <article class="vetement-similaire">
-                <figure class="vetement-similaire-figure">
-                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
-                    <figcaption class="vetement-similaire-titre"> nom du produit</figcaption>
-                </figure>
-                <p class="vetement-similaire-couleur">2 couleurs</p>
-                <p class="vetement-similaire-prix">Prix xx€</p>
-            </article>
-            <article class="vetement-similaire">
-                <figure class="vetement-similaire-figure">
-                    <a href="#"><img src="img/exemple_produit.jpg" alt="exemple produit"></a>
-                    <figcaption class="vetement-similaire-titre"> nom du produit</figcaption>
-                </figure>
-                <p class="vetement-similaire-couleur">2 couleurs</p>
-                <p class="vetement-similaire-prix">Prix xx€</p>
-            </article>
-            <!----- A supprimer plus tard, cela sert juste d'exemple ----->
+            <?php endforeach; ?>
 
         </div>
     </section>
     <?php include_once("templates/footer.php") ?>
     <script src="/js/script.js"></script>
-
 </body>
 
 </html>

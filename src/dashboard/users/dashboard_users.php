@@ -51,8 +51,8 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= $user["adresse"] ?></td>
                         <td><?= $user["roles"] ?></td>
                         <td>
-                            <a href="update_users.php?id=<?= $user["id"] ?>">Modifier</a>
-                            <a href="delete_users.php?id=<?= $user["id"] ?>">Supprimer</a>
+                            <a href="update_users.php?id=<?= $user["id"] ?>">MODIFIER</a>
+                            <a href="delete_users.php?id=<?= $user["id"] ?>">SUPPRIMER</a>
                         </td>
                     </tr>
                 <?php
