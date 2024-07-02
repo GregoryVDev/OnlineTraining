@@ -62,8 +62,8 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
                         <td>
-                            <a href="update_categories.php?id=<?= $categorie["id"] ?>">Modifier</a>
-                            <a href="delete_categories.php?id=<?= $categorie["id"] ?>">Supprimer</a>
+                            <a href="update_categories.php?id=<?= $categorie["id"] ?>">MODIFIER</a>
+                            <a href="delete_categories.php?id=<?= $categorie["id"] ?>">SUPPRIMER</a>
                         </td>
                     </tr>
                 <?php

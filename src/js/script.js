@@ -1,14 +1,3 @@
-function loadMessages() {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("GET", "loadmessages.php", true);
-  xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      document.getElementById("messages").innerHTML = xmlhttp.responseText;
-    }
-  };
-  xmlhttp.send();
-}
-
 setInterval(loadMessages, 100);
 window.onload = loadMessages; // Charger les messages immédiatement au chargement de la page
 

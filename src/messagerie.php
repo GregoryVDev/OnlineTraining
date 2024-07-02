@@ -50,13 +50,13 @@ if (isset($_POST["valider"])) {
         <input type="submit" name="valider">
     </form>
 
-    <!-- <script>
+    <script>
         setInterval('load_messages()', 10);
 
         function load_messages() {
             $('#messages').load('loadmessages.php');
         }
-    </script> -->
+    </script>
 </body>
 
 </html>
