@@ -57,7 +57,7 @@
         text-decoration: underline;
     }
 
-    input {
+    .cde {
         background-color: #D31E44;
         border: none;
         border-radius: 5px;
@@ -98,11 +98,12 @@
             </div>
         </div>
         <div class="commande">
-            <input type="submit" value="COMMANDER">
+            <input class="cde" type="submit" value="COMMANDER">
             <p>Voir les détails du panier</p>
         </div>
+    </div>
 
-        <div>
+
 </body>
 
 </html>

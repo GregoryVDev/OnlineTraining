@@ -18,6 +18,7 @@
 
     h2 {
         text-align: center;
+        margin-top: 50px;
     }
 
     .text_rouge {
@@ -26,6 +27,7 @@
 
     .panier {
         display: flex;
+
         width: 700px;
         border-radius: 10px;
         margin: 0 auto;
@@ -76,18 +78,19 @@
 
     }
 
+    .aussi {
+        display: flex;
+        flex-direction: column;
+        margin: 5% auto;
+        align-items: center;
+
+    }
+
     .meme_categorie {
         display: flex;
-        gap: 3%;
-    }
-
-    .aussi {
-        width: 70%;
-        margin: 5% auto;
-    }
-
-    .meme_categorie {
         margin-top: 1%;
+        gap: 20px;
+        flex-wrap: wrap;
     }
     </style>
 </head>
@@ -119,11 +122,11 @@
             </div>
         </div>
     </div>
+
     <div class="aussi">
         <h3 class="text_rouge">Vous aimerez aussi</h3>
 
         <div class="meme_categorie">
-            <div><img src="./img/produits/eItuMBaBT5SMsSakOdzP.jpg" width="220px" alt=""></div>
             <div><img src="./img/produits/eItuMBaBT5SMsSakOdzP.jpg" width="220px" alt=""></div>
             <div><img src="./img/produits/eItuMBaBT5SMsSakOdzP.jpg" width="220px" alt=""></div>
             <div><img src="./img/produits/eItuMBaBT5SMsSakOdzP.jpg" width="220px" alt=""></div>
