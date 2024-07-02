@@ -21,6 +21,16 @@
         margin-top: 50px;
     }
 
+    .text_rouge01 {
+        color: #D31E44;
+        background: white;
+        padding: 10px 20px;
+        position: absolute;
+        top: 9vh;
+        left: 35vw;
+        margin-top: 50px;
+    }
+
     .text_rouge {
         color: #D31E44;
     }
@@ -36,6 +46,7 @@
         height: 200px;
         align-items: center;
         justify-content: space-around;
+        margin-top: 50px;
     }
 
 
@@ -88,6 +99,7 @@
 
     .meme_categorie {
         display: flex;
+        justify-content: center;
         margin-top: 1%;
         gap: 20px;
         flex-wrap: wrap;
@@ -99,8 +111,9 @@
     <?php
     include ('./templates/header.php');
 ?>
-    <h2 class="text_rouge">Mon panier</h2>
+
     <div class="panier">
+        <h2 class="text_rouge01">Mon panier</h2>
         <div class="recap_panier">
             <div>
                 <img src="./img/produits/eItuMBaBT5SMsSakOdzP.jpg" width="100px" alt="">
