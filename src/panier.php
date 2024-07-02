@@ -26,7 +26,7 @@
         background: white;
         padding: 10px 20px;
         position: absolute;
-        top: 9vh;
+        top: 7vh;
         left: 35vw;
         margin-top: 50px;
     }
@@ -57,11 +57,21 @@
     .recap_panier {
         display: flex;
         gap: 10%;
+        text-align: left;
+    }
+
+    .recap_text p {
+        text-align: left;
     }
 
     p:first-child,
     p:last-child {
         margin-top: 0;
+    }
+
+    .price {
+        color: #D31E44;
+        font-weight: bold;
     }
 
     p:first-child {
@@ -118,7 +128,7 @@
             <div>
                 <img src="./img/produits/eItuMBaBT5SMsSakOdzP.jpg" width="100px" alt="">
             </div>
-            <div>
+            <div class="recap_text">
                 <p>PANTALON</p>
                 <p>prix</p>
                 <p>matière</p>
@@ -128,7 +138,7 @@
         <div class="details_panier">
             <div class="total_commande">
                 <p>TOTAL DE MA COMMANDE</p>
-                <p>prix</p>
+                <p class="price">prix</p>
             </div>
             <div class="commande">
                 <input class="cde" type="submit" value="COMMANDER">
