@@ -42,7 +42,7 @@
     }
 
     div.details_panier {
-        border-top: 2px solid red;
+        border-top: 4px solid #D31E44;
     }
 
     .valeur_commande,
