@@ -13,7 +13,7 @@ if (isset($_GET["id"])) {
     $produit = $query->fetch(PDO::FETCH_ASSOC);
 
     if (!$produit) {
-        $_SESSION["erreur"] = "Vous êtes allé trop loin, aucun produit ne correspond!";
+        $_SESSION["erreur"] = "Vous êtes allés trop loin, aucun produit ne correspond!";
         header("Location: index.php");
         exit();
     }

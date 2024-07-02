@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+require_once("connect.php");
 
 // Vérifiez si l'ID du produit a été posté
 if (isset($_POST['produit_id'])) {
