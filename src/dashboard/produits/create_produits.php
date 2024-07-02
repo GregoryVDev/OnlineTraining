@@ -128,8 +128,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input class="form-control" type="text" placeholder="NOM" aria-label=".form-control-sm example" id="nom_produit" name="nom_produit" required>
                 <select class="form-select" aria-label="Default select example" id="genre" name="genre" required>
                     <option selected>GENRE</option>
-                    <option value="homme">HOMME</option>
-                    <option value="Femme">FEMME</option>
+                    <option value="HOMME">HOMME</option>
+                    <option value="FEMME">FEMME</option>
                 </select>
                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="REFERENCE" id="reference" name="reference" required>
                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MARQUE" id="marque" name="marque" required>
@@ -154,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="PRIX HT" id="prix_ht" name="prix_ht" required min="0">
 
 
-                <div class="btn_produit"><button type="input" class="btn btn-outline-secondary">Ajouter</button></div>
+                <div class="btn_produit"><button type="input" class="btn btn-outline-secondary">AJOUTER</button></div>
 
             </form>
         </div>
