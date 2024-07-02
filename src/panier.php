@@ -64,7 +64,7 @@
         align-items: space-between;
     }
 
-    input {
+    .cde {
         background-color: #D31E44;
         border: none;
         border-radius: 5px;
@@ -72,6 +72,7 @@
         color: white;
         font-weight: bold;
         font-size: 1rem;
+        margin-top: 30px;
 
     }
 
@@ -114,7 +115,7 @@
                 <p>prix</p>
             </div>
             <div class="commande">
-                <input type="submit" value="COMMANDER">
+                <input class="cde" type="submit" value="COMMANDER">
             </div>
         </div>
     </div>
