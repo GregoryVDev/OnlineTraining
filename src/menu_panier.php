@@ -57,6 +57,10 @@
         text-decoration: underline;
     }
 
+    .price {
+        color: #D31E44;
+    }
+
     .cde {
         background-color: #D31E44;
         border: none;
@@ -79,7 +83,7 @@
             </div>
             <div>
                 <p>PANTALON</p>
-                <p>prix</p>
+                <p class="price">prix</p>
                 <p>matière</p>
                 <p>taille</p>
             </div>
@@ -89,12 +93,12 @@
                 <p>MA COMMANDE EN DETAILS</p>
                 <div class="valeur_commande">
                     <p>Valeur de ma commande</p>
-                    <p>prix</p>
+                    <p class="price">prix</p>
                 </div>
             </div>
             <div class="total_commande">
                 <p>TOTAL DE MA COMMANDE</p>
-                <p>prix</p>
+                <p class="price">prix</p>
             </div>
         </div>
         <div class="commande">
