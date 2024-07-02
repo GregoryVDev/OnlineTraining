@@ -125,6 +125,7 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/dashboard/dashboard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Formulaire_produits</title>
 </head>
@@ -133,32 +134,22 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     <?php
     include '../../templates/navbar_dashboard.php';
     ?>
-    <div class="conteneur_login">
-        <div class="conteneur_form_form">
-            <h1>Modifier <?= htmlspecialchars($user["reference"]) ?>:</h1>
-            <form method="post" enctype="multipart/form-data">
-                <label for="image_produit">Image:</label>
-                <input type="file" id="image_produit" name="image_produit">
+    <div class="form_produit">
+        <div class="">
+            <h1>Modifier <?= htmlspecialchars($user["nom_produit"]) ?>:</h1>
+
+            <form class="formulaire_produit" method="post" enctype="multipart/form-data">
+                <input class="form-control " type="file" id="image_produit" name="image_produit" value="image">
                 <input type="hidden" name="image_produit_current" value="<?= htmlspecialchars($user["image_produit"]) ?>">
-                <br>
-                <label for="nom_produit">Nom:</label>
-                <input type="text" id="nom_produit" name="nom_produit" value="<?= htmlspecialchars($user["nom_produit"]) ?>" required>
-                <br>
-                <label for="genre">Genre:</label>
-                <select id="genre" name="genre" required>
+                <input class="form-control" type="text" placeholder="NOM" aria-label=".form-control-sm example" id="nom_produit" name="nom_produit" value="<?= htmlspecialchars($user["nom_produit"]) ?>" required>
+                <select class="form-select" aria-label="Default select example" id="genre" name="genre" required>
                     <option value="<?= htmlspecialchars($user["genre"]) ?>"><?= htmlspecialchars($user["genre"]) ?></option>
-                    <option value="Homme">Homme</option>
-                    <option value="Femme">Femme</option>
+                    <option value="homme">HOMME</option>
+                    <option value="Femme">FEMME</option>
                 </select>
-                <br>
-                <label for="reference">Référence:</label>
-                <input type="text" id="reference" name="reference" value="<?= htmlspecialchars($user["reference"]) ?>" required>
-                <br>
-                <label for="marque">Marque:</label>
-                <input type="text" id="marque" name="marque" value="<?= htmlspecialchars($user["marque"]) ?>" required>
-                <br>
-                <label for="categorie_id">Catégorie:</label>
-                <select id="categorie_id" name="categorie_id" required>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="REFERENCE" id="reference" name="reference" value="<?= htmlspecialchars($user["reference"]) ?>" required>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MARQUE" id="marque" name="marque" value="<?= htmlspecialchars($user["marque"]) ?>" required>
+                <select class="form-select" aria-label="Default select example" id="categorie_id" name="categorie_id" required>
                     <option value=""><?= htmlspecialchars($user["categorie_id"]) ?></option>
                     <?php
                     require_once("../../connect.php");
@@ -170,35 +161,23 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
                     }
                     ?>
                 </select>
-                <br>
-                <label for="couleur">Couleur:</label>
-                <input type="text" id="couleur" name="couleur" value="<?= htmlspecialchars($user["couleur"]) ?>" required>
-                <br>
-                <label for="matiere">Matière:</label>
-                <input type="text" id="matiere" name="matiere" value="<?= htmlspecialchars($user["matiere"]) ?>" required>
-                <br>
-                <label for="motif">Motif:</label>
-                <input type="text" id="motif" name="motif" value="<?= htmlspecialchars($user["motif"]) ?>" required>
-                <br>
-                <label for="description">Description:</label>
-                <input type="text" id="description" name="description" value="<?= htmlspecialchars($user["description"]) ?>" required>
-                <br>
-                <label for="taille">Taille:</label>
-                <input type="text" id="taille" name="taille" value="<?= htmlspecialchars($user["taille"]) ?>" required>
-                <br>
-                <label for="quantite">Quantité:</label>
-                <input type="number" id="quantite" name="quantite" value="<?= htmlspecialchars($user["quantite"]) ?>" required min="0">
-                <br>
-                <label for="prix_ht">Prix HT:</label>
-                <input type="number" id="prix_ht" name="prix_ht" value="<?= htmlspecialchars($user["prix_ht"]) ?>" required min="0">
-                <br>
-                <br>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="COULEUR" id="couleur" name="couleur" value="<?= htmlspecialchars($user["couleur"]) ?>" required>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MATIERE" id="matiere" name="matiere" value="<?= htmlspecialchars($user["matiere"]) ?>" required>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MOTIF" id="motif" name="motif" value="<?= htmlspecialchars($user["motif"]) ?>" required>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="DESCRIPTION" id="description" name="description" value="<?= htmlspecialchars($user["description"]) ?>" required>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="TAILLE" id="taille" name="taille" value="<?= htmlspecialchars($user["taille"]) ?>" required>
+                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="QUANTITE" id="quantite" name="quantite" value="<?= htmlspecialchars($user["quantite"]) ?>" required min="0">
+                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="PRIX HT" id="prix_ht" name="prix_ht" value="<?= htmlspecialchars($user["prix_ht"]) ?>" required min="0">
+
                 <input type="hidden" name="id" value="<?= htmlspecialchars($user["id"]) ?>" required>
-                <button class="login-btn" type="submit" class="Btn_add">Modifier</button>
+
+                <div class="btn_produit"><button type="input" class="btn btn-outline-secondary">MODIFIER</button></div>
+
+
+
                 <br>
                 <br>
             </form>
-            <a href="dashboard_produits.php"><button class="login-btn" class="Btn_add">Retour </button></a>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

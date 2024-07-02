@@ -92,7 +92,7 @@ $produits = $query->fetchAll(PDO::FETCH_ASSOC);
                 ?>
 
                 <div class="add">
-                    <a href="../produits/create_produits.php"><button type="button" class="btn btn-outline-secondary">Ajouter un produit</button></a>
+                    <a href="../produits/create_produits.php"><button type="button" class="btn btn-outline-secondary">AJOUTER UN PRODUIT</button></a>
                     <br>
                     <br>
                 </div>
