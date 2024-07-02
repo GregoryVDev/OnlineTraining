@@ -22,6 +22,13 @@ $sql = "SELECT p.*, c.type as categorie_type
 $query = $db->prepare($sql);
 $query->execute();
 $categories = $query->fetchAll(PDO::FETCH_ASSOC);
+
+// Requête pour récupérer toutes les catégories pour les vetement (utile pour la navbar)
+$sql_categories = "SELECT * FROM categories";
+$query_categories = $db->prepare($sql_categories);
+$query_categories->execute();
+$catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>

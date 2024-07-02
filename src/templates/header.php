@@ -34,10 +34,10 @@
                 <div class="overlay">
                     <div>
                         <ul class="catalogueCategories">
-                            <?php foreach($categories as $categorie): ?>
+                            <?php foreach($catalogue_type as $catalogue_type): ?>
                             <li>
-                                <a href="categories.php?categories_type=<?= urlencode($categorie["categorie_type"]) ?>">
-                                    <?= ($categorie["categorie_type"]) ?>
+                                <a href="categories.php?categories_type=<?= urlencode($catalogue_type["type"]) ?>">
+                                    <?= ($catalogue_type["type"]) ?>
                                 </a>
                             </li>
                             <?php endforeach; ?>
