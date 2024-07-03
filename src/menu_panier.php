@@ -4,75 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/panier/menu_panier.css">
     <title>Document</title>
-    <style>
-    body {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: sans-serif;
-        font-size: 0.8rem;
-    }
 
-    .menu_panier {
-        width: 300px;
-        height: 350px;
-        border-top: 4px solid #D31E44;
-    }
 
-    .description_panier {
-        display: flex;
-        width: 90%;
-        margin: 20px auto;
-        gap: 10%;
-    }
-
-    div.image_panier img {
-        width: 80px;
-    }
-
-    div.text_description p {
-        text-align: left;
-        margin: 0;
-    }
-
-    div.details_panier_rouge {
-        border-top: 4px solid #D31E44;
-        margin-top: 10px;
-    }
-
-    .cde_details p,
-    .total_commande p {
-        margin: 10px 15px;
-    }
-
-    .valeur_commande,
-    .total_commande {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .commande p {
-        text-align: center;
-        cursor: pointer;
-        text-decoration: underline;
-    }
-
-    .price {
-        color: #D31E44;
-    }
-
-    .commande input.cde {
-        background-color: #D31E44;
-        border: none;
-        width: 100%;
-        padding: 15px;
-        color: white;
-        font-weight: bold;
-        font-size: 1rem;
-        margin-bottom: 4%;
-    }
-    </style>
 </head>
 
 <body>
