@@ -1,6 +1,3 @@
-setInterval(loadMessages, 100);
-window.onload = loadMessages; // Charger les messages immédiatement au chargement de la page
-
 //CODE POUR LE CAROUSSEL
 document.addEventListener("DOMContentLoaded", () => {
   const ligne = document.querySelector(".ligne");
