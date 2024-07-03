@@ -60,30 +60,26 @@ $catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <?php include_once("templates/header.php"); ?>
     <main>
-        <div class="liste-categories">
-            <?php foreach ($catalogue_type as $categorie): ?>
-            <a href="categories.php?categories_type=<?= urlencode($categorie["type"]) ?>">
-                <?= htmlspecialchars($categorie["type"]) ?>
-            </a>
-            <?php endforeach; ?>
+        <div class="background-titre-categories">
+            <h1 class="categories-titre"><?= ($categories_type) ?></h1>
         </div>
-
-        <h1 class="categories-titre"><?= htmlspecialchars($categories_type) ?></h1>
         <div class="container-categories-vetement">
+
+            <!-- Boucle pour afficher les produits -->
             <?php foreach ($produits as $produit): ?>
             <article class="categories-vetement">
                 <figure class="vetement-similaire-figure">
-                    <a href="produit.php?id=<?= htmlspecialchars($produit["id"]) ?>">
-                        <img src="<?= htmlspecialchars($produit["image_produit"]) ?>"
-                            alt="<?= htmlspecialchars($produit["nom_produit"]) ?>">
+                    <a href="produit.php?id=<?= $produit["id"] ?>">
+                        <img class="img-produit" src="<?= ($produit["image_produit"]) ?>"
+                            alt="<?= ($produit["nom_produit"]) ?>">
                     </a>
                 </figure>
-                <p class="vetement-similaire-couleur"><?= htmlspecialchars($produit["couleur"]) ?></p>
-                <p class="vetement-similaire-prix">Prix <?= htmlspecialchars($produit["prix_ht"]) ?>€</p>
+                <p class="vetement-similaire-titre"><?= ($produit["nom_produit"]) ?></p>
+                <p class="vetement-similaire-prix">Prix <?= ($produit["prix_ht"]) ?>€</p>
             </article>
             <?php endforeach; ?>
-        </div>
 
+        </div>
 
     </main>
     <?php include_once("templates/footer.php"); ?>

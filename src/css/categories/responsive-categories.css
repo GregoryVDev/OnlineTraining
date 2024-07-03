@@ -31,29 +31,19 @@ video {
 
 /* end reset */
 
-main {
-    margin-bottom: 10%;
+.background-titre-categories {
+    background: var(--color-red);
 }
 
 .categories-titre {
-    color: var(--color-black);
+    padding: 20px;
+    color: var(--color-white);
     font-size: 1.5rem;
     font-family: var(--font-Poppins);
     margin-bottom: 2%;
     font-weight: bolder;
-}
-
-.categories-liste {
-    height: 50px;
-    background: var(--color-red);
-    color: var(--color-white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2%;
-    gap: 5%;
-    flex-wrap: wrap;
-    font-family: var(--font-Poppins);
+    margin-top: 1.5%;
+    text-transform: uppercase;
 }
 
 .chemin {
@@ -79,6 +69,11 @@ figcaption {
     font-family: var(--font-Poppins);
 }
 
+.img-produit {
+    margin: auto;
+    object-fit: cover;
+}
+
 .vetement-similaire-prix,
 .vetement-similaire-titre,
 .vetement-similaire-couleur {
@@ -87,10 +82,11 @@ figcaption {
 
 .vetement-similaire-titre {
     font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 800;
 }
 
-.vetement-similaire-prix,
-.vetement-similaire-couleur {
+.vetement-similaire-prix {
     font-size: 0.9rem;
 }
 
