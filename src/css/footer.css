@@ -25,7 +25,7 @@ form {
     margin: 0 auto;
 }
 
-input {
+.footer_mail input {
     background-color: white;
     border: 1px solid black;
     border-radius: 5px 0px 0px 5px;
@@ -51,13 +51,14 @@ input {
     background-color: #D31E44;
     justify-content: center ;
     align-items: center;
-    height: 80px;
+    height: 70px;
     gap: 2%;
     margin: 2% 0;
 }
 
-.text_icon_footer {
+.text_icon_footer p {
     color:rgb(255, 255, 255);
+    font-size: 0.9rem;
 }
 
 
@@ -72,12 +73,12 @@ img.icon_footer_align {
 
 @media (max-width: 1920px) {
     .footer-h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin-bottom: 2%;
     }
 
     .footer-h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin-bottom: 4%;
     }
 
@@ -92,7 +93,7 @@ img.icon_footer_align {
         margin-bottom: 10px;
     }
 
-    input {
+    .footer_mail input {
         border-radius: 10px 0px 0px 10px;
         font-size: 1.2rem;
         width: 300px;
@@ -100,7 +101,7 @@ img.icon_footer_align {
         margin-right: 5px;
     }
 
-    input::placeholder {
+    .footer_mail input::placeholder {
         font-style: italic;
     }
 
@@ -113,7 +114,7 @@ img.icon_footer_align {
 
 
     img.icon_footer_align {
-        height: 45px;
+        height: 30px;
     }
 }
 
@@ -135,7 +136,7 @@ img.icon_footer_align {
         margin-bottom: 10px;
     }
 
-    input {
+    .footer_mail input {
 
         border-radius: 10px 0px 0px 10px;
         font-size: 0.8rem;
@@ -144,7 +145,7 @@ img.icon_footer_align {
         margin-right: 5px;
     }
 
-    input::placeholder {
+ .footer_mail input::placeholder {
 
         font-style: italic;
     }
@@ -154,10 +155,6 @@ img.icon_footer_align {
         font-size: 0.8rem;
         width: 100px;
         height: 30px;
-    }
-
-    .icon_footer img {
-        height: 40px;
     }
 
     .text_icon_footer {
@@ -177,7 +174,7 @@ img.icon_footer_align {
         margin-bottom: 10px;
     }
 
-    input {
+    .footer_mail input {
 
         border-radius: 10px 0px 0px 10px;
         font-size: 0.8rem;
@@ -186,7 +183,7 @@ img.icon_footer_align {
         margin-right: 5px;
     }
 
-    input::placeholder {
+    .footer_mail input::placeholder {
 
         font-style: italic;
     }
@@ -199,7 +196,7 @@ img.icon_footer_align {
     }
 
     .icon_footer img {
-        height: 30px;
+        height: 25px;
     }
 
     .text_icon_footer {
@@ -212,7 +209,7 @@ img.icon_footer_align {
     }
 
     .icon_footer {
-        width: 100px;
+        width: 120px;
     }
 }
 
@@ -233,7 +230,7 @@ img.icon_footer_align {
         margin-bottom: 10px;
     }
 
-    input {
+    .footer_mail input {
 
         border-radius: 10px 0px 0px 10px;
         font-size: 0.6rem;
@@ -242,7 +239,7 @@ img.icon_footer_align {
         margin-right: 5px;
     }
 
-    input::placeholder {
+    .footer_mail input::placeholder {
 
         font-style: italic;
     }

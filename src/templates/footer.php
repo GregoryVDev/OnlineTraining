@@ -30,7 +30,7 @@
     <form action="" method="POST">
 
         <div class="form">
-            <div>
+            <div class="footer_mail">
                 <input type="email" name="mail" placeholder="Entrez votre adresse email" required>
             </div>
             <div>

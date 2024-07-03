@@ -1,3 +1,13 @@
+<?php
+
+// Requête pour récupérer toutes les catégories pour la barre de navigation
+// $sql_categories = "SELECT * FROM categories";
+// $query_categories = $db->prepare($sql_categories);
+// $query_categories->execute();
+// $catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <nav>
     <div class="navbar">
         <div class="overlay-container">
@@ -85,8 +95,16 @@
                 </ul>
                 <?php endif; ?>
             </div>
-            <div>
+            <div class="overlay-container2">
                 <a href="#"><img src="./img/navBar/cart.png" alt="Panier"></a>
+
+                <div class="overlay_1">
+                    <div>
+
+                        <?php include('menu_panier.php');?></li>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
