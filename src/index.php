@@ -82,7 +82,7 @@ $catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
 
     <?php include('./templates/footer.php'); ?>
 
-    <script src="/js/script.js"></script>
+    <script src="./js/script_carrousel.js"></script>
 </body>
 
 </html>

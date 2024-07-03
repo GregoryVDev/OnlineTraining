@@ -24,21 +24,38 @@
     opacity: 0;
     visibility: hidden;
     position: fixed;
-    top: 60px;
+    background-color: rgb(255, 254, 254);
+    top: 65px;
     left: 0;
     width: 100%;
-    background-color: rgb(255, 254, 254);
     display: flex;
     justify-content: center;
     align-items: center;
     color: rgb(0, 0, 0);
     transition: opacity 1s ease, visibility 1.5s ease;
     z-index: 1000;
+}
 
+.overlay_1 {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    background-color: rgb(255, 254, 254);
+    top: 65px;
+    right: 0px;
+    width: 300px;
+    transition: opacity 1s ease, visibility 1.5s ease;
+    z-index: 9000;
 }
 
 .overlay-container:hover .overlay,
-.overlay-container1:hover .overlay {
+.overlay-container1:hover .overlay,
+.overlay-container2:hover .overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.overlay-container2:hover .overlay_1 {
     opacity: 1;
     visibility: visible;
 }
