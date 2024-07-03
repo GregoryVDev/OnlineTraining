@@ -48,8 +48,12 @@ main {
     flex-direction: column;
 }
 
-figcaption {
-    font-family: var(--font-Poppins);
+.color-red-name-produit {
+    color: var(--color-red);
+}
+
+.chemin-produit-hover:hover {
+    color: var(--color-red);
 }
 
 .container-information-produit {
@@ -69,6 +73,8 @@ figcaption {
     margin: auto;
     margin-bottom: 2%;
     color: var(--color-black);
+    font-family: var(--font-Poppins);
+    margin-top: -50px;
 }
 
 .h1-produit-name {
@@ -94,6 +100,7 @@ figcaption {
     font-family: var(--font-Poppins);
 }
 
+
 .taille select,
 .couleur select {
     padding: 2%;
@@ -110,7 +117,7 @@ figcaption {
     margin: auto;
     padding: 2%;
     border-radius: 20px;
-    width: 50%;
+    width: 70%;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -179,4 +186,10 @@ figcaption {
     position: absolute;
     top: 5%;
     left: 85%;
+}
+
+.picture-similaire-size {
+    height: 300px;
+    width: auto;
+    object-fit: contain;
 }

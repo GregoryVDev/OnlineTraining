@@ -61,7 +61,9 @@ $catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
     <?php include_once("templates/header.php"); ?>
     <main>
         <div class="background-titre-categories">
-            <h1 class="categories-titre"><?= ($categories_type) ?></h1>
+            <h1 class="categories-titre">
+                <a class="h1-categories-accueil" href="index.php">Accueil</a> / <?= ($categories_type) ?>
+            </h1>
         </div>
         <div class="container-categories-vetement">
 

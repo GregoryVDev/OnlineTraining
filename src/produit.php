@@ -67,16 +67,16 @@ $catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
     <?php include_once("templates/header.php") ?>
     <section>
         <main>
+            <p class="chemin-produit"> <a class="chemin-produit chemin-produit-hover" href="index.php">Accueil</a> / <a
+                    class="chemin-produit chemin-produit-hover"
+                    href="categories.php?categories_type=<?= urlencode($produit["categorie_type"]) ?>"><?= $produit["categorie_type"] ?>
+                </a>/
+                <span class="color-red-name-produit"><?= ($produit["nom_produit"]) ?></span>
+            </p>
             <article class="container-produit">
                 <figure class="order">
                     <img class="picture-produit" src="<?= ($produit["image_produit"]) ?>"
                         alt="<?= ($produit["nom_produit"]) ?>">
-                    <figcaption class="chemin-produit"> <a class="chemin-produit" href="index.php">Accueil</a> / <a
-                            class="chemin-produit"
-                            href="categories.php?categories_type=<?= urlencode($produit["categorie_type"]) ?>"><?= $produit["categorie_type"] ?>
-                        </a>/
-                        <?= htmlspecialchars($produit["nom_produit"]) ?>
-                    </figcaption>
                 </figure>
                 <div class="container-information-produit">
                     <h1 class="h1-produit-name"><?= ($produit["nom_produit"]) ?></h1>
@@ -114,7 +114,7 @@ $catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach ($produits_similaires as $produit_similaire): ?>
             <article class="vetement-similaire">
                 <figure class="vetement-similaire-figure">
-                    <a href="produit.php?id=<?= ($produit_similaire["id"]) ?>"><img
+                    <a href="produit.php?id=<?= ($produit_similaire["id"]) ?>"><img class="picture-similaire-size"
                             src="<?= ($produit_similaire["image_produit"]) ?>"
                             alt="<?= ($produit_similaire["nom_produit"]) ?>"></a>
                     <figcaption class="vetement-similaire-titre">

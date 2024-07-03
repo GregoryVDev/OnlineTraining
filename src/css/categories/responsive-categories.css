@@ -116,3 +116,7 @@ figcaption {
     font-family: var(--font-Poppins);
     color: var(--color-white);
 }
+
+.h1-categories-accueil {
+    color: var(--color-white);
+}
