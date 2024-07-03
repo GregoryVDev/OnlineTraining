@@ -13,6 +13,7 @@ h1 {
 }
 
 .contenair_nav_dash {
+    display: flex;
     width: 650px;
     margin: 0 auto;
     justify-content: center;
@@ -20,19 +21,23 @@ h1 {
 }
 
 .nav_dash {
+    display: flex;
+    gap: 10px;
     margin: 0 auto;
     justify-content: center;
     align-items: center;
 }
 
 .add {
-    width: 300px;
+    display: flex;
+    width: auto;
     margin: 0 auto;
     justify-content: center;
     align-items: center;
 }
 
 .btn_produit {
+    display: flex;
     width: 50px;
     margin: 0 auto;
     justify-content: center;
@@ -48,5 +53,5 @@ h1 {
 
 .titre_dash {
     text-align: center;
-    margin: 1% 0% 1% 0%;
+    margin: 10px 0px;
 }
