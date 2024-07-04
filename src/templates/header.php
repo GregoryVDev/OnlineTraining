@@ -1,13 +1,3 @@
-<?php
-
-// Requête pour récupérer toutes les catégories pour la barre de navigation
-// $sql_categories = "SELECT * FROM categories";
-// $query_categories = $db->prepare($sql_categories);
-// $query_categories->execute();
-// $catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
-
-?>
-
 <nav>
     <div class="navbar">
         <div class="overlay-container">
@@ -19,11 +9,13 @@
                         <hr>
                         <li class="catalogueRouge"><b>CATALOGUE</b></li>
                         <hr>
-                        <li><a href="#">Polo Manches Courtes</a></li>
-                        <li><a href="#">Polo Manches Longues</a></li>
-                        <li><a href="#">Short</a></li>
-                        <li><a href="#">Pantalon Chino</a></li>
-                        <li><a href="#">Pantalon</a></li>
+                        <?php foreach($catalogue_type_burger as $catalogue_type_burger): ?>
+                        <li>
+                            <a href="categories.php?categories_type=<?= urlencode($catalogue_type_burger["type"]) ?>">
+                                <?= ($catalogue_type_burger["type"]) ?>
+                            </a>
+                        </li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>

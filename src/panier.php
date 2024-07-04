@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require('connect.php');
+
 function escape($string) {
     return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
 }
@@ -11,6 +13,12 @@ $total = 0;
 foreach ($panier as $article) {
     $total += $article['prix'] * $article['quantite'];
 }
+// Requête pour récupérer toutes les catégories pour la barre de navigation
+$sql_categories = "SELECT * FROM categories";
+$query_categories = $db->prepare($sql_categories);
+$query_categories->execute();
+$catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -36,11 +44,12 @@ foreach ($panier as $article) {
             <?php foreach ($panier as $article): ?>
             <div class="recap_panier">
                 <div>
-                    <img src="<?= escape($article['image']) ?>" width="100px" alt="<?= escape($article['nom']) ?>">
+                    <img src="<?= escape($article['image_produit']) ?>" width="100px"
+                        alt="<?= escape($article['nom']) ?>">
                 </div>
                 <div class="recap_text">
-                    <p><?= escape($article['nom']) ?></p>
-                    <p><?= escape($article['prix']) ?>€</p>
+                    <p><?= escape($article['nom_produit']) ?></p>
+                    <p><?= escape($article['prix_ht']) ?>€</p>
                     <p><?= escape($article['couleur']) ?></p>
                     <p><?= escape($article['taille']) ?></p>
                     <p>Quantité : <?= escape($article['quantite']) ?></p>

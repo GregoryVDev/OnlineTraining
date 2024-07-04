@@ -23,7 +23,7 @@
 .overlay {
     opacity: 0;
     visibility: hidden;
-    position: fixed;
+    position: absolute;
     background-color: rgb(255, 254, 254);
     top: 65px;
     left: 0;
@@ -32,30 +32,32 @@
     justify-content: center;
     align-items: center;
     color: rgb(0, 0, 0);
-    transition: opacity 1s ease, visibility 0.8s ease;
+    transition: opacity 1s ease, visibility 0.3s ease;
     z-index: 1000;
 }
 
 .overlay_1 {
     opacity: 0;
     visibility: hidden;
-    position: fixed;
+    position: absolute;
     background-color: rgb(255, 254, 254);
     top: 65px;
     right: 0px;
     width: 300px;
-    transition: opacity 1s ease, visibility 0.8s ease;
+    transition: opacity 1s ease, visibility 0.3s ease;
     z-index: 9000;
 }
 
 .overlay-container:hover .overlay,
 .overlay-container1:hover .overlay,
 .overlay-container2:hover .overlay {
+    display: block;
     opacity: 1;
     visibility: visible;
 }
 
 .overlay-container2:hover .overlay_1 {
+    display: block;
     opacity: 1;
     visibility: visible;
 }
@@ -236,7 +238,8 @@ li {
         width: 130px;
     }
 
-    .overlay-container {
+    .overlay-container  {
+        display: block;
         width: 90px;
     }
 
