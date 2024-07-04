@@ -20,6 +20,42 @@ foreach ($panier as $produit) {
     $total += $produit['prix_ht'] * $produit['quantite'];
 }
 
+// Gestion de l'ajout d'une quantité spécifique
+if (isset($_POST['augmenter_id'])) {
+    $augmenter_id = $_POST['augmenter_id'];
+
+    foreach ($panier as &$produit) {
+        if ($produit['id'] == $augmenter_id) {
+            $produit['quantite'] += 1;
+            $_SESSION['panier'] = $panier;
+            break;
+        }
+    }
+
+    header("Location: panier.php");
+    exit();
+}
+
+// Gestion de la diminution d'une quantité spécifique
+if (isset($_POST['diminuer_id'])) {
+    $diminuer_id = $_POST['diminuer_id'];
+
+    foreach ($panier as &$produit) {
+        if ($produit['id'] == $diminuer_id) {
+            if ($produit['quantite'] > 1) {
+                $produit['quantite'] -= 1;
+            } else {
+                unset($panier[$diminuer_id]);
+            }
+            $_SESSION['panier'] = array_values($panier);
+            break;
+        }
+    }
+
+    header("Location: panier.php");
+    exit();
+}
+
 // Gestion de la suppression d'une quantité spécifique
 if (isset($_POST['remove_id']) && isset($_POST['remove_quantite'])) {
     $remove_id = $_POST['remove_id'];
@@ -95,12 +131,24 @@ include('./templates/requete_navbar_menu_catalogue.php');
                     <p><?= escape($produit['taille']) ?></p>
                     <p>Quantité : <?= escape($produit['quantite']) ?></p>
 
-                    <!-- Formulaire pour supprimer une quantité spécifique -->
-                    <form class="sup_produit" method="post" action="panier.php" style="display:inline;">
-                        <input type="hidden" name="remove_id" value="<?= escape($produit['id']) ?>">
-                        <input type="number" name="remove_quantite" value="1" min="1" required>
-                        <button type="submit" class="remove-quantity-btn">Supprimer</button>
+                    <!-- Formulaire pour diminuer la quantité -->
+                    <form class="diminuer_produit" method="post" action="panier.php" style="display:inline;">
+                        <input type="hidden" name="diminuer_id" value="<?= escape($produit['id']) ?>">
+                        <button type="submit" class="diminuer-quantity-btn">-</button>
                     </form>
+
+                    <!-- Formulaire pour augmenter la quantité -->
+                    <form class="augmenter_produit" method="post" action="panier.php" style="display:inline;">
+                        <input type="hidden" name="augmenter_id" value="<?= escape($produit['id']) ?>">
+                        <button type="submit" class="augmenter-quantity-btn">+</button>
+                    </form>
+
+                    <!-- Formulaire pour supprimer une quantité spécifique -->
+                    <!-- <form class="sup_produit" method="post" action="panier.php" style="display:inline;">
+                        <input type="hidden" name="remove_id" value="<?= escape($produit['id']) ?>">
+
+                        <button type="submit" class="remove-quantity-btn">Supprimer</button>
+                    </form> -->
 
                     <!-- Formulaire pour supprimer un produit entier -->
                     <form class="supprime_produit" method="post" action="panier.php" style="display:inline;">
