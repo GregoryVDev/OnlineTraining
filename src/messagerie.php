@@ -41,12 +41,12 @@ if (isset($_POST["valider"])) {
 </head>
 
 <body>
-
     <section id="messages"></section>
     <div id="discussion"></div>
     <form method="POST">
         <textarea name="message" placeholder="Votre message"></textarea>
         <br>
+
         <input type="submit" name="valider">
     </form>
 
