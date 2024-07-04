@@ -94,7 +94,7 @@ $catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
                         </select>
                     </div>
                     <div class="couleur">
-                        <p><?= ($produit["couleur"]) ?></p>
+                        <p>Couleur</p>
                         <select name="couleur" id="couleur">
                             <option value="">Séléctionnez votre couleur</option>
                             <option value="bleu">bleu</option>
