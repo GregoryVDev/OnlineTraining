@@ -53,6 +53,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
                         <a href="produit.php?id=<?= ($new['id']) ?>">
                             <img src="<?= ($new['image_produit']) ?>" alt="<?= ($new['nom_produit']) ?>">
                         </a>
+                        <p>Prix : <?= ($new['prix_ht']) ?> €</p>
                     </div>
                     <?php endforeach; ?>
                 </div>

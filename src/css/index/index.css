@@ -16,6 +16,12 @@ html::-webkit-scrollbar {
     margin-bottom: 1%;
 }
 
+.arrow {
+    color: #D31E44;
+    font-size: 1.5rem;
+    border-radius: 50px;
+}
+
 .wrap {
     width: 400px;
     text-align: left;
@@ -36,7 +42,6 @@ html::-webkit-scrollbar {
 }
 
 .carte {
-
     margin: 0 10px;
 }
 
@@ -49,7 +54,6 @@ html::-webkit-scrollbar {
 }
 
 .pad_carte {
-
     gap: 1%;
 }
 
@@ -96,7 +100,6 @@ html::-webkit-scrollbar {
     }
 
     .carte {
-
         margin: 0 8px;
     }
 }
@@ -108,15 +111,17 @@ html::-webkit-scrollbar {
     }
 
     .carte {
-
         margin: 0 6px;
     }
 
     .pad_carte img {
         width: 232px;
         height: 320px;
+    }
 
-
+    .arrow {
+        font-size: 1.2rem;
+        border-radius: 40px;
     }
 }
 
@@ -133,6 +138,10 @@ html::-webkit-scrollbar {
     .pad_carte img {
         width: 203px;
         height: 280px;
+    }
 
+    .arrow {
+        font-size: 1rem;
+        border-radius: 40px;
     }
 }

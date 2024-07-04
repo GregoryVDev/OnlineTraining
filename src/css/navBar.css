@@ -126,6 +126,12 @@
     color: var(--color-red);
 }
 
+.menuRouge:hover {
+    background-color: var(--color-red);
+    color: var(--color-white);
+    padding: 3px;
+}
+
 .navBar_droite {
     display: flex;
     width: 80px;
