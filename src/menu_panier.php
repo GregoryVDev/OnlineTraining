@@ -10,6 +10,7 @@
 
 </head>
 
+<!-- 
 <body>
     <div class="menu_panier">
         <div class="description_panier">
@@ -40,9 +41,4 @@
             <input class="cde" type="submit" value="COMMANDER">
             <p><a href="panier.php">Voir les détails du panier</a></p>
         </div>
-    </div>
-
-
-</body>
-
-</html>
+    </div> -->

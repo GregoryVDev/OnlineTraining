@@ -7,11 +7,17 @@ function escape($string) {
     return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
 }
 
-$panier = isset($_SESSION['panier']) ? $_SESSION['panier'] : [];
+// Vérifier si le panier est dans la session
+if (!isset($_SESSION['panier'])) {
+    $_SESSION['panier'] = [];
+}
+
+$panier = $_SESSION['panier'];
 $total = 0;
 
-foreach ($panier as $article) {
-    $total += $article['prix'] * $article['quantite'];
+// Calculer le total du panier
+foreach ($panier as $produit) {
+    $total += $produit['prix_ht'] * $produit['quantite'];
 }
 
 include('./templates/requete_navbar_menu_catalogue.php');
@@ -37,18 +43,18 @@ include('./templates/requete_navbar_menu_catalogue.php');
             <h2 class="text_rouge01">Mon panier</h2>
 
             <?php if (count($panier) > 0): ?>
-            <?php foreach ($panier as $article): ?>
+            <?php foreach ($panier as $produit): ?>
             <div class="recap_panier">
                 <div>
-                    <img src="<?= escape($article['image_produit']) ?>" width="100px"
-                        alt="<?= escape($article['nom']) ?>">
+                    <img src="<?= escape($produit['image_produit']) ?>" width="100px"
+                        alt="<?= escape($produit['nom_produit']) ?>">
                 </div>
                 <div class="recap_text">
-                    <p><?= escape($article['nom_produit']) ?></p>
-                    <p><?= escape($article['prix_ht']) ?>€</p>
-                    <p><?= escape($article['couleur']) ?></p>
-                    <p><?= escape($article['taille']) ?></p>
-                    <p>Quantité : <?= escape($article['quantite']) ?></p>
+                    <p><?= escape($produit['nom_produit']) ?></p>
+                    <p><?= escape($produit['prix_ht']) ?>€</p>
+                    <p><?= escape($produit['couleur']) ?></p>
+                    <p><?= escape($produit['taille']) ?></p>
+                    <p>Quantité : <?= escape($produit['quantite']) ?></p>
                 </div>
             </div>
             <?php endforeach; ?>
@@ -73,7 +79,6 @@ include('./templates/requete_navbar_menu_catalogue.php');
 
         <div class="meme_categorie">
             <?php
-            // Exemples de produits suggérés, remplacez par une requête réelle si nécessaire
             $produits_suggeres = [
                 ['image' => './img/produits/eItuMBaBT5SMsSakOdzP.jpg', 'nom' => 'Produit 1'],
                 ['image' => './img/produits/eItuMBaBT5SMsSakOdzP.jpg', 'nom' => 'Produit 2'],
