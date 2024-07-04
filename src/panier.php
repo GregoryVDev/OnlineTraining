@@ -113,18 +113,18 @@ include('./templates/requete_navbar_menu_catalogue.php');
             <?php else: ?>
             <p>Votre panier est vide.</p>
             <?php endif; ?>
-
-            <div class="details_panier">
-                <div class="total_cde">
-                    <p>TOTAL DE MA COMMANDE</p>
-                    <p class="price"><?= escape($total) ?>€</p>
-                </div>
-                <div class="commande">
-                    <form method="post" action="commande.php">
-                        <button type="submit" class="cde">COMMANDER</button>
-                    </form>
-                </div>
+        </div>
+        <div class="details_panier">
+            <div class="total_cde">
+                <p>TOTAL DE MA COMMANDE</p>
+                <p class="price"><?= escape($total) ?>€</p>
             </div>
+            <div class="commande">
+                <form method="post" action="commande.php">
+                    <button type="submit" class="cde">COMMANDER</button>
+                </form>
+            </div>
+
         </div>
     </div>
 
