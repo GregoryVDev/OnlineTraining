@@ -143,13 +143,6 @@ include('./templates/requete_navbar_menu_catalogue.php');
                         <button type="submit" class="augmenter-quantity-btn">+</button>
                     </form>
 
-                    <!-- Formulaire pour supprimer une quantité spécifique -->
-                    <!-- <form class="sup_produit" method="post" action="panier.php" style="display:inline;">
-                        <input type="hidden" name="remove_id" value="<?= escape($produit['id']) ?>">
-
-                        <button type="submit" class="remove-quantity-btn">Supprimer</button>
-                    </form> -->
-
                     <!-- Formulaire pour supprimer un produit entier -->
                     <form class="supprime_produit" method="post" action="panier.php" style="display:inline;">
                         <input type="hidden" name="delete_id" value="<?= escape($produit['id']) ?>">
