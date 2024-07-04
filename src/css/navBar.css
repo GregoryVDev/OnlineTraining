@@ -19,28 +19,56 @@
     position: relative;
 }
 
-
-.overlay {
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    background-color: rgb(255, 254, 254);
-    top: 65px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(0, 0, 0);
-    transition: opacity 1s ease, visibility 0.3s ease;
-    z-index: 1000;
+.overlay-container1 {
+    display: none;
 }
+.overlay-container2 {
+    position: relative;
+}
+
 
 .overlay_1 {
     opacity: 0;
     visibility: hidden;
     position: absolute;
-    background-color: rgb(255, 254, 254);
+    background-color: var(--color-white);
+    top: 65px;
+    left: 0%;
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-red); 
+    border-radius: 5px;
+    transition: opacity 1s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+
+.overlay_2 {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    background-color: var(--color-white);
+    top: 35px;
+    left:-37px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* color:  #D31E44; */
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: opacity 1s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.overlay_3 {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    background-color: var(--color-white);
+    border-radius: 5px;
     top: 65px;
     right: 0px;
     width: 300px;
@@ -48,41 +76,31 @@
     z-index: 9000;
 }
 
-.overlay-container:hover .overlay,
-.overlay-container1:hover .overlay,
-.overlay-container2:hover .overlay {
+.overlay-container1:hover .overlay_1,
+.overlay-container2:hover .overlay_2,
+.overlay-container3:hover .overlay_3 {
     display: block;
     opacity: 1;
     visibility: visible;
-}
-
-.overlay-container2:hover .overlay_1 {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-}
-
-.catalogueRouge {
-    padding-top: 5px;
-    color: #D31E44;
 }
 
 #menuCategories li,
 .catalogueCategories li {
     list-style-type: none;
     margin-bottom: 5px;
+    padding-top: 3%;
 }
 
 #menuCategories li a,
 .catalogueCategories li a {
     text-decoration: none;
-    color: #333;
+    color: var(--color-black);
     cursor: pointer;
 }
 
 #menuCategories li a:hover,
 .catalogueCategories li a:hover {
-    text-decoration: underline;
+    color: var(--color-red);
 }
 
 .rubrique {
@@ -95,13 +113,17 @@
 
 .menuNoir {
     text-decoration: none;
-    color: black;
+    color: var(--color-black);
+}
+
+.menuNoir:hover {
+    color: var(--color-red);
 
 }
 
 .menuRouge {
     text-decoration: none;
-    color: #D31E44;
+    color: var(--color-red);
 }
 
 .navBar_droite {
@@ -186,9 +208,8 @@ li {
 
 
     .rubrique {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         width: auto;
-        color: black;
     }
 
     .logoOnline img {
@@ -205,9 +226,7 @@ li {
     }
 }
 
-.overlay-container {
-    display: none;
-}
+
 
 @media (max-width: 1204px) {
 
@@ -215,7 +234,7 @@ li {
         width: 130px;
     }
 
-    .overlay-container {
+    .overlay-container1 {
         display: none
     }
 
@@ -223,12 +242,16 @@ li {
         font-size: 1.3rem;
     }
 
+    .overlay_2 {
+        left: -60px;
+    }
+
     .navBar_droite {
         width: 130px;
     }
 
     .navBar_droite img {
-        width: 20px;
+        width: 24px;
     }
 }
 
@@ -238,12 +261,12 @@ li {
         width: 130px;
     }
 
-    .overlay-container  {
+    .overlay-container1  {
         display: block;
         width: 90px;
     }
 
-    .overlay-container img {
+    .overlay-container1 img {
         width: 32px;
     }
 
@@ -252,9 +275,11 @@ li {
     }
 
     .navBar_droite {
+        width: 100px;
+    }
 
-        width: 90px;
-
+    .navBar_droite img {
+        width: 22px;
     }
 
     .logoOnline {
@@ -278,17 +303,20 @@ li {
         padding: 20px;
     }
 
-    .overlay-container img {
+    .overlay-container1 img {
         width: 25px;
     }
 
-    .navBar_droite,
-    .overlay-container {
+    .overlay-container1 {
         width: 70px;
     }
 
+    .navBar_droite {
+        width: 90px;
+    }
+
     .navBar_droite div img {
-        width: 15px;
+        width: 18px;
     }
 
     .logoOnline img {

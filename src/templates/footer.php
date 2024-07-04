@@ -22,26 +22,12 @@
             </div>
         </div>
     </div>
-
-    <h1 class="footer-h1">NEWSLETTER</h1>
-
-    <h3 class="footer-h3">Recevoir les actus mode et les offres d’Online !</h3>
-
-    <form action="" method="POST">
-
-        <div class="form">
-            <div class="footer_mail">
-                <input type="email" name="mail" placeholder="Entrez votre adresse email" required>
-            </div>
-            <div>
-                <button class="abonner" type="submit">S'ABONNER</BUTTON>
-            </div>
-
-        </div>
-
-    </form>
-
-    <h2 class="footer-h2">REJOINGNEZ LA COMMUNAUTE</h2>
+    <div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 
     <!-- <div class="sociaux">
 <div><img src="./img/footer/facebook.png" width="20px" alt="Logo"></div>

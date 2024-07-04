@@ -1,14 +1,12 @@
 <nav>
     <div class="navbar">
-        <div class="overlay-container">
+        <div class="overlay-container1">
             <div><img src="../img/navBar/menuBurger.png" alt="Menu">
             </div>
-            <div class="overlay">
+            <div class="overlay_1">
                 <div>
                     <ul id="menuCategories">
-                        <hr>
                         <li class="catalogueRouge"><b>CATALOGUE</b></li>
-                        <hr>
                         <?php foreach($catalogue_type_burger as $catalogue_type_burger): ?>
                         <li>
                             <a href="categories.php?categories_type=<?= urlencode($catalogue_type_burger["type"]) ?>">
@@ -29,22 +27,20 @@
             <div><a class="menuNoir" href="#">NOUVEAUTES</a></div>
             <div><a class="menuRouge" href="#">FEMMME</a></div>
             <div><a class="menuRouge" href="#">HOMME</a></div>
-            <div class="overlay-container1">
-                <div class="menuNoir">
-                    CATALOGUE
-                </div>
-                <div class="overlay">
-                    <div>
-                        <ul class="catalogueCategories">
-                            <?php foreach($catalogue_type as $catalogue_type): ?>
-                            <li>
-                                <a href="categories.php?categories_type=<?= urlencode($catalogue_type["type"]) ?>">
-                                    <?= ($catalogue_type["type"]) ?>
-                                </a>
-                            </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+            <div class="overlay-container2">
+                <div class="menuNoir" href="#"> CATALOGUE</a></div>
+                <div class="overlay_2">
+
+                    <ul class="catalogueCategories">
+                        <?php foreach($catalogue_type as $catalogue_type): ?>
+                        <li>
+                            <a href="categories.php?categories_type=<?= urlencode($catalogue_type["type"]) ?>">
+                                <?= ($catalogue_type["type"]) ?>
+                            </a>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+
                 </div>
             </div>
 
@@ -87,10 +83,10 @@
                 </ul>
                 <?php endif; ?>
             </div>
-            <div class="overlay-container2">
+            <div class="overlay-container3">
                 <a href="#"><img src="./img/navBar/cart.png" alt="Panier"></a>
 
-                <div class="overlay_1">
+                <div class="overlay_3">
                     <div>
 
                         <?php include('menu_panier.php');?></li>
