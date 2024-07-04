@@ -26,12 +26,16 @@ html::-webkit-scrollbar {
     width: 400px;
     text-align: left;
 }
+.interligne {
+    margin-top: 2%;
+}
+
 
 .nouveautes {
     position: relative;
     width: 100%;
     overflow: hidden;
-    margin-bottom: 1%;
+
 }
 
 .ligne {
