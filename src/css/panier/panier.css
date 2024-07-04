@@ -38,6 +38,14 @@ body {
     padding: 40px;
 }
 
+div.quantité {
+    display: flex;
+}
+
+div.align-quantite p {
+    text-align: center;
+}
+
 
 div.details_panier {
     width: 300px;
@@ -48,7 +56,7 @@ div.details_panier {
 
 .recap_panier {
     display: flex;
-    text-align: left;
+    gap: 20px;
 }
 
 .recap_text p {
