@@ -45,33 +45,35 @@ include('./templates/requete_navbar_menu_catalogue.php');
             <?php if (count($panier) > 0): ?>
             <?php foreach ($panier as $produit): ?>
             <div class="recap_panier">
-                <div>
-                    <img src="<?= escape($produit['image_produit']) ?>" width="100px"
-                        alt="<?= escape($produit['nom_produit']) ?>">
-                </div>
-                <div class="recap_text">
-                    <p><?= escape($produit['nom_produit']) ?></p>
-                    <p><?= escape($produit['prix_ht']) ?>€</p>
-                    <p><?= escape($produit['couleur']) ?></p>
-                    <p><?= escape($produit['taille']) ?></p>
-                    <p>Quantité : <?= escape($produit['quantite']) ?></p>
+                <div class="produit_colonne">
+                    <div>
+                        <img src="<?= escape($produit['image_produit']) ?>" width="100px"
+                            alt="<?= escape($produit['nom_produit']) ?>">
+                    </div>
+                    <div class="recap_text">
+                        <p><?= escape($produit['nom_produit']) ?></p>
+                        <p><?= escape($produit['prix_ht']) ?> €</p>
+                        <p><?= escape($produit['couleur']) ?></p>
+                        <p><?= escape($produit['taille']) ?></p>
+                        <p>Quantité : <?= escape($produit['quantite']) ?></p>
+                    </div>
                 </div>
             </div>
             <?php endforeach; ?>
             <?php else: ?>
             <p>Votre panier est vide.</p>
             <?php endif; ?>
-
-            <div class="details_panier">
-                <div class="total_cde">
-                    <p>TOTAL DE MA COMMANDE</p>
-                    <p class="price"><?= escape($total) ?>€</p>
-                </div>
-                <div class="commande">
-                    <input class="cde" type="submit" value="COMMANDER"></input>
-                </div>
+        </div>
+        <div class="details_panier">
+            <div class="total_cde">
+                <p>TOTAL DE MA COMMANDE</p>
+                <p class="price"><?= escape($total) ?>€</p>
+            </div>
+            <div class="commande">
+                <input class="cde" type="submit" value="COMMANDER"></input>
             </div>
         </div>
+    </div>
     </div>
 
     <div class="aussi">
