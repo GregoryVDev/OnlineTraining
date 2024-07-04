@@ -96,14 +96,14 @@ include('./templates/requete_navbar_menu_catalogue.php');
                     <p>Quantité : <?= escape($produit['quantite']) ?></p>
 
                     <!-- Formulaire pour supprimer une quantité spécifique -->
-                    <form method="post" action="panier.php" style="display:inline;">
+                    <form class="sup_produit" method="post" action="panier.php" style="display:inline;">
                         <input type="hidden" name="remove_id" value="<?= escape($produit['id']) ?>">
                         <input type="number" name="remove_quantite" value="1" min="1" required>
-                        <button type="submit" class="remove-quantity-btn">Supprimer 1</button>
+                        <button type="submit" class="remove-quantity-btn">Supprimer</button>
                     </form>
 
                     <!-- Formulaire pour supprimer un produit entier -->
-                    <form method="post" action="panier.php" style="display:inline;">
+                    <form class="supprime_produit" method="post" action="panier.php" style="display:inline;">
                         <input type="hidden" name="delete_id" value="<?= escape($produit['id']) ?>">
                         <button type="submit" class="delete-btn">Supprimer le produit</button>
                     </form>
