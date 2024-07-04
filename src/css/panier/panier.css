@@ -5,91 +5,86 @@ body {
     font-family: sans-serif;
 }
 
+.text_mon_panier {
+    color: #D31E44;
+    background: white;
+    padding: 10px 20px;
+    position: absolute;
+    top: 49px;
+    left: 35%;
+    margin-top: 50px;
+}
 .cadre {
     display: flex;
     justify-content: center;
     margin: 30px auto;
     border-top: 2px solid #D31E44;
     border-bottom: 2px solid #D31E44;
-    width: 800px;
-
-}
-
-
-.text_rouge01 {
-    color: #D31E44;
-    background: white;
-    padding: 10px 20px;
-    position: absolute;
-    top: 45px;
-    left: 35vw;
-    margin-top: 50px;
-}
-
-.text_rouge {
-    color: #D31E44;
-    text-align: center;
+    width: 1000px;
 }
 
 .panier {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 40px;
+    padding: 40px 0px 40px 20px;
+    width: 700px;
 }
-
-div.quantité {
-    display: flex;
-}
-
-div.align-quantite p {
-    text-align: center;
-}
-
-
-div.details_panier {
-    width: 300px;
-    padding: 20px;
-}
-
-
 
 .recap_panier {
     display: flex;
     gap: 20px;
 }
 
-.recap_text p {
-    text-align: left;
-    width: 150px;
+div.quantite {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-.sup_produit input {
-    width: 40px;
+.gestion_quantité {
+    display: flex;
+    align-items: center;
+}
+
+div.align_quantite p {
+    width: 80px;
+    text-align: center;
     border: 1px solid #D31E44;
 }
 
-p:first-child,
-p:last-child {
-    margin-top: 0;
-}
 
-.price {
+.augmenter_produit button,
+.diminuer_produit button {
     color: #D31E44;
+    font-size: 1.5rem;
     font-weight: bold;
+    width: 20px;
+    background-color: #ffffff;
+    border: 1px solid #D31E44;
+    border-radius: 3px;
+    
 }
 
-p:first-child {
+.supprimer_produit button {
+    color: white;
     font-weight: bold;
+    background-color: #D31E44;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 25px;
+    text-align: left;
+}
+
+ div.commander {
+    width: 300px;
+    padding: 20px;
 }
 
 .total_cde {
     display: flex;
     justify-content: space-between;
-}
-
-.details_panier {
-    align-items: space-between;
 }
 
 .cde {
@@ -101,15 +96,12 @@ p:first-child {
     font-weight: bold;
     font-size: 1rem;
     margin-top: 30px;
-
+    padding: 5px 0;
 }
 
-.aussi {
-    display: flex;
-    flex-direction: column;
-    margin: 60px auto;
-    align-items: center;
-
+.aimerez_aussi {
+    color: #D31E44;
+    text-align: center;
 }
 
 .meme_categorie {
@@ -121,7 +113,20 @@ p:first-child {
 }
 
 @media (max-width: 1204px) {
-    .text_rouge01 {
+    .cadre {
+       width: 850px;
+    }
+
+    .panier {
+        width: 550px;
+    }
+
+    div.commander {
+        width: 300px;
+        padding: 20px;
+    }
+    
+    .text_mon_panier {
         margin-top: 39px;
     }
 
@@ -133,10 +138,16 @@ p:first-child {
 @media (max-width: 900px) {
     .cadre {
         width: 600px;
+        flex-direction: column;
     }
 
     .panier {
-        width: 580px;
+        width: 600px;
+    }
+
+    div.commander {
+        width: 100%;
+        padding: 20px;
     }
 
     .aussi {
@@ -156,10 +167,6 @@ p:first-child {
         font-size: 0.8rem;
     }
 
-    div.details_panier {
-        width: 250px;
-    }
-
     .meme_categorie img {
         width: 180px;
     }
@@ -167,64 +174,49 @@ p:first-child {
 }
 
 @media (max-width: 650px) {
-    .text_rouge01 {
+    
+    .text_mon_panier {
         margin-top: 47px;
     }
 
     .cadre {
-        width: 450px;
-        height: 180px;
+        width: 400px;
     }
 
     .panier {
-        width: 400px;
-        height: 180px;
+        width: 450px;
     }
 
-    div.details_panier {
-        width: 180px;
+    .quantite {
+       flex-direction: column;
     }
-
 
     .recap_panier img {
         width: 90px;
     }
 
-    .total_commande p {
-        font-size: 0.7rem;
-    }
-
     .meme_categorie img {
         width: 150px;
     }
-
 }
 
 @media (max-width: 500px) {
-    .text_rouge01 {
-
-        margin-top: 47px;
-    }
-
-    .total_commande p {
-        font-size: 0.7rem;
-    }
-
+    
     .cadre {
-        width: 250px;
-        height: 300px;
-
+        width:340px;
     }
 
     .panier {
         flex-direction: column;
-        width: 150px;
-        height: 300px;
-        margin: 0 auto;
+        width: 340px;
     }
 
-    .details_panier {
-        width: 150px
+    .recap_text {
+        width: 200px;
+    }
+    
+    .supprimer_produit button {
+        font-size: 0.7rem;
     }
 
     .meme_categorie img {

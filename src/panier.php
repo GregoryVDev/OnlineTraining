@@ -115,7 +115,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
 
     <div class="cadre">
         <div class="panier">
-            <h2 class="text_rouge01">Mon panier</h2>
+            <h2 class="text_mon_panier">Mon panier</h2>
 
             <?php if (count($panier) > 0): ?>
             <?php foreach ($panier as $produit): ?>
@@ -132,34 +132,40 @@ include('./templates/requete_navbar_menu_catalogue.php');
                         <p><?= escape($produit['taille']) ?></p>
                     </div>
 
-                    <div class="quantité">
+                    <div class="quantite">
                         <!-- Formulaire pour diminuer la quantité -->
+                        <div class="gestion_produit">
+                            <div class="gestion_quantité">
+                                <div>
+                                    <form class="diminuer_produit" method="post" action="panier.php"
+                                        style="display:inline;">
+                                        <input type="hidden" name="diminuer_id" value="<?= escape($produit['id']) ?>">
+                                        <button type="submit" class="diminuer-quantity-btn">-</button>
+                                    </form>
+                                </div>
+
+                                <div class="align_quantite">
+                                    <p>Quantité : <?= escape($produit['quantite']) ?></p>
+                                </div>
+
+                                <!-- Formulaire pour augmenter la quantité -->
+                                <div>
+                                    <form class="augmenter_produit" method="post" action="panier.php"
+                                        style="display:inline;">
+                                        <input type="hidden" name="augmenter_id" value="<?= escape($produit['id']) ?>">
+                                        <button type="submit" class="augmenter-quantity-btn">+</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
                         <div>
-                            <form class="diminuer_produit" method="post" action="panier.php" style="display:inline;">
-                                <input type="hidden" name="diminuer_id" value="<?= escape($produit['id']) ?>">
-                                <button type="submit" class="diminuer-quantity-btn">-</button>
+                            <!-- Formulaire pour supprimer un produit entier -->
+                            <form class="supprimer_produit" method="post" action="panier.php" style="display:inline;">
+                                <input type="hidden" name="delete_id" value="<?= escape($produit['id']) ?>">
+                                <button type="submit" class="delete-btn">SUPPRIMER LE PRODUIT</button>
                             </form>
                         </div>
-
-                        <div class="align_quantite">
-                            <p>Quantité : <?= escape($produit['quantite']) ?></p>
-                        </div>
-
-                        <!-- Formulaire pour augmenter la quantité -->
-                        <div>
-                            <form class="augmenter_produit" method="post" action="panier.php" style="display:inline;">
-                                <input type="hidden" name="augmenter_id" value="<?= escape($produit['id']) ?>">
-                                <button type="submit" class="augmenter-quantity-btn">+</button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div>
-                        <!-- Formulaire pour supprimer un produit entier -->
-                        <form class="supprime_produit" method="post" action="panier.php" style="display:inline;">
-                            <input type="hidden" name="delete_id" value="<?= escape($produit['id']) ?>">
-                            <button type="submit" class="delete-btn">Supprimer le produit</button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -168,7 +174,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
             <p>Votre panier est vide.</p>
             <?php endif; ?>
         </div>
-        <div class="details_panier">
+        <div class="commander">
             <div class="total_cde">
                 <p>TOTAL DE MA COMMANDE</p>
                 <p class="price"><?= escape($total) ?>€</p>
@@ -183,7 +189,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
     </div>
 
     <div class="aussi">
-        <h3 class="text_rouge">Vous aimerez aussi</h3>
+        <h2 class="aimerez_aussi">Vous aimerez aussi</h2>
 
         <div class="meme_categorie">
             <?php
