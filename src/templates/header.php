@@ -6,7 +6,9 @@
             <div class="overlay_1">
                 <div>
                     <ul id="menuCategories">
+                        <hr>
                         <li class="catalogueRouge"><b>CATALOGUE</b></li>
+                        <hr>
                         <?php foreach($catalogue_type_burger as $catalogue_type_burger): ?>
                         <li>
                             <a href="categories.php?categories_type=<?= urlencode($catalogue_type_burger["type"]) ?>">
@@ -24,7 +26,6 @@
             </a>
         </div>
         <div class="rubrique">
-            <div><a class="menuNoir" href="#">NOUVEAUTES</a></div>
             <div><a class="menuRouge" href="#">FEMMME</a></div>
             <div><a class="menuRouge" href="#">HOMME</a></div>
             <div class="overlay-container2">
