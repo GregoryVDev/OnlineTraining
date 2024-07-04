@@ -13,12 +13,8 @@ $total = 0;
 foreach ($panier as $article) {
     $total += $article['prix'] * $article['quantite'];
 }
-// Requête pour récupérer toutes les catégories pour la barre de navigation
-$sql_categories = "SELECT * FROM categories";
-$query_categories = $db->prepare($sql_categories);
-$query_categories->execute();
-$catalogue_type = $query_categories->fetchAll(PDO::FETCH_ASSOC);
 
+include('./templates/requete_navbar_menu_catalogue.php');
 ?>
 
 <!DOCTYPE html>

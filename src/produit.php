@@ -70,17 +70,23 @@ include('./templates/requete_navbar_menu_catalogue.php');
                 <span class="color-red-name-produit"><?= ($produit["nom_produit"]) ?></span>
             </p>
             <article class="container-produit">
+
+                <!-- Image du produit -->
                 <figure class="order">
                     <img class="picture-produit" src="<?= ($produit["image_produit"]) ?>"
                         alt="<?= ($produit["nom_produit"]) ?>">
                 </figure>
+
+                <!-- Section des informations du produit -->
                 <div class="container-information-produit">
                     <h1 class="h1-produit-name"><?= ($produit["nom_produit"]) ?></h1>
                     <p class="prix"><?= ($produit["prix_ht"])?>€</p>
                     <p class="text"><?= (($produit["description"])) ?></p>
+
+                    <!-- Sélection de la taille -->
                     <div class="taille">
                         <p>Taille</p>
-                        <select name="taille" id="taille">
+                        <select name="taille" id="taille" required>
                             <option value="">Séléctionnez votre taille</option>
                             <option value="XS">XS</option>
                             <option value="S">S</option>
@@ -89,16 +95,20 @@ include('./templates/requete_navbar_menu_catalogue.php');
                             <option value="XL">XL</option>
                         </select>
                     </div>
+
+                    <!-- Sélection de la couleur -->
                     <div class="couleur">
                         <p>Couleur</p>
-                        <select name="couleur" id="couleur">
+                        <select name="couleur" id="couleur" required>
                             <option value="">Séléctionnez votre couleur</option>
                             <option value="bleu">bleu</option>
                             <option value="blanc">blanc</option>
                             <option value="rouge">rouge</option>
                         </select>
                     </div>
-                    <button class="btn-produit" type="submit">Ajouter au panier</button>
+
+                    <!-- Bouton pour ajouter au panier -->
+                    <button id="add-to-cart" class="btn-produit" type="submit">Ajouter au panier</button>
                 </div>
             </article>
         </main>
@@ -107,6 +117,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
         <h2 class="h2-section2-titre">Vous pourriez aimer cela aussi</h2>
         <div class="container-produit-similaire">
 
+            <!-- foreach qui permet d'afficher des articles similaire -->
             <?php foreach ($produits_similaires as $produit_similaire): ?>
             <article class="vetement-similaire">
                 <figure class="vetement-similaire-figure">
