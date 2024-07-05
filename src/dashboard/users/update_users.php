@@ -9,30 +9,35 @@ function validateEmail($email)
 // Inclure la connexion à la base de données
 require_once("../../connect.php");
 
+// Vérifier si l'utilisateur connecté est un super admin
+$isSuperAdmin = isset($_SESSION['user']) && $_SESSION['user']['roles'] === '["ROLE_SUPER_ADMIN"]';
+
 // On vérifie si le formulaire a été envoyé
 if (!empty($_POST)) {
-    // Le formulaire a été envoyé
-    // On vérifie que TOUS les champs requis sont remplis
-
     if (
         isset($_POST["nom"], $_POST["prenom"], $_POST["email"])
         && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"])
     ) {
         // Le formulaire est complet
-        // On récupère les données en les protégeants
         $nom = strip_tags($_POST["nom"]);
         $prenom = strip_tags($_POST["prenom"]);
-
-        if (!validateEmail($_POST["email"])) {
-            die("L'adresse email est incorrecte");
-        }
         $email = $_POST["email"];
 
+        if (!validateEmail($email)) {
+            die("L'adresse email est incorrecte");
+        }
 
-        // Ajoutez cette ligne pour récupérer l'ID de l'utilisateur
+        // Récupérer l'ID de l'utilisateur
         $id = $_GET["id"];
 
-        $sql = "UPDATE users SET nom = :nom, prenom = :prenom, email = :email WHERE id = :id";
+        // Déterminer le rôle
+        if ($isSuperAdmin && isset($_POST["role"])) {
+            $role = $_POST["role"];
+        } else {
+            $role = $user['roles']; // garder le rôle existant s'il n'est pas modifié
+        }
+
+        $sql = "UPDATE users SET nom = :nom, prenom = :prenom, email = :email, roles = :roles WHERE id = :id";
 
         $query = $db->prepare($sql);
 
@@ -40,7 +45,7 @@ if (!empty($_POST)) {
         $query->bindValue(":nom", $nom, PDO::PARAM_STR);
         $query->bindValue(":prenom", $prenom, PDO::PARAM_STR);
         $query->bindValue(":email", $email, PDO::PARAM_STR);
-
+        $query->bindValue(":roles", json_encode([$role]), PDO::PARAM_STR);
 
         $query->execute();
 
@@ -82,26 +87,33 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
 </head>
 
 <body>
-    <?php
-    include '../../templates/navbar_dashboard.php';
-    ?>
+    <?php include '../../templates/navbar_dashboard.php'; ?>
     <div class="form_produit">
         <div>
             <form class="formulaire_produit" method="POST">
                 <h2>MODIFIER <?= $user["nom"] ?> <?= $user["prenom"] ?> :</h2>
-
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nom" placeholder="NOM" name="nom" value="<?= $user["nom"] ?>" required>
-                    <label for="floatingInput">NOM</label>
+                    <label for="nom">NOM</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="prenom" placeholder="PRENOM" name="prenom" value="<?= $user["prenom"] ?>" required>
-                    <label for="floatingInput">PRENOM</label>
+                    <label for="prenom">PRENOM</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="email" class="form-control" placeholder="email@example.com" id="email" name="email" value="<?= $user["email"] ?>" required>
-                    <label for="floatingInput">EMAIL</label>
+                    <label for="email">EMAIL</label>
                 </div>
+                <?php if ($isSuperAdmin) : ?>
+                    <div class="form-floating mb-3">
+                        <select name="role" class="form-select" id="role" required>
+                            <option value="ROLE_USER" <?= $user["roles"] === 'ROLE_USER' ? 'selected' : '' ?>>UTILISATEUR</option>
+                            <option value="ROLE_ADMIN" <?= $user["roles"] === 'ROLE_ADMIN' ? 'selected' : '' ?>>ADMINISTRATEUR</option>
+                            <option value="ROLE_SUPER_ADMIN" <?= $user["roles"] === 'ROLE_SUPER_ADMIN' ? 'selected' : '' ?>>SUPER ADMINISTRATEUR</option>
+                        </select>
+                        <label for="role">ROLE</label>
+                    </div>
+                <?php endif; ?>
                 <div class="btn_produit"><button type="submit" class="btn btn-outline-secondary">MODIFIER</button></div>
             </form>
             <br>
