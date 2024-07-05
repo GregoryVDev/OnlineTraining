@@ -51,7 +51,7 @@ div.quantite {
 div.align_quantite p {
     width: 80px;
     text-align: center;
-    border: 1px solid #D31E44;
+    /* border: 1px solid #D31E44; */
 }
 
 
@@ -62,8 +62,9 @@ div.align_quantite p {
     font-weight: bold;
     width: 20px;
     background-color: #ffffff;
-    border: 1px solid #D31E44;
-    border-radius: 3px;
+    /* border: 1px solid #D31E44; */
+    /* border-radius: 3px; */
+    border: transparent;
     
 }
 
