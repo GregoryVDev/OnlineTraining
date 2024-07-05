@@ -63,6 +63,11 @@ main {
     gap: 10px;
 }
 
+.container-produit {
+    display: flex;
+    justify-content: center;
+}
+
 .figure-picture-produit {
     display: flex;
     flex-direction: column;
@@ -75,6 +80,7 @@ main {
     color: var(--color-black);
     font-family: var(--font-Poppins);
     margin-top: -50px;
+    text-align: center;
 }
 
 .h1-produit-name {

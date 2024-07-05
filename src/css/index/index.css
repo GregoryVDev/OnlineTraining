@@ -26,6 +26,7 @@ html::-webkit-scrollbar {
     width: 400px;
     text-align: left;
 }
+
 .interligne {
     margin-top: 2%;
 }
@@ -47,6 +48,7 @@ html::-webkit-scrollbar {
 
 .carte {
     margin: 0 10px;
+    text-align: center;
 }
 
 .carte img {
@@ -57,8 +59,16 @@ html::-webkit-scrollbar {
     object-fit: cover;
 }
 
+.titre-center {
+    text-align: center;
+    font-size: 1.6rem;
+}
+
 .pad_carte {
     gap: 1%;
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.1rem;
 }
 
 .pad_carte img {

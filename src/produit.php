@@ -64,23 +64,23 @@ include('./templates/requete_navbar_menu_catalogue.php');
                 <a class="chemin-produit chemin-produit-hover" href="index.php">Accueil</a> /
                 <a class="chemin-produit chemin-produit-hover"
                     href="categories.php?categories_type=<?= urlencode($produit["categorie_type"]) ?>">
-                    <?= htmlspecialchars($produit["categorie_type"]) ?>
+                    <?= ($produit["categorie_type"]) ?>
                 </a> /
-                <span class="color-red-name-produit"><?= htmlspecialchars($produit["nom_produit"]) ?></span>
+                <span class="color-red-name-produit"><?= ($produit["nom_produit"]) ?></span>
             </p>
             <article class="container-produit">
                 <!-- Image du produit -->
                 <figure class="order">
-                    <img class="picture-produit" src="<?= htmlspecialchars($produit["image_produit"]) ?>"
-                        alt="<?= htmlspecialchars($produit["nom_produit"]) ?>">
+                    <img class="picture-produit" src="<?= ($produit["image_produit"]) ?>"
+                        alt="<?= ($produit["nom_produit"]) ?>">
                 </figure>
 
                 <!-- Section des informations du produit -->
                 <form method="POST" action="ajouter_au_panier.php">
                     <div class="container-information-produit">
-                        <h1 class="h1-produit-name"><?= htmlspecialchars($produit["nom_produit"]) ?></h1>
-                        <p class="prix"><?= htmlspecialchars($produit["prix_ht"]) ?>€</p>
-                        <p class="text"><?= htmlspecialchars($produit["description"]) ?></p>
+                        <h1 class="h1-produit-name"><?= ($produit["nom_produit"]) ?></h1>
+                        <p class="prix"><?= ($produit["prix_ht"]) ?>€</p>
+                        <p class="text"><?= ($produit["description"]) ?></p>
 
                         <!-- Sélection de la taille -->
                         <div class="taille">
@@ -108,11 +108,9 @@ include('./templates/requete_navbar_menu_catalogue.php');
 
                         <!-- Bouton pour ajouter au panier -->
                         <input type="hidden" name="id" value="<?= $produit['id'] ?>">
-                        <input type="hidden" name="nom_produit"
-                            value="<?= htmlspecialchars($produit["nom_produit"]) ?>">
-                        <input type="hidden" name="prix_ht" value="<?= htmlspecialchars($produit["prix_ht"]) ?>">
-                        <input type="hidden" name="image_produit"
-                            value="<?= htmlspecialchars($produit["image_produit"]) ?>">
+                        <input type="hidden" name="nom_produit" value="<?= ($produit["nom_produit"]) ?>">
+                        <input type="hidden" name="prix_ht" value="<?= ($produit["prix_ht"]) ?>">
+                        <input type="hidden" name="image_produit" value="<?= ($produit["image_produit"]) ?>">
                         <button id="add-to-cart" class="btn-produit" type="submit">Ajouter au panier</button>
                     </div>
                 </form>
@@ -125,17 +123,16 @@ include('./templates/requete_navbar_menu_catalogue.php');
             <?php foreach ($produits_similaires as $produit_similaire): ?>
             <article class="vetement-similaire">
                 <figure class="vetement-similaire-figure">
-                    <a href="produit.php?id=<?= htmlspecialchars($produit_similaire["id"]) ?>">
-                        <img class="picture-similaire-size"
-                            src="<?= htmlspecialchars($produit_similaire["image_produit"]) ?>"
-                            alt="<?= htmlspecialchars($produit_similaire["nom_produit"]) ?>">
+                    <a href="produit.php?id=<?= ($produit_similaire["id"]) ?>">
+                        <img class="picture-similaire-size" src="<?= ($produit_similaire["image_produit"]) ?>"
+                            alt="<?= ($produit_similaire["nom_produit"]) ?>">
                     </a>
                     <figcaption class="vetement-similaire-titre">
-                        <?= htmlspecialchars($produit_similaire["nom_produit"]) ?>
+                        <?= ($produit_similaire["nom_produit"]) ?>
                     </figcaption>
                 </figure>
-                <p class="vetement-similaire-couleur"><?= htmlspecialchars($produit_similaire["couleur"]) ?></p>
-                <p class="vetement-similaire-prix"><?= htmlspecialchars($produit_similaire["prix_ht"]) ?>€</p>
+                <p class="vetement-similaire-couleur"><?= ($produit_similaire["couleur"]) ?></p>
+                <p class="vetement-similaire-prix"><?= ($produit_similaire["prix_ht"]) ?>€</p>
             </article>
             <?php endforeach; ?>
         </div>
