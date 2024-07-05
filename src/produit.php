@@ -58,66 +58,70 @@ include('./templates/requete_navbar_menu_catalogue.php');
 
 <body>
     <?php include_once("templates/header.php") ?>
-    <section>
-        <main>
-            <p class="chemin-produit">
-                <a class="chemin-produit chemin-produit-hover" href="index.php">Accueil</a> /
-                <a class="chemin-produit chemin-produit-hover"
-                    href="categories.php?categories_type=<?= urlencode($produit["categorie_type"]) ?>">
-                    <?= ($produit["categorie_type"]) ?>
-                </a> /
-                <span class="color-red-name-produit"><?= ($produit["nom_produit"]) ?></span>
-            </p>
-            <article class="container-produit">
-                <!-- Image du produit -->
-                <figure class="order">
-                    <img class="picture-produit" src="<?= ($produit["image_produit"]) ?>"
-                        alt="<?= ($produit["nom_produit"]) ?>">
-                </figure>
 
-                <!-- Section des informations du produit -->
-                <form class="container-information-produit" method="POST" action="ajouter_au_panier.php">
-                    <h1 class="h1-produit-name"><?= ($produit["nom_produit"]) ?></h1>
-                    <p class="prix"><?= ($produit["prix_ht"]) ?>€</p>
-                    <p class="text"><?= ($produit["description"]) ?></p>
+    <!-- produit et informations du produit  -->
+    <main>
+        <p class="chemin-produit">
+            <a class="chemin-produit chemin-produit-hover" href="index.php">Accueil</a> /
+            <a class="chemin-produit chemin-produit-hover"
+                href="categories.php?categories_type=<?= urlencode($produit["categorie_type"]) ?>">
+                <?= ($produit["categorie_type"]) ?>
+            </a> /
+            <span class="color-red-name-produit"><?= ($produit["nom_produit"]) ?></span>
+        </p>
+        <article class="container-produit">
+            <!-- Image du produit -->
+            <figure class="order">
+                <img class="picture-produit" src="<?= ($produit["image_produit"]) ?>"
+                    alt="<?= ($produit["nom_produit"]) ?>">
+            </figure>
 
-                    <!-- Sélection de la taille -->
-                    <div class="taille">
-                        <p>Taille</p>
-                        <select name="taille" id="taille" required>
-                            <option value="">Sélectionnez votre taille</option>
-                            <option value="XS">XS</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                        </select>
-                    </div>
+            <!-- Section des informations du produit -->
+            <form class="container-information-produit" method="POST" action="ajouter_au_panier.php">
+                <h1 class="h1-produit-name"><?= ($produit["nom_produit"]) ?></h1>
+                <p class="prix"><?= ($produit["prix_ht"]) ?>€</p>
+                <p class="text"><?= ($produit["description"]) ?></p>
 
-                    <!-- Sélection de la couleur -->
-                    <div class="couleur">
-                        <p>Couleur</p>
-                        <select name="couleur" id="couleur" required>
-                            <option value="">Sélectionnez votre couleur</option>
-                            <option value="bleu">bleu</option>
-                            <option value="blanc">blanc</option>
-                            <option value="rouge">rouge</option>
-                        </select>
-                    </div>
+                <!-- Sélection de la taille -->
+                <div class="taille">
+                    <p>Taille</p>
+                    <select name="taille" id="taille" required>
+                        <option value="">Sélectionnez votre taille</option>
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
 
-                    <!-- Bouton pour ajouter au panier -->
-                    <input type="hidden" name="id" value="<?= $produit['id'] ?>">
-                    <input type="hidden" name="nom_produit" value="<?= ($produit["nom_produit"]) ?>">
-                    <input type="hidden" name="prix_ht" value="<?= ($produit["prix_ht"]) ?>">
-                    <input type="hidden" name="image_produit" value="<?= ($produit["image_produit"]) ?>">
-                    <button id="add-to-cart" class="btn-produit" type="submit">Ajouter au panier</button>
-                </form>
-            </article>
-        </main>
-    </section>
+                <!-- Sélection de la couleur -->
+                <div class="couleur">
+                    <p>Couleur</p>
+                    <select name="couleur" id="couleur" required>
+                        <option value="">Sélectionnez votre couleur</option>
+                        <option value="bleu">bleu</option>
+                        <option value="blanc">blanc</option>
+                        <option value="rouge">rouge</option>
+                    </select>
+                </div>
+
+                <!-- Bouton pour ajouter au panier -->
+                <input type="hidden" name="id" value="<?= $produit['id'] ?>">
+                <input type="hidden" name="nom_produit" value="<?= ($produit["nom_produit"]) ?>">
+                <input type="hidden" name="prix_ht" value="<?= ($produit["prix_ht"]) ?>">
+                <input type="hidden" name="image_produit" value="<?= ($produit["image_produit"]) ?>">
+                <button id="add-to-cart" class="btn-produit" type="submit">Ajouter au panier</button>
+            </form>
+        </article>
+    </main>
+
+    <!-- articles similaire a l'article principal -->
     <section class="section2">
         <h2 class="h2-section2-titre">Vous pourriez aimer cela aussi</h2>
         <div class="container-produit-similaire">
+
+            <!-- foreach pour afficher les articles similaire a l'articles principal-->
             <?php foreach ($produits_similaires as $produit_similaire): ?>
             <article class="vetement-similaire">
                 <figure class="vetement-similaire-figure">
