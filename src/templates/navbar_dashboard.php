@@ -1,4 +1,4 @@
-<h1>DASHBOARD</h1>
+<h1 class="titre_dash">DASHBOARD</h1>
 
 <div class="contenair_nav_dash">
     <div class="nav_dash">

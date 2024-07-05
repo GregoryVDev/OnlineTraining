@@ -30,9 +30,9 @@ video {
 }
 
 /* end reset */
-
-.background-titre-categories {
-    background: var(--color-red);
+.h1-categories-accueil {
+    color: var(--color-white);
+    margin: auto;
 }
 
 .categories-titre {
@@ -43,11 +43,8 @@ video {
     font-weight: bolder;
     margin-top: 1.5%;
     text-transform: uppercase;
-}
-
-.chemin {
-    font-size: 0.8rem;
-    font-family: var(--font-Poppins);
+    background: var(--color-red);
+    text-align: center;
 }
 
 .container-categories-vetement {
@@ -60,12 +57,7 @@ video {
     width: 40%;
     margin: auto;
     margin-top: 3%;
-}
-
-figcaption {
-    font-size: 1rem;
-    font-weight: bolder;
-    font-family: var(--font-Poppins);
+    text-align: center;
 }
 
 .img-produit {
@@ -113,9 +105,5 @@ figcaption {
 .categories-liste-p {
     font-size: 1rem;
     font-family: var(--font-Poppins);
-    color: var(--color-white);
-}
-
-.h1-categories-accueil {
     color: var(--color-white);
 }

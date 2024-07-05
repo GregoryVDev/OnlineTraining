@@ -56,11 +56,9 @@ include('./templates/requete_navbar_menu_catalogue.php');
 <body>
     <?php include_once("templates/header.php"); ?>
     <main>
-        <div class="background-titre-categories">
-            <h1 class="categories-titre">
-                <a class="h1-categories-accueil" href="index.php">Accueil</a> / <?= ($categories_type) ?>
-            </h1>
-        </div>
+        <h1 class="categories-titre">
+            <a class="h1-categories-accueil" href="index.php">Accueil</a> / <?= ($categories_type) ?>
+        </h1>
         <div class="container-categories-vetement">
 
             <!-- Boucle pour afficher les produits -->

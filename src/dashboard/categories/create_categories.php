@@ -49,7 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <p style="color: red;"><?= htmlspecialchars($error) ?></p>
             <?php endif; ?>
             <form class="formulaire_produit" method="post">
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="CATEGORIE" id="type" name="type" required>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="type" placeholder="CATEGORIE" name="type" required>
+                    <label for="floatingInput">CATEGORIE</label>
+                </div>
                 <br>
                 <div class="btn_produit"><button type="submit" class="btn btn-outline-secondary">AJOUTER</button></div>
             </form>

@@ -44,7 +44,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
 
     <section class="interligne">
         <div class="nouveautes">
-            <h2 class="nouveautes">NOUVEAUTES</h2>
+            <h2 class="news titre-center">NOUVEAUTES</h2>
             <button class="arrow arrow-left">&#10094;</button>
             <div class="carousel-container">
                 <div class="ligne">
@@ -62,7 +62,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
         </div>
     </section>
     <section class="interligne">
-        <h2 class="notre_catalogue">NOTRE CATALOGUE</h2>
+        <h2 class="news titre-center">NOTRE CATALOGUE</h2>
         <div class="categories">
             <?php foreach($categories as $categorie): ?>
             <div class="pad_carte">

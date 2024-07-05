@@ -30,43 +30,76 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     include '../../templates/navbar_dashboard.php';
     ?>
     <h2 class="titre_dash">LE PRODUIT : <?= htmlspecialchars($produit["nom_produit"]) ?></h2>
-    <div class="form_produit">
+    <div class="form_fiche_produit">
         <div><img src="../../<?= htmlspecialchars($produit["image_produit"]) ?>" alt="<?= htmlspecialchars($produit["nom_produit"]) ?>" width='400px'></div>
-        <form class="formulaire_produit" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="image_produit_current" value="<?= htmlspecialchars($produit["image_produit"]) ?>">
-            <input class="form-control" type="text" placeholder="NOM" aria-label=".form-control-sm example" id="nom_produit" name="nom_produit" value="<?= htmlspecialchars($produit["nom_produit"]) ?>" disabled readonly>
-            <select class="form-select" aria-label="Default select example" id="genre" name="genre" disabled readonly>
-                <option value="<?= htmlspecialchars($produit["genre"]) ?>"><?= htmlspecialchars($produit["genre"]) ?></option>
-                <option value="HOMME">HOMME</option>
-                <option value="FEMME">FEMME</option>
-            </select>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="REFERENCE" id="reference" name="reference" value="<?= htmlspecialchars($produit["reference"]) ?>" disabled readonly>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MARQUE" id="marque" name="marque" value="<?= htmlspecialchars($produit["marque"]) ?>" disabled readonly>
-            <select class="form-select" aria-label="Default select example" id="categorie_id" name="categorie_id" disabled readonly>
-                <option value=""><?= htmlspecialchars($produit["categorie_id"]) ?></option>
-                <?php
-                $sql = "SELECT id, type FROM categories";
-                $query = $db->query($sql);
-                while ($categories = $query->fetch(PDO::FETCH_ASSOC)) {
-                    $selected = $categories['id'] == $produit["categorie_id"] ? "selected" : "";
-                    echo "<option value=\"{$categories['id']}\" $selected>{$categories['type']}</option>";
-                }
-                ?>
-            </select>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="COULEUR" id="couleur" name="couleur" value="<?= htmlspecialchars($produit["couleur"]) ?>" disabled readonly>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="COULEUR" id="couleur" name="couleur" value="<?= htmlspecialchars($produit["couleur"]) ?>" disabled readonly>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MATIERE" id="matiere" name="matiere" value="<?= htmlspecialchars($produit["matiere"]) ?>" disabled readonly>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MOTIF" id="motif" name="motif" value="<?= htmlspecialchars($produit["motif"]) ?>" disabled readonly>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="DESCRIPTION" id="description" name="description" value="<?= htmlspecialchars($produit["description"]) ?>" disabled readonly>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="TAILLE" id="taille" name="taille" value="<?= htmlspecialchars($produit["taille"]) ?>" disabled readonly>
-            <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="QUANTITE" id="quantite" name="quantite" value="<?= htmlspecialchars($produit["quantite"]) ?>" disabled readonly>
-            <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="PRIX HT" id="prix_ht" name="prix_ht" value="<?= htmlspecialchars($produit["prix_ht"]) ?>" disabled readonly>
+        <form class="formulaire_fiche_produit" method="post" enctype="multipart/form-data">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="nom_produit" placeholder="NOM" name="nom_produit" value="<?= htmlspecialchars($produit["nom_produit"]) ?>" disabled readonly>
+                <label for="floatingInput">NOM</label>
+            </div>
+            <div class="form-floating">
+                <select class="form-select" aria-label="Floating label select example" id="genre" name="genre" disabled readonly>
+                    <option value="<?= htmlspecialchars($produit["genre"]) ?>" selected><?= htmlspecialchars($produit["genre"]) ?></option>
+                    <option value="HOMME">HOMME</option>
+                    <option value="FEMME">FEMME</option>
+                </select>
+                <br>
+                <label for="floatingSelect">GENRE</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="reference" placeholder="REFERENCE" name="reference" value="<?= htmlspecialchars($produit["reference"]) ?>" disabled readonly>
+                <label for="floatingInput">REFERENCE</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="marque" placeholder="MARQUE" name="marque" value="<?= htmlspecialchars($produit["marque"]) ?>" disabled readonly>
+                <label for="floatingInput">MARQUE</label>
+            </div>
+            <div class="form-floating">
+                <select class="form-select" aria-label="Floating label select example" id="categorie_id" name="categorie_id" disabled readonly>
+                    <option value="<?= htmlspecialchars($produit["categorie_id"]) ?>" selected><?= htmlspecialchars($produit["categorie_id"]) ?></option>
+                    <?php
+                    require_once("../../connect.php");
+                    // Assumez que la connexion à la base de données est déjà établie
+                    $sql = "SELECT id, type FROM categories";
+                    $query = $db->query($sql);
+                    while ($categories = $query->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<option value=\"{$categories['id']}\">{$categories['type']}</option>";
+                    }
+                    ?>
+                </select>
+                <label for="floatingSelect">CATEGORIE</label>
+            </div>
+            <br>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="couleur" placeholder="COULEUR" name="couleur" value="<?= htmlspecialchars($produit["couleur"]) ?>" disabled readonly>
+                <label for="floatingInput">COULEUR</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="matiere" placeholder="MATIERE" name="matiere" value="<?= htmlspecialchars($produit["matiere"]) ?>" disabled readonly>
+                <label for="floatingInput">MATIERE</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="motif" placeholder="MOTIF" name="motif" value="<?= htmlspecialchars($produit["motif"]) ?>" disabled readonly>
+                <label for="floatingInput">MOTIF</label>
+            </div>
+            <div class="form-floating mb-3">
+                <textarea type="" class="form-control" id="description" placeholder="DESCRIPTION" name="description" disabled readonly><?= htmlspecialchars($produit["description"]) ?></textarea>
+                <label for="floatingInput">DESCRIPTION</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="taille" placeholder="TAILLE" name="taille" value="<?= htmlspecialchars($produit["taille"]) ?>" disabled readonly>
+                <label for="floatingInput">TAILLE</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="QUANTITE" id="quantite" name="quantite" value="<?= htmlspecialchars($produit["quantite"]) ?>" disabled readonly min="0">
+                <label for="floatingInput">QUANTITE</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="PRIX HT" id="prix_ht" name="prix_ht" value="<?= htmlspecialchars($produit["prix_ht"]) ?>" disabled readonly min="0">
+                <label for="floatingInput">PRIX HT</label>
+            </div>
         </form>
-
     </div>
-
-
-
 </body>
 
 </html>

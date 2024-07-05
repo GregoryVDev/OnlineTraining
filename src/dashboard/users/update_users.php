@@ -89,9 +89,19 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
         <div>
             <form class="formulaire_produit" method="POST">
                 <h2>MODIFIER <?= $user["nom"] ?> <?= $user["prenom"] ?> :</h2>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="NOM" id="nom" name="nom" value="<?= $user["nom"] ?>" required>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="PRENOM" id="prenom" name="prenom" value="<?= $user["prenom"] ?>" required>
-                <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="email@example.com" id="email" name="email" value="<?= $user["email"] ?>" required>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="nom" placeholder="NOM" name="nom" value="<?= $user["nom"] ?>" required>
+                    <label for="floatingInput">NOM</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="prenom" placeholder="PRENOM" name="prenom" value="<?= $user["prenom"] ?>" required>
+                    <label for="floatingInput">PRENOM</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" placeholder="email@example.com" id="email" name="email" value="<?= $user["email"] ?>" required>
+                    <label for="floatingInput">EMAIL</label>
+                </div>
                 <div class="btn_produit"><button type="submit" class="btn btn-outline-secondary">MODIFIER</button></div>
             </form>
             <br>

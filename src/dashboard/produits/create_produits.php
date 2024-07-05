@@ -124,38 +124,76 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h2>AJOUTER UN PRODUIT:</h2>
 
             <form class="formulaire_produit" method="post" enctype="multipart/form-data">
-                <input class="form-control " type="file" id="image_produit" name="image_produit" value="image">
-                <input class="form-control" type="text" placeholder="NOM" aria-label=".form-control-sm example" id="nom_produit" name="nom_produit" required>
-                <select class="form-select" aria-label="Default select example" id="genre" name="genre" required>
-                    <option selected>GENRE</option>
-                    <option value="HOMME">HOMME</option>
-                    <option value="FEMME">FEMME</option>
-                </select>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="REFERENCE" id="reference" name="reference" required>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MARQUE" id="marque" name="marque" required>
-                <select class="form-select" aria-label="Default select example" id="categorie_id" name="categorie_id" required>
-                    <option value="">CATEGORIE</option>
-                    <?php
-                    require_once("../../connect.php");
-                    // Assumez que la connexion à la base de données est déjà établie
-                    $sql = "SELECT id, type FROM categories";
-                    $query = $db->query($sql);
-                    while ($categories = $query->fetch(PDO::FETCH_ASSOC)) {
-                        echo "<option value=\"{$categories['id']}\">{$categories['type']}</option>";
-                    }
-                    ?>
-                </select>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="COULEUR" id="couleur" name="couleur" required>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MATIERE" id="matiere" name="matiere" required>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MOTIF" id="motif" name="motif" required>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="DESCRIPTION" id="description" name="description" required>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="TAILLE" id="taille" name="taille" required>
-                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="QUANTITE" id="quantite" name="quantite" required min="0">
-                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="PRIX HT" id="prix_ht" name="prix_ht" required min="0">
-
-
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupFile01">IMAGE</label>
+                    <input class="form-control " type="file" id="image_produit" name="image_produit" value="image">
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="nom_produit" placeholder="NOM" name="nom_produit" required>
+                    <label for="floatingInput">NOM</label>
+                </div>
+                <div class="form-floating">
+                    <select class="form-select" aria-label="Floating label select example" id="genre" name="genre" required>
+                        <option selected>SELECTIONNER UN GENRE</option>
+                        <option value="HOMME">HOMME</option>
+                        <option value="FEMME">FEMME</option>
+                    </select>
+                    <br>
+                    <label for="floatingSelect">GENRE</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="reference" placeholder="REFERENCE" name="reference" required>
+                    <label for="floatingInput">REFERENCE</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="marque" placeholder="MARQUE" name="marque" required>
+                    <label for="floatingInput">MARQUE</label>
+                </div>
+                <div class="form-floating">
+                    <select class="form-select" aria-label="Floating label select example" id="categorie_id" name="categorie_id" required>
+                        <option selected>SELECTIONNER UNE CATEGORIE</option>
+                        <?php
+                        require_once("../../connect.php");
+                        // Assumez que la connexion à la base de données est déjà établie
+                        $sql = "SELECT id, type FROM categories";
+                        $query = $db->query($sql);
+                        while ($categories = $query->fetch(PDO::FETCH_ASSOC)) {
+                            echo "<option value=\"{$categories['id']}\">{$categories['type']}</option>";
+                        }
+                        ?>
+                    </select>
+                    <label for="floatingSelect">CATEGORIE</label>
+                </div>
+                <br>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="couleur" placeholder="COULEUR" name="couleur" required>
+                    <label for="floatingInput">COULEUR</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="matiere" placeholder="MATIERE" name="matiere" required>
+                    <label for="floatingInput">MATIERE</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="motif" placeholder="MOTIF" name="motif" required>
+                    <label for="floatingInput">MOTIF</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea type="" class="form-control" id="description" placeholder="DESCRIPTION" name="description" required></textarea>
+                    <label for="floatingInput">DESCRIPTION</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="taille" placeholder="TAILLE" name="taille" required>
+                    <label for="floatingInput">TAILLE</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" placeholder="QUANTITE" id="quantite" name="quantite" required min="0">
+                    <label for="floatingInput">QUANTITE</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" placeholder="PRIX HT" id="prix_ht" name="prix_ht" required min="0">
+                    <label for="floatingInput">PRIX HT</label>
+                </div>
                 <div class="btn_produit"><button type="input" class="btn btn-outline-secondary">AJOUTER</button></div>
-
             </form>
         </div>
     </div>

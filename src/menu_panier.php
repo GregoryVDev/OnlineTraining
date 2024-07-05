@@ -40,3 +40,4 @@
             <p><a href="panier.php">Voir les détails du panier</a></p>
         </div>
     </div>
+</body>

@@ -10,7 +10,8 @@ html::-webkit-scrollbar {
     margin: 5% 0%;
 }
 
-.nouveautes, .notre_catalogue {
+.nouveautes,
+.notre_catalogue {
     font-size: 1.3rem;
     color: #D31E44;
     margin-bottom: 1%;
@@ -27,6 +28,7 @@ html::-webkit-scrollbar {
     width: 400px;
     text-align: left;
 }
+
 .interligne {
     margin-top: 2%;
 }
@@ -48,6 +50,7 @@ html::-webkit-scrollbar {
 
 .carte {
     margin: 0 10px;
+    text-align: center;
 }
 
 .carte img {
@@ -58,8 +61,17 @@ html::-webkit-scrollbar {
     object-fit: cover;
 }
 
+.titre-center {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 3%;
+}
+
 .pad_carte {
     gap: 1%;
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.1rem;
 }
 
 .carte p {
