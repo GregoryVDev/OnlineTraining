@@ -62,6 +62,12 @@ html::-webkit-scrollbar {
     gap: 1%;
 }
 
+.carte p {
+    color: black;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
 .pad_carte img {
     display: block;
     width: 350px;
@@ -69,6 +75,10 @@ html::-webkit-scrollbar {
     margin: auto;
     object-fit: cover;
     margin: 10px 0px;
+}
+
+.pad_carte p {
+    font-size: 1rem;
 }
 
 .arrow {

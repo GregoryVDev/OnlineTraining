@@ -192,19 +192,18 @@ include('./templates/requete_navbar_menu_catalogue.php');
         <h2 class="aimerez_aussi">Vous aimerez aussi</h2>
 
         <div class="meme_categorie">
-            <?php
-            $produits_suggeres = [
-                ['image' => './img/produits/eItuMBaBT5SMsSakOdzP.jpg', 'nom' => 'Produit 1'],
-                ['image' => './img/produits/eItuMBaBT5SMsSakOdzP.jpg', 'nom' => 'Produit 2'],
-                ['image' => './img/produits/eItuMBaBT5SMsSakOdzP.jpg', 'nom' => 'Produit 3'],
-                ['image' => './img/produits/eItuMBaBT5SMsSakOdzP.jpg', 'nom' => 'Produit 4'],
-            ];
 
-            foreach ($produits_suggeres as $produit): ?>
-            <div>
-                <img src="<?= escape($produit['image']) ?>" width="220px" alt="<?= escape($produit['nom']) ?>">
-                <p><?= escape($produit['nom']) ?></p>
-            </div>
+            <?php foreach ($produit as $produit): ?>
+            <article class="categories-vetement">
+                <figure class="vetement-similaire-figure">
+                    <a href="produit.php?id=<?= $produit["id"] ?>">
+                        <img class="img-produit" src="<?= ($produit["image_produit"]) ?>"
+                            alt="<?= ($produit["nom_produit"]) ?>">
+                    </a>
+                </figure>
+                <p class="vetement-similaire-titre"><?= ($produit["nom_produit"]) ?></p>
+                <p class="vetement-similaire-prix">Prix <?= ($produit["prix_ht"]) ?>€</p>
+            </article>
             <?php endforeach; ?>
         </div>
     </div>
