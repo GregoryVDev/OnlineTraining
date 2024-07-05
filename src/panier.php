@@ -127,7 +127,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
                 <div class="recap_text">
                     <div>
                         <p><?= escape($produit['nom_produit']) ?></p>
-                        <p><?= escape($produit['prix_ht']) ?>€</p>
+                        <p><?= escape($produit['prix_ht']) ?> €</p>
                         <p><?= escape($produit['couleur']) ?></p>
                         <p><?= escape($produit['taille']) ?></p>
                     </div>

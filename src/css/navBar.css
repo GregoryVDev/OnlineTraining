@@ -49,7 +49,7 @@
     visibility: hidden;
     position: absolute;
     background-color: var(--color-white);
-    top: 35px;
+    top: 30px;
     left:-37px;
     width: 250px;
     display: flex;
@@ -60,6 +60,7 @@
     font-size: 1.2rem;
     transition: opacity 1s ease, visibility 0.5s ease;
     z-index: 1000;
+
 }
 .overlay_3 {
     opacity: 0;
