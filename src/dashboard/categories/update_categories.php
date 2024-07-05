@@ -68,7 +68,10 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
                 <p style="color: red;"><?= htmlspecialchars($error) ?></p>
             <?php endif; ?>
             <form method="post">
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="CATEGORIE" id="type" name="type" value="<?= htmlspecialchars($user["type"]) ?>" required>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="type" placeholder="CATEGORIE" name="type" value="<?= htmlspecialchars($user["type"]) ?>" required>
+                    <label for="floatingInput">CATEGORIE</label>
+                </div>
                 <br>
                 <input type="hidden" name="id" value="<?= htmlspecialchars($user["id"]) ?>" required>
 
