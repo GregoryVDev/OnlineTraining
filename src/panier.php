@@ -81,7 +81,7 @@ if (isset($_POST['remove_id']) && isset($_POST['remove_quantite'])) {
     // On récupère la quantité de produit à retirer et à convertir en nombre entier
     $remove_quantite = (int)$_POST['remove_quantite'];
 
-    // On parcourt tous les produits dans le panier. Le symbole "&" avant "$produit" permet de modifier directement kes éléments du tableau $panier 
+    // On parcourt tous les produits dans le panier. Le symbole "&" avant "$produit" permet de modifier directement les éléments du tableau $panier 
     foreach ($panier as $key => &$produit) {
         // On vérifie si l'ID du produit actuel dans la boucle est égale à l'ID du produit retiré
         if ($produit['id'] == $remove_id) {
