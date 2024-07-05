@@ -10,7 +10,8 @@ html::-webkit-scrollbar {
     margin: 5% 0%;
 }
 
-.nouveautes, .notre_catalogue {
+.nouveautes,
+.notre_catalogue {
     font-size: 1.3rem;
     color: #D31E44;
     margin-bottom: 1%;
@@ -63,6 +64,7 @@ html::-webkit-scrollbar {
 .titre-center {
     text-align: center;
     font-size: 1.6rem;
+    margin-bottom: 3%;
 }
 
 .pad_carte {
