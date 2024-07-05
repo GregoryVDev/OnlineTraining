@@ -8,7 +8,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 .navbar {
@@ -32,7 +31,7 @@
     visibility: hidden;
     position: absolute;
     background-color: var(--color-white);
-    top: 65px;
+    top: 50px;
     left: 0%;
     width: 100%;
     display: flex;
@@ -40,7 +39,7 @@
     align-items: center;
     color: var(--color-red); 
     border-radius: 5px;
-    transition: opacity 1s ease, visibility 0.3s ease;
+    transition: opacity 1s ease, visibility 0.9s ease;
     z-index: 1000;
 }
 
@@ -50,7 +49,7 @@
     visibility: hidden;
     position: absolute;
     background-color: var(--color-white);
-    top: 35px;
+    top: 30px;
     left:-37px;
     width: 250px;
     display: flex;
@@ -59,10 +58,10 @@
     /* color:  #D31E44; */
     border-radius: 5px;
     font-size: 1.2rem;
-    transition: opacity 1s ease, visibility 0.3s ease;
+    transition: opacity 1s ease, visibility 0.5s ease;
     z-index: 1000;
-}
 
+}
 .overlay_3 {
     opacity: 0;
     visibility: hidden;
@@ -89,6 +88,7 @@
     list-style-type: none;
     margin-bottom: 5px;
     padding-top: 1%;
+    text-align: center;
 }
 
 #menuCategories li a,

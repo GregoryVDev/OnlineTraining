@@ -10,10 +10,11 @@ html::-webkit-scrollbar {
     margin: 5% 0%;
 }
 
-.news {
+.nouveautes, .notre_catalogue {
     font-size: 1.3rem;
     color: #D31E44;
     margin-bottom: 1%;
+    text-align: center;
 }
 
 .arrow {
