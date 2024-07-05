@@ -8,8 +8,10 @@ require_once("./connect.php");
 // On vérifie si dans $_POST valider existe
 
 if (isset($_POST["valider"])) {
+
     // Si les champs ne sont pas vides 
     if (!empty($_POST["message"])) {
+        
         // Déclarer en variable nom en htmlspecialchars pour éviter que l'utilisateur mette un code html à l'intérieur du champs
         $message = nl2br(htmlspecialchars($_POST["message"]));
         $user_id = $_SESSION["user"]["user_id"];
@@ -36,7 +38,8 @@ if (isset($_POST["valider"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/messagerie/messagerie.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <title>Messagerie instantanée</title>
 </head>
 
@@ -51,11 +54,11 @@ if (isset($_POST["valider"])) {
     </form>
 
     <script>
-        setInterval('load_messages()', 10);
+    setInterval('load_messages()', 10);
 
-        function load_messages() {
-            $('#messages').load('loadmessages.php');
-        }
+    function load_messages() {
+        $('#messages').load('loadmessages.php');
+    }
     </script>
 </body>
 
