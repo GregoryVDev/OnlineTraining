@@ -127,7 +127,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
                 <div class="recap_text">
                     <div>
                         <p><?= escape($produit['nom_produit']) ?></p>
-                        <p><?= escape($produit['prix_ht']) ?>€</p>
+                        <p><?= escape($produit['prix_ht']) ?> €</p>
                         <p><?= escape($produit['couleur']) ?></p>
                         <p><?= escape($produit['taille']) ?></p>
                     </div>
@@ -177,7 +177,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
         <div class="commander">
             <div class="total_cde">
                 <p>TOTAL DE MA COMMANDE</p>
-                <p class="price"><?= escape($total) ?>€</p>
+                <p class="price"><?= escape($total) ?> €</p>
             </div>
             <div class="commande">
                 <form method="post" action="commande.php">
