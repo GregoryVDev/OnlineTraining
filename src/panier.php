@@ -177,7 +177,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
         <div class="commander">
             <div class="total_cde">
                 <p>TOTAL DE MA COMMANDE</p>
-                <p class="price"><?= escape($total) ?>€</p>
+                <p class="price"><?= escape($total) ?> €</p>
             </div>
             <div class="commande">
                 <form method="post" action="commande.php">
