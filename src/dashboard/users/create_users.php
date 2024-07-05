@@ -77,11 +77,26 @@ if (!empty($_POST)) {
         <div>
             <form class="formulaire_produit" method="POST">
                 <h2>AJOUTER UN UTILISATEUR :</h2>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="NOM" id="nom" name="nom" required>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="PRENOM" id="prenom" name="prenom" required>
-                <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="email@example.com" id="email" name="email" required>
-                <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="MOT DE PASSE" id="pass" name="pass" required>
-                <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="CONFIRMATION" id="pass2" name="pass2" required>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="nom" placeholder="NOM" name="nom" required>
+                    <label for="floatingInput">NOM</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="prenom" placeholder="PRENOM" name="prenom" required>
+                    <label for="floatingInput">PRENOM</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" placeholder="email@example.com" id="email" name="email" required>
+                    <label for="floatingInput">EMAIL</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="pass" placeholder="NOM" name="pass" required>
+                    <label for="floatingInput">MOT DE PASSE</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="pass2" placeholder="CONFIRMATION" name="pass2" required>
+                    <label for="floatingInput">CONFIRMATION</label>
+                </div>
                 <div class="btn_produit"><button type="submit" class="btn btn-outline-secondary">AJOUTER</button></div>
             </form>
             <br>

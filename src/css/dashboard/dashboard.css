@@ -1,6 +1,5 @@
-h1 {
+.titre_dash {
     text-align: center;
-    /*border: solid 1px blue;*/
 }
 
 .form_produit {
@@ -47,11 +46,26 @@ h1 {
 .formulaire_produit {
     display: flex;
     flex-direction: column;
-    gap: 5px;
     width: 500px;
 }
 
 .titre_dash {
     text-align: center;
     margin: 10px 0px;
+}
+
+.form_fiche_produit {
+    margin: 0 auto;
+    /*border: 1px solid orange;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.formulaire_fiche_produit {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
 }

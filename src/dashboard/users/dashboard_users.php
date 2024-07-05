@@ -26,6 +26,12 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
     <section class="dashboard">
         <br>
         <br>
+        <div class="add">
+            <a classe="deco" href="./create_users.php"><button type="button" class="btn btn-outline-secondary">AJOUTER UN UTILISATEUR</button></a>
+
+        </div>
+        <br>
+        <br>
         <table class="table table-striped table-hover table table-bordered">
             <thead>
                 <th>id</th>
@@ -60,11 +66,7 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
 
                 ?>
 
-                <div class="add">
-                    <a classe="deco" href="./create_users.php"><button type="button" class="btn btn-outline-secondary">AJOUTER UN UTILISATEUR</button></a>
-                    <br>
-                    <br>
-                </div>
+
             </tbody>
         </table>
     </section>
