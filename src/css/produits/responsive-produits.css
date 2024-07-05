@@ -66,6 +66,7 @@ main {
 .container-produit {
     display: flex;
     justify-content: center;
+    margin: auto;
 }
 
 .figure-picture-produit {
