@@ -63,6 +63,12 @@ main {
     gap: 10px;
 }
 
+.container-produit {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
 .figure-picture-produit {
     display: flex;
     flex-direction: column;
@@ -75,6 +81,7 @@ main {
     color: var(--color-black);
     font-family: var(--font-Poppins);
     margin-top: -50px;
+    text-align: center;
 }
 
 .h1-produit-name {
@@ -159,10 +166,12 @@ main {
 .vetement-similaire-titre,
 .vetement-similaire-couleur {
     font-family: var(--font-Poppins);
+    text-align: center;
 }
 
 .vetement-similaire-titre {
     font-size: 1.2rem;
+    font-weight: 800;
 }
 
 .vetement-similaire-prix,
