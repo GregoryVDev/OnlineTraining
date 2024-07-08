@@ -1,5 +1,20 @@
 <?php
 session_start();
+
+// Vérifier si l'utilisateur connecté est un super admin
+$isSuperAdmin = isset($_SESSION['user']) && $_SESSION['user']['roles'] === '["ROLE_SUPER_ADMIN"]';
+
+
+// Déterminer le rôle
+if ($isSuperAdmin && isset($_POST["role"])) {
+    $role = $_POST["role"];
+} else {
+    $role = 'ROLE_USER';
+}
+
+
+
+
 require_once("../../connect.php");
 
 $sql = "SELECT * FROM users";
@@ -40,7 +55,10 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
                 <th>email</th>
                 <th>adresse</th>
                 <th>roles</th>
-                <th>Actions</th>
+                <?php if ($isSuperAdmin) : ?>
+                    <!-- seul le super admin peut avoir accès à action -->
+                    <th>Actions</th>
+                <?php endif; ?>
             </thead>
             <tbody>
 
@@ -56,10 +74,12 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= $user["email"] ?></td>
                         <td><?= $user["adresse"] ?></td>
                         <td><?= $user["roles"] ?></td>
-                        <td>
-                            <a href="update_users.php?id=<?= $user["id"] ?>">MODIFIER</a>
-                            <a href="delete_users.php?id=<?= $user["id"] ?>">SUPPRIMER</a>
-                        </td>
+                        <?php if ($isSuperAdmin) : ?>
+                            <td>
+                                <a href="update_users.php?id=<?= $user["id"] ?>">MODIFIER</a>
+                                <a href="delete_users.php?id=<?= $user["id"] ?>">SUPPRIMER</a>
+                            </td>
+                        <?php endif; ?>
                     </tr>
                 <?php
                 }
