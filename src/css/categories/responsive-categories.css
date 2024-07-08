@@ -36,12 +36,11 @@ video {
 }
 
 .categories-titre {
-    padding: 20px;
     color: var(--color-white);
-    font-size: 1.5rem;
-    margin-bottom: 2%;
     font-weight: bolder;
     margin-top: 1.5%;
+    padding: 10px;
+    font-size: 1.5rem;
     text-transform: uppercase;
     background: var(--color-red);
     text-align: center;
