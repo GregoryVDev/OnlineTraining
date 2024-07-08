@@ -142,57 +142,60 @@ include('./templates/requete_navbar_menu_catalogue.php');
             <h2 class="text_mon_panier">Mon panier</h2>
 
             <?php if (count($panier) > 0) : ?>
-                <?php foreach ($panier as $produit) : ?>
-                    <div class="recap_panier">
-                        <div>
-                            <img src="<?= escape($produit['image_produit']) ?>" width="100px" alt="<?= escape($produit['nom_produit']) ?>">
-                        </div>
-                        <div class="recap_text">
-                            <div>
-                                <p><?= escape($produit['nom_produit']) ?></p>
-                                <p><?= escape($produit['prix_ht']) ?> €</p>
-                                <p><?= escape($produit['couleur']) ?></p>
-                                <p><?= escape($produit['taille']) ?></p>
-                            </div>
+            <?php foreach ($panier as $produit) : ?>
+            <div class="recap_panier">
+                <div>
+                    <img src="<?= escape($produit['image_produit']) ?>" width="100px"
+                        alt="<?= escape($produit['nom_produit']) ?>">
+                </div>
+                <div class="recap_text">
+                    <div>
+                        <p><?= escape($produit['nom_produit']) ?></p>
+                        <p><?= escape($produit['prix_ht']) ?> €</p>
+                        <p><?= escape($produit['couleur']) ?></p>
+                        <p><?= escape($produit['taille']) ?></p>
+                    </div>
 
-                            <div class="quantite">
-                                <!-- Formulaire pour diminuer la quantité -->
-                                <div class="gestion_produit">
-                                    <div class="gestion_quantité">
-                                        <div>
-                                            <form class="diminuer_produit" method="post" action="panier.php" style="display:inline;">
-                                                <input type="hidden" name="diminuer_id" value="<?= escape($produit['id']) ?>">
-                                                <button type="submit" class="diminuer-quantity-btn">-</button>
-                                            </form>
-                                        </div>
-
-                                        <div class="align_quantite">
-                                            <p>Quantité : <?= escape($produit['quantite']) ?></p>
-                                        </div>
-
-                                        <!-- Formulaire pour augmenter la quantité -->
-                                        <div>
-                                            <form class="augmenter_produit" method="post" action="panier.php" style="display:inline;">
-                                                <input type="hidden" name="augmenter_id" value="<?= escape($produit['id']) ?>">
-                                                <button type="submit" class="augmenter-quantity-btn">+</button>
-                                            </form>
-                                        </div>
-                                    </div>
+                    <div class="quantite">
+                        <!-- Formulaire pour diminuer la quantité -->
+                        <div class="gestion_produit">
+                            <div class="gestion_quantité">
+                                <div>
+                                    <form class="diminuer_produit" method="post" action="panier.php"
+                                        style="display:inline;">
+                                        <input type="hidden" name="diminuer_id" value="<?= escape($produit['id']) ?>">
+                                        <button type="submit" class="diminuer-quantity-btn">-</button>
+                                    </form>
                                 </div>
 
+                                <div class="align_quantite">
+                                    <p>Quantité : <?= escape($produit['quantite']) ?></p>
+                                </div>
+
+                                <!-- Formulaire pour augmenter la quantité -->
                                 <div>
-                                    <!-- Formulaire pour supprimer un produit entier -->
-                                    <form class="supprimer_produit" method="post" action="panier.php" style="display:inline;">
-                                        <input type="hidden" name="delete_id" value="<?= escape($produit['id']) ?>">
-                                        <button type="submit" class="delete-btn">SUPPRIMER LE PRODUIT</button>
+                                    <form class="augmenter_produit" method="post" action="panier.php"
+                                        style="display:inline;">
+                                        <input type="hidden" name="augmenter_id" value="<?= escape($produit['id']) ?>">
+                                        <button type="submit" class="augmenter-quantity-btn">+</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
+
+                        <div>
+                            <!-- Formulaire pour supprimer un produit entier -->
+                            <form class="supprimer_produit" method="post" action="panier.php" style="display:inline;">
+                                <input type="hidden" name="delete_id" value="<?= escape($produit['id']) ?>">
+                                <button type="submit" class="delete-btn">SUPPRIMER LE PRODUIT</button>
+                            </form>
+                        </div>
                     </div>
-                <?php endforeach; ?>
+                </div>
+            </div>
+            <?php endforeach; ?>
             <?php else : ?>
-                <p>Votre panier est vide.</p>
+            <p>Votre panier est vide.</p>
             <?php endif; ?>
         </div>
         <div class="commander">

@@ -85,16 +85,16 @@
                 <?php endif; ?>
             </div>
             <div class="overlay-container3">
-                <a href="#"><img src="./img/navBar/cart.png" alt="Panier"></a>
+                <a href="panier.php"><img src="./img/navBar/cart.png" alt="Panier"></a>
 
-                <div class="overlay_3">
-                    <div>
+                <!-- <div class="overlay_3"> -->
+                <div>
 
-                        <?php include('menu_panier.php');?></li>
+                    <!-- <?php include('menu_panier.php');?></li> -->
 
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </nav>

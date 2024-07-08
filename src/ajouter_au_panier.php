@@ -45,6 +45,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
         $_SESSION['panier'][] = $item;
     }
 
-    header("Location: panier.php");
+    header("Location: produit.php");
     exit();
 }
