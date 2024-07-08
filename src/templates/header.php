@@ -26,7 +26,7 @@
             </a>
         </div>
         <div class="rubrique">
-            <div><a class="menuRouge" href="#">FEMMME</a></div>
+            <div><a class="menuRouge" href="#">FEMME</a></div>
             <div><a class="menuRouge" href="#">HOMME</a></div>
             <div class="overlay-container2">
                 <div class="menuNoir" href="#"> CATALOGUE</a></div>
