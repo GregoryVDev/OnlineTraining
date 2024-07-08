@@ -2,21 +2,6 @@
 session_start();
 require_once("../../connect.php");
 
-// if ($_SESSION['admin'] !== 1) {
-//     header("Location: index.php");
-// }
-
-// <?php
-// if (!empty($_SESSION["message"])) {
-//     echo "<p>" . $_SESSION["message"] . "</p>";
-//     $_SESSION["message"] = "";
-// }
-// ? >
-
-// <?php
-// include './element/navbar.php';
-// ? >
-
 $sql = "SELECT * FROM categories";
 $query = $db->prepare($sql);
 $query->execute();

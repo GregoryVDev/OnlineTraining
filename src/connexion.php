@@ -52,8 +52,19 @@ if (!empty($_POST)) {
             "roles" => $user['roles']
         ];
 
-        // Rediriger vers la page index (exemple)
-        header("Location: index.php");
+        // suite a la connection, reconnaissance du role de  l'user
+        if ($user['roles'] == '["ROLE_SUPER_ADMIN"]') {
+            // selon le role de l'utilisateur connecté il est redirigé sur sa page 
+            $redirectUrl = "/dashboard/users/dashboard_users.php";
+        } elseif ($user['roles'] == '["ROLE_ADMIN"]') {
+            $redirectUrl = "/dashboard/produits/dashboard_produits.php";
+        } elseif ($user['roles'] == '["ROLE_USER"]') {
+            $redirectUrl = "index.php";
+        } else {
+            $redirectUrl = "index.php"; // Par défaut
+        }
+
+        header("Location: $redirectUrl");
         exit();
     } else {
         // Formulaire incomplet
