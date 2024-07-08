@@ -10,7 +10,7 @@ body {
     background: white;
     padding: 10px 20px;
     position: absolute;
-    top: 49px;
+    top: 23px;
     left: 35%;
     margin-top: 50px;
 }
@@ -128,7 +128,7 @@ div.align_quantite p {
     }
     
     .text_mon_panier {
-        margin-top: 39px;
+        margin-top: 50px;
     }
 
     .aussi {
@@ -144,6 +144,10 @@ div.align_quantite p {
 
     .panier {
         width: 600px;
+    }
+
+    .text_mon_panier {
+        margin-top: 42px;
     }
 
     div.commander {
@@ -177,7 +181,7 @@ div.align_quantite p {
 @media (max-width: 650px) {
     
     .text_mon_panier {
-        margin-top: 47px;
+        margin-top: 37px;
     }
 
     .cadre {

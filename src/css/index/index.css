@@ -10,11 +10,9 @@ html::-webkit-scrollbar {
     margin: 5% 0%;
 }
 
-.nouveautes,
 .titre-center {
     font-size: 1.3rem;
     color: #D31E44;
-    margin-bottom: 1%;
     text-align: center;
 }
 
@@ -29,20 +27,15 @@ html::-webkit-scrollbar {
     text-align: left;
 }
 
-.interligne {
-    margin-top: 2%;
-}
-
-
 .nouveautes {
     position: relative;
     width: 100%;
     overflow: hidden;
-
 }
 
 .ligne {
     display: flex;
+    margin: 1% 0;
     align-items: center;
     justify-content: center;
     transition: transform 0.5s ease-in-out;
@@ -64,13 +57,15 @@ html::-webkit-scrollbar {
 .titre-center {
     text-align: center;
     font-size: 1.6rem;
-    margin-bottom: 3%;
+    color: white;
+    background-color:#D31E44;
+    padding: 10px;
 }
 
 .pad_carte {
     gap: 1%;
     text-align: center;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 1.1rem;
 }
 
@@ -89,9 +84,9 @@ html::-webkit-scrollbar {
     margin: 10px 0px;
 }
 
-.pad_carte p {
+/* .pad_carte p {
     font-size: 1rem;
-}
+} */
 
 .arrow {
     position: absolute;
@@ -116,11 +111,15 @@ html::-webkit-scrollbar {
     display: flex;
     justify-content: center;
     gap: 1%;
-    margin: 0 auto;
+    margin: 1% auto;
     flex-wrap: wrap;
 }
 
 @media (max-width: 1204px) {
+    .titre-center {
+        font-size: 1.2rem;
+    }
+    
     .carte img {
         width: 340px;
         height: 467px;

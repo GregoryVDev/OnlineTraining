@@ -208,7 +208,6 @@ include('./templates/requete_navbar_menu_catalogue.php');
                     <button type="submit" class="cde">COMMANDER</button>
                 </form>
             </div>
-
         </div>
     </div>
 

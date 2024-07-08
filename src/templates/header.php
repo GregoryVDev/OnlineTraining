@@ -6,9 +6,7 @@
             <div class="overlay_1">
                 <div>
                     <ul id="menuCategories">
-                        <hr>
-                        <li class="catalogueRouge"><b>CATALOGUE</b></li>
-                        <hr>
+
                         <?php foreach($catalogue_type_burger as $catalogue_type_burger): ?>
                         <li>
                             <a href="categories.php?categories_type=<?= urlencode($catalogue_type_burger["type"]) ?>">
@@ -22,11 +20,11 @@
         </div>
         <div class="logoOnline">
             <a href="../index.php">
-                <img src="./img/navBar/logo-online-training.png" width="80px" alt="Logo Online Training">
+                <img src="./img/navBar/logo-online-training.png" alt="Logo Online Training">
             </a>
         </div>
         <div class="rubrique">
-            <div><a class="menuRouge" href="#">FEMMME</a></div>
+            <div><a class="menuRouge" href="#">FEMME</a></div>
             <div><a class="menuRouge" href="#">HOMME</a></div>
             <div class="overlay-container2">
                 <div class="menuNoir" href="#"> CATALOGUE</a></div>
