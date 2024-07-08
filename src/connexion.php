@@ -52,7 +52,9 @@ if (!empty($_POST)) {
             "roles" => $user['roles']
         ];
 
+        // suite a la connection, reconnaissance du role de  l'user
         if ($user['roles'] == '["ROLE_SUPER_ADMIN"]') {
+            // selon le role de l'utilisateur connecté il est redirigé sur sa page 
             $redirectUrl = "/dashboard/users/dashboard_users.php";
         } elseif ($user['roles'] == '["ROLE_ADMIN"]') {
             $redirectUrl = "/dashboard/produits/dashboard_produits.php";
