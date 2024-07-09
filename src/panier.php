@@ -23,6 +23,14 @@ $total = 0;
 foreach ($panier as $produit) {
     // Pour chaque produit dans le panier, le prix est multiplié par la quantité et ajouté au total
     $total += $produit['prix_ht'] * $produit['quantite'];
+
+    $cartCount = 0;
+    foreach ($panier as $item) {
+    $cartCount += $item['quantite'];
+}
+
+// Stocker le nombre d'articles dans la session
+$_SESSION['cartCount'] = $cartCount;
 }
 
 // Gestion de l'ajout d'une quantité spécifique

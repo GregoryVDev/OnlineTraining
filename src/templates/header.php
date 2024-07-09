@@ -85,7 +85,11 @@
                     <?php if (!isset($_SESSION["panier"]) || empty($_SESSION["panier"])) : ?>
                     <a href="panier.php"><img src="./img/navBar/cart.png" alt="Panier"></a>
                     <?php else : ?>
-                    <a href="panier.php"><img src="./img/navBar/cart_user01.png" alt="Panier"></a>
+                    <a href="panier.php">
+                        <img src="./img/navBar/cart_user01.png" alt="Panier">
+                        <span
+                            class="cart-count"><sup><?php echo isset($_SESSION['cartCount']) ? $_SESSION['cartCount'] : 0; ?></sup></span>
+                    </a>
                     <?php endif; ?>
                 </div>
             </div>
