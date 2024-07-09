@@ -86,7 +86,7 @@
 #menuCategories li,
 .catalogueCategories li {
     list-style-type: none;
-    margin-bottom: 5px 0px 0px 0px;
+    margin: 10px 0px 0px 0px;
     text-align: center;
     display: block;
     width: 100%;
