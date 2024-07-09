@@ -110,7 +110,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/dashboard/dashboard.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Formulaire Produits</title>
 </head>
 
@@ -129,20 +130,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input class="form-control " type="file" id="image_produit" name="image_produit" value="image">
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="nom_produit" placeholder="NOM" name="nom_produit" required>
+                    <input type="text" class="form-control" id="nom_produit" placeholder="NOM" name="nom_produit"
+                        required>
                     <label for="floatingInput">NOM</label>
                 </div>
                 <div class="form-floating">
-                    <select class="form-select" aria-label="Floating label select example" id="genre" name="genre" required>
+                    <select class="form-select" aria-label="Floating label select example" id="genre" name="genre"
+                        required>
                         <option selected>SELECTIONNER UN GENRE</option>
-                        <option value="HOMME">HOMME</option>
-                        <option value="FEMME">FEMME</option>
+                        <option value="homme">HOMME</option>
+                        <option value="femme">FEMME</option>
                     </select>
                     <br>
                     <label for="floatingSelect">GENRE</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="reference" placeholder="REFERENCE" name="reference" required>
+                    <input type="text" class="form-control" id="reference" placeholder="REFERENCE" name="reference"
+                        required>
                     <label for="floatingInput">REFERENCE</label>
                 </div>
                 <div class="form-floating mb-3">
@@ -150,7 +154,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label for="floatingInput">MARQUE</label>
                 </div>
                 <div class="form-floating">
-                    <select class="form-select" aria-label="Floating label select example" id="categorie_id" name="categorie_id" required>
+                    <select class="form-select" aria-label="Floating label select example" id="categorie_id"
+                        name="categorie_id" required>
                         <option selected>SELECTIONNER UNE CATEGORIE</option>
                         <?php
                         require_once("../../connect.php");
@@ -178,7 +183,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label for="floatingInput">MOTIF</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <textarea type="" class="form-control" id="description" placeholder="DESCRIPTION" name="description" required></textarea>
+                    <textarea type="" class="form-control" id="description" placeholder="DESCRIPTION" name="description"
+                        required></textarea>
                     <label for="floatingInput">DESCRIPTION</label>
                 </div>
                 <div class="form-floating mb-3">
@@ -186,18 +192,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label for="floatingInput">TAILLE</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" placeholder="QUANTITE" id="quantite" name="quantite" required min="0">
+                    <input type="number" class="form-control" placeholder="QUANTITE" id="quantite" name="quantite"
+                        required min="0">
                     <label for="floatingInput">QUANTITE</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" placeholder="PRIX HT" id="prix_ht" name="prix_ht" required min="0">
+                    <input type="number" class="form-control" placeholder="PRIX HT" id="prix_ht" name="prix_ht" required
+                        min="0">
                     <label for="floatingInput">PRIX HT</label>
                 </div>
                 <div class="btn_produit"><button type="input" class="btn btn-outline-secondary">AJOUTER</button></div>
             </form>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 </body>
 
