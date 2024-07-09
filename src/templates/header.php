@@ -1,3 +1,16 @@
+<?php
+// Assurez-vous que la session est démarrée
+// session_start();
+
+// Compter le nombre de produits dans le panier
+$panier_quantite = 0;
+if (isset($_SESSION['panier'])) {
+    foreach ($_SESSION['panier'] as $produit) {
+        $panier_quantite += $produit['quantite'];
+    }
+}
+?>
+
 <nav>
     <div class="navbar">
         <div class="overlay-container1">
@@ -83,17 +96,16 @@
                 <?php endif; ?>
             </div>
             <div class="overlay-container3">
-                <?php if (!isset($_SESSION["panier"])) : ?>
-                <img src="./img/navBar/cart.png" alt="Panier"></a>
+                <?php if (empty($_SESSION['panier'])) : ?>
+                <img src="./img/navBar/cart.png" alt="Panier">
                 <?php else : ?>
-                <a href="panier.php"><img src="./img/navBar/cart_user.png" alt="Panier"></a>
+                <a href="panier.php">
+                    <img src="./img/navBar/cart_user.png" alt="Panier">
+                    <?php if ($panier_quantite > 0) : ?>
+                    <span><sup><?= $panier_quantite ?></sup></span>
+                    <?php endif; ?>
+                </a>
                 <?php endif; ?>
-                <!-- <div class="overlay_3"> -->
-                <div>
-
-                    <!-- <?php include('menu_panier.php');?></li> -->
-
-                </div>
             </div>
         </div>
     </div>
