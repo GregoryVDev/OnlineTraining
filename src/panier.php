@@ -132,6 +132,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
     <link rel="stylesheet" href="./css/navBar.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/panier/panier.css">
+    <link rel="stylesheet" href="css/fonts/fonts.css">
     <title>Mon panier</title>
 </head>
 

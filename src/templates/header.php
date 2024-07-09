@@ -1,16 +1,3 @@
-<?php
-// Assurez-vous que la session est démarrée
-// session_start();
-
-// Compter le nombre de produits dans le panier
-$panier_quantite = 0;
-if (isset($_SESSION['panier'])) {
-    foreach ($_SESSION['panier'] as $produit) {
-        $panier_quantite += $produit['quantite'];
-    }
-}
-?>
-
 <nav>
     <div class="navbar">
         <div class="overlay-container1">
