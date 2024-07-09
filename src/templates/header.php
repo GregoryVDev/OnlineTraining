@@ -55,9 +55,7 @@ if (isset($_SESSION['panier'])) {
 
                 </div>
             </div>
-
         </div>
-
         <div class="navBar_droite">
             <div>
                 <a href="#"><img src="./img/navBar/iconSearch.png" alt="Rechercher"></a>
@@ -95,19 +93,10 @@ if (isset($_SESSION['panier'])) {
                 </ul>
                 <?php endif; ?>
             </div>
-            <div class="overlay-container3">
-                <?php if (empty($_SESSION['panier'])) : ?>
-                <img src="./img/navBar/cart.png" alt="Panier">
-                <?php else : ?>
-                <a href="panier.php">
-                    <img src="./img/navBar/cart_user.png" alt="Panier">
-                    <?php if ($panier_quantite > 0) : ?>
-                    <span><sup><?= $panier_quantite ?></sup></span>
-                    <?php endif; ?>
-                </a>
-                <?php endif; ?>
+            <div class="quantite_panier">
+                <div class="overlay-container3">
+                    <a href="panier.php"><img src="./img/navBar/cart.png" alt="Panier"></a>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
 </nav>

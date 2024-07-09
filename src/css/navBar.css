@@ -2,12 +2,14 @@
     --color-red: #D31E44;
     --color-black: #202020;
     --color-white: #ffffff;
+    --font-Poppins: Poppins-Regular;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Poppins-Regular;
 }
 
 .navbar {
@@ -69,22 +71,9 @@
     z-index: 1000;
 
 }
-.overlay_3 {
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    background-color: var(--color-white);
-    border-radius: 5px;
-    top: 65px;
-    right: 0px;
-    width: 300px;
-    transition: opacity 1s ease, visibility 0.3s ease;
-    z-index: 9000;
-}
 
 .overlay-container1:hover .overlay_1,
-.overlay-container2:hover .overlay_2,
-.overlay-container3:hover .overlay_3 {
+.overlay-container2:hover .overlay_2 {
     display: block;
     opacity: 1;
     visibility: visible;
@@ -144,6 +133,10 @@
     width: 80px;
     justify-content: space-between;
 
+}
+
+.quantite_panier {
+    display: flex;
 }
 
 /* user connexion/deconnexion/backoffice etc */
