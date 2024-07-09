@@ -101,7 +101,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
                     </a>
                 </figure>
                 <p class="vetement-similaire-titre"><?= ($produit["nom_produit"]) ?></p>
-                <p class="vetement-similaire-prix">Prix <?= ($produit["prix_ht"]) ?>€</p>
+                <p class="vetement-similaire-prix">Prix <?= ($produit["prix_ht"]) ?> €</p>
             </article>
             <?php endforeach; ?>
 

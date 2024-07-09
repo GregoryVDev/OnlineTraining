@@ -79,7 +79,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
             <!-- Section des informations du produit -->
             <form class="container-information-produit" method="POST" action="ajouter_au_panier.php">
                 <h1 class="h1-produit-name"><?= ($produit["nom_produit"]) ?></h1>
-                <p class="prix"><?= ($produit["prix_ht"]) ?>€</p>
+                <p class="prix"><?= ($produit["prix_ht"]) ?> €</p>
                 <p class="text"><?= ($produit["description"]) ?></p>
 
                 <!-- Sélection de la taille -->

@@ -204,6 +204,13 @@ li {
     list-style: none;
 }
 
+.cart-count {
+    color: var(--color-red);
+    font-size: 0.8rem;
+    font-weight: bolder;
+
+}
+
 /* user connexion/deconnexion/backoffice etc */
 
 @media (max-width: 1920px) {
