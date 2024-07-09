@@ -85,7 +85,7 @@
                     <?php if (!isset($_SESSION["panier"])) : ?>
                     <a href="panier.php"><img src="./img/navBar/cart.png" alt="Panier"></a>
                     <?php else : ?>
-                    <a href="panier.php"><img src="./img/navBar/cart_user.png" alt="Panier"></a>
+                    <a href="panier.php"><img src="./img/navBar/cart_user01.png" alt="Panier"></a>
                     <?php endif; ?>
                 </div>
             </div>

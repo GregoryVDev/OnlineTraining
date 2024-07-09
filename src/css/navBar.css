@@ -135,10 +135,6 @@
 
 }
 
-.quantite_panier {
-    display: flex;
-}
-
 /* user connexion/deconnexion/backoffice etc */
 .container-deconnexion {
     position: relative;
