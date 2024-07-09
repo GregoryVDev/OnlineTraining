@@ -13,13 +13,21 @@
 .navbar {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 5px 20px;
     justify-content: space-between;
     position: relative;
 }
 
 .overlay-container1 {
     display: none;
+}
+
+.rubrique {
+    display: flex;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bolder;
+    gap: 8%;
 }
 .overlay-container2 {
     position: relative;
@@ -82,12 +90,18 @@
     visibility: visible;
 }
 
+.overlay_2 ul {
+    width: 100%;
+}
+
 #menuCategories li,
 .catalogueCategories li {
     list-style-type: none;
     margin-bottom: 5px;
-    padding-top: 1%;
+    padding: 2%;
     text-align: center;
+    display: block;
+    width: 100%;
 }
 
 #menuCategories li a,
@@ -97,22 +111,16 @@
     cursor: pointer;
 }
 
+#menuCategories li:hover,
+.catalogueCategories li:hover {
+    background-color: var(--color-red);
+
+}
+
 #menuCategories li a:hover,
 .catalogueCategories li a:hover {
-    color: var(--color-red);
-}
+    color: var(--color-white);
 
-.rubrique {
-    display: flex;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: bolder;
-    gap: 8%;
-}
-
-.menuNoir {
-    text-decoration: none;
-    color: var(--color-black);
 }
 
 .menuNoir:hover {
@@ -128,7 +136,7 @@
 .menuRouge:hover {
     background-color: var(--color-red);
     color: var(--color-white);
-    padding: 3px;
+    padding: 2px;
 }
 
 .navBar_droite {
@@ -213,21 +221,21 @@ li {
 
 
     .rubrique {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         width: auto;
     }
 
     .logoOnline img {
-        width: 160px;
+        width: 130px;
     }
 
     .navBar_droite {
-        width: 140px;
+        width: 130px;
 
     }
 
     .navBar_droite img {
-        width: 26px;
+        width: 22px;
     }
 }
 
@@ -256,14 +264,14 @@ li {
     }
 
     .navBar_droite img {
-        width: 24px;
+        width: 20px;
     }
 }
 
 @media (max-width: 900px) {
 
     .logoOnline img {
-        width: 130px;
+        width: 110px;
     }
 
     .overlay-container1  {
@@ -284,7 +292,7 @@ li {
     }
 
     .navBar_droite img {
-        width: 22px;
+        width: 18px;
     }
 
     .logoOnline {
@@ -304,10 +312,7 @@ li {
 
 
 @media (max-width: 650px) {
-    .navbar {
-        padding: 20px;
-    }
-
+    
     .overlay-container1 img {
         width: 25px;
     }

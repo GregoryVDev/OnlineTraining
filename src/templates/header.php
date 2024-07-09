@@ -6,9 +6,7 @@
             <div class="overlay_1">
                 <div>
                     <ul id="menuCategories">
-                        <hr>
-                        <li class="catalogueRouge"><b>CATALOGUE</b></li>
-                        <hr>
+
                         <?php foreach($catalogue_type_burger as $catalogue_type_burger): ?>
                         <li>
                             <a href="categories.php?categories_type=<?= urlencode($catalogue_type_burger["type"]) ?>">
@@ -22,7 +20,7 @@
         </div>
         <div class="logoOnline">
             <a href="../index.php">
-                <img src="./img/navBar/logo-online-training.png" width="80px" alt="Logo Online Training">
+                <img src="./img/navBar/logo-online-training.png" alt="Logo Online Training">
             </a>
         </div>
         <div class="rubrique">
@@ -85,8 +83,11 @@
                 <?php endif; ?>
             </div>
             <div class="overlay-container3">
-                <a href="panier.php"><img src="./img/navBar/cart.png" alt="Panier"></a>
-
+                <?php if (!isset($_SESSION["panier"])) : ?>
+                <img src="./img/navBar/cart.png" alt="Panier"></a>
+                <?php else : ?>
+                <a href="panier.php"><img src="./img/navBar/cart_user.png" alt="Panier"></a>
+                <?php endif; ?>
                 <!-- <div class="overlay_3"> -->
                 <div>
 

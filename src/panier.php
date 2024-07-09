@@ -119,6 +119,7 @@ if (isset($_POST['delete_id'])) {
     exit();
 }
 
+
 include('./templates/requete_navbar_menu_catalogue.php');
 ?>
 
@@ -208,11 +209,10 @@ include('./templates/requete_navbar_menu_catalogue.php');
                     <button type="submit" class="cde">COMMANDER</button>
                 </form>
             </div>
-
         </div>
     </div>
 
-    <div class="aussi">
+    <!-- <div class="aussi">
         <h2 class="aimerez_aussi">Vous aimerez aussi</h2>
 
         <div class="meme_categorie">
@@ -230,7 +230,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
             </article>
             <?php endforeach; ?>
         </div>
-    </div>
+    </div> -->
 
     <?php include('./templates/footer.php'); ?>
 </body>

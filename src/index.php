@@ -5,7 +5,7 @@ session_start();
 require_once('connect.php');
 
 // Récupérer les nouveautés
-$sql = "SELECT * FROM `produits` WHERE `id` > '0'";
+$sql = "SELECT * FROM `produits` ORDER BY `produits`.`id` DESC";
 $query = $db->prepare($sql);
 $query->execute();
 $news = $query->fetchAll(PDO::FETCH_ASSOC);
