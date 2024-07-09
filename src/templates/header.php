@@ -88,7 +88,7 @@
                     <a href="panier.php">
                         <img src="./img/navBar/cart_user01.png" alt="Panier">
                         <span
-                            class="cart-count"><sup><?php echo isset($_SESSION['cartCount']) ? $_SESSION['cartCount'] : 1; ?></sup>
+                            class="cart-count"><sup><?php echo isset($_SESSION['cartCount']) ? $_SESSION['cartCount'] : 0; ?></sup>
                         </span>
                     </a>
                     <?php endif; ?>
