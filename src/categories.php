@@ -61,11 +61,6 @@ if (isset($_GET['categories_type'])) {
 include('./templates/requete_navbar_menu_catalogue.php');
 ?>
 
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
 

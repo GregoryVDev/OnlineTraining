@@ -21,13 +21,6 @@ body {
     min-height: 100vh;
 }
 
-img,
-picture,
-svg,
-video {
-    display: block;
-    max-width: 100%;
-}
 
 /* end reset */
 main {
@@ -41,6 +34,8 @@ main {
     justify-content: center;
     margin: auto;
     order: 2;
+    display: block;
+    max-width: 100%;
 }
 
 .order {
@@ -202,4 +197,6 @@ main {
     height: 300px;
     width: auto;
     object-fit: contain;
+    display: block;
+    max-width: 100%;
 }
