@@ -37,8 +37,8 @@ if (isset($_SESSION['panier'])) {
             </a>
         </div>
         <div class="rubrique">
-            <div><a class="menuRouge" href="#">FEMME</a></div>
-            <div><a class="menuRouge" href="#">HOMME</a></div>
+            <div><a class="menuRouge" href="categories.php?genre=femme">FEMME</a></div>
+            <div><a class="menuRouge" href="categories.php?genre=homme">HOMME</a></div>
             <div class="overlay-container2">
                 <div class="menuNoir" href="#"> CATALOGUE</a></div>
                 <div class="overlay_2">

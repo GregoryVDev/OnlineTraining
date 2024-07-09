@@ -3,41 +3,68 @@
 session_start();
 require_once("connect.php");
 
-// Initialisation des variables
-$produits = [];
-$categories_type = "";
+// Initialisation de $categories_type à null
+$categories_type = null;
 
-// Vérification si le type de catégorie est défini dans l'URL
+// Vérification si le type de catégorie ou le genre est défini dans l'URL
 if (isset($_GET['categories_type'])) {
     $categories_type = urldecode($_GET['categories_type']);
 
-    // Préparation de la requête SQL pour récupérer les produits par type de catégorie
+    // Requête SQL pour récupérer les produits par type de catégorie
     $sql = "SELECT p.*, c.type as categorie_type 
             FROM produits p 
             JOIN categories c ON p.categorie_id = c.id 
             WHERE c.type = :categories_type
             ORDER BY p.id DESC";
-
+    
+    // Préparation de la requête SQL
     $query = $db->prepare($sql);
     $query->bindValue(':categories_type', $categories_type, PDO::PARAM_STR);
     $query->execute();
     $produits = $query->fetchAll(PDO::FETCH_ASSOC);
 
-// Redirection si aucun produit trouvé
-if (!$produits) {
-    $_SESSION["erreur"] = "Vous êtes allés trop loin, aucun produit ne correspond!";
-    header("Location: index.php");
-    exit();
-}
+    // Redirection si aucun produit trouvé
+    if (empty($produits)) {
+        $_SESSION["erreur"] = "Aucun produit trouvé pour cette catégorie!";
+        header("Location: index.php");
+        exit();
+    }
+
+} elseif (isset($_GET['genre'])) {
+    $genre = $_GET['genre'];
+
+    // Requête SQL pour récupérer les produits par genre
+    $sql = "SELECT * 
+            FROM produits 
+            WHERE genre = :genre
+            ORDER BY id DESC";
+    
+    // Préparation de la requête SQL
+    $query = $db->prepare($sql);
+    $query->bindValue(':genre', $genre, PDO::PARAM_STR);
+    $query->execute();
+    $produits = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    // Redirection si aucun produit trouvé
+    if (empty($produits)) {
+        $_SESSION["erreur"] = "Aucun produit trouvé pour ce genre!";
+        header("Location: index.php");
+        exit();
+    }
 
 } else {
     header("Location: index.php");
     exit();
 }
 
-include('./templates/requete_navbar_menu_catalogue.php');
 
+include('./templates/requete_navbar_menu_catalogue.php');
 ?>
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -57,7 +84,15 @@ include('./templates/requete_navbar_menu_catalogue.php');
     <?php include_once("templates/header.php"); ?>
     <main>
         <h1 class="categories-titre">
-            <a class="h1-categories-accueil" href="index.php">Accueil</a> / <?= ($categories_type) ?>
+            <a class="h1-categories-accueil" href="index.php">Accueil</a> /
+            <?php
+                if (isset($genre)) {
+                    echo $genre;
+                }
+                if (isset($categories_type)) {
+                    echo $categories_type;
+                }
+            ?>
         </h1>
         <div class="container-categories-vetement">
 
