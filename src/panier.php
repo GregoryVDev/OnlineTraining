@@ -243,6 +243,8 @@ include('./templates/requete_navbar_menu_catalogue.php');
     </div> -->
 
     <?php include('./templates/footer.php'); ?>
+
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
