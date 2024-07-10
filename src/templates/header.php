@@ -26,7 +26,7 @@
         <div class="rubrique">
             <div><a class="menuRouge" href="categories.php?genre=femme">FEMME</a></div>
             <div class="overlay-container2">
-                <div class="menuNoir" href="#"> CATALOGUE</a></div>
+                <div class="menuNoir">CATALOGUE</div>
                 <div class="overlay_2">
 
                     <ul class="catalogueCategories">
@@ -85,11 +85,12 @@
                 <div class="overlay-container3">
                     <?php if (!isset($_SESSION["panier"]) || empty($_SESSION["panier"])) : ?>
                     <a href="panier.php"><img src="./img/navBar/cart.png" alt="Panier"></a>
+
                     <?php else : ?>
                     <a href="panier.php">
                         <img src="./img/navBar/cart_user01.png" alt="Panier">
                         <span
-                            class="cart-count"><sup><?php echo isset($_SESSION['cartCount']) ? $_SESSION['cartCount'] : 0; ?></sup>
+                            class="cart-count"><sup><?= isset($_SESSION['cartCount']) ? $_SESSION['cartCount'] : 0; ?></sup>
                         </span>
 
                     </a>
