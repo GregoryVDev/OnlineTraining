@@ -25,7 +25,6 @@
         </div>
         <div class="rubrique">
             <div><a class="menuRouge" href="categories.php?genre=femme">FEMME</a></div>
-            <div><a class="menuRouge" href="categories.php?genre=homme">HOMME</a></div>
             <div class="overlay-container2">
                 <div class="menuNoir" href="#"> CATALOGUE</a></div>
                 <div class="overlay_2">
@@ -42,6 +41,8 @@
 
                 </div>
             </div>
+            <div><a class="menuRouge" href="categories.php?genre=homme">HOMME</a></div>
+
         </div>
         <div class="navBar_droite">
             <div>
@@ -90,6 +91,7 @@
                         <span
                             class="cart-count"><sup><?php echo isset($_SESSION['cartCount']) ? $_SESSION['cartCount'] : 0; ?></sup>
                         </span>
+
                     </a>
                     <?php endif; ?>
                 </div>

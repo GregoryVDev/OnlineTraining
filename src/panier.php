@@ -31,6 +31,7 @@ foreach ($panier as $produit) {
 
 // Stocker le nombre d'articles dans la session
 $_SESSION['cartCount'] = $cartCount;
+
 }
 
 // Gestion de l'ajout d'une quantité spécifique
