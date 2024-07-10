@@ -70,8 +70,9 @@ include('./templates/requete_navbar_menu_catalogue.php');
             <span class="color-red-name-produit"><?= ($produit["nom_produit"]) ?></span>
         </p>
         <article class="container-produit">
+
             <!-- Image du produit -->
-            <figure class="order">
+            <figure>
                 <img class="picture-produit" src="<?= ($produit["image_produit"]) ?>"
                     alt="<?= ($produit["nom_produit"]) ?>">
             </figure>

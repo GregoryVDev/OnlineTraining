@@ -28,7 +28,7 @@ main {
 }
 
 .picture-produit {
-    width: 90%;
+    width: 500px;
     padding: 5%;
     display: flex;
     justify-content: center;
@@ -36,11 +36,6 @@ main {
     order: 2;
     display: block;
     max-width: 500px;
-}
-
-.order {
-    display: flex;
-    flex-direction: column;
 }
 
 .color-red-name-produit {
@@ -52,6 +47,7 @@ main {
 }
 
 .container-information-produit {
+    width: 5px;
     margin: 0% 5% 0% 5%;
     display: flex;
     flex-direction: column;
@@ -62,11 +58,7 @@ main {
     display: flex;
     justify-content: center;
     margin: auto;
-}
-
-.figure-picture-produit {
-    display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .chemin-produit {
