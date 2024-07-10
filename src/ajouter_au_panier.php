@@ -45,6 +45,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
         $_SESSION['panier'][] = $item;
     }
 
+    // Vérifier si le panier est dans la session
+    if (!isset($_SESSION['panier'])) {
+        // Si il n'existe pas, on le créé
+        $_SESSION['panier'] = [];
+    }
+    // $panier contient les produits actuels du panier
+    $panier = $_SESSION['panier'];
+    // $total est initialisé à 0 vu qu'il n'y a pas de produit au début et pour après calculer le total du panier
+    $total = 0;
+
+    // Calculer le total du panier
+    foreach ($panier as $produit) {
+        // Pour chaque produit dans le panier, le prix est multiplié par la quantité et ajouté au total
+        $total += $produit['prix_ht'] * $produit['quantite'];
+
+        $cartCount = 0;
+        foreach ($panier as $item) {
+            $cartCount += $item['quantite'];
+        }
+
+        // Stocker le nombre d'articles dans la session
+        $_SESSION['cartCount'] = $cartCount;
+    }
+
     header("Location: produit.php");
     exit();
 }
