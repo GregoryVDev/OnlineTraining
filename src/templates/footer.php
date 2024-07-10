@@ -22,19 +22,5 @@
             </div>
         </div>
     </div>
-    <div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-
-    <!-- <div class="sociaux">
-<div><img src="./img/footer/facebook.png" width="20px" alt="Logo"></div>
-<div><img src="./img/footer/instagram.png" width="20px" alt="Logo"></div>
-<div><img src="./img/footer/youtube.png" width="20px" alt="Logo"></div>
-<div><img src="./img/footer/tic-tac.png" width="20px" alt="Logo"></div>
-</div> -->
-
 
 </footer>
