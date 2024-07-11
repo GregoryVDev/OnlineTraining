@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('connect.php');
+require('./connect.php');
 
 // On utilise la fonction "escape" en mettant "htmlspecialchars" pour empêcher les injections XSS en échappant les caractères spéciaux
 function escape($string)
