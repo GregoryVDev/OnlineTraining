@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $db->beginTransaction();
 
         try {
-            // Calculer le total de la commande
+            // Calculer le total de la commande .
             $total = 0;
             foreach ($_SESSION['panier'] as $produit) {
                 $total += $produit['prix_ht'] * $produit['quantite'];
