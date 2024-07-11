@@ -1,9 +1,3 @@
-:root {
-    --color-red: #D31E44;
-    --color-black: #202020;
-    --color-white: #ffffff;
-}
-
 .text_commande, .error {
     text-align: center;
 }
