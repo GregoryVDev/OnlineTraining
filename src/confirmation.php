@@ -57,14 +57,15 @@ include('./templates/requete_navbar_menu_catalogue.php');
     <div class="cadre">
         <div class="confirmation">
             <h2 class="text_confirmation">Confirmation de commande</h2>
-            <p>Merci pour votre commande, <?= htmlspecialchars($commande['prenom']) ?> <?= htmlspecialchars($commande['nom']) ?>.</p>
+            <p>Merci pour votre commande, <?= ($commande['prenom']) ?> <?= ($commande['nom']) ?>.</p>
             <p>Votre commande a été passée avec succès. Voici les détails :</p>
 
             <h3>Détails de la commande</h3>
-            <p>Numéro de commande: <?= htmlspecialchars($commande['id']) ?></p>
-            <p>Date: <?= htmlspecialchars($commande['date_commande']) ?></p>
-            <p>Adresse de livraison: <?= htmlspecialchars($commande['adresse']) ?>, <?= htmlspecialchars($commande['ville']) ?>, <?= htmlspecialchars($commande['code_postal']) ?></p>
-            <p>Email: <?= htmlspecialchars($commande['email']) ?></p>
+            <p>Numéro de commande: <?= ($commande['id']) ?></p>
+            <p>Date: <?= ($commande['date_commande']) ?></p>
+            <p>Adresse de livraison: <?= ($commande['adresse']) ?>, <?= ($commande['ville']) ?>,
+                <?= ($commande['code_postal']) ?></p>
+            <p>Email: <?= ($commande['email']) ?></p>
 
             <h3>Produits commandés</h3>
             <table>
@@ -78,16 +79,16 @@ include('./templates/requete_navbar_menu_catalogue.php');
                 </thead>
                 <tbody>
                     <?php foreach ($produits as $produit) : ?>
-                        <tr>
-                            <td><?= htmlspecialchars($produit['produit_nom']) ?></td>
-                            <td><?= htmlspecialchars($produit['quantite']) ?></td>
-                            <td><?= htmlspecialchars(number_format($produit['prix_ht'], 2)) ?> €</td>
-                            <td><?= htmlspecialchars(number_format($produit['prix_ht'] * $produit['quantite'], 2)) ?> €</td>
-                        </tr>
+                    <tr>
+                        <td><?= ($produit['produit_nom']) ?></td>
+                        <td><?= ($produit['quantite']) ?></td>
+                        <td><?= (number_format($produit['prix_ht'], 2)) ?> €</td>
+                        <td><?= (number_format($produit['prix_ht'] * $produit['quantite'], 2)) ?> €</td>
+                    </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <p>Total de la commande: <?= htmlspecialchars(number_format($commande['total'], 2)) ?> €</p>
+            <p>Total de la commande: <?= (number_format($commande['total'], 2)) ?> €</p>
         </div>
     </div>
 
