@@ -2,6 +2,10 @@ html {
     overflow: -moz-scrollbars-none;
 }
 
+body {
+    overflow: none;
+}
+
 html::-webkit-scrollbar {
     display: none;
 }
