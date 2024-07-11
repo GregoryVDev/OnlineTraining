@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : ven. 28 juin 2024 à 12:59
+-- Généré le : jeu. 11 juil. 2024 à 07:56
 -- Version du serveur : 8.0.37
 -- Version de PHP : 8.2.8
 
@@ -50,15 +50,53 @@ INSERT INTO `categories` (`id`, `type`) VALUES
 --
 
 CREATE TABLE `commandes` (
-  `user_id` int NOT NULL,
+  `id` int NOT NULL,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
   `adresse` varchar(255) NOT NULL,
-  `code_postale_ville` varchar(255) NOT NULL,
-  `telephone` varchar(255) NOT NULL,
-  `panier_id` int NOT NULL
+  `ville` varchar(255) NOT NULL,
+  `code_postal` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `total` decimal(10,0) NOT NULL,
+  `date_commande` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `commandes`
+--
+
+INSERT INTO `commandes` (`id`, `nom`, `prenom`, `adresse`, `ville`, `code_postal`, `email`, `total`, `date_commande`) VALUES
+(1, 'user', 'user', 'user', 'user', '58000', 'user@user.fr', 4, NULL),
+(2, 'user', 'user', 'user', 'user', '58000', 'user@user.fr', 4, NULL),
+(3, 'user', 'user', 'user', 'user', '58000', 'user@user.fr', 6, NULL),
+(4, 'user', 'user', 'user', 'user', '58000', 'user@user.fr', 6, NULL),
+(5, 'user', 'user', 'user', 'user', '58000', 'user@user.fr', 11, '2024-07-11 07:49:15'),
+(6, 'aaa', 'aaa', 'aaa', 'aaa', '58000', 'aaa@aaa.fr', 33, '2024-07-11 07:52:58');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commande_details`
+--
+
+CREATE TABLE `commande_details` (
+  `id` int NOT NULL,
+  `commande_id` int NOT NULL,
+  `produit_id` int NOT NULL,
+  `quantite` int NOT NULL,
+  `prix_ht` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `commande_details`
+--
+
+INSERT INTO `commande_details` (`id`, `commande_id`, `produit_id`, `quantite`, `prix_ht`) VALUES
+(1, 2, 43, 1, 4),
+(2, 3, 44, 1, 6),
+(3, 4, 44, 1, 6),
+(4, 5, 40, 1, 11),
+(5, 6, 40, 3, 11);
 
 -- --------------------------------------------------------
 
@@ -69,11 +107,19 @@ CREATE TABLE `commandes` (
 CREATE TABLE `messagerie` (
   `id` int NOT NULL,
   `user_id` int NOT NULL,
-  `nom` varchar(255) NOT NULL,
-  `prenom` varchar(255) NOT NULL,
   `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `time` timestamp NOT NULL
+  `time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `messagerie`
+--
+
+INSERT INTO `messagerie` (`id`, `user_id`, `message`, `time`) VALUES
+(1, 9, 'hello', '2024-07-02 11:07:20'),
+(2, 9, 'hello', '2024-07-02 11:07:29'),
+(3, 1, 'GGGG', '2024-07-08 11:24:11'),
+(4, 1, 'GGGG', '2024-07-08 11:24:13');
 
 -- --------------------------------------------------------
 
@@ -116,10 +162,10 @@ CREATE TABLE `produits` (
 --
 
 INSERT INTO `produits` (`id`, `image_produit`, `nom_produit`, `genre`, `reference`, `marque`, `categorie_id`, `couleur`, `matiere`, `motif`, `description`, `taille`, `quantite`, `prix_ht`) VALUES
-(19, 'img/produits/Y4KSXex9iWDjpstEzC6Z.jpg', 'Pantalon bleu', 'Femme', 'sdfr745hgt', 'Pantashop', 9, 'Bleu', 'Coton', 'Aucun', 'Ce pantalon noir pour femme est constitué de deux couches de mousseline de coton légère', 'L', 1, '25'),
-(20, 'img/produits/eItuMBaBT5SMsSakOdzP.jpg', 'Pantalon chino', 'Femme', 'az12g47fd', 'Pantashop', 8, 'Bleu marine', 'Coton', 'Aucun', 'Le pantalon d&#039;été à longues jambes larges a une ceinture élastique avec un cordon de serrage.', 'S', 1, '25'),
-(21, 'img/produits/wLEhsPvFvD8K5FmccdwB.jpg', 'Polo manche courte', 'Femme', 'olk78fcd46', 'Celio', 2, 'Orange', 'Coton', 'aucun', 'Le polo pour femme K242 propose une coupe tendance et un tissu résistant, agréable à porter au quotidien !', 'XL', 1, '45'),
-(22, 'img/produits/498kJrFIe5ggUWLsl7KF.jpg', 'Polo manche longue', 'Femme', 'aq14jhy745', 'DJEO', 1, 'Rose', 'Coton', 'Aucun', 'Double couture au col aux épaules / emmanchures et bas de corps', 'M', 1, '46');
+(39, 'img/produits/Y6aRhcV8HGYDCz0IUOZT.jpg', 'Azerty', 'HOMME', 'Azerty', 'Azerty', 7, 'Azerty', 'Azerty', 'AzertyAzerty', 'Azertysjgydjfgshefhsfohoifhoez fbiozebfhzoifhoeiz  zghioeghzipeghipezghipezhgoiezg gnighiezohgiezioze giohioeghioreg', 'Azerty', 111, '11111112221'),
+(40, 'img/produits/nlwNKQ4zRZfCpn1MoGRm.jpg', 'aaaabbbbbb', 'HOMME', 'aaaa', 'aaaa', 1, 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 1, '11'),
+(43, 'img/produits/ezuZ9DA6NrUwKKdzU1ZH.jpg', 'aaa', 'femme', 'aaa', 'aaa', 9, 'aaa', 'aaa', 'aaa', 'aaa aaa', 'aaa', 1, '4'),
+(44, 'img/produits/3omSG2P1HPYSAvcbnTTH.jpg', 'aaa', 'femme', 'aaa', 'aaa', 8, 'aaa', 'aaa', 'aaa', 'aaa aaa', 'aaa', 3, '6');
 
 -- --------------------------------------------------------
 
@@ -142,9 +188,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `prenom`, `nom`, `email`, `pass`, `adresse`, `roles`) VALUES
-(1, 'abcccccccccccccccccccccccccccccccccccccccccc', 'abccccccccccccccccccccccccccccccccccccccccccc', 'abcccccccccccccccccccccccccccccccccc@abc.fr', '$argon2id$v=19$m=65536,t=4,p=1$WmR4cnFFR2xpSVBrSUhFLg$U5Bt0rKcc3q7Hc8OpbXzRhUTywwbOxY/hUfM/wNCjzM', NULL, '[\"ROLE_USER\"]'),
-(2, 'aaa', 'aaa', 'aaa@aaa.fr', '$argon2id$v=19$m=65536,t=4,p=1$ZEpCL1VJREVZVHhsTFIyUw$JeUsj039qvoNx62b33hPertgotyfy3rrhYrAU5413lw', NULL, '[\"ROLE_USER\"]'),
-(3, 'bbb', 'bbb', 'bbb@bbb.fr', '$argon2id$v=19$m=65536,t=4,p=1$MnhFWGsyRm5pM0dGZllBZw$DfZ/44q5Yquo+4PCbNb2+d/z/mLfeCtfwsQ9EqmUdNQ', NULL, '[\"ROLE_USER\"]');
+(1, 'admin', 'super', 'super@dmin.fr', '$argon2id$v=19$m=65536,t=4,p=1$T1pvV2NNbDZTaHBCNUl4MA$BZELCDFpRwLtjgCTKxeQfouBTuzPirvP/FWvj5goImE', NULL, '[\"ROLE_SUPER_ADMIN\"]'),
+(4, 'admin', 'admin', 'admin@dmin.fr', '$argon2id$v=19$m=65536,t=4,p=1$Wkp0OGdtMzFnNzRkTXdKQg$Wng5DnehOQhjlWq5fOxO8Rs5XJFy72QN5/RXXIstPyE', NULL, '[\"ROLE_ADMIN\"]'),
+(5, 'user', 'user', 'user@user.fr', '$argon2id$v=19$m=65536,t=4,p=1$YUU1bnB5SnpLNDBaQTlndA$hRrsp0k3K8b+0NJjQ6Xoo0RfAJFavx1B5/AFBPJfcBs', NULL, '[\"ROLE_USER\"]'),
+(8, 'aaa', 'aaa', 'aaa@aaa.fr', '$argon2id$v=19$m=65536,t=4,p=1$cFg1SU5FYlVBS0dMN1hiUA$yA7SXTQOLVmsAQ4DAR693p7ZYCCXXYoKafFWxIvwxVg', NULL, '[\"ROLE_USER\"]');
 
 --
 -- Index pour les tables déchargées
@@ -155,6 +202,20 @@ INSERT INTO `users` (`id`, `prenom`, `nom`, `email`, `pass`, `adresse`, `roles`)
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `commandes`
+--
+ALTER TABLE `commandes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `commande_details`
+--
+ALTER TABLE `commande_details`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `comande_id` (`commande_id`),
+  ADD KEY `produit_id` (`produit_id`);
 
 --
 -- Index pour la table `messagerie`
@@ -189,13 +250,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT pour la table `commandes`
+--
+ALTER TABLE `commandes`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT pour la table `commande_details`
+--
+ALTER TABLE `commande_details`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `messagerie`
 --
 ALTER TABLE `messagerie`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `panier`
@@ -207,17 +280,24 @@ ALTER TABLE `panier`
 -- AUTO_INCREMENT pour la table `produits`
 --
 ALTER TABLE `produits`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `commande_details`
+--
+ALTER TABLE `commande_details`
+  ADD CONSTRAINT `commande_details_ibfk_1` FOREIGN KEY (`commande_id`) REFERENCES `commandes` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `commande_details_ibfk_2` FOREIGN KEY (`produit_id`) REFERENCES `produits` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Contraintes pour la table `produits`
