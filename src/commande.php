@@ -13,7 +13,7 @@ if (!isset($_SESSION['user'])) {
     exit();
 }
 
-// Vérifier si le panier est dans la session
+// Vérifier si le panier est dans la session .
 if (!isset($_SESSION['panier']) || empty($_SESSION['panier'])) {
     header('Location: panier.php');
     exit();
@@ -92,7 +92,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
             <h2 class="text_commande">Finaliser la commande</h2>
 
             <?php if (isset($error)) : ?>
-            <p class="error"><?= $error ?></p>
+                <p class="error"><?= $error ?></p>
             <?php endif; ?>
 
             <form method="post" action="commande.php">
