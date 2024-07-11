@@ -35,6 +35,12 @@ if (!$stmt->execute([$commande_id])) {
 $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 include('./templates/requete_navbar_menu_catalogue.php');
+// Fonction pour formater la date en français
+function formatDateToFrench($dateString)
+{
+    $date = new DateTime($dateString);
+    return $date->format('d/m/Y');
+}
 
 ?>
 
@@ -63,7 +69,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
             <div class="details-commande">
                 <h3>Détails de la commande</h3>
                 <p><span class="details-commande-gras">Numéro de commande:</span> <?= ($commande['id']) ?></p>
-                <p><span class="details-commande-gras">Date:</span> <?= ($commande['date_commande']) ?></p>
+                <p><span class="details-commande-gras">Date:</span> <?= (formatDateToFrench($commande['date_commande'])) ?></p>
                 <p><span class="details-commande-gras">Adresse de livraison:</span> <?= ($commande['adresse']) ?></p>
                 <p><span class="details-commande-gras">Ville:</span> <?= ($commande['ville']) ?></p>
                 <p><span class="details-commande-gras">Code postal:</span> <?= ($commande['code_postal']) ?></p>
@@ -79,14 +85,14 @@ include('./templates/requete_navbar_menu_catalogue.php');
                     <div class="produit-col droit">Total HT</div>
                 </div>
                 <?php foreach ($produits as $produit) : ?>
-                <div class="produit-row">
-                    <div class="produit-col"><?= ($produit['produit_nom']) ?></div>
-                    <div class="produit-col droit"><?= ($produit['quantite']) ?></div>
-                    <div class="produit-col droit"><?= (number_format($produit['prix_ht'], 2)) ?> €
+                    <div class="produit-row">
+                        <div class="produit-col"><?= ($produit['produit_nom']) ?></div>
+                        <div class="produit-col droit"><?= ($produit['quantite']) ?></div>
+                        <div class="produit-col droit"><?= (number_format($produit['prix_ht'], 2)) ?> €
+                        </div>
+                        <div class="produit-col droit">
+                            <?= (number_format($produit['prix_ht'] * $produit['quantite'], 2)) ?> €</div>
                     </div>
-                    <div class="produit-col droit">
-                        <?= (number_format($produit['prix_ht'] * $produit['quantite'], 2)) ?> €</div>
-                </div>
                 <?php endforeach; ?>
             </div>
         </div>

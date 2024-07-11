@@ -11,6 +11,13 @@ $sql = "SELECT c.id, c.nom, c.prenom, c.adresse, c.ville, c.code_postal, c.email
 $query = $db->prepare($sql);
 $query->execute();
 $commandes = $query->fetchAll(PDO::FETCH_ASSOC);
+
+function formatDateToFrench($dateString)
+{
+    $date = new DateTime($dateString);
+    return $date->format('d/m/Y');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +76,7 @@ $commandes = $query->fetchAll(PDO::FETCH_ASSOC);
                         echo "<td rowspan=\"" . count($commandes) . "\">" . htmlspecialchars($commande["ville"]) . "</td>";
                         echo "<td rowspan=\"" . count($commandes) . "\">" . htmlspecialchars($commande["code_postal"]) . "</td>";
                         echo "<td rowspan=\"" . count($commandes) . "\">" . htmlspecialchars($commande["email"]) . "</td>";
-                        echo "<td rowspan=\"" . count($commandes) . "\">" . htmlspecialchars($commande["date_commande"]) . "</td>";
+                        echo "<td rowspan=\"" . count($commandes) . "\">" . htmlspecialchars(formatDateToFrench($commande["date_commande"])) . "</td>";
                         echo "<td rowspan=\"" . count($commandes) . "\">" . htmlspecialchars(number_format($commande["total"], 2)) . " €</td>";
                     }
                     // afficher les détails du produit
