@@ -79,7 +79,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/navBar.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/commande.css">
+    <link rel="stylesheet" href="./css/commande/commande.css">
     <link rel="stylesheet" href="css/fonts/fonts.css">
     <title>Finaliser la commande</title>
 </head>
@@ -92,32 +92,32 @@ include('./templates/requete_navbar_menu_catalogue.php');
             <h2 class="text_commande">Finaliser la commande</h2>
 
             <?php if (isset($error)) : ?>
-                <p class="error"><?= $error ?></p>
+            <p class="error"><?= $error ?></p>
             <?php endif; ?>
 
             <form method="post" action="commande.php">
                 <div>
-                    <label for="nom">Nom:</label>
+                    <label for="nom">Nom :</label>
                     <input type="text" id="nom" name="nom" required>
                 </div>
                 <div>
-                    <label for="prenom">Prénom:</label>
+                    <label for="prenom">Prénom :</label>
                     <input type="text" id="prenom" name="prenom" required>
                 </div>
                 <div>
-                    <label for="adresse">Adresse:</label>
+                    <label for="adresse">Adresse :</label>
                     <input type="text" id="adresse" name="adresse" required>
                 </div>
                 <div>
-                    <label for="ville">Ville:</label>
+                    <label for="ville">Ville :</label>
                     <input type="text" id="ville" name="ville" required>
                 </div>
                 <div>
-                    <label for="code_postal">Code Postal:</label>
+                    <label for="code_postal">Code Postal :</label>
                     <input type="text" id="code_postal" name="code_postal" required>
                 </div>
                 <div>
-                    <label for="email">Email:</label>
+                    <label for="email">Email :</label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div>
