@@ -6,7 +6,7 @@ if (!isset($_GET['id'])) {
     echo "Identifiant de commande non fourni.";
     exit();
 }
-// salut
+
 $commande_id = intval($_GET['id']);
 
 // Récupérer les détails de la commande
