@@ -8,6 +8,11 @@ function escape($string)
     return htmlspecialchars($string ?? '', ENT_QUOTES, 'UTF-8');
 }
 
+if (!isset($_SESSION['user'])) {
+    header('Location: connexion.php');
+    exit();
+}
+
 // Vérifier si le panier est dans la session
 if (!isset($_SESSION['panier']) || empty($_SESSION['panier'])) {
     header('Location: panier.php');
@@ -63,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 }
+include('./templates/requete_navbar_menu_catalogue.php');
 ?>
 
 <!DOCTYPE html>
@@ -122,6 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <?php include('./templates/footer.php'); ?>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

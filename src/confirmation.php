@@ -33,6 +33,9 @@ if (!$stmt->execute([$commande_id])) {
     die('Execute failed: (' . $stmt->errorInfo()[2] . ')');
 }
 $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+include('./templates/requete_navbar_menu_catalogue.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -89,6 +92,7 @@ $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <?php include('./templates/footer.php'); ?>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
