@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Calculer le total de la commande
         $total = 0;
         foreach ($_SESSION['panier'] as $produit) {
-            $total += $produit['prix_ht'] * $produit['id'];
+            $total += $produit['prix_ht'] * $produit['quantite'];
             // Enregistrer la commande dans la base de données
             $stmt = $db->prepare("INSERT INTO commandes (nom, prenom, adresse, ville, code_postal, email, total) VALUES (?, ?, ?, ?, ?, ?, ?)");
             if (!$stmt) {
@@ -109,7 +109,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
             <h2 class="text_commande">Finaliser la commande</h2>
 
             <?php if (isset($error)) : ?>
-            <p class="error"><?= $error ?></p>
+                <p class="error"><?= $error ?></p>
             <?php endif; ?>
 
             <form method="post" action="commande.php">
