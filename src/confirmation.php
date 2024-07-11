@@ -68,35 +68,39 @@ function formatDateToFrench($dateString)
             </div>
             <div class="details-commande">
                 <h3>Détails de la commande</h3>
-                <p><span class="details-commande-gras">Numéro de commande:</span> <?= ($commande['id']) ?></p>
-                <p><span class="details-commande-gras">Date:</span> <?= (formatDateToFrench($commande['date_commande'])) ?></p>
-                <p><span class="details-commande-gras">Adresse de livraison:</span> <?= ($commande['adresse']) ?></p>
-                <p><span class="details-commande-gras">Ville:</span> <?= ($commande['ville']) ?></p>
-                <p><span class="details-commande-gras">Code postal:</span> <?= ($commande['code_postal']) ?></p>
-                <p><span class="details-commande-gras">Email:</span> <?= ($commande['email']) ?></p>
+                <p><span class="details-commande-gras">Numéro de commande :</span><?= ($commande['id']) ?></p>
+                <p><span class="details-commande-gras">Date :</span>
+                    <?= (formatDateToFrench($commande['date_commande'])) ?></p>
+                <p><span class="details-commande-gras">Adresse de livraison :</span> <?= ($commande['adresse']) ?></p>
+                <p><span class="details-commande-gras">Ville :</span> <?= ($commande['ville']) ?></p>
+                <p><span class="details-commande-gras">Code postal :</span> <?= ($commande['code_postal']) ?></p>
+                <p><span class="details-commande-gras">Email :</span> <?= ($commande['email']) ?></p>
             </div>
 
             <h3>Produits commandés</h3>
-            <div class="produit-container">
-                <div class="produit-row header">
-                    <div class="produit-col">Produit</div>
-                    <div class="produit-col droit">Quantité</div>
-                    <div class="produit-col droit">Prix HT</div>
-                    <div class="produit-col droit">Total HT</div>
-                </div>
-                <?php foreach ($produits as $produit) : ?>
-                    <div class="produit-row">
-                        <div class="produit-col"><?= ($produit['produit_nom']) ?></div>
-                        <div class="produit-col droit"><?= ($produit['quantite']) ?></div>
-                        <div class="produit-col droit"><?= (number_format($produit['prix_ht'], 2)) ?> €
-                        </div>
-                        <div class="produit-col droit">
-                            <?= (number_format($produit['prix_ht'] * $produit['quantite'], 2)) ?> €</div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+            <table class="produit-container">
+                <thead>
+                    <tr class="produit-row header">
+                        <th class="produit-col">Produit</th>
+                        <th class="produit-col droit">Quantité</th>
+                        <th class="produit-col droit">Prix&nbsp;HT</th>
+                        <th class="produit-col droit">Total&nbsp;HT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($produits as $produit) : ?>
+                    <tr class="produit-row">
+                        <td class="produit-col"><?= htmlspecialchars($produit['produit_nom']) ?></td>
+                        <td class="produit-col droit"><?= htmlspecialchars($produit['quantite']) ?></td>
+                        <td class="produit-col droit"><?= number_format($produit['prix_ht'], 2) ?>&nbsp;€</td>
+                        <td class="produit-col droit">
+                            <?= number_format($produit['prix_ht'] * $produit['quantite'], 2) ?>&nbsp;€</td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
-        <p class="total">Total de la commande: <?= (number_format($commande['total'], 2)) ?> €</p>
+        <p class="total">Total de la commande : <?= (number_format($commande['total'], 2)) ?>&nbsp€</p>
     </main>
     <?php include('./templates/footer.php'); ?>
     <script src="./js/script.js"></script>
