@@ -36,32 +36,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Calculer le total de la commande
         $total = 0;
         foreach ($_SESSION['panier'] as $produit) {
-            $total += $produit['prix_ht'] * $produit['quantite'];
-        }
-
-        // Enregistrer la commande dans la base de données
-        $stmt = $db->prepare("INSERT INTO commandes (nom, prenom, adresse, ville, code_postal, email, total) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        if (!$stmt) {
-            die('Prepare failed: (' . $db->errorInfo()[2] . ')');
-        }
-        if (!$stmt->execute([$nom, $prenom, $adresse, $ville, $code_postal, $email, $total])) {
-            die('Execute failed: (' . $stmt->errorInfo()[2] . ')');
-        }
-        $commande_id = $db->lastInsertId();
-
-        // Enregistrer les détails de la commande
-        foreach ($_SESSION['panier'] as $produit) {
-            $stmt = $db->prepare("INSERT INTO commande_details (commande_id, produit_id, quantite, prix_ht) VALUES (?, ?, ?, ?)");
+            $total += $produit['prix_ht'] * $produit['id'];
+            // Enregistrer la commande dans la base de données
+            $stmt = $db->prepare("INSERT INTO commandes (nom, prenom, adresse, ville, code_postal, email, total) VALUES (?, ?, ?, ?, ?, ?, ?)");
             if (!$stmt) {
                 die('Prepare failed: (' . $db->errorInfo()[2] . ')');
             }
-            if (!$stmt->execute([$commande_id, $produit['id'], $produit['quantite'], $produit['prix_ht']])) {
+            if (!$stmt->execute([$nom, $prenom, $adresse, $ville, $code_postal, $email, $total])) {
                 die('Execute failed: (' . $stmt->errorInfo()[2] . ')');
+            }
+            $commande_id = $db->lastInsertId();
+
+            // Enregistrer les détails de la commande
+            foreach ($_SESSION['panier'] as $produit) {
+                $stmt = $db->prepare("INSERT INTO commande_details (commande_id, produit_id, quantite, prix_ht) VALUES (?, ?, ?, ?)");
+                if (!$stmt) {
+                    die('Prepare failed: (' . $db->errorInfo()[2] . ')');
+                }
+                if (!$stmt->execute([$commande_id, $produit['id'], $produit['quantite'], $produit['prix_ht']])) {
+                    die('Execute failed: (' . $stmt->errorInfo()[2] . ')');
+                }
+                // Vider le panier
+                $_SESSION['panier'] = [];
+
+                $sql = "SELECT * FROM produits WHERE id = :id";
+                $query = $db->prepare($sql);
+                $query->bindValue(":id", $produit['id']);
+
+
+                $query->execute();
+
+                $result = $query->fetch();
+
+                $stock_initial = $result['quantite'];
+                $stock_final = $stock_initial - $produit['quantite'];
+
+                $sql = "UPDATE produits SET quantite = :quantite WHERE id = :id";
+                $query = $db->prepare($sql);
+                $query->bindValue(":quantite", $stock_final);
+                $query->bindValue(":id", $produit['id']);
             }
         }
 
-        // Vider le panier
-        $_SESSION['panier'] = [];
+        $query->execute();
 
         // Redirection vers la page de confirmation
         header('Location: confirmation.php?id=' . $commande_id);

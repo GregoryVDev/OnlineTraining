@@ -2,7 +2,7 @@
 // Lancement de la session
 session_start();
 
-require_once('connect.php');
+require_once('./connect.php');
 
 // Récupérer les nouveautés
 $sql = "SELECT * FROM `produits` ORDER BY `produits`.`id` DESC";
@@ -49,12 +49,12 @@ include('./templates/requete_navbar_menu_catalogue.php');
             <div class="carousel-container">
                 <div class="ligne">
                     <?php foreach ($news as $new) : ?>
-                    <div class="carte">
-                        <a href="produit.php?id=<?= ($new['id']) ?>">
-                            <img src="<?= ($new['image_produit']) ?>" alt="<?= ($new['nom_produit']) ?>">
-                        </a>
-                        <p>Prix : <?= ($new['prix_ht']) ?> €</p>
-                    </div>
+                        <div class="carte">
+                            <a href="produit.php?id=<?= ($new['id']) ?>">
+                                <img src="<?= ($new['image_produit']) ?>" alt="<?= ($new['nom_produit']) ?>">
+                            </a>
+                            <p>Prix : <?= ($new['prix_ht']) ?> €</p>
+                        </div>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -64,14 +64,13 @@ include('./templates/requete_navbar_menu_catalogue.php');
     <section class="interligne">
         <h2 class="news titre-center">NOTRE CATALOGUE</h2>
         <div class="categories">
-            <?php foreach($categories as $categorie): ?>
-            <div class="pad_carte">
-                <p><?= ($categorie["categorie_type"]) ?></p>
-                <a href="categories.php?categories_type=<?= urlencode($categorie["categorie_type"]) ?>">
-                    <img src="<?= ($categorie['image_produit']) ?>" height="380px"
-                        alt="<?= ($categorie['nom_produit']) ?>">
-                </a>
-            </div>
+            <?php foreach ($categories as $categorie) : ?>
+                <div class="pad_carte">
+                    <p><?= ($categorie["categorie_type"]) ?></p>
+                    <a href="categories.php?categories_type=<?= urlencode($categorie["categorie_type"]) ?>">
+                        <img src="<?= ($categorie['image_produit']) ?>" height="380px" alt="<?= ($categorie['nom_produit']) ?>">
+                    </a>
+                </div>
             <?php endforeach; ?>
         </div>
     </section>
