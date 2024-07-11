@@ -4,6 +4,9 @@ html {
 
 body {
     overflow: none;
+
+        scrollbar-width: none;
+
 }
 
 html::-webkit-scrollbar {
