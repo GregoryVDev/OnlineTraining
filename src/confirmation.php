@@ -79,25 +79,24 @@ function formatDateToFrench($dateString)
 
             <h3>Produits commandés</h3>
             <table class="produit-container">
-                <thead>
-                    <tr class="produit-row header">
-                        <th class="produit-col">Produit</th>
-                        <th class="produit-col droit">Quantité</th>
-                        <th class="produit-col droit">Prix&nbsp;HT</th>
-                        <th class="produit-col droit">Total&nbsp;HT</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($produits as $produit) : ?>
-                    <tr class="produit-row">
-                        <td class="produit-col"><?= htmlspecialchars($produit['produit_nom']) ?></td>
-                        <td class="produit-col droit"><?= htmlspecialchars($produit['quantite']) ?></td>
-                        <td class="produit-col droit"><?= number_format($produit['prix_ht'], 2) ?>&nbsp;€</td>
-                        <td class="produit-col droit">
-                            <?= number_format($produit['prix_ht'] * $produit['quantite'], 2) ?>&nbsp;€</td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
+
+                <tr class="produit-row header">
+                    <td class="produit-col">Produit</td>
+                    <td class="produit-col droit">Quantité</td>
+                    <td class="produit-col droit">Prix&nbsp;HT</td>
+                    <td class="produit-col droit">Total&nbsp;HT</td>
+                </tr>
+
+                <?php foreach ($produits as $produit) : ?>
+                <tr class="produit-row">
+                    <td class="produit-col"><?= htmlspecialchars($produit['produit_nom']) ?></td>
+                    <td class="produit-col droit"><?= htmlspecialchars($produit['quantite']) ?></td>
+                    <td class="produit-col droit"><?= number_format($produit['prix_ht'], 2) ?>&nbsp;€</td>
+                    <td class="produit-col droit">
+                        <?= number_format($produit['prix_ht'] * $produit['quantite'], 2) ?>&nbsp;€</td>
+                </tr>
+                <?php endforeach; ?>
+
             </table>
         </div>
         <p class="total">Total de la commande : <?= (number_format($commande['total'], 2)) ?>&nbsp€</p>

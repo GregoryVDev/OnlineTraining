@@ -1,3 +1,6 @@
+body {
+    overflow: hidden;
+}
 .container-confirmation-commande {
     display: flex;
     flex-direction: column;
@@ -42,6 +45,7 @@
 
 .produit-container {
     margin-bottom: 20px;
+    width: 400px;
 }
 
 .produit-row {
@@ -61,8 +65,8 @@
     padding: 0 10px;
 }
 
-.produit-col.drpot {
-    text-align: right;
+td.produit-col.droit {
+    text-align: center;
 }
 
 .total {
