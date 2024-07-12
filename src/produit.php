@@ -11,7 +11,7 @@ if (isset($_GET["id"])) {
                 FROM produits p
                 JOIN categories c ON p.categorie_id = c.id
                 WHERE p.id = :id";
-                
+
         $query = $db->prepare($sql);
         $query->bindValue(':id', $id_produit, PDO::PARAM_INT);
         $query->execute();
@@ -63,8 +63,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
     <main>
         <p class="chemin-produit">
             <a class="chemin-produit chemin-produit-hover" href="index.php">Accueil</a> /
-            <a class="chemin-produit chemin-produit-hover"
-                href="categories.php?categories_type=<?= urlencode($produit["categorie_type"]) ?>">
+            <a class="chemin-produit chemin-produit-hover" href="categories.php?categories_type=<?= urlencode($produit["categorie_type"]) ?>">
                 <?= ($produit["categorie_type"]) ?>
             </a> /
             <span class="color-red-name-produit"><?= ($produit["nom_produit"]) ?></span>
@@ -73,8 +72,7 @@ include('./templates/requete_navbar_menu_catalogue.php');
 
             <!-- Image du produit -->
             <figure>
-                <img class="picture-produit" src="<?= ($produit["image_produit"]) ?>"
-                    alt="<?= ($produit["nom_produit"]) ?>">
+                <img class="picture-produit" src="<?= ($produit["image_produit"]) ?>" alt="<?= ($produit["nom_produit"]) ?>">
             </figure>
 
             <!-- Section des informations du produit -->
@@ -108,11 +106,18 @@ include('./templates/requete_navbar_menu_catalogue.php');
                 </div>
 
                 <!-- Bouton pour ajouter au panier -->
-                <input type="hidden" name="id" value="<?= $produit['id'] ?>">
-                <input type="hidden" name="nom_produit" value="<?= ($produit["nom_produit"]) ?>">
-                <input type="hidden" name="prix_ht" value="<?= ($produit["prix_ht"]) ?>">
-                <input type="hidden" name="image_produit" value="<?= ($produit["image_produit"]) ?>">
-                <button id="add-to-cart" class="btn-produit" type="submit">Ajouter au panier</button>
+                <?php
+
+                if ($produit["quantite"] >= 1) {
+                ?>
+                    <input type="hidden" name="id" value="<?= $produit['id'] ?>">
+                    <input type="hidden" name="nom_produit" value="<?= ($produit["nom_produit"]) ?>">
+                    <input type="hidden" name="prix_ht" value="<?= ($produit["prix_ht"]) ?>">
+                    <input type="hidden" name="image_produit" value="<?= ($produit["image_produit"]) ?>">
+                    <button id="add-to-cart" class="btn-produit" type="submit">Ajouter au panier</button>
+                <?php } else {
+                    echo '<p class="rupture"> Rupture de stock </p>';
+                } ?>
             </form>
         </article>
     </main>
@@ -123,20 +128,19 @@ include('./templates/requete_navbar_menu_catalogue.php');
         <div class="container-produit-similaire">
 
             <!-- foreach pour afficher les articles similaire a l'articles principal-->
-            <?php foreach ($produits_similaires as $produit_similaire): ?>
-            <article class="vetement-similaire">
-                <figure class="vetement-similaire-figure">
-                    <a href="produit.php?id=<?= ($produit_similaire["id"]) ?>">
-                        <img class="picture-similaire-size" src="<?= ($produit_similaire["image_produit"]) ?>"
-                            alt="<?= ($produit_similaire["nom_produit"]) ?>">
-                    </a>
-                    <figcaption class="vetement-similaire-titre">
-                        <?= ($produit_similaire["nom_produit"]) ?>
-                    </figcaption>
-                </figure>
-                <p class="vetement-similaire-couleur"><?= ($produit_similaire["couleur"]) ?></p>
-                <p class="vetement-similaire-prix"><?= ($produit_similaire["prix_ht"]) ?>€</p>
-            </article>
+            <?php foreach ($produits_similaires as $produit_similaire) : ?>
+                <article class="vetement-similaire">
+                    <figure class="vetement-similaire-figure">
+                        <a href="produit.php?id=<?= ($produit_similaire["id"]) ?>">
+                            <img class="picture-similaire-size" src="<?= ($produit_similaire["image_produit"]) ?>" alt="<?= ($produit_similaire["nom_produit"]) ?>">
+                        </a>
+                        <figcaption class="vetement-similaire-titre">
+                            <?= ($produit_similaire["nom_produit"]) ?>
+                        </figcaption>
+                    </figure>
+                    <p class="vetement-similaire-couleur"><?= ($produit_similaire["couleur"]) ?></p>
+                    <p class="vetement-similaire-prix"><?= ($produit_similaire["prix_ht"]) ?>€</p>
+                </article>
             <?php endforeach; ?>
         </div>
     </section>

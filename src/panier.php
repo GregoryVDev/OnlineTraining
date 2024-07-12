@@ -107,7 +107,21 @@ include('./templates/requete_navbar_menu_catalogue.php');
             <h2 class="text_mon_panier">Mon panier</h2>
 
             <?php if (count($panier) > 0) : ?>
-                <?php foreach ($panier as $produit) : ?>
+                <?php foreach ($panier as $produit) :
+                    $id = $produit["id"];
+                    $stock = "SELECT * FROM produits WHERE id = :id";
+
+                    $querystock = $db->prepare($stock);
+                    $querystock->bindValue(":id", $id);
+
+                    $querystock->execute();
+
+                    $stockresult = $querystock->fetch();
+                    $stock_ini = $stockresult['quantite'];
+                    if ($produit["quantite"] > $stock_ini) {
+                        $produit["quantite"] = $stock_ini;
+                    }
+                ?>
                     <div class="recap_panier">
                         <div>
                             <img src="<?= escape($produit['image_produit']) ?>" width="100px" alt="<?= escape($produit['nom_produit']) ?>">
@@ -134,12 +148,14 @@ include('./templates/requete_navbar_menu_catalogue.php');
                                             <p>Quantité : <?= escape($produit['quantite']) ?></p>
                                         </div>
 
-                                        <div>
-                                            <form class="augmenter_produit" method="post" action="panier.php" style="display:inline;">
-                                                <input type="hidden" name="augmenter_id" value="<?= escape($produit['id']) ?>">
-                                                <button type="submit" class="augmenter-quantity-btn">+</button>
-                                            </form>
-                                        </div>
+                                        <?php if ($produit["quantite"] < $stock_ini) { ?>
+                                            <div>
+                                                <form class="augmenter_produit" method="post" action="panier.php" style="display:inline;">
+                                                    <input type="hidden" name="augmenter_id" value="<?= escape($produit['id']) ?>">
+                                                    <button type="submit" class="augmenter-quantity-btn">+</button>
+                                                </form>
+                                            </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
 
