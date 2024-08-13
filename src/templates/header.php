@@ -1,7 +1,7 @@
 <nav>
     <div class="navbar">
         <div class="overlay-container1">
-            <div><img src="../img/navBar/menuBurger.png" alt="Menu">
+            <div><img src="./img/navBar/menuBurger.png" alt="Menu">
             </div>
             <div class="overlay_1">
                 <div>
